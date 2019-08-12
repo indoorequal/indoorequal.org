@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#docker run --rm --tty --interactive --volume $(pwd):/code --workdir /code node:10 yarn install
+docker run --rm --tty --interactive --volume $(pwd):/code --workdir /code --publish 1234:1234 --publish 1235:1235 node:10 yarn run dev $@

@@ -1,0 +1,42 @@
+{
+  "scripts": {
+    "dev": "parcel serve parcel --hmr-port 1235 index.html",
+    "build": "parcel build index.html",
+    "test": "jest --watch"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.vue$": "vue-jest"
+    }
+  },
+  "htmlnano": {
+    "minifySvg": false
+  },
+  "posthtml": {
+    "recognizeSelfClosing": true
+  },
+  "devDependencies": {
+    "@vue/component-compiler-utils": "^2.6.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.8.0",
+    "babel-preset-env": "^1.7.0",
+    "jest-cli": "^24.8.0",
+    "parcel": "^1.11.0",
+    "vue-hot-reload-api": "^2.3.3",
+    "vue-jest": "^3.0.4",
+    "vue-template-compiler": "^2.6.9"
+  },
+  "dependencies": {
+    "debounce": "^1.2.0",
+    "mapbox-gl": "^1.0.0",
+    "vue": "^2.6.9",
+    "vue-mapbox": "^0.4.0"
+  }
+}
