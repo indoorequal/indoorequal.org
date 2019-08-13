@@ -54,7 +54,6 @@ export default {
   },
 
   data() {
-    const level = 0;
     return {
       mapMaxBounds: [[-1.9774289, 47.3505754], [4.2723108, 49.622590]],
       mapStyle: 'https://api.maptiler.com/maps/bright/style.json?key=T7HQrA4a6k5eOxDGD6qp',
