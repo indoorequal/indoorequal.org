@@ -4,7 +4,6 @@
       <h1><a href="https://github.com/francois2metz/osm-indoor-viewer">OSM Indoor Viewer</a></h1>
     </header>
     <MglMap
-      ref="map"
       :max-bounds="mapMaxBounds"
       :center="mapCenter"
       :zoom="zoom"
