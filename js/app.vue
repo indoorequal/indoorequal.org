@@ -172,7 +172,11 @@ export default {
   methods: {
     registerIcons({ map }) {
       for (let icon in this.icons) {
-        map.addImage(icon, this.$refs[icon][0]);
+        if (map.hasImage(icon)) {
+          map.updateImage(icon, this.$refs[icon][0]);
+        } else {
+          map.addImage(icon, this.$refs[icon][0]);
+        }
       }
     }
   }
