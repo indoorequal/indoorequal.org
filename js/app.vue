@@ -28,7 +28,14 @@
       />
       <MglVectorLayer
         :source="indoorSource"
-        :layer="indoorPoi"
+        :layer="indoorLayerTransportation"
+        :clear-source="false"
+        source-id="indoor"
+        layer-id="indoor-transportation"
+      />
+      <MglVectorLayer
+        :source="indoorSource"
+        :layer="indoorLayerPoi"
         :clear-source="false"
         source-id="indoor"
         layer-id="indoor-poi"
@@ -76,6 +83,24 @@ export default {
   },
 
   computed: {
+    indoorLayerBackground() {
+      return {
+        type: "background",
+        minzoom: this.minZoom,
+        "filter": [
+          "all",
+          [
+            "==",
+            "level",
+            this.level
+          ]
+        ],
+        paint: {
+          "background-color": "white"
+        }
+      };
+    },
+
     indoorLayerPolygon() {
       return {
         type: "fill",
@@ -121,12 +146,51 @@ export default {
         },
         "paint": {
           "line-color": "gray",
-          "line-width": 2
+          "line-width": 1
         }
       };
     },
 
-    indoorPoi() {
+    indoorLayerTransportation() {
+      return {
+        "type": "line",
+        "source-layer": "transportation",
+        "minzoom": this.minZoom,
+        "filter": [
+          "all",
+          [
+            "==",
+            "level",
+            this.level
+          ]
+        ],
+        "layout": {
+          "visibility": "visible",
+        },
+        "paint": {
+          "line-color": "gray",
+          "line-dasharray": [
+            0.4,
+            0.75
+          ],
+          "line-width": {
+            "base": 1.4,
+            "stops": [
+              [
+                this.minZoom,
+                2
+              ],
+              [
+                this.minZoom+3,
+                10
+              ]
+            ]
+          }
+        }
+      };
+    },
+
+    indoorLayerPoi() {
       return {
         "type": "symbol",
         "source-layer": "poi",
