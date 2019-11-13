@@ -7446,10 +7446,9 @@ vue-jest@^3.0.4:
     tsconfig "^7.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
-vue-mapbox@^0.4.0:
+vue-mapbox@osmontrouge/vue-mapbox#update:
   version "0.4.1"
-  resolved "https://registry.yarnpkg.com/vue-mapbox/-/vue-mapbox-0.4.1.tgz#c1cac11c33c46a78a2b58797686371a4c32ffb4a"
-  integrity sha512-F1ebtVpRSvl6HDiHCWm5TxBNDy5WCoNJOZWj4ub6XQzht15GfUpAn4bHIeVzrUHr3fi1PFEDbxnzPeG1S9o0Tg==
+  resolved "https://codeload.github.com/osmontrouge/vue-mapbox/tar.gz/2dd3784d1336cd09bad68629812cf3ef3b45a07f"
   dependencies:
     map-promisified latest
 

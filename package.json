@@ -37,6 +37,6 @@
     "debounce": "^1.2.0",
     "mapbox-gl": "^1.0.0",
     "vue": "^2.6.9",
-    "vue-mapbox": "^0.4.0"
+    "vue-mapbox": "osmontrouge/vue-mapbox#update"
   }
 }
