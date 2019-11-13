@@ -8,7 +8,7 @@
       :center="mapCenter"
       :zoom="zoom"
       :map-style="mapStyle"
-      :hash="true"
+      hash="map"
       @load="registerIcons"
     >
       <MglNavigationControl :show-compass="true" />
@@ -68,6 +68,8 @@ export default {
   },
 
   data() {
+    const hash = new URLSearchParams(window.location.hash.replace('#', ''));
+    const level = parseInt(hash.get('level') || 0, 10);
     return {
       icons,
       mapMaxBounds: [[-1.9774289, 47.3505754], [4.2723108, 49.622590]],
@@ -78,7 +80,7 @@ export default {
       indoorSource: {
         url: 'https://tiles.osmontrouge.fr/data/indoor.json'
       },
-      level: 0
+      level
     };
   },
 
@@ -230,6 +232,13 @@ export default {
           "text-halo-width": 1
         }
       };
+    }
+  },
+
+  watch: {
+    level(level) {
+       const hash = new URLSearchParams(window.location.hash.replace('#', ''));
+       window.location.hash = `map=${hash.get('map')}&level=${level}`;
     }
   },
 
