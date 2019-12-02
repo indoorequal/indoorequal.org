@@ -116,6 +116,11 @@ export default {
             "Polygon"
           ],
           [
+            "!=",
+            "class",
+            "level"
+          ],
+          [
             "==",
             "level",
             this.level
@@ -137,6 +142,11 @@ export default {
         "minzoom": this.minZoom,
         "filter": [
           "all",
+          [
+            "!=",
+            "class",
+            "level"
+          ],
           [
             "==",
             "level",
