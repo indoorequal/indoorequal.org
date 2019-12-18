@@ -4,7 +4,6 @@
       <h1><a href="https://github.com/francois2metz/osm-indoor-viewer">OSM Indoor Viewer</a></h1>
     </header>
     <MglMap
-      :max-bounds="mapMaxBounds"
       :center="mapCenter"
       :zoom="zoom"
       :map-style="mapStyle"
@@ -72,13 +71,12 @@ export default {
     const level = parseInt(hash.get('level') || 0, 10);
     return {
       icons,
-      mapMaxBounds: [[-1.9774289, 47.3505754], [4.2723108, 49.622590]],
       mapStyle: 'https://api.maptiler.com/maps/bright/style.json?key=T7HQrA4a6k5eOxDGD6qp',
       mapCenter: { lat: 48.84108, lng: 2.32034 },
       minZoom: 17,
       zoom: 10,
       indoorSource: {
-        url: 'https://tiles.osmontrouge.fr/data/indoor.json'
+        url: 'https://tiles.indoorequal.org/'
       },
       level
     };
