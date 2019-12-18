@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <h1><a href="https://github.com/indoorequal/osm-indoor-viewer">Indoor Equal</a></h1>
+      <h1><a href="https://github.com/indoorequal/osm-indoor-viewer">indoor=</a></h1>
     </header>
     <MglMap
       :center="mapCenter"
