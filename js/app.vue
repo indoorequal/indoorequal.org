@@ -45,6 +45,7 @@
         layer="area"
       />
     </MglMap>
+    <geocoder-input @select="centerMap" />
     <img v-for="(icon, key) in icons"
          v-show="false"
          :ref="key"
@@ -55,15 +56,18 @@
 
 <script>
 import { MglMap, MglNavigationControl, MglVectorLayer } from 'vue-mapbox/dist/vue-mapbox.umd';
+import { apiKey } from '../config.json';
 import LevelControl from './level_control';
+import GeocoderInput from './geocoder';
 import icons from '../icons/*.svg';
 
 export default {
   components: {
+    GeocoderInput,
+    LevelControl,
     MglMap,
     MglNavigationControl,
-    MglVectorLayer,
-    LevelControl
+    MglVectorLayer
   },
 
   data() {
@@ -71,7 +75,7 @@ export default {
     const level = parseInt(hash.get('level') || 0, 10);
     return {
       icons,
-      mapStyle: 'https://api.maptiler.com/maps/bright/style.json?key=T7HQrA4a6k5eOxDGD6qp',
+      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${apiKey}`,
       mapCenter: { lat: 48.84108, lng: 2.32034 },
       minZoom: 17,
       zoom: 10,
@@ -252,6 +256,7 @@ export default {
 
   methods: {
     registerIcons({ map }) {
+      this.map = map;
       for (let icon in this.icons) {
         if (map.hasImage(icon)) {
           map.updateImage(icon, this.$refs[icon][0]);
@@ -259,6 +264,10 @@ export default {
           map.addImage(icon, this.$refs[icon][0]);
         }
       }
+    },
+
+    centerMap(bbox) {
+      this.map.fitBounds(bbox, { duration: 0 });
     }
   }
 };
