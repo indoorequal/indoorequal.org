@@ -89,6 +89,7 @@ export default {
 
 <style scoped>
   button {
+    min-width: 30px;
     width: 100%;
   }
   button.mapboxgl-ctrl-active {
