@@ -22,6 +22,7 @@
     "recognizeSelfClosing": true
   },
   "devDependencies": {
+    "@mdi/font": "^4.7.95",
     "@vue/component-compiler-utils": "^2.6.0",
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "^6.26.3",
@@ -37,6 +38,7 @@
     "debounce": "^1.2.0",
     "mapbox-gl": "^1.0.0",
     "vue": "^2.6.9",
-    "vue-mapbox": "osmontrouge/vue-mapbox#update"
+    "vue-mapbox": "osmontrouge/vue-mapbox#update",
+    "vuetify": "^2.2.3"
   }
 }

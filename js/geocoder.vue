@@ -1,8 +1,17 @@
 <template>
-  <input
-    ref="input"
-    autocomplete="off"
-    type="text"
+  <v-autocomplete
+    v-model="selected"
+    :items="items"
+    :loading="isLoading"
+    :search-input.sync="search"
+    :error="!!error"
+    hide-no-data
+    hide-details
+    dense
+    placeholder="Search"
+    background-color="white"
+    prepend-inner-icon="mdi-magnify"
+    class="geocoder"
   />
 </template>
 
@@ -10,22 +19,39 @@
 import { apiKey } from '../config.json';
 
 export default {
-  mounted () {
-    const geocoder = new maptiler.Geocoder({
-      input: this.$refs.input,
-      key: apiKey
-    });
-    geocoder.on('select', (item) => {
-      this.$emit('select', item.bbox);
-    });
+  data() {
+    return {
+      isLoading: false,
+      items: [],
+      search: '',
+      selected: null,
+      error: null
+    };
+  },
+  watch: {
+    search(val) {
+      if (!val) return;
+      this.error = null;
+      this.isLoading = true;
+
+      fetch(`https://api.maptiler.com/geocoding/${this.search}.json?key=${apiKey}`)
+        .then(res => res.json())
+        .then(body => {
+          this.items = body.features.map((feature) => {
+            return {
+              text: feature.place_name,
+              value: feature.bbox
+            };
+          });
+        })
+        .catch(err => {
+          this.error = err;
+        })
+        .finally(() => (this.isLoading = false))
+    },
+    selected(val) {
+      this.$emit('select', val);
+    }
   }
 }
 </script>
-
-<style scoped>
-input {
-  position: absolute;
-  top: 10px;
-  left: 150px;
-}
-</style>

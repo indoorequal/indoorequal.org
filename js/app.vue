@@ -1,57 +1,96 @@
 <template>
-  <div>
-    <header>
-      <h1><a href="https://github.com/indoorequal/indoorequal.org">indoor=</a></h1>
-    </header>
-    <MglMap
-      :center="mapCenter"
-      :zoom="zoom"
-      :map-style="mapStyle"
-      hash="map"
-      @load="registerIcons"
+  <v-app>
+    <v-navigation-drawer
+      v-model="menu"
+      width="300"
+      temporary
+      app
     >
-      <MglNavigationControl :show-compass="true" />
-      <MglVectorLayer
-        :source="indoorSource"
-        :layer="indoorLayerPolygon"
-        :clear-source="false"
-        source-id="indoor"
-        layer-id="indoor-polygon"
-      />
-      <MglVectorLayer
-        :source="indoorSource"
-        :layer="indoorLayerLine"
-        :clear-source="false"
-        source-id="indoor"
-        layer-id="indoor-line"
-      />
-      <MglVectorLayer
-        :source="indoorSource"
-        :layer="indoorLayerTransportation"
-        :clear-source="false"
-        source-id="indoor"
-        layer-id="indoor-transportation"
-      />
-      <MglVectorLayer
-        :source="indoorSource"
-        :layer="indoorLayerPoi"
-        :clear-source="false"
-        source-id="indoor"
-        layer-id="indoor-poi"
-      />
-      <level-control
-        v-model="level"
-        source="indoor"
-        layer="area"
-      />
-    </MglMap>
-    <geocoder-input @select="centerMap" />
-    <img v-for="(icon, key) in icons"
-         v-show="false"
-         :ref="key"
-         :src="icon"
-    />
-  </div>
+      <div class="pa-3">
+        <h1 class="display-1">indoor=</h1>
+      </div>
+      <v-list>
+        <v-list-item href="https://github.com/indoorequal/">
+          <v-list-item-icon>
+            <svg style="width:24px;height:24px;">
+              <path fill="#6F6F6F" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path>
+            </svg>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title class="body-1">GitHub</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-content>
+      <MglMap
+        :center="mapCenter"
+        :zoom="zoom"
+        :map-style="mapStyle"
+        hash="map"
+        @load="registerIcons"
+      >
+        <MglNavigationControl :show-compass="true" />
+        <MglVectorLayer
+          :source="indoorSource"
+          :layer="indoorLayerPolygon"
+          :clear-source="false"
+          source-id="indoor"
+          layer-id="indoor-polygon"
+        />
+        <MglVectorLayer
+          :source="indoorSource"
+          :layer="indoorLayerLine"
+          :clear-source="false"
+          source-id="indoor"
+          layer-id="indoor-line"
+        />
+        <MglVectorLayer
+          :source="indoorSource"
+          :layer="indoorLayerTransportation"
+          :clear-source="false"
+          source-id="indoor"
+          layer-id="indoor-transportation"
+        />
+        <MglVectorLayer
+          :source="indoorSource"
+          :layer="indoorLayerPoi"
+          :clear-source="false"
+          source-id="indoor"
+          layer-id="indoor-poi"
+        />
+        <level-control
+          v-model="level"
+          source="indoor"
+          layer="area"
+        />
+      </MglMap>
+      <v-card class="menu-search d-flex align-center pa-2">
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn
+              icon
+              @click="toggleMenu"
+              v-on="on"
+            >
+              <v-icon>mdi-menu</v-icon>
+            </v-btn>
+          </template>
+          <span>Menu</span>
+        </v-tooltip>
+        <geocoder-input
+          class="ml-2"
+          @select="centerMap"
+        />
+      </v-card>
+      <img
+        v-for="(icon, key) in icons"
+        v-show="false"
+        :ref="key"
+        :src="icon"
+     />
+    </v-content>
+  </v-app>
 </template>
 
 <script>
@@ -82,7 +121,8 @@ export default {
       indoorSource: {
         url: 'https://tiles.indoorequal.org/'
       },
-      level
+      level,
+      menu: false
     };
   },
 
@@ -268,34 +308,19 @@ export default {
 
     centerMap(bbox) {
       this.map.fitBounds(bbox, { duration: 0 });
+    },
+
+    toggleMenu() {
+      this.menu = !this.menu;
     }
   }
 };
 </script>
 
 <style>
-html, body { padding: 0; margin: 0 }
-
-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background-color: white;
-  border-color: gray;
-  border-style: solid;
-  border-width: 0px;
-  border-bottom-width: 1px;
-  border-right-width: 1px;
-  border-bottom-right-radius: 5px;
-  padding: 5px;
+html {
+  overflow-y: auto;
 }
-
-header h1 {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
 .mgl-map-wrapper {
   width: 100vw;
   height: 100vh;
@@ -308,5 +333,10 @@ header h1 {
   position: absolute;
   top: 0;
   width: 100%;
+}
+.menu-search {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 </style>
