@@ -8,6 +8,7 @@
     >
       <div class="pa-3">
         <h1 class="display-1">indoor=</h1>
+        <p class="mt-2 mb-1">indoor= is a map that display indoor data from <a href="https://openstreetmap.org/">OpenStreetMap</a>.</p>
       </div>
       <v-list>
         <v-list-item href="https://github.com/indoorequal/">
