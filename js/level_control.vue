@@ -88,6 +88,9 @@ export default {
 </script>
 
 <style scoped>
+  button {
+    width: 100%;
+  }
   button.mapboxgl-ctrl-active {
     background-color: #b7b7b7;
   }
