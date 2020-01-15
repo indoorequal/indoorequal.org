@@ -10,6 +10,7 @@ import Vuetify, {
   VCardSubtitle,
   VCardTitle,
   VContent,
+  VDivider,
   VList,
   VListItem,
   VListItemIcon,
@@ -17,6 +18,7 @@ import Vuetify, {
   VListItemTitle,
   VListItemSubtitle,
   VNavigationDrawer,
+  VMenu,
   VSkeletonLoader,
   VIcon,
   VTooltip
@@ -31,6 +33,7 @@ Vue.use(Vuetify, {
     VCardSubtitle,
     VCardTitle,
     VContent,
+    VDivider,
     VList,
     VListItem,
     VListItemIcon,
@@ -38,6 +41,7 @@ Vue.use(Vuetify, {
     VListItemTitle,
     VListItemSubtitle,
     VNavigationDrawer,
+    VMenu,
     VSkeletonLoader,
     VIcon,
     VTooltip

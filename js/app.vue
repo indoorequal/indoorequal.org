@@ -52,11 +52,11 @@
     </v-navigation-drawer>
     <v-content>
       <MglMap
-        :center="mapCenter"
-        :zoom="zoom"
+        :center.sync="mapCenter"
+        :zoom.sync="zoom"
         :map-style="mapStyle"
         hash="map"
-        @load="registerIcons"
+        @load="load"
       >
         <MglNavigationControl :show-compass="true" />
         <MglVectorLayer
@@ -107,9 +107,46 @@
           <span>Menu</span>
         </v-tooltip>
         <geocoder-input
-          class="ml-2"
+          class="mx-2"
           @select="centerMap"
         />
+        <v-menu>
+          <template v-slot:activator="{ on: menu }">
+            <v-tooltip bottom>
+              <template v-slot:activator="{ on: tooltip }">
+                <v-btn
+                  :disabled="zoom < minZoom"
+                  icon
+                  v-on="{ ...tooltip, ...menu }"
+                >
+                  <v-icon>mdi-pencil-outline</v-icon>
+                </v-btn>
+              </template>
+              <span>Edit</span>
+            </v-tooltip>
+          </template>
+          <v-list>
+            <v-list-item
+              :href="`https://www.openstreetmap.org/edit?editor=id#map=${zoom}/${mapCenter.lat}/${mapCenter.lng}`"
+            >
+              <v-list-item-title>iD</v-list-item-title>
+            </v-list-item>
+            <v-list-item @click="openJOSM">
+              <v-list-item-title>JOSM</v-list-item-title>
+            </v-list-item>
+            <v-list-item
+              :href="`https://osminedit.pavie.info/#${zoom}/${mapCenter.lat}/${mapCenter.lng}`"
+            >
+              <v-list-item-title>OsmInEdit</v-list-item-title>
+            </v-list-item>
+            <v-divider></v-divider>
+            <v-list-item
+              :href="`https://openlevelup.net/#${zoom}/${mapCenter.lat}/${mapCenter.lng}`"
+            >
+              <v-list-item-title>OpenLevelUp!</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
       </v-card>
       <img
         v-for="(icon, key) in icons"
@@ -326,19 +363,33 @@ export default {
   },
 
   methods: {
-    registerIcons({ map }) {
+    load({ map }) {
       this.map = map;
+      this.registerIcons();
+      setTimeout(() => {
+        this.zoom = map.getZoom();
+      }, 100);
+    },
+
+    registerIcons() {
       for (let icon in this.icons) {
-        if (map.hasImage(icon)) {
-          map.updateImage(icon, this.$refs[icon][0]);
+        if (this.map.hasImage(icon)) {
+          this.map.updateImage(icon, this.$refs[icon][0]);
         } else {
-          map.addImage(icon, this.$refs[icon][0]);
+          this.map.addImage(icon, this.$refs[icon][0]);
         }
       }
     },
 
     centerMap(bbox) {
       this.map.fitBounds(bbox, { duration: 0 });
+    },
+
+    openJOSM() {
+      const bounds = this.map.getBounds();
+      fetch(`http://localhost:8111/load_and_zoom?left=${bounds.getWest()}&right=${bounds.getEast()}&top=${bounds.getNorth()}&bottom=${bounds.getSouth()}`).catch(() => {
+        alert("Could not talk to JOSM. Ensure it's running");
+      });
     },
 
     toggleMenu() {
