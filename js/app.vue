@@ -114,15 +114,17 @@
           <template v-slot:activator="{ on: menu }">
             <v-tooltip bottom>
               <template v-slot:activator="{ on: tooltip }">
-                <v-btn
-                  :disabled="zoom < minZoom"
-                  icon
-                  v-on="{ ...tooltip, ...menu }"
-                >
-                  <v-icon>mdi-pencil-outline</v-icon>
-                </v-btn>
+                <div v-on="tooltip">
+                  <v-btn
+                    :disabled="editDisabled"
+                    icon
+                    v-on="menu"
+                  >
+                    <v-icon>mdi-pencil-outline</v-icon>
+                  </v-btn>
+                </div>
               </template>
-              <span>Edit</span>
+              <span>{{ editDisabled ? 'Zoom in to edit' : 'Edit' }}</span>
             </v-tooltip>
           </template>
           <v-list>
@@ -353,6 +355,10 @@ export default {
           "text-halo-width": 1
         }
       };
+    },
+
+    editDisabled() {
+      return this.zoom < this.minZoom;
     }
   },
 
