@@ -178,13 +178,14 @@ export default {
 
   data() {
     const hash = new URLSearchParams(window.location.hash.replace('#', ''));
-    const level = parseInt(hash.get('level') || 0, 10);
+    const mapView = this.savedCurrentView();
+    const level = parseInt(hash.get('level') || mapView.level, 10);
     return {
       icons,
       mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${apiKey}`,
-      mapCenter: { lat: 48.84108, lng: 2.32034 },
+      mapCenter: { lat: mapView.lat, lng: mapView.lng },
       minZoom: 17,
-      zoom: 10,
+      zoom: mapView.zoom,
       indoorSource: {
         url: 'https://tiles.indoorequal.org/'
       },
@@ -357,8 +358,15 @@ export default {
 
   watch: {
     level(level) {
-       const hash = new URLSearchParams(window.location.hash.replace('#', ''));
-       window.location.hash = `map=${hash.get('map')}&level=${level}`;
+      const hash = new URLSearchParams(window.location.hash.replace('#', ''));
+      window.location.hash = `map=${hash.get('map')}&level=${level}`;
+      this.saveCurrentView();
+    },
+    zoom() {
+      this.saveCurrentView();
+    },
+    mapCenter() {
+      this.saveCurrentView();
     }
   },
 
@@ -398,6 +406,23 @@ export default {
 
     toggleExplore() {
       this.explore = !this.explore;
+    },
+
+    savedCurrentView() {
+      const mapView = localStorage.getItem('mapView');
+      if (mapView) {
+        return JSON.parse(mapView);
+      }
+      return {
+        lat: 48.84108,
+        lng: 2.32034,
+        zoom: 10,
+        level: 0
+      };
+    },
+
+    saveCurrentView() {
+      localStorage.setItem('mapView', JSON.stringify({ ...this.mapCenter, zoom: this.zoom, level: this.level }));
     }
   }
 };
