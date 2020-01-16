@@ -14,7 +14,15 @@
     />
     <template v-else>
       <div class="pa-3">
-        <h1 class="display-1">indoor=</h1>
+        <div class="d-flex align-center justify-space-between">
+          <h1 class="display-1">indoor=</h1>
+          <v-btn
+            icon
+            @click="toggleValue"
+          >
+            <v-icon>mdi-arrow-expand-left</v-icon>
+          </v-btn>
+        </div>
         <p class="mt-2 mb-1">indoor= is a map that display indoor data from <a href="https://openstreetmap.org/">OpenStreetMap</a>.</p>
       </div>
       <v-list>
