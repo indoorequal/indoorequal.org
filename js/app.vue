@@ -51,48 +51,14 @@
       </template>
     </v-navigation-drawer>
     <v-content>
-      <MglMap
-        :center.sync="mapCenter"
-        :zoom.sync="zoom"
-        :map-style="mapStyle"
-        hash="map"
-        @load="load"
-      >
-        <MglNavigationControl :show-compass="true" />
-        <MglVectorLayer
-          :source="indoorSource"
-          :layer="indoorLayerPolygon"
-          :clear-source="false"
-          source-id="indoor"
-          layer-id="indoor-polygon"
-        />
-        <MglVectorLayer
-          :source="indoorSource"
-          :layer="indoorLayerLine"
-          :clear-source="false"
-          source-id="indoor"
-          layer-id="indoor-line"
-        />
-        <MglVectorLayer
-          :source="indoorSource"
-          :layer="indoorLayerTransportation"
-          :clear-source="false"
-          source-id="indoor"
-          layer-id="indoor-transportation"
-        />
-        <MglVectorLayer
-          :source="indoorSource"
-          :layer="indoorLayerPoi"
-          :clear-source="false"
-          source-id="indoor"
-          layer-id="indoor-poi"
-        />
-        <level-control
-          v-model="level"
-          source="indoor"
-          layer="area"
-        />
-      </MglMap>
+      <indoor-map
+        :map-bounds.sync="mapBounds"
+        :map-center.sync="mapCenter"
+        :map-level.sync="mapLevel"
+        :map-zoom.sync="mapZoom"
+        :min-zoom="minZoom"
+        :new-map-bounds="newMapBounds"
+      />
       <v-card class="menu-search d-flex align-center pa-2">
         <v-tooltip bottom>
           <template v-slot:activator="{ on }">
@@ -108,7 +74,7 @@
         </v-tooltip>
         <geocoder-input
           class="mx-2"
-          @select="centerMap"
+          @select="updateBounds"
         />
         <v-menu>
           <template v-slot:activator="{ on: menu }">
@@ -129,7 +95,7 @@
           </template>
           <v-list>
             <v-list-item
-              :href="`https://www.openstreetmap.org/edit?editor=id#map=${zoom}/${mapCenter.lat}/${mapCenter.lng}`"
+              :href="`https://www.openstreetmap.org/edit?editor=id#map=${mapZoom}/${mapCenter.lat}/${mapCenter.lng}`"
             >
               <v-list-item-title>iD</v-list-item-title>
             </v-list-item>
@@ -137,45 +103,33 @@
               <v-list-item-title>JOSM</v-list-item-title>
             </v-list-item>
             <v-list-item
-              :href="`https://osminedit.pavie.info/#${zoom}/${mapCenter.lat}/${mapCenter.lng}`"
+              :href="`https://osminedit.pavie.info/#${mapZoom}/${mapCenter.lat}/${mapCenter.lng}`"
             >
               <v-list-item-title>OsmInEdit</v-list-item-title>
             </v-list-item>
             <v-divider></v-divider>
             <v-list-item
-              :href="`https://openlevelup.net/#${zoom}/${mapCenter.lat}/${mapCenter.lng}`"
+              :href="`https://openlevelup.net/#${mapZoom}/${mapCenter.lat}/${mapCenter.lng}`"
             >
               <v-list-item-title>OpenLevelUp!</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-menu>
       </v-card>
-      <img
-        v-for="(icon, key) in icons"
-        v-show="false"
-        :ref="key"
-        :src="icon"
-     />
     </v-content>
   </v-app>
 </template>
 
 <script>
-import { MglMap, MglNavigationControl, MglVectorLayer } from 'vue-mapbox/dist/vue-mapbox.umd';
-import { apiKey } from '../config.json';
-import LevelControl from './level_control';
 import ExploreList from './explore_list';
 import GeocoderInput from './geocoder';
-import icons from '../icons/*.svg';
+import IndoorMap from './map';
 
 export default {
   components: {
     ExploreList,
     GeocoderInput,
-    LevelControl,
-    MglMap,
-    MglNavigationControl,
-    MglVectorLayer
+    IndoorMap,
   },
 
   data() {
@@ -183,192 +137,30 @@ export default {
     const mapView = this.savedCurrentView();
     const level = parseInt(hash.get('level') || mapView.level, 10);
     return {
-      icons,
-      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${apiKey}`,
+      mapBounds: [],
       mapCenter: { lat: mapView.lat, lng: mapView.lng },
-      minZoom: 17,
-      zoom: mapView.zoom,
-      indoorSource: {
-        url: 'https://tiles.indoorequal.org/'
-      },
-      level,
+      mapLevel: level,
+      mapZoom: mapView.zoom,
       menu: false,
+      minZoom: 17,
+      newMapBounds: [],
       explore: false
     };
   },
 
   computed: {
-    indoorLayerBackground() {
-      return {
-        type: "background",
-        minzoom: this.minZoom,
-        "filter": [
-          "all",
-          [
-            "==",
-            "level",
-            this.level
-          ]
-        ],
-        paint: {
-          "background-color": "white"
-        }
-      };
-    },
-
-    indoorLayerPolygon() {
-      return {
-        type: "fill",
-        "source-layer": "area",
-        minzoom: this.minZoom,
-        filter: [
-          "all",
-          [
-            "==",
-            "$type",
-            "Polygon"
-          ],
-          [
-            "!=",
-            "class",
-            "level"
-          ],
-          [
-            "==",
-            "level",
-            this.level
-          ]
-        ],
-        layout: {
-          visibility: "visible"
-        },
-        paint: {
-          "fill-color": "white"
-        }
-      };
-    },
-
-    indoorLayerLine() {
-      return {
-        "type": "line",
-        "source-layer": "area",
-        "minzoom": this.minZoom,
-        "filter": [
-          "all",
-          [
-            "!=",
-            "class",
-            "level"
-          ],
-          [
-            "==",
-            "level",
-            this.level
-          ]
-        ],
-        "layout": {
-          "visibility": "visible"
-        },
-        "paint": {
-          "line-color": "gray",
-          "line-width": 1
-        }
-      };
-    },
-
-    indoorLayerTransportation() {
-      return {
-        "type": "line",
-        "source-layer": "transportation",
-        "minzoom": this.minZoom,
-        "filter": [
-          "all",
-          [
-            "==",
-            "level",
-            this.level
-          ]
-        ],
-        "layout": {
-          "visibility": "visible",
-        },
-        "paint": {
-          "line-color": "gray",
-          "line-dasharray": [
-            0.4,
-            0.75
-          ],
-          "line-width": {
-            "base": 1.4,
-            "stops": [
-              [
-                this.minZoom,
-                2
-              ],
-              [
-                this.minZoom+3,
-                10
-              ]
-            ]
-          }
-        }
-      };
-    },
-
-    indoorLayerPoi() {
-      return {
-        "type": "symbol",
-        "source-layer": "poi",
-        "minzoom": this.minZoom,
-        "filter": [
-          "all",
-          [
-            "==",
-            "$type",
-            "Point"
-          ],
-          [
-            "==",
-            "level",
-            this.level
-          ]
-        ],
-        "layout": {
-          "icon-image": "{class}_11",
-          "text-anchor": "top",
-          "text-field": "{name:latin}\n{name:nonlatin}",
-          "text-font": [
-            "Noto Sans Regular"
-          ],
-          "text-max-width": 9,
-          "text-offset": [
-            0,
-            0.6
-          ],
-          "text-padding": 2,
-          "text-size": 12
-        },
-        "paint": {
-          "text-color": "#666",
-          "text-halo-blur": 0.5,
-          "text-halo-color": "#ffffff",
-          "text-halo-width": 1
-        }
-      };
-    },
-
     editDisabled() {
-      return this.zoom < this.minZoom;
+      return this.mapZoom < this.minZoom;
     }
   },
 
   watch: {
-    level(level) {
+    mapLevel(mapLevel) {
       const hash = new URLSearchParams(window.location.hash.replace('#', ''));
-      window.location.hash = `map=${hash.get('map')}&level=${level}`;
+      window.location.hash = `map=${hash.get('map')}&level=${mapLevel}`;
       this.saveCurrentView();
     },
-    zoom() {
+    mapZoom() {
       this.saveCurrentView();
     },
     mapCenter() {
@@ -377,31 +169,13 @@ export default {
   },
 
   methods: {
-    load({ map }) {
-      this.map = map;
-      this.registerIcons();
-      setTimeout(() => {
-        this.zoom = map.getZoom();
-      }, 100);
-    },
-
-    registerIcons() {
-      for (let icon in this.icons) {
-        if (this.map.hasImage(icon)) {
-          this.map.updateImage(icon, this.$refs[icon][0]);
-        } else {
-          this.map.addImage(icon, this.$refs[icon][0]);
-        }
-      }
-    },
-
-    centerMap(bbox) {
-      this.map.fitBounds(bbox, { duration: 0 });
+    updateBounds(bbox) {
+      this.newMapBounds = bbox;
     },
 
     openJOSM() {
-      const bounds = this.map.getBounds();
-      fetch(`http://localhost:8111/load_and_zoom?left=${bounds.getWest()}&right=${bounds.getEast()}&top=${bounds.getNorth()}&bottom=${bounds.getSouth()}`).catch(() => {
+      const bounds = this.mapBounds;
+      fetch(`http://localhost:8111/load_and_zoom?left=${bounds[0]}&right=${bounds[2]}&top=${bounds[3]}&bottom=${bounds[1]}`).catch(() => {
         alert("Could not talk to JOSM. Ensure it's running");
       });
     },
@@ -428,7 +202,7 @@ export default {
     },
 
     saveCurrentView() {
-      localStorage.setItem('mapView', JSON.stringify({ ...this.mapCenter, zoom: this.zoom, level: this.level }));
+      localStorage.setItem('mapView', JSON.stringify({ ...this.mapCenter, zoom: this.mapZoom, level: this.mapLevel }));
     }
   }
 };
@@ -438,22 +212,9 @@ export default {
 html {
   overflow-y: auto;
 }
-.mgl-map-wrapper {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
-}
-
-.mgl-map-wrapper .mapboxgl-map {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
 .menu-search {
+  left: 10px;
   position: absolute;
   top: 10px;
-  left: 10px;
 }
 </style>
