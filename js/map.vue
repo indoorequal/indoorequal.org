@@ -69,15 +69,15 @@ export default {
   },
 
   props: {
-    mapCenter: {
-      type: Object,
-      required: true
-    },
-
     mapBounds: {
       type: Array,
       required: false,
       default() { return []; }
+    },
+
+    mapCenter: {
+      type: Object,
+      required: true
     },
 
     mapLevel: {
