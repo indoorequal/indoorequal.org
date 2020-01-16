@@ -49,7 +49,7 @@
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item
-          :href="`https://openlevelup.net/#${mapZoom}/${mapCenter.lat}/${mapCenter.lng}`"
+          :href="`https://openlevelup.net/?l=${mapLevel}#${mapZoom}/${mapCenter.lat}/${mapCenter.lng}`"
         >
           <v-list-item-title>OpenLevelUp!</v-list-item-title>
         </v-list-item>
