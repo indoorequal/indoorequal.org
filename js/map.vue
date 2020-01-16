@@ -57,7 +57,7 @@
 <script>
 import { MglMap, MglNavigationControl, MglVectorLayer } from 'vue-mapbox/dist/vue-mapbox.umd';
 import { apiKey } from '../config.json';
-import icons from '../icons/*.svg';
+import icons from '../mapicons/*.svg';
 import LevelControl from './level_control';
 
 export default {
