@@ -1,5 +1,16 @@
 <template>
   <div>
+    <h2 class="title flex align-center">
+      <v-btn
+        icon
+        @click="$emit('toggleExplore')"
+      >
+        <v-icon>mdi-arrow-left</v-icon>
+      </v-btn>
+      Explore
+    </h2>
+    <p class="my-2">This list come from the examples section of the <a href="https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging">Simple Indoor Tagging wiki page</a>.</p>
+
     <v-skeleton-loader
       v-if="links.length === 0"
       type="card-heading@20"
@@ -8,7 +19,7 @@
       v-for="link in links"
       :href="link.link"
       class="my-3"
-      @click="$emit('click')"
+      @click="$emit('toggleMenu')"
     >
       <v-card-title>
         {{ link.description }}
