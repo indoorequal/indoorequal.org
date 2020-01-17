@@ -3,6 +3,7 @@
     <indoor-sidebar v-model="menu" />
     <v-content>
       <indoor-map
+        v-if="loadMap"
         :map-bounds.sync="mapBounds"
         :map-center.sync="mapCenter"
         :map-level.sync="mapLevel"
@@ -37,56 +38,52 @@ export default {
   },
 
   data() {
-    const hash = new URLSearchParams(window.location.hash.replace('#', ''));
-    const mapView = this.savedCurrentView();
-    const level = parseInt(hash.get('level') || mapView.level, 10);
     return {
+      loadMap: false,
       mapBounds: [],
-      mapCenter: { lat: mapView.lat, lng: mapView.lng },
-      mapLevel: level,
-      mapZoom: mapView.zoom,
+      mapCenter: { lat: 46.8, lng: 5 },
+      mapLevel: 0,
+      mapZoom: 5,
       menu: false,
       minZoom: 17,
       newMapBounds: []
     };
   },
 
+  mounted() {
+    const hashParams = new URLSearchParams(window.location.hash.replace('#', ''));
+    if (hashParams.has('level')) {
+      this.mapLevel = parseInt(hashParams.get('level'));
+    }
+    if (!hashParams.has('map')) {
+      this.centerMapViaGeoIP()
+        .finally(() => {
+          this.loadMap = true;
+        });
+    } else {
+      this.loadMap = true;
+    }
+  },
+
   watch: {
     mapLevel(mapLevel) {
       const hash = new URLSearchParams(window.location.hash.replace('#', ''));
       window.location.hash = `map=${hash.get('map')}&level=${mapLevel}`;
-      this.saveCurrentView();
-    },
-
-    mapZoom() {
-      this.saveCurrentView();
-    },
-
-    mapCenter() {
-      this.saveCurrentView();
     }
   },
 
   methods: {
+    centerMapViaGeoIP() {
+      return fetch('https://geo.indoorequal.org/me')
+        .then(res => res.json())
+        .then(json => {
+          this.mapCenter = { lat: json.ll[0], lng: json.ll[1] };
+          this.mapZoom = 10;
+        });
+    },
+
     updateBounds(bbox) {
       this.newMapBounds = bbox;
-    },
-
-    savedCurrentView() {
-      const mapView = localStorage.getItem('mapView');
-      if (mapView) {
-        return JSON.parse(mapView);
-      }
-      return {
-        lat: 48.84108,
-        lng: 2.32034,
-        zoom: 10,
-        level: 0
-      };
-    },
-
-    saveCurrentView() {
-      localStorage.setItem('mapView', JSON.stringify({ ...this.mapCenter, zoom: this.mapZoom, level: this.mapLevel }));
     }
   }
 };
