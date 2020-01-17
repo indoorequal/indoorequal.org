@@ -56,7 +56,7 @@
 
 <script>
 import { MglMap, MglNavigationControl, MglVectorLayer } from 'vue-mapbox/dist/vue-mapbox.umd';
-import { apiKey } from '../config.json';
+import { apiKey, tilesUrl } from '../config.json';
 import icons from '../mapicons/*.svg';
 import LevelControl from './level_control';
 
@@ -106,7 +106,7 @@ export default {
     return {
       mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${apiKey}`,
       icons,
-      indoorSource: { url: 'https://tiles.indoorequal.org/' }
+      indoorSource: { url: tilesUrl }
     };
   },
 
