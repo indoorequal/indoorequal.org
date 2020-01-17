@@ -78,7 +78,7 @@ export default {
         .then(res => res.json())
         .then(json => {
           this.mapCenter = { lat: json.ll[0], lng: json.ll[1] };
-          this.mapZoom = 10;
+          this.mapZoom = 13;
         });
     },
 
