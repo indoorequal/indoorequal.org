@@ -45,10 +45,19 @@
         </v-list-item>
       </v-list>
     </template>
+    <template v-slot:append>
+      <div
+        v-if="state"
+        class="pa-3 font-italic caption"
+      >
+        last data update <time :datetime="lastUpdateTimestamp">{{ lastUpdateTimestamp }}</time>
+      </div>
+    </template>
   </v-navigation-drawer>
 </template>
 
 <script>
+import { tilesUrl } from '../config.json';
 import ExploreList from './explore_list';
 
 export default {
@@ -65,8 +74,15 @@ export default {
 
   data() {
     return {
-      explore: false
+      explore: false,
+      state: null
     };
+  },
+
+  computed: {
+    lastUpdateTimestamp() {
+      return this.state.match(/timestamp=(.+)/)[1].replace(/\\/g, '');
+    }
   },
 
   methods: {
@@ -80,6 +96,19 @@ export default {
 
     updateValue(value) {
       this.$emit('input', value);
+    }
+  },
+
+  watch: {
+    value: {
+      immediate: true,
+      handler(value) {
+        if (value && !this.state) {
+          fetch(`${tilesUrl}state`)
+            .then(res => res.text())
+            .then(state => this.state = state);
+        }
+      }
     }
   }
 }
