@@ -34,23 +34,17 @@
         </v-tooltip>
       </template>
       <v-list>
-        <v-list-item
-          :href="`https://www.openstreetmap.org/edit?editor=id#map=${mapZoom}/${mapCenter.lat}/${mapCenter.lng}`"
-        >
+        <v-list-item :href="OSMUrl">
           <v-list-item-title>iD</v-list-item-title>
         </v-list-item>
         <v-list-item @click="openJOSM">
           <v-list-item-title>JOSM</v-list-item-title>
         </v-list-item>
-        <v-list-item
-          :href="`https://osminedit.pavie.info/#${mapZoom}/${mapCenter.lat}/${mapCenter.lng}`"
-        >
+        <v-list-item :href="OsmInEditUrl">
           <v-list-item-title>OsmInEdit</v-list-item-title>
         </v-list-item>
         <v-divider></v-divider>
-        <v-list-item
-          :href="`https://openlevelup.net/?l=${mapLevel}#${mapZoom}/${mapCenter.lat}/${mapCenter.lng}`"
-        >
+        <v-list-item :href="OpenLevelUpUrl">
           <v-list-item-title>OpenLevelUp!</v-list-item-title>
         </v-list-item>
       </v-list>
@@ -102,13 +96,29 @@ export default {
   computed: {
     editDisabled() {
       return this.mapZoom < this.minZoom;
+    },
+
+    JOSMUrl() {
+      const bounds = this.mapBounds;
+      return `http://localhost:8111/load_and_zoom?left=${bounds[0]}&right=${bounds[2]}&top=${bounds[3]}&bottom=${bounds[1]}`;
+    },
+
+    OSMUrl() {
+      return `https://www.openstreetmap.org/edit?editor=id#map=${this.mapZoom}/${this.mapCenter.lat}/${this.mapCenter.lng}`;
+    },
+
+    OsmInEditUrl() {
+      return `https://osminedit.pavie.info/#${this.mapZoom}/${this.mapCenter.lat}/${this.mapCenter.lng}`;
+    },
+
+    OpenLevelUpUrl() {
+      return `https://openlevelup.net/?l=${this.mapLevel}#${this.mapZoom}/${this.mapCenter.lat}/${this.mapCenter.lng}`;
     }
   },
 
   methods: {
     openJOSM() {
-      const bounds = this.mapBounds;
-      fetch(`http://localhost:8111/load_and_zoom?left=${bounds[0]}&right=${bounds[2]}&top=${bounds[3]}&bottom=${bounds[1]}`).catch(() => {
+      fetch(this.JOSMUrl).catch(() => {
         alert("Could not talk to JOSM. Ensure it's running");
       });
     },
