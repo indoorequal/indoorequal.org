@@ -11,32 +11,13 @@
     >
       <MglNavigationControl show-compass />
       <MglVectorLayer
-        :source="indoorSource"
-        :layer="indoorLayerPolygon"
+        v-for="layer in layers"
+        :key="layer.id"
         :clear-source="false"
-        source-id="indoor"
-        layer-id="indoor-polygon"
-      />
-      <MglVectorLayer
+        :layer-id="layer.id"
+        :layer="layer"
         :source="indoorSource"
-        :layer="indoorLayerLine"
-        :clear-source="false"
         source-id="indoor"
-        layer-id="indoor-line"
-      />
-      <MglVectorLayer
-        :source="indoorSource"
-        :layer="indoorLayerTransportation"
-        :clear-source="false"
-        source-id="indoor"
-        layer-id="indoor-transportation"
-      />
-      <MglVectorLayer
-        :source="indoorSource"
-        :layer="indoorLayerPoi"
-        :clear-source="false"
-        source-id="indoor"
-        layer-id="indoor-poi"
       />
       <level-control
         :value="mapLevel"
@@ -59,6 +40,118 @@ import { MglMap, MglNavigationControl, MglVectorLayer } from 'vue-mapbox/dist/vu
 import { apiKey, tilesUrl } from '../config.json';
 import icons from '../mapicons/*.svg';
 import LevelControl from './level_control';
+
+const layers = [
+  {
+    id: "indoor-polygon",
+    type: "fill",
+    "source-layer": "area",
+    filter: [
+      "all",
+      [
+        "==",
+        "$type",
+        "Polygon"
+      ],
+      [
+        "!=",
+        "class",
+        "level"
+      ]
+    ],
+    layout: {
+      visibility: "visible"
+    },
+    paint: {
+      "fill-color": "white"
+    }
+  },
+  {
+    id: "indoor-line",
+    "type": "line",
+    "source-layer": "area",
+    "filter": [
+      "all",
+      [
+        "!=",
+        "class",
+        "level"
+      ]
+    ],
+    "layout": {
+      "visibility": "visible"
+    },
+    "paint": {
+      "line-color": "gray",
+      "line-width": 1
+    }
+  },
+  {
+    id: "indoor-transportation",
+    "type": "line",
+    "source-layer": "transportation",
+    "filter": [
+      "all"
+    ],
+    "layout": {
+      "visibility": "visible",
+    },
+    "paint": {
+      "line-color": "gray",
+      "line-dasharray": [
+        0.4,
+        0.75
+      ],
+      "line-width": {
+        "base": 1.4,
+        "stops": [
+          [
+            17,
+            2
+          ],
+          [
+            20,
+            10
+          ]
+        ]
+      }
+    }
+  },
+  {
+    id: "indoor-poi",
+    "type": "symbol",
+    "source-layer": "poi",
+    "filter": [
+      "all",
+      [
+        "==",
+        "$type",
+        "Point"
+      ]
+    ],
+    "layout": {
+      "icon-image": "{class}_11",
+      "text-anchor": "top",
+      "text-field": "{name:latin}\n{name:nonlatin}",
+      "text-font": [
+        "Noto Sans Regular"
+      ],
+      "text-max-width": 9,
+      "text-offset": [
+        0,
+        0.6
+      ],
+      "text-padding": 2,
+      "text-size": 12
+    },
+    "paint": {
+      "text-color": "#666",
+      "text-halo-blur": 0.5,
+      "text-halo-color": "#ffffff",
+      "text-halo-width": 1
+    }
+  }
+];
 
 export default {
   components: {
@@ -104,152 +197,23 @@ export default {
 
   data() {
     return {
-      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${apiKey}`,
       icons,
-      indoorSource: { url: tilesUrl }
+      indoorSource: { url: tilesUrl },
+      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${apiKey}`
     };
   },
 
   computed: {
-    indoorLayerPolygon() {
-      return {
-        type: "fill",
-        "source-layer": "area",
-        minzoom: this.minZoom,
-        filter: [
-          "all",
-          [
-            "==",
-            "$type",
-            "Polygon"
-          ],
-          [
-            "!=",
-            "class",
-            "level"
-          ],
-          [
-            "==",
-            "level",
-            this.mapLevel
-          ]
-        ],
-        layout: {
-          visibility: "visible"
-        },
-        paint: {
-          "fill-color": "white"
-        }
-      };
-    },
-
-    indoorLayerLine() {
-      return {
-        "type": "line",
-        "source-layer": "area",
-        "minzoom": this.minZoom,
-        "filter": [
-          "all",
-          [
-            "!=",
-            "class",
-            "level"
-          ],
-          [
-            "==",
-            "level",
-            this.mapLevel
-          ]
-        ],
-        "layout": {
-          "visibility": "visible"
-        },
-        "paint": {
-          "line-color": "gray",
-          "line-width": 1
-        }
-      };
-    },
-
-    indoorLayerTransportation() {
-      return {
-        "type": "line",
-        "source-layer": "transportation",
-        "minzoom": this.minZoom,
-        "filter": [
-          "all",
-          [
-            "==",
-            "level",
-            this.mapLevel
-          ]
-        ],
-        "layout": {
-          "visibility": "visible",
-        },
-        "paint": {
-          "line-color": "gray",
-          "line-dasharray": [
-            0.4,
-            0.75
-          ],
-          "line-width": {
-            "base": 1.4,
-            "stops": [
-              [
-                this.minZoom,
-                2
-              ],
-              [
-                this.minZoom+3,
-                10
-              ]
-            ]
-          }
-        }
-      };
-    },
-
-    indoorLayerPoi() {
-      return {
-        "type": "symbol",
-        "source-layer": "poi",
-        "minzoom": this.minZoom,
-        "filter": [
-          "all",
-          [
-            "==",
-            "$type",
-            "Point"
-          ],
-          [
-            "==",
-            "level",
-            this.mapLevel
-          ]
-        ],
-        "layout": {
-          "icon-image": "{class}_11",
-          "text-anchor": "top",
-          "text-field": "{name:latin}\n{name:nonlatin}",
-          "text-font": [
-            "Noto Sans Regular"
-          ],
-          "text-max-width": 9,
-          "text-offset": [
-            0,
-            0.6
-          ],
-          "text-padding": 2,
-          "text-size": 12
-        },
-        "paint": {
-          "text-color": "#666",
-          "text-halo-blur": 0.5,
-          "text-halo-color": "#ffffff",
-          "text-halo-width": 1
-        }
-      };
+    layers() {
+      return layers.map((layer) => {
+        const newLayer = { ...layer, filter: [...layer.filter] };
+        newLayer.filter.push([
+          "==",
+          "level",
+          this.mapLevel
+        ]);
+        return newLayer;
+      });
     }
   },
 
