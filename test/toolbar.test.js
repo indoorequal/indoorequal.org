@@ -31,6 +31,13 @@ describe('Toolbar', () => {
     expect(toolbar.vm.JOSMUrl).toEqual('http://localhost:8111/load_and_zoom?left=0&right=2&top=3&bottom=1');
   });
 
+  it('creates the Vespucci URL', () => {
+    toolbar.setProps({
+      mapBounds: [0, 1, 2, 3]
+    });
+    expect(toolbar.vm.VespucciUrl).toEqual('josm:/load_and_zoom?left=0&right=2&top=3&bottom=1');
+  });
+
   it('creates the OsmInEdit URL', () => {
     toolbar.setProps({
       mapCenter: { lat: 3, lng: 4 },

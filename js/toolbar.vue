@@ -40,6 +40,9 @@
         <v-list-item @click="openJOSM">
           <v-list-item-title>JOSM</v-list-item-title>
         </v-list-item>
+        <v-list-item :href="VespucciUrl">
+          <v-list-item-title>Vespucci</v-list-item-title>
+        </v-list-item>
         <v-list-item :href="OsmInEditUrl">
           <v-list-item-title>OsmInEdit</v-list-item-title>
         </v-list-item>
@@ -98,9 +101,13 @@ export default {
       return this.mapZoom < this.minZoom;
     },
 
-    JOSMUrl() {
+    JOSMParams() {
       const bounds = this.mapBounds;
-      return `http://localhost:8111/load_and_zoom?left=${bounds[0]}&right=${bounds[2]}&top=${bounds[3]}&bottom=${bounds[1]}`;
+      return `load_and_zoom?left=${bounds[0]}&right=${bounds[2]}&top=${bounds[3]}&bottom=${bounds[1]}`;
+    },
+
+    JOSMUrl() {
+      return `http://localhost:8111/${this.JOSMParams}`;
     },
 
     OSMUrl() {
@@ -113,6 +120,10 @@ export default {
 
     OpenLevelUpUrl() {
       return `https://openlevelup.net/?l=${this.mapLevel}#${this.mapZoom}/${this.mapCenter.lat}/${this.mapCenter.lng}`;
+    },
+
+    VespucciUrl() {
+      return `josm:/${this.JOSMParams}`;
     }
   },
 
