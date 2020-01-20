@@ -41,6 +41,34 @@ import { apiKey, tilesUrl } from '../config.json';
 import icons from '../mapicons/*.svg';
 import LevelControl from './level_control';
 
+const commonPoi = {
+  "type": "symbol",
+  "source-layer": "poi",
+  "layout": {
+    "icon-image": "{class}_11",
+    "text-anchor": "top",
+    "text-field": "{name:latin}\n{name:nonlatin}",
+    "text-font": [
+      "Noto Sans Regular"
+    ],
+    "text-max-width": 9,
+    "text-offset": [
+      0,
+      0.6
+    ],
+    "text-padding": 2,
+    "text-size": 12
+  },
+  "paint": {
+    "text-color": "#666",
+    "text-halo-blur": 0.5,
+    "text-halo-color": "#ffffff",
+    "text-halo-width": 1
+  }
+};
+
+const rank2Class = ["waste_basket", "information"];
+
 const layers = [
   {
     id: "indoor-polygon",
@@ -118,38 +146,40 @@ const layers = [
     }
   },
   {
-    id: "indoor-poi",
-    "type": "symbol",
-    "source-layer": "poi",
+    id: "indoor-poi-rank1",
+    ...commonPoi,
+    minzoom: 17,
     "filter": [
       "all",
       [
         "==",
         "$type",
         "Point"
+      ],
+      [
+        "!in",
+        "class",
+        ...rank2Class
       ]
-    ],
-    "layout": {
-      "icon-image": "{class}_11",
-      "text-anchor": "top",
-      "text-field": "{name:latin}\n{name:nonlatin}",
-      "text-font": [
-        "Noto Sans Regular"
+    ]
+  },
+  {
+    id: "indoor-poi-rank2",
+    ...commonPoi,
+    minzoom: 19,
+    "filter": [
+      "all",
+      [
+        "==",
+        "$type",
+        "Point"
       ],
-      "text-max-width": 9,
-      "text-offset": [
-        0,
-        0.6
-      ],
-      "text-padding": 2,
-      "text-size": 12
-    },
-    "paint": {
-      "text-color": "#666",
-      "text-halo-blur": 0.5,
-      "text-halo-color": "#ffffff",
-      "text-halo-width": 1
-    }
+      [
+        "in",
+        "class",
+        ...rank2Class
+      ]
+    ]
   }
 ];
 
