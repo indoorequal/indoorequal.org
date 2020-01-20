@@ -8,7 +8,6 @@
         :map-center.sync="mapCenter"
         :map-level.sync="mapLevel"
         :map-zoom.sync="mapZoom"
-        :min-zoom="minZoom"
         :new-map-bounds="newMapBounds"
       />
       <indoor-toolbar

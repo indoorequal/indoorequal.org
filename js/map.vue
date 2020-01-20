@@ -183,11 +183,6 @@ export default {
       required: true
     },
 
-    minZoom: {
-      type: Number,
-      required: true
-    },
-
     newMapBounds: {
       type: Array,
       required: false,
