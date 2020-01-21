@@ -148,7 +148,6 @@ const layers = [
   {
     id: "indoor-poi-rank1",
     ...commonPoi,
-    minzoom: 17,
     "filter": [
       "all",
       [
@@ -180,6 +179,28 @@ const layers = [
         ...rank2Class
       ]
     ]
+  },
+  {
+    id: "indoor-poi-vending",
+    ...commonPoi,
+    minzoom: 19,
+    "filter": [
+      "all",
+      [
+        "==",
+        "$type",
+        "Point"
+      ],
+      [
+        "==",
+        "class",
+        "vending_machine"
+      ]
+    ],
+    "layout": {
+      ...commonPoi.layout,
+      "icon-image": "{subclass}_11"
+    }
   }
 ];
 
