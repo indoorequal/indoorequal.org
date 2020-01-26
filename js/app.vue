@@ -52,7 +52,7 @@ export default {
   mounted() {
     const hashParams = new URLSearchParams(window.location.hash.replace('#', ''));
     if (hashParams.has('level')) {
-      this.mapLevel = parseInt(hashParams.get('level'));
+      this.mapLevel = hashParams.get('level');
     }
     if (!hashParams.has('map')) {
       this.centerMapViaGeoIP()
