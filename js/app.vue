@@ -41,7 +41,7 @@ export default {
       loadMap: false,
       mapBounds: [],
       mapCenter: { lat: 46.8, lng: 5 },
-      mapLevel: 0,
+      mapLevel: "0",
       mapZoom: 5,
       menu: false,
       minZoom: 17,
