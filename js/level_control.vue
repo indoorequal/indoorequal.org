@@ -29,7 +29,7 @@ export default {
       required: true
     },
     value: {
-      type: Number,
+      type: String,
       required: true
     },
   },
@@ -80,7 +80,7 @@ export default {
   watch: {
     levels(levels) {
       if (!levels.includes(this.value)) {
-        this.onClick(0);
+        this.onClick('0');
       }
     }
   }

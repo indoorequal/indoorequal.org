@@ -10,7 +10,7 @@ describe('LevelControl', () => {
   beforeEach(() => {
     control = shallowMount(LevelControl, {
       propsData: {
-        value: 0,
+        value: '0',
         layer: 'testLayer',
         source: 'testSource'
       },
@@ -30,18 +30,18 @@ describe('LevelControl', () => {
   });
 
   it('render the levels as button', () => {
-    control.vm.levels = [1, 0];
+    control.vm.levels = ['1', '0'];
     expect(control.findAll('button').length).toEqual(2);
   });
 
   it('render no levels if only one is available', () => {
-    control.vm.levels = [0];
+    control.vm.levels = ['0'];
     expect(control.findAll('button').length).toEqual(0);
   });
 
   it('dont query the layer when the layer is not loaded', () => {
     expect(control.vm.levels).toEqual([]);
-    control.setMethods({ findAllLevels() { return [1, 0]; } });
+    control.setMethods({ findAllLevels() { return ['1', '0']; } });
     control.vm.map.isSourceLoaded = (source) => {
       expect(source).toEqual('testSource');
       return false;
@@ -52,7 +52,7 @@ describe('LevelControl', () => {
 
   it('query the layer when the layer is loaded and display levels', () => {
     expect(control.vm.levels).toEqual([]);
-    control.setMethods({ findAllLevels() { return [1, 0]; } });
+    control.setMethods({ findAllLevels() { return ['1', '0']; } });
     control.vm.map.isSourceLoaded = (source) => {
       expect(source).toEqual('testSource');
       return true;
@@ -65,19 +65,19 @@ describe('LevelControl', () => {
       });
     };
     control.vm.updateLevels();
-    expect(control.vm.levels).toEqual([1, 0]);
+    expect(control.vm.levels).toEqual(['1', '0']);
   });
 
   it('emit the value when clicking on a level', () => {
-    control.vm.levels = [1, 0];
+    control.vm.levels = ['1', '0'];
     control.find('button:first-child').trigger('click');
-    expect(control.emitted('input')[0]).toEqual([1]);
+    expect(control.emitted('input')[0]).toEqual(['1']);
   });
 
   it('reset the value to 0 if the currentLevel doesnt exist', () => {
-    control.vm.levels = [1, 0];
-    control.setProps({ value: 1 });
-    control.vm.levels = [0];
-    expect(control.emitted('input')[0]).toEqual([0]);
+    control.vm.levels = ['1', '0'];
+    control.setProps({ value: '1' });
+    control.vm.levels = ['0'];
+    expect(control.emitted('input')[0]).toEqual(['0']);
   });
 });

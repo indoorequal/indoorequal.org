@@ -8,7 +8,7 @@ describe('Toolbar', () => {
       propsData: {
         value: false,
         mapCenter: { lat: 1, lng: 2 },
-        mapLevel: 1,
+        mapLevel: '1',
         mapZoom: 17,
         minZoom: 17
       },

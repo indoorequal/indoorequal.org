@@ -225,7 +225,7 @@ export default {
     },
 
     mapLevel: {
-      type: Number,
+      type: String,
       required: true
     },
 
