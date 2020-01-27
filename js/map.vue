@@ -95,15 +95,37 @@ const layers = [
     }
   },
   {
-    id: "indoor-line",
+    id: "indoor-area",
     "type": "line",
     "source-layer": "area",
     "filter": [
       "all",
       [
-        "!=",
+        "==",
         "class",
-        "level"
+        "area"
+      ]
+    ],
+    "layout": {
+      "visibility": "visible"
+    },
+    "paint": {
+      "line-color": "#bfbfbf",
+      "line-width": 1
+    }
+  },
+  {
+    id: "indoor-lines",
+    "type": "line",
+    "source-layer": "area",
+    "filter": [
+      "all",
+      [
+        "in",
+        "class",
+        "room",
+        "corridor",
+        "wall"
       ]
     ],
     "layout": {
@@ -111,7 +133,7 @@ const layers = [
     },
     "paint": {
       "line-color": "gray",
-      "line-width": 1
+      "line-width": 2
     }
   },
   {
