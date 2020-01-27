@@ -30,7 +30,7 @@
               </v-btn>
             </div>
           </template>
-          <span>{{ editDisabled ? 'Zoom in to edit' : 'Edit' }}</span>
+          <span>{{ editDisabled ? 'Zoom in to edit' : 'Edit OpenStreetMap' }}</span>
         </v-tooltip>
       </template>
       <v-list>
