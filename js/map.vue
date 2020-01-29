@@ -101,9 +101,10 @@ const layers = [
     "filter": [
       "all",
       [
-        "==",
+        "in",
         "class",
-        "area"
+        "area",
+        "platform"
       ]
     ],
     "layout": {
