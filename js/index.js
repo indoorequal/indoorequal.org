@@ -11,16 +11,16 @@ import Vuetify, {
   VCardTitle,
   VContent,
   VDivider,
+  VIcon,
   VList,
   VListItem,
-  VListItemIcon,
   VListItemContent,
-  VListItemTitle,
+  VListItemIcon,
   VListItemSubtitle,
-  VNavigationDrawer,
+  VListItemTitle,
   VMenu,
+  VNavigationDrawer,
   VSkeletonLoader,
-  VIcon,
   VTooltip
 } from 'vuetify/lib';
 
@@ -34,16 +34,16 @@ Vue.use(Vuetify, {
     VCardTitle,
     VContent,
     VDivider,
+    VIcon,
     VList,
     VListItem,
-    VListItemIcon,
     VListItemContent,
-    VListItemTitle,
+    VListItemIcon,
     VListItemSubtitle,
-    VNavigationDrawer,
+    VListItemTitle,
     VMenu,
+    VNavigationDrawer,
     VSkeletonLoader,
-    VIcon,
     VTooltip
   }
 });
