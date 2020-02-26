@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "debounce": "^1.2.0",
+    "luxon": "^1.22.0",
     "mapbox-gl": "^1.0.0",
     "vue": "^2.6.9",
     "vue-mapbox": "osmontrouge/vue-mapbox#update",

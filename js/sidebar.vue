@@ -56,13 +56,18 @@
         v-if="state"
         class="pa-3 font-italic caption"
       >
-        last data update <time :datetime="lastUpdateTimestamp">{{ lastUpdateTimestamp }}</time>
+        last data update
+        <time
+          :datetime="lastUpdateTimestamp"
+          :title="lastUpdateTimestamp"
+        >{{ lastUpdateTimestampFormatted }}</time>
       </div>
     </template>
   </v-navigation-drawer>
 </template>
 
 <script>
+import { DateTime } from 'luxon';
 import { tilesUrl } from '../config.json';
 import ExploreList from './explore_list';
 
@@ -88,6 +93,9 @@ export default {
   computed: {
     lastUpdateTimestamp() {
       return this.state.match(/timestamp=(.+)/)[1].replace(/\\/g, '');
+    },
+    lastUpdateTimestampFormatted() {
+      return DateTime.fromISO(this.lastUpdateTimestamp).toRelative();
     }
   },
 
