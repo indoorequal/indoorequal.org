@@ -15,7 +15,13 @@
     <template v-else>
       <div class="pa-3">
         <div class="d-flex align-center justify-space-between">
-          <h1 class="display-1">indoor=</h1>
+          <h1 class="display-1">
+            <img
+              :src="logo"
+              alt="indoor="
+              class="logo"
+            />
+          </h1>
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
               <v-btn
@@ -70,6 +76,7 @@
 import { DateTime } from 'luxon';
 import { tilesUrl } from '../config.json';
 import ExploreList from './explore_list';
+import logo from '../icons/indoorequal.svg';
 
 export default {
   components: {
@@ -86,6 +93,7 @@ export default {
   data() {
     return {
       explore: false,
+      logo,
       state: null
     };
   },
@@ -127,3 +135,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.logo {
+  max-width: 70%;
+}
+</style>
