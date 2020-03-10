@@ -5,10 +5,10 @@
     :loading="isLoading"
     :search-input.sync="search"
     :error="!!error"
+    :placeholder="$t('search')"
     hide-no-data
     hide-details
     dense
-    placeholder="Search"
     background-color="white"
     prepend-inner-icon="mdi-magnify"
     class="geocoder"

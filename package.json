@@ -39,6 +39,7 @@
     "luxon": "^1.22.0",
     "mapbox-gl": "^1.0.0",
     "vue": "^2.6.9",
+    "vue-i18n": "^8.15.5",
     "vue-mapbox": "osmontrouge/vue-mapbox#update",
     "vuetify": "^2.2.3"
   }

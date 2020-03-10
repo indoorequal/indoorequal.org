@@ -1,0 +1,26 @@
+{
+  "en": {
+    "explore_list": {
+      "title": "Explore",
+      "description": "This list is extracted from the {wikipage}.",
+      "wikipage": "Simple Indoor Tagging wiki page",
+      "subtitle": "{city} - {nation}"
+    },
+    "search": "Search",
+    "sidebar": {
+      "description": "indoor= is a map that display indoor data from {osm}.",
+      "collapse": "Collapse",
+      "explore": {
+        "title": "Explore",
+        "subtitle": "Showcase indoor location"
+      },
+      "last_update": "last data update",
+      "osm": "OpenStreetMap"
+    },
+    "toolbar": {
+      "menu": "Menu",
+      "zoom_to_edit": "Zoom in to edit",
+      "edit": "Edit OpenStreetMap"
+    }
+  }
+}

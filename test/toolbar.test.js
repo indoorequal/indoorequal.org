@@ -1,10 +1,13 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
 import IndoorToolbar from '../js/toolbar';
 
 describe('Toolbar', () => {
   let toolbar;
   beforeEach(() => {
+    const localVue = createLocalVue();
+    localVue.prototype.$t = () => {};
     toolbar = shallowMount(IndoorToolbar, {
+      localVue,
       propsData: {
         value: false,
         mapCenter: { lat: 1, lng: 2 },

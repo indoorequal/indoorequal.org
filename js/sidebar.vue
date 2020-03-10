@@ -32,10 +32,13 @@
                 <v-icon>mdi-arrow-expand-left</v-icon>
               </v-btn>
             </template>
-            <span>Collapse</span>
+            <span>{{ $t("sidebar.collapse") }}</span>
           </v-tooltip>
         </div>
-        <p class="mt-2 mb-1">indoor= is a map that display indoor data from <a href="https://openstreetmap.org/">OpenStreetMap</a>.</p>
+        <p
+          v-html="$t('sidebar.description', { osm: `<a href='https://openstreetmap.org/'>${$t('sidebar.osm')}</a>` })"
+          class="mt-2 mb-1"
+        />
       </div>
       <v-list>
         <v-list-item @click="toggleExplore">
@@ -43,8 +46,8 @@
             <v-icon>mdi-map-marker-circle</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>Explore</v-list-item-title>
-            <v-list-item-subtitle>Showcase indoor location</v-list-item-subtitle>
+            <v-list-item-title>{{ $t('sidebar.explore.title') }}</v-list-item-title>
+            <v-list-item-subtitle>{{ $t('sidebar.explore.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
         <v-list-item href="https://github.com/indoorequal/">
@@ -62,7 +65,7 @@
         v-if="state"
         class="pa-3 font-italic caption"
       >
-        last data update
+        {{ $t('sidebar.last_update') }}
         <time
           :datetime="lastUpdateTimestamp"
           :title="lastUpdateTimestamp"

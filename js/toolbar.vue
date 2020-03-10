@@ -10,7 +10,7 @@
           <v-icon>mdi-menu</v-icon>
         </v-btn>
       </template>
-      <span>Menu</span>
+      <span>{{ $t('toolbar.menu') }}</span>
     </v-tooltip>
     <geocoder-input
       class="mx-2"
@@ -30,7 +30,7 @@
               </v-btn>
             </div>
           </template>
-          <span>{{ editDisabled ? 'Zoom in to edit' : 'Edit OpenStreetMap' }}</span>
+          <span>{{ editDisabled ? $t('toolbar.zoom_to_edit') : $t('toolbar.edit') }}</span>
         </v-tooltip>
       </template>
       <v-list>

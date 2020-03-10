@@ -7,9 +7,12 @@
       >
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>
-      Explore
+      {{ $t('explore_list.title') }}
     </h2>
-    <p class="my-2">This list is extracted from the <a href="https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging">Simple Indoor Tagging wiki page</a>.</p>
+    <p
+      v-html="$t('explore_list.description', { wikipage: `<a href='https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging'>${$t('explore_list.wikipage')}</a>` })"
+      class="my-2"
+    />
 
     <v-skeleton-loader
       v-if="links.length === 0"
@@ -25,9 +28,7 @@
         {{ link.description }}
       </v-card-title>
       <v-card-subtitle>
-        {{ link.city }}
-        -
-        {{ link.nation }}
+        {{ $t('explore_list.subtitle', { city: link.city, nation: link.nation }) }}
       </v-card-subtitle>
     </v-card>
   </div>
