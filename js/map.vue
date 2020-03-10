@@ -104,6 +104,7 @@ const layers = [
         "in",
         "class",
         "area",
+        "corridor",
         "platform"
       ]
     ],
@@ -125,7 +126,6 @@ const layers = [
         "in",
         "class",
         "room",
-        "corridor",
         "wall"
       ]
     ],
