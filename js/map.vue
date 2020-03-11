@@ -117,6 +117,25 @@ const layers = [
     }
   },
   {
+    id: "indoor-column",
+    "type": "fill",
+    "source-layer": "area",
+    "filter": [
+      "all",
+      [
+        "==",
+        "class",
+        "column"
+      ]
+    ],
+    "layout": {
+      "visibility": "visible"
+    },
+    "paint": {
+      "fill-color": "#bfbfbf"
+    }
+  },
+  {
     id: "indoor-lines",
     "type": "line",
     "source-layer": "area",
