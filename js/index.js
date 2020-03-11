@@ -24,7 +24,7 @@ import Vuetify, {
   VTooltip
 } from 'vuetify/lib';
 import VueI18n from 'vue-i18n';
-import messages from '../locales/en.json';
+import messages from '../locales/*.json';
 import App from './app';
 
 Vue.use(Vuetify, {
@@ -53,7 +53,9 @@ Vue.use(Vuetify, {
 Vue.use(VueI18n);
 
 const i18n = new VueI18n({
-  locale: 'en',
+  locale: navigator.language.split('-')[0],
+  fallbackLocale: 'en',
+  availableLocales: Object.keys(messages),
   messages
 });
 
