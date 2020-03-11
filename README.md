@@ -1,6 +1,6 @@
-# Indoor viewer on OSM data
+# indoorequal.org
 
-An experimental indoor viewer based on OSM Data.
+An indoor viewer based on OSM Data. This repository is the frontend part. The backend is available here: https://github.com/indoorequal/indoorequal
 
 ## Development
 
