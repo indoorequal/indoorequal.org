@@ -243,6 +243,27 @@ const layers = [
       ...commonPoi.layout,
       "icon-image": "{subclass}_11"
     }
+  },
+  {
+    id: "indoor-name",
+    "type": "symbol",
+    "source-layer": "area_name",
+    "filter": [
+      "all"
+    ],
+    "layout": {
+      "text-field": ["get", "name"],
+      "text-font": [
+        "Noto Sans Regular"
+      ],
+      "text-max-width": 5,
+      "text-size": 14
+    },
+    "paint": {
+      "text-color": "#666",
+      "text-halo-color": "#ffffff",
+      "text-halo-width": 1
+    }
   }
 ];
 
