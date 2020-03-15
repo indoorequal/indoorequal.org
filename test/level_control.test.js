@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { shallowMount } from '@vue/test-utils';
 import LevelControl from '../js/level_control';
 
@@ -29,8 +30,9 @@ describe('LevelControl', () => {
     expect(control.contains('.mapboxgl-ctrl-group')).toBe(true);
   });
 
-  it('render the levels as button', () => {
+  it('render the levels as button', async () => {
     control.vm.levels = ['1', '0'];
+    await Vue.nextTick();
     expect(control.findAll('button').length).toEqual(2);
   });
 
@@ -68,16 +70,18 @@ describe('LevelControl', () => {
     expect(control.vm.levels).toEqual(['1', '0']);
   });
 
-  it('emit the value when clicking on a level', () => {
+  it('emit the value when clicking on a level', async () => {
     control.vm.levels = ['1', '0'];
+    await Vue.nextTick();
     control.find('button:first-child').trigger('click');
     expect(control.emitted('input')[0]).toEqual(['1']);
   });
 
-  it('reset the value to 0 if the currentLevel doesnt exist', () => {
+  it('reset the value to 0 if the currentLevel doesnt exist', async () => {
     control.vm.levels = ['1', '0'];
     control.setProps({ value: '1' });
     control.vm.levels = ['0'];
+    await Vue.nextTick();
     expect(control.emitted('input')[0]).toEqual(['0']);
   });
 });
