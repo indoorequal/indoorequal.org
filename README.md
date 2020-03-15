@@ -10,6 +10,10 @@ Using docker:
 
 And visit http://localhost:1234
 
+## Translation
+
+You can add or edit translation files in the `locales` dir.
+
 ## Deploy
 
 Using docker:
