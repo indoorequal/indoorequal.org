@@ -1,0 +1,9 @@
+version: "3"
+services:
+  indoor:
+    build:
+      context: .
+    image: indoor
+
+    ports:
+    - "8080:80"
