@@ -8,6 +8,7 @@
     :placeholder="$t('search')"
     hide-no-data
     hide-details
+    no-filter
     dense
     background-color="white"
     prepend-inner-icon="mdi-magnify"
