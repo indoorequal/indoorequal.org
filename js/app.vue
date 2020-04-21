@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :class="{ xs: $vuetify.breakpoint.xsOnly }">
     <indoor-sidebar v-model="menu" />
     <v-content>
       <indoor-map
@@ -96,5 +96,11 @@ html {
   left: 10px;
   position: absolute;
   top: 10px;
+}
+.xs .indoor-toolbar {
+  width: calc(100% - 20px);
+}
+.xs .mapboxgl-ctrl-top-right {
+  margin-top: 70px;
 }
 </style>
