@@ -29,6 +29,8 @@ import IndoorMap from './map';
 import IndoorSidebar from './sidebar';
 import IndoorToolbar from './toolbar';
 
+const MAP_VIEW_LOCAL_STORAGE = 'mapView';
+
 export default {
   components: {
     IndoorMap,
@@ -54,24 +56,43 @@ export default {
     if (hashParams.has('level')) {
       this.mapLevel = hashParams.get('level');
     }
-    if (!hashParams.has('map')) {
-      this.centerMapViaGeoIP()
-        .finally(() => {
-          this.loadMap = true;
-        });
-    } else {
+    this.loadInitialLocation(hashParams).finally(() => {
       this.loadMap = true;
-    }
+    });
   },
 
   watch: {
     mapLevel(mapLevel) {
       const hash = new URLSearchParams(window.location.hash.replace('#', ''));
       window.location.hash = `map=${hash.get('map')}&level=${mapLevel}`;
+      this.saveMapView();
+    },
+
+    mapZoom() {
+      this.saveMapView();
+    },
+
+    mapCenter() {
+      this.saveMapView();
     }
   },
 
   methods: {
+    loadInitialLocation(hashParams) {
+      if (hashParams.has('map')) {
+        return Promise.resolve();
+      }
+      const savedMapView = this.savedMapView();
+      if (savedMapView) {
+        const { center, zoom, level } = JSON.parse(savedMapView);
+        this.mapCenter = center;
+        this.mapZoom = zoom;
+        this.mapLevel = level;
+        return Promise.resolve();
+      }
+      return this.centerMapViaGeoIP();
+    },
+
     centerMapViaGeoIP() {
       return fetch('https://geo.indoorequal.org/me')
         .then(res => res.json())
@@ -83,6 +104,14 @@ export default {
 
     updateBounds(bbox) {
       this.newMapBounds = bbox;
+    },
+
+    savedMapView() {
+      return localStorage.getItem(MAP_VIEW_LOCAL_STORAGE);
+    },
+
+    saveMapView() {
+      localStorage.setItem(MAP_VIEW_LOCAL_STORAGE, JSON.stringify({ center: this.mapCenter, zoom: this.mapZoom, level: this.mapLevel }));
     }
   }
 };
