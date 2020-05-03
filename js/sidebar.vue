@@ -35,10 +35,10 @@
             <span>{{ $t("sidebar.collapse") }}</span>
           </v-tooltip>
         </div>
-        <p
-          v-html="$t('sidebar.description', { osm: `<a href='https://openstreetmap.org/'>${$t('sidebar.osm')}</a>` })"
-          class="mt-2 mb-1"
+        <i18n path="sidebar.description" tag="p" class="mt-2 mb-1">
+          <a href="https://openstreetmap.org/" target="_blank">{{ $t('sidebar.osm') }}</a>
         />
+        </i18n>
       </div>
       <v-list>
         <v-list-item @click="toggleExplore">
@@ -50,6 +50,7 @@
             <v-list-item-subtitle>{{ $t('sidebar.explore.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+        <api-dialog />
         <about-dialog />
       </v-list>
     </template>
@@ -72,12 +73,14 @@
 import { DateTime } from 'luxon';
 import { tilesUrl } from '../config.json';
 import AboutDialog from './about_dialog';
+import ApiDialog from './api_dialog';
 import ExploreList from './explore_list';
 import logo from '../icons/indoorequal.svg';
 
 export default {
   components: {
     AboutDialog,
+    ApiDialog,
     ExploreList
   },
 

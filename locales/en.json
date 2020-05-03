@@ -7,11 +7,17 @@
   },
   "search": "Search",
   "sidebar": {
-    "description": "indoor= is a map that display indoor data from {osm}.",
+    "description": "indoor= is a map that display indoor data from {0}.",
     "collapse": "Collapse",
     "about": {
       "title": "About",
       "created_by": "Created by François de Metz"
+    },
+    "api": {
+      "title": "Developers",
+      "subtitle": "Integrate indoor= into your map",
+      "content": "Tiles are available at {0}.\n\nTo integrate indoor= into your map, you can use the {1}.\n\nIf you need a Service Level Agreement (SLA), contact us.",
+      "plugin": "mapbox-gl-indoorequal plugin",
     },
     "explore": {
       "title": "Explore",

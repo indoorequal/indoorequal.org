@@ -7,11 +7,17 @@
   },
   "search": "Rechercher",
   "sidebar": {
-    "description": "indoor= est une carte qui affiche les données intérieure d'{osm}.",
+    "description": "indoor= est une carte qui affiche les données intérieure d'{0}.",
     "collapse": "Replier",
     "about": {
       "title": "A propos",
       "created_by": "Créé par François de Metz"
+    },
+    "api": {
+      "title": "Développeurs",
+      "subtitle": "Intégrer indoor= à votre carte",
+      "content": "Les tuiles sont disponible à l'adresse {0}.\n\nPour intégrer indoor= à votre carte, vous pouvez utiliser {1}.\n\nSi vous avez d'un niveau de services (SLA), contactez nous.",
+      "plugin": "le plugin mapbox-gl-indoorequal",
     },
     "explore": {
       "title": "Explorer",
