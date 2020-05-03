@@ -10,6 +10,7 @@ import Vuetify, {
   VCardSubtitle,
   VCardTitle,
   VContent,
+  VDialog,
   VDivider,
   VIcon,
   VList,
@@ -21,6 +22,7 @@ import Vuetify, {
   VMenu,
   VNavigationDrawer,
   VSkeletonLoader,
+  VSpacer,
   VTooltip
 } from 'vuetify/lib';
 import VueI18n from 'vue-i18n';
@@ -36,6 +38,7 @@ Vue.use(Vuetify, {
     VCardSubtitle,
     VCardTitle,
     VContent,
+    VDialog,
     VDivider,
     VIcon,
     VList,
@@ -47,6 +50,7 @@ Vue.use(Vuetify, {
     VMenu,
     VNavigationDrawer,
     VSkeletonLoader,
+    VSpacer,
     VTooltip
   }
 });

@@ -9,6 +9,10 @@
   "sidebar": {
     "description": "indoor= est une carte qui affiche les données intérieure d'{osm}.",
     "collapse": "Replier",
+    "about": {
+      "title": "A propos",
+      "created_by": "Créé par François de Metz"
+    },
     "explore": {
       "title": "Explorer",
       "subtitle": "Lieux cartographié en intérieur"

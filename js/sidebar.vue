@@ -50,14 +50,7 @@
             <v-list-item-subtitle>{{ $t('sidebar.explore.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <v-list-item href="https://github.com/indoorequal/">
-          <v-list-item-icon>
-            <img src="../icons/github.svg" />
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>GitHub</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
+        <about-dialog />
       </v-list>
     </template>
     <template v-slot:append>
@@ -78,11 +71,13 @@
 <script>
 import { DateTime } from 'luxon';
 import { tilesUrl } from '../config.json';
+import AboutDialog from './about_dialog';
 import ExploreList from './explore_list';
 import logo from '../icons/indoorequal.svg';
 
 export default {
   components: {
+    AboutDialog,
     ExploreList
   },
 

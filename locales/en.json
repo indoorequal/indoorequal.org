@@ -9,6 +9,10 @@
   "sidebar": {
     "description": "indoor= is a map that display indoor data from {osm}.",
     "collapse": "Collapse",
+    "about": {
+      "title": "About",
+      "created_by": "Created by François de Metz"
+    },
     "explore": {
       "title": "Explore",
       "subtitle": "Showcase indoor location"
