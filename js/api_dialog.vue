@@ -2,6 +2,7 @@
   <v-dialog
     v-model="dialog"
     :width="500"
+    :eager="true"
   >
     <template v-slot:activator="{ on }">
       <v-list-item v-on="on">
