@@ -36,7 +36,6 @@
     "vue-template-compiler": "^2.6.9"
   },
   "dependencies": {
-    "debounce": "^1.2.0",
     "luxon": "^1.22.0",
     "mapbox-gl": "^v1.10.0-beta.1",
     "mapbox-gl-indoorequal": "^0.0.7",
