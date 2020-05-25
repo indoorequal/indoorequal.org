@@ -26,7 +26,7 @@
 
 <script>
 import { MglMap, MglNavigationControl } from 'vue-mapbox/dist/vue-mapbox.umd';
-import { apiKey } from '../config.json';
+import { mapTilerApiKey } from '../config.json';
 import icons from '../mapicons/*.svg';
 import LevelControl from './level_control';
 
@@ -69,7 +69,7 @@ export default {
   data() {
     return {
       icons,
-      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${apiKey}`
+      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${mapTilerApiKey}`
     };
   },
 

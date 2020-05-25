@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { apiKey } from '../config.json';
+import { mapTilerApiKey } from '../config.json';
 
 export default {
   data() {
@@ -35,7 +35,7 @@ export default {
       this.error = null;
       this.isLoading = true;
 
-      fetch(`https://api.maptiler.com/geocoding/${this.search}.json?key=${apiKey}`)
+      fetch(`https://api.maptiler.com/geocoding/${this.search}.json?key=${mapTilerApiKey}`)
         .then(res => res.json())
         .then(body => {
           this.items = body.features.map((feature) => {
