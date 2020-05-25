@@ -16,8 +16,9 @@
     "api": {
       "title": "Développeurs",
       "subtitle": "Intégrer indoor= à votre carte",
-      "content": "Les tuiles sont disponible à l'adresse {0}.\n\nPour intégrer indoor= à votre carte, vous pouvez utiliser {1}.\n\nSi vous avez d'un niveau de services (SLA), contactez nous.",
+      "content": "nPour intégrer indoor= à votre carte, vous pouvez utiliser {0}.\n\nVous aurez besoin d'enregistrer votre clef d'API gratuite sur {1}.",
       "plugin": "le plugin mapbox-gl-indoorequal",
+      "indoorequalcom": "indoorequal.com"
     },
     "explore": {
       "title": "Explorer",

@@ -16,8 +16,9 @@
     "api": {
       "title": "Developers",
       "subtitle": "Integrate indoor= into your map",
-      "content": "Tiles are available at {0}.\n\nTo integrate indoor= into your map, you can use the {1}.\n\nIf you need a Service Level Agreement (SLA), contact us.",
+      "content": "To integrate indoor= into your map, you can use the {0}.\n\nYou'll need to register your free API key at {1}.",
       "plugin": "mapbox-gl-indoorequal plugin",
+      "indoorequalcom": "indoorequal.com"
     },
     "explore": {
       "title": "Explore",

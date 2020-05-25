@@ -29,8 +29,8 @@
       </v-card-title>
       <v-card-text>
         <i18n path="sidebar.api.content" tag="p" class="text-pre">
-          <a href="https://tiles.indoorequal.org" target="_blank">tiles.indoorequal.org</a>
           <a href="https://github.com/indoorequal/mapbox-gl-indoorequal" target="_blank">{{ $t('sidebar.api.plugin') }}</a>
+          <a href="https://indoorequal.com/" target="_blank">{{ $t('sidebar.api.indoorequalcom') }}</a>
         </i18n>
       </v-card-text>
     </v-card>
