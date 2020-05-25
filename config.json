@@ -1,4 +1,5 @@
 {
   "mapTilerApiKey": "T7HQrA4a6k5eOxDGD6qp",
-  "indoorEqualApiKey": "3mvaOOkLgx6LA4iP1P1Jbb"
+  "indoorEqualApiKey": "3mvaOOkLgx6LA4iP1P1Jbb",
+  "tilesUrl": "https://tiles.indoorequal.org/"
 }
