@@ -8,6 +8,12 @@
       @load="load"
       @update:center="updateMapCenter"
       @update:zoom="updateMapZoom"
+      @mouseenter-indoor-poi-rank1="mouseenterLayer"
+      @click-indoor-poi-rank1="clickLayer"
+      @mouseleave-indoor-poi-rank1="mouseleaveLayer"
+      @mouseenter-indoor-poi-vending="mouseenterLayer"
+      @click-indoor-poi-vending="clickLayer"
+      @mouseleave-indoor-poi-vending="mouseleaveLayer"
     >
       <MglNavigationControl show-compass />
       <level-control
@@ -116,6 +122,19 @@ export default {
     updateMapZoom(mapZoom) {
       this.$emit('update:mapZoom', mapZoom);
       this.updateMapBounds();
+    },
+
+    mouseenterLayer(e) {
+      e.map.getCanvas().style.cursor = 'pointer';
+    },
+
+    clickLayer(e) {
+      const id = e.mapboxEvent.features[0].properties.id;
+      this.$emit('clickPoi', id);
+    },
+
+    mouseleaveLayer(e) {
+      e.map.getCanvas().style.cursor = '';
     }
   }
 };
