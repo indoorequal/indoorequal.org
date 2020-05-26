@@ -1,7 +1,22 @@
+<template>
+  <div class="mapboxgl-ctrl">
+    <v-btn
+      v-for="level in levels"
+      :class="{ 'black--text': level !== value }"
+      :color="level == value ? 'primary' : 'white'"
+      fab
+      dark
+      class="d-block mb-2"
+      @click="updateLevel(level)"
+    >
+      {{ level }}
+    </v-btn>
+  </div>
+</template>
+
 <script>
 import { $helpers } from 'vue-mapbox/dist/vue-mapbox.umd.js';
 import IndoorEqual from 'mapbox-gl-indoorequal';
-import 'mapbox-gl-indoorequal/mapbox-gl-indoorequal.css';
 import { indoorEqualApiKey } from '../config.json';
 
 export default {
@@ -14,11 +29,34 @@ export default {
     },
   },
 
+  data() {
+    return {
+      levels: []
+    };
+  },
+
   mounted() {
-    this.control = new IndoorEqual(this.map, { apiKey: indoorEqualApiKey });
+    this.indoorequal = new IndoorEqual(this.map, { apiKey: indoorEqualApiKey });
+    this.control = this;
     this.$_addControl();
-    this.control.updateLevel(this.value);
-    this.control.on('levelchange', (level) => this.$emit('input', level));
+    this.levels = this.indoorequal.levels;
+    this.indoorequal.updateLevel(this.value);
+    this.indoorequal.on('levelchange', (level) => this.$emit('input', level));
+    this.indoorequal.on('levelschange', (levels) => this.levels = levels);
+  },
+
+  methods: {
+    onAdd() {
+      return this.$el;
+    },
+
+    onRemove() {
+      this.$el.remove();
+    },
+
+    updateLevel(level) {
+      this.indoorequal.updateLevel(level);
+    }
   }
 };
 </script>

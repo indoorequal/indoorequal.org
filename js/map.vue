@@ -12,6 +12,7 @@
       <MglNavigationControl show-compass />
       <level-control
         :value="mapLevel"
+        position="bottom-right"
         @input="updateMapLevel"
       />
     </MglMap>
