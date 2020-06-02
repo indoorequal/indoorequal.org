@@ -43,7 +43,7 @@ export default {
   },
 
   mounted() {
-    fetch('https://wiki.openstreetmap.org/w/api.php?action=parse&page=Simple_Indoor_Tagging&prop=text&section=12&format=json&origin=*')
+    fetch('https://wiki.openstreetmap.org/w/api.php?action=parse&page=Simple_Indoor_Tagging&prop=text&section=11&format=json&origin=*')
     .then(res => res.json())
     .then(page => this.links = this.parse(page.parse.text['*']));
   },
