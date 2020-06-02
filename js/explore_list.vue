@@ -14,8 +14,9 @@
       class="my-2"
     />
 
+    <p v-if="error">{{ $t('explore_list.error') }}</p>
     <v-skeleton-loader
-      v-if="links.length === 0"
+      v-else-if="links.length === 0"
       type="card-heading@20"
     />
     <v-card
@@ -38,14 +39,16 @@
 export default {
   data() {
     return {
-      links: []
+      links: [],
+      error: false
     };
   },
 
   mounted() {
     fetch('https://wiki.openstreetmap.org/w/api.php?action=parse&page=Simple_Indoor_Tagging&prop=text&section=11&format=json&origin=*')
     .then(res => res.json())
-    .then(page => this.links = this.parse(page.parse.text['*']));
+    .then(page => this.links = this.parse(page.parse.text['*']))
+    .catch(() => this.error = true);
   },
 
   methods: {

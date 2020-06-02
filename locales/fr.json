@@ -3,7 +3,8 @@
     "title": "Explorer",
     "description": "Cette liste est extraite de {wikipage}.",
     "wikipage": "la page wiki Simple Indoor Tagging",
-    "subtitle": "{city} - {nation}"
+    "subtitle": "{city} - {nation}",
+    "error": "Une erreur est survenue lors du chargement de la liste."
   },
   "search": "Rechercher",
   "sidebar": {
