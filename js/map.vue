@@ -21,6 +21,7 @@
         position="bottom-right"
         @input="updateMapLevel"
       />
+      <slot />
     </MglMap>
     <img
       v-for="(icon, key) in icons"

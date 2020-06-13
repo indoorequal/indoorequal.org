@@ -10,7 +10,13 @@
         :map-zoom.sync="mapZoom"
         :new-map-bounds="newMapBounds"
         @clickPoi="clickPoi"
-      />
+      >
+        <MglMarker
+          v-if="poiCoordinates.length > 0"
+          :coordinates="poiCoordinates"
+          color="#6667ad"
+        />
+      </indoor-map>
       <div class="indoor-toolbar">
         <indoor-toolbar
           v-model="menu"
@@ -24,6 +30,7 @@
         <indoor-poi
           v-model="poi"
           class="indoor-poi"
+          @poiCoordinates="setPoiCoordinates"
         />
       </div>
     </v-content>
@@ -31,6 +38,7 @@
 </template>
 
 <script>
+import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorMap from './map';
 import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
@@ -45,7 +53,8 @@ export default {
     IndoorMap,
     IndoorPoi,
     IndoorSidebar,
-    IndoorToolbar
+    IndoorToolbar,
+    MglMarker
   },
 
   data() {
@@ -56,6 +65,7 @@ export default {
       mapLevel: '0',
       mapZoom: 5,
       poi: '',
+      poiCoordinates: [],
       menu: false,
       minZoom: 17,
       newMapBounds: []
@@ -88,8 +98,11 @@ export default {
       this.saveMapView();
     },
 
-    poi() {
+    poi(poi) {
       this.updateHash();
+      if (poi == '') {
+        this.poiCoordinates = [];
+      }
     }
   },
 
@@ -139,6 +152,10 @@ export default {
 
     clickPoi(id) {
       this.poi = id;
+    },
+
+    setPoiCoordinates(coordinates) {
+      this.poiCoordinates = coordinates;
     }
   }
 };

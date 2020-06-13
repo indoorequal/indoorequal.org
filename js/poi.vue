@@ -146,8 +146,9 @@ export default {
           .then(res => res.json())
           .then((geojson) => {
             this.geojson = geojson;
+            this.$emit('poiCoordinates', geojson.geometry.coordinates);
           })
-        .finally(() => this.loading = false);
+          .finally(() => this.loading = false);
       }
     }
   }
