@@ -17,7 +17,7 @@
 <script>
 import { $helpers } from 'vue-mapbox/dist/vue-mapbox.umd.js';
 import IndoorEqual from 'mapbox-gl-indoorequal';
-import { indoorEqualApiKey } from '../config.json';
+import { indoorEqualApiKey, tilesUrl } from '../config.json';
 
 export default {
   mixins: [$helpers.asControl],
@@ -36,7 +36,7 @@ export default {
   },
 
   mounted() {
-    this.indoorequal = new IndoorEqual(this.map, { apiKey: indoorEqualApiKey });
+    this.indoorequal = new IndoorEqual(this.map, { apiKey: indoorEqualApiKey, url: tilesUrl });
     this.control = this;
     this.$_addControl();
     this.levels = this.indoorequal.levels;
