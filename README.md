@@ -12,7 +12,7 @@ And visit http://localhost:1234
 
 ## Translation
 
-You can add or edit translation files in the `locales` dir.
+Translations are managed via Transifex, [go here to translate it in your language](https://www.transifex.com/indoorequal/indoorequalorg/languages/).
 
 ## Deploy
 
