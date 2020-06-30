@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import { tilesUrl } from '../config.json';
+import { tilesUrl, indoorEqualApiKey } from '../config.json';
 import { contactsFor } from './place';
 import OpeningHours from './opening_hours';
 
@@ -142,7 +142,7 @@ export default {
           return;
         }
         this.loading = true;
-        fetch(`${tilesUrl}poi/${this.value}`)
+        fetch(`${tilesUrl}poi/${this.value}?key=${indoorEqualApiKey}`)
           .then(res => res.json())
           .then((geojson) => {
             this.geojson = geojson;
