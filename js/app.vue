@@ -9,33 +9,52 @@
         :map-level.sync="mapLevel"
         :map-zoom.sync="mapZoom"
         :new-map-bounds="newMapBounds"
-      />
-      <indoor-toolbar
-        v-model="menu"
-        :map-bounds="mapBounds"
-        :map-center="mapCenter"
-        :map-level="mapLevel"
-        :map-zoom="mapZoom"
-        :min-zoom="minZoom"
-        class="indoor-toolbar"
-        @updateBounds="updateBounds"
-      />
+        @clickPoi="clickPoi"
+      >
+        <MglMarker
+          v-if="poiCoordinates.length > 0"
+          :coordinates="poiCoordinates"
+          color="#6667ad"
+        />
+      </indoor-map>
+      <div class="indoor-toolbar">
+        <indoor-toolbar
+          v-model="menu"
+          :map-bounds="mapBounds"
+          :map-center="mapCenter"
+          :map-level="mapLevel"
+          :map-zoom="mapZoom"
+          :min-zoom="minZoom"
+          @updateBounds="updateBounds"
+        />
+        <indoor-poi
+          v-model="poi"
+          class="indoor-poi"
+          @poiCoordinates="setPoiCoordinates"
+        />
+      </div>
     </v-content>
   </v-app>
 </template>
 
 <script>
+import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorMap from './map';
+import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
 import IndoorToolbar from './toolbar';
 
 const MAP_VIEW_LOCAL_STORAGE = 'mapView';
+const POI_PARAM = 'poi';
+const LEVEL_PARAM = 'level';
 
 export default {
   components: {
     IndoorMap,
+    IndoorPoi,
     IndoorSidebar,
-    IndoorToolbar
+    IndoorToolbar,
+    MglMarker
   },
 
   data() {
@@ -43,8 +62,10 @@ export default {
       loadMap: false,
       mapBounds: [],
       mapCenter: { lat: 46.8, lng: 5 },
-      mapLevel: "0",
+      mapLevel: '0',
       mapZoom: 5,
+      poi: '',
+      poiCoordinates: [],
       menu: false,
       minZoom: 17,
       newMapBounds: []
@@ -53,8 +74,11 @@ export default {
 
   mounted() {
     const hashParams = new URLSearchParams(window.location.hash.replace('#', ''));
-    if (hashParams.has('level')) {
-      this.mapLevel = hashParams.get('level');
+    if (hashParams.has(LEVEL_PARAM)) {
+      this.mapLevel = hashParams.get(LEVEL_PARAM);
+    }
+    if (hashParams.has(POI_PARAM)) {
+      this.poi = hashParams.get(POI_PARAM);
     }
     this.loadInitialLocation(hashParams).finally(() => {
       this.loadMap = true;
@@ -63,9 +87,7 @@ export default {
 
   watch: {
     mapLevel(mapLevel) {
-      const hash = new URLSearchParams(window.location.hash.replace('#', ''));
-      window.location.hash = `map=${hash.get('map')}&level=${mapLevel}`;
-      this.saveMapView();
+      this.updateHash();
     },
 
     mapZoom() {
@@ -74,6 +96,13 @@ export default {
 
     mapCenter() {
       this.saveMapView();
+    },
+
+    poi(poi) {
+      this.updateHash();
+      if (poi == '') {
+        this.poiCoordinates = [];
+      }
     }
   },
 
@@ -112,6 +141,21 @@ export default {
 
     saveMapView() {
       localStorage.setItem(MAP_VIEW_LOCAL_STORAGE, JSON.stringify({ center: this.mapCenter, zoom: this.mapZoom, level: this.mapLevel }));
+    },
+
+    updateHash() {
+      const hash = new URLSearchParams(window.location.hash.replace('#', ''));
+      const poi = this.poi !== '' ? `&${POI_PARAM}=${this.poi}` : '';
+      window.location.hash = `map=${hash.get('map')}&${LEVEL_PARAM}=${this.mapLevel}${poi}`;
+      this.saveMapView();
+    },
+
+    clickPoi(id) {
+      this.poi = id;
+    },
+
+    setPoiCoordinates(coordinates) {
+      this.poiCoordinates = coordinates;
     }
   }
 };
@@ -125,11 +169,16 @@ html {
   left: 10px;
   position: absolute;
   top: 10px;
+  width: 370px;
 }
 .xs .indoor-toolbar {
   width: calc(100% - 20px);
 }
 .xs .mapboxgl-ctrl-top-right {
   margin-top: 70px;
+}
+.indoor-poi {
+  margin-top: 1rem;
+  z-index: 6;
 }
 </style>

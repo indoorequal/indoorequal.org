@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+const fetch = require('minipass-fetch');
+const deepmerge = require('deepmerge');
+const yaml = require('js-yaml');
+const fs = require('fs');
+
+const locales = ['en', 'fr'];
+
+fetch('https://raw.githubusercontent.com/indoorequal/indoorequal/master/layers/poi/mapping.yaml')
+  .then(res => res.text())
+  .then((res) => {
+    const doc = yaml.safeLoad(res);
+    const mapping = doc.tables.poi_point.mapping;
+    const keys = Object.keys(doc.tables.poi_point.mapping);
+    const types = keys.reduce((memo, key) => {
+      memo[key] = mapping[key].reduce((memo, v) => {
+        memo[v] = v;
+        return memo;
+      }, {});
+      return memo;
+    }, {});
+    locales.forEach((locale) => {
+      const l = require(`../locales/${locale}.json`);
+      l.poi = deepmerge(types, l.poi);
+      fs.writeFileSync(`./locales/${locale}.json`, JSON.stringify(l, null, '  ') + "\n", { encoding: 'utf-8' });
+    });
+  });
