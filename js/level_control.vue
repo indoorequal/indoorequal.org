@@ -1,12 +1,12 @@
 <template>
-  <div class="mapboxgl-ctrl">
+  <div class="mapboxgl-ctrl pt-2">
     <v-btn
       v-for="level in levels"
       :class="{ 'black--text': level !== value }"
       :color="level == value ? 'primary' : 'white'"
       fab
       dark
-      class="d-block mb-2"
+      class="button d-block mb-2"
       @click="updateLevel(level)"
     >
       {{ level }}
@@ -60,3 +60,14 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.mapboxgl-ctrl {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  width: 90px;
+}
+.button {
+  margin: 0 auto;
+}
+</style>
