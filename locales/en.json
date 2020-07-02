@@ -390,7 +390,7 @@
   },
   "wheelchair": {
     "yes": "Weelchair accessible",
-    "limited": "Limited accessible",
+    "limited": "Limited accessibility",
     "no": "Not accessible"
   }
 }
