@@ -140,15 +140,15 @@
       "defibrillator": "defibrillator"
     },
     "entrance": {
-      "yes": "yes",
-      "main": "main",
-      "staircase": "staircase",
-      "home": "home",
-      "service": "service",
-      "emergency": "emergency",
-      "exit": "exit",
-      "shop": "shop",
-      "building": "building"
+      "yes": "Entrance",
+      "main": "Entrance",
+      "staircase": "Entrance",
+      "home": "Entrance",
+      "service": "Service",
+      "emergency": "Emergency exit",
+      "exit": "Exit",
+      "shop": "Entrance",
+      "building": "Entrance"
     },
     "exhibit": {
       "artwork": "Artwork",
