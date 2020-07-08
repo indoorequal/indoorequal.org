@@ -3,7 +3,8 @@
     "dev": "parcel serve parcel --hmr-port 1235 index.html",
     "build": "parcel build index.html",
     "test": "jest --watch",
-    "extract-poi-mapping": "node ./script/extract-poi-mapping"
+    "extract-poi-mapping": "node ./script/extract-poi-mapping",
+    "sprite": "spritezero ./sprite ./mapicons && spritezero --retina ./sprite@2x ./mapicons"
   },
   "browserslist": "last 2 Firefox versions, last 2 Chrome versions, last 2 Edge versions, last 2 Safari versions",
   "jest": {
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
+    "@mapbox/spritezero-cli": "https://github.com/francois2metz/spritezero-cli",
     "@mdi/font": "^5.0.0",
     "@vue/component-compiler-utils": "^2.6.0",
     "@vue/test-utils": "^1.0.0-beta.32",
