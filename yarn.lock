@@ -5736,10 +5736,10 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-mapbox-gl-indoorequal@^0.1.0:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/mapbox-gl-indoorequal/-/mapbox-gl-indoorequal-0.1.2.tgz#42dbdedc0fc7d59046f03b806f3c8f01e046a1ab"
-  integrity sha512-ri44Djv9K5mRSTVyO5fgwha8v9itzkdtbSYO1iZdfrh+9kVGoZHB1JloIqtr8JMLTzAYAhiOFESxZ+hLO/OESA==
+mapbox-gl-indoorequal@^0.2:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/mapbox-gl-indoorequal/-/mapbox-gl-indoorequal-0.2.0.tgz#da0241c4d7e6fbb091104e25f11fa8caec234e5a"
+  integrity sha512-BXN7aQamamgO96SjwTUPowCGsUqwdAsnSox30YVNGiv8LJMVLO4F5XklIU8CkW8f/dKZSACIDh6lGZMtKwlRcw==
   dependencies:
     array-equal "^1.0.0"
     debounce "^1.2.0"

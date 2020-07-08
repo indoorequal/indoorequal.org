@@ -7,7 +7,7 @@
       fab
       dark
       class="button d-block mb-2"
-      @click="updateLevel(level)"
+      @click="setLevel(level)"
     >
       {{ level }}
     </v-btn>
@@ -40,7 +40,7 @@ export default {
     this.control = this;
     this.$_addControl();
     this.levels = this.indoorequal.levels;
-    this.indoorequal.updateLevel(this.value);
+    this.indoorequal.setLevel(this.value);
     this.indoorequal.on('levelchange', (level) => this.$emit('input', level));
     this.indoorequal.on('levelschange', (levels) => this.levels = levels);
   },
@@ -54,8 +54,8 @@ export default {
       this.$el.remove();
     },
 
-    updateLevel(level) {
-      this.indoorequal.updateLevel(level);
+    setLevel(level) {
+      this.indoorequal.setLevel(level);
     }
   }
 };
