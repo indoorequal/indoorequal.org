@@ -37,6 +37,7 @@ export default {
 
   mounted() {
     this.indoorequal = new IndoorEqual(this.map, { apiKey: indoorEqualApiKey, url: tilesUrl });
+    this.indoorequal.loadSprite('/sprite', { update: true });
     this.control = this;
     this.$_addControl();
     this.levels = this.indoorequal.levels;

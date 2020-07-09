@@ -1,41 +1,32 @@
 <template>
-  <div>
-    <MglMap
-      :center="mapCenter"
-      :zoom="mapZoom"
-      :map-style="mapStyle"
-      hash="map"
-      @load="load"
-      @update:center="updateMapCenter"
-      @update:zoom="updateMapZoom"
-      @mouseenter-indoor-poi-rank1="mouseenterLayer"
-      @click-indoor-poi-rank1="clickLayer"
-      @mouseleave-indoor-poi-rank1="mouseleaveLayer"
-      @mouseenter-indoor-poi-vending="mouseenterLayer"
-      @click-indoor-poi-vending="clickLayer"
-      @mouseleave-indoor-poi-vending="mouseleaveLayer"
-    >
-      <MglNavigationControl show-compass />
-      <level-control
-        :value="mapLevel"
-        position="bottom-right"
-        @input="updateMapLevel"
-      />
-      <slot />
-    </MglMap>
-    <img
-      v-for="(icon, key) in icons"
-      v-show="false"
-      :ref="key"
-      :src="icon"
-   />
-  </div>
+  <MglMap
+    :center="mapCenter"
+    :zoom="mapZoom"
+    :map-style="mapStyle"
+    hash="map"
+    @load="load"
+    @update:center="updateMapCenter"
+    @update:zoom="updateMapZoom"
+    @mouseenter-indoor-poi-rank1="mouseenterLayer"
+    @click-indoor-poi-rank1="clickLayer"
+    @mouseleave-indoor-poi-rank1="mouseleaveLayer"
+    @mouseenter-indoor-poi-vending="mouseenterLayer"
+    @click-indoor-poi-vending="clickLayer"
+    @mouseleave-indoor-poi-vending="mouseleaveLayer"
+  >
+    <MglNavigationControl show-compass />
+    <level-control
+      :value="mapLevel"
+      position="bottom-right"
+      @input="updateMapLevel"
+    />
+    <slot />
+  </MglMap>
 </template>
 
 <script>
 import { MglMap, MglNavigationControl } from 'vue-mapbox/dist/vue-mapbox.umd';
 import { mapTilerApiKey } from '../config.json';
-import icons from '../mapicons/*.svg';
 import LevelControl from './level_control';
 
 export default {
@@ -76,7 +67,6 @@ export default {
 
   data() {
     return {
-      icons,
       mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${mapTilerApiKey}`
     };
   },
@@ -90,20 +80,9 @@ export default {
   methods: {
     load({ map }) {
       this.map = map;
-      this.registerIcons();
       setTimeout(() => {
         this.updateMapZoom(map.getZoom());
       }, 100);
-    },
-
-    registerIcons() {
-      for (let icon in this.icons) {
-        if (this.map.hasImage(icon)) {
-          this.map.updateImage(icon, this.$refs[icon][0]);
-        } else {
-          this.map.addImage(icon, this.$refs[icon][0]);
-        }
-      }
     },
 
     updateMapCenter(mapCenter) {
