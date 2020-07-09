@@ -193,6 +193,7 @@
       "tram_stop": "tram_stop"
     },
     "shop": {
+      "variety_store": "Variety store",
       "fashion_accessories": "Fashion accessories",
       "houseware": "Houseware",
       "seafood": "Seafood",
