@@ -1,10 +1,9 @@
 {
   "scripts": {
     "dev": "parcel serve parcel --hmr-port 1235 index.html",
-    "build": "yarn run sprite && parcel build index.html",
+    "build": "parcel build index.html",
     "test": "jest --watch",
-    "extract-poi-mapping": "node ./script/extract-poi-mapping",
-    "sprite": "spritezero ./static/sprite ./mapicons && spritezero --retina ./static/sprite@2x ./mapicons"
+    "extract-poi-mapping": "node ./script/extract-poi-mapping"
   },
   "browserslist": "last 2 Firefox versions, last 2 Chrome versions, last 2 Edge versions, last 2 Safari versions",
   "jest": {
@@ -24,10 +23,12 @@
   "posthtml": {
     "recognizeSelfClosing": true
   },
+  "staticFiles": {
+    "staticPath": "node_modules/mapbox-gl-indoorequal/sprite"
+  },
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
-    "@mapbox/spritezero-cli": "https://github.com/francois2metz/spritezero-cli",
     "@mdi/font": "^5.0.0",
     "@vue/component-compiler-utils": "^2.6.0",
     "@vue/test-utils": "^1.0.0-beta.32",
