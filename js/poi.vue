@@ -107,7 +107,7 @@ export default {
 
     type() {
       const mappingTags = ['aerialway', 'amenity', 'barrier', 'craft', 'door',
-                           'exhibit', 'entrance', 'highway', 'landuse', 'leisure',
+                           'exhibit', 'emergency', 'entrance', 'highway', 'landuse', 'leisure',
                            'office', 'railway', 'shop', 'sport', 'tourism'];
       const mapping = mappingTags.find((t) => this.tags[t]);
       return this.$i18n.t(`poi.${mapping}.${this.tags[mapping]}`);
