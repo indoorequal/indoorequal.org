@@ -5543,9 +5543,9 @@ map-visit@^1.0.0:
     object-visit "^1.0.0"
 
 mapbox-gl-indoorequal@^0.2:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/mapbox-gl-indoorequal/-/mapbox-gl-indoorequal-0.2.1.tgz#89a8aebd2415ad39186e83a1fa09a90fd294ac49"
-  integrity sha512-UXWSZO1Wh8FEHYFo01+J8d6DxsdsVdsDh3EA8R/LwXIGGdDk8mqHI3FZbtiVmj9EH4HMwnCVeGaasGfdPVJoow==
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/mapbox-gl-indoorequal/-/mapbox-gl-indoorequal-0.2.2.tgz#36914cccbc060f321f7dc8821e792b4e67af6722"
+  integrity sha512-FteK+ZpUhf0BnsMfFNTDoAvYl+lseOBS8JA624qbcmNfcWEwc0icQyBj/SmxTsYfLQPCqdmXwWknlza9y+m1gA==
   dependencies:
     array-equal "^1.0.0"
     debounce "^1.2.0"
