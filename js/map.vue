@@ -10,9 +10,9 @@
     @mouseenter-indoor-poi-rank1="mouseenterLayer"
     @click-indoor-poi-rank1="clickLayer"
     @mouseleave-indoor-poi-rank1="mouseleaveLayer"
-    @mouseenter-indoor-poi-vending="mouseenterLayer"
-    @click-indoor-poi-vending="clickLayer"
-    @mouseleave-indoor-poi-vending="mouseleaveLayer"
+    @mouseenter-indoor-poi-rank2="mouseenterLayer"
+    @click-indoor-poi-rank2="clickLayer"
+    @mouseleave-indoor-poi-rank2="mouseleaveLayer"
   >
     <MglNavigationControl show-compass />
     <level-control
