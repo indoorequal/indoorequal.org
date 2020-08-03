@@ -19,6 +19,7 @@
       :value="mapLevel"
       position="bottom-right"
       @input="updateMapLevel"
+      @sprite="(sprite) => $emit('sprite', sprite)"
     />
     <slot />
   </MglMap>

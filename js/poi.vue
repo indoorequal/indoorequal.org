@@ -5,7 +5,12 @@
   >
     <v-expand-transition>
       <div v-if="geojson">
-        <v-card-title class="subtitle-1">
+        <v-card-title class="subtitle-1 flex-grow-1">
+          <img
+            v-if="icon"
+            :src="iconURL"
+            class="flex-grow-0 pr-1"
+          >
           {{ tags.name || type }}
           <v-spacer></v-spacer>
           <v-btn
@@ -81,6 +86,18 @@ import { tilesUrl, indoorEqualApiKey } from '../config.json';
 import { contactsFor } from './place';
 import OpeningHours from './opening_hours';
 
+function dataToCanvas(data, width, height) {
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+
+  const context = canvas.getContext('2d');
+  const imageData = context.createImageData(width, height);
+  imageData.data.set(data);
+  context.putImageData(imageData, 0, 0);
+  return context.canvas;
+}
+
 export default {
   components: {
     OpeningHours
@@ -90,6 +107,10 @@ export default {
     value: {
       type: String,
       required: true
+    },
+    sprite: {
+      type: Object,
+      required: false
     }
   },
 
@@ -103,6 +124,23 @@ export default {
   computed: {
     tags() {
       return this.geojson.properties.tags;
+    },
+
+    icon() {
+      if (this.sprite) {
+        const klass = this.geojson.properties.class;
+        const subclass = this.geojson.properties.subclass;
+        const icon = [subclass, klass].find(value => this.sprite[`indoorequal-${value}`]);
+        if (icon) {
+          return this.sprite[`indoorequal-${icon}`].data;
+        }
+      }
+    },
+
+    iconURL() {
+      if (this.icon) {
+        return dataToCanvas(this.icon.data, this.icon.width, this.icon.height).toDataURL();
+      }
     },
 
     type() {

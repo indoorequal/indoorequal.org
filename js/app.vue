@@ -10,6 +10,7 @@
         :map-zoom.sync="mapZoom"
         :new-map-bounds="newMapBounds"
         @clickPoi="clickPoi"
+        @sprite="updateSprite"
       >
         <MglMarker
           v-if="poiCoordinates.length > 0"
@@ -29,6 +30,7 @@
         />
         <indoor-poi
           v-model="poi"
+          :sprite="sprite"
           class="indoor-poi"
           @poiCoordinates="setPoiCoordinates"
         />
@@ -68,7 +70,8 @@ export default {
       poiCoordinates: [],
       menu: false,
       minZoom: 17,
-      newMapBounds: []
+      newMapBounds: [],
+      sprite: null
     };
   },
 
@@ -156,6 +159,10 @@ export default {
 
     setPoiCoordinates(coordinates) {
       this.poiCoordinates = coordinates;
+    },
+
+    updateSprite(sprite) {
+      this.sprite = sprite;
     }
   }
 };
