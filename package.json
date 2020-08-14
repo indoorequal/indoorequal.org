@@ -47,7 +47,7 @@
     "country-language": "^0.1.7",
     "i18next-client": "^1.11.1",
     "luxon": "^1.22.0",
-    "mapbox-gl": "^v1.10.0-beta.1",
+    "mapbox-gl": "^1.12.0",
     "mapbox-gl-indoorequal": "^0.2",
     "moment": "^2.10.6",
     "opening_hours": "^3.5.0",
