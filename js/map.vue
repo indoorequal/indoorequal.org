@@ -15,6 +15,7 @@
     @mouseleave-indoor-poi-rank2="mouseleaveLayer"
   >
     <MglNavigationControl show-compass />
+    <MglGeolocateControl />
     <level-control
       :value="mapLevel"
       position="bottom-right"
@@ -26,13 +27,14 @@
 </template>
 
 <script>
-import { MglMap, MglNavigationControl } from 'vue-mapbox/dist/vue-mapbox.umd';
+import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/dist/vue-mapbox.umd';
 import { mapTilerApiKey } from '../config.json';
 import LevelControl from './level_control';
 
 export default {
   components: {
     LevelControl,
+    MglGeolocateControl,
     MglMap,
     MglNavigationControl
   },
