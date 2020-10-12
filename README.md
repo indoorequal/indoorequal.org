@@ -1,6 +1,11 @@
 # indoorequal.org
 
-An indoor viewer based on OSM Data. This repository is the frontend part. The backend is available here: https://github.com/indoorequal/indoorequal
+An indoor viewer based on OSM Data. This repository is the frontend part.
+
+Discover:
+
+- the backend: https://github.com/indoorequal/indoorequal
+- the library to integrate indoor=: https://github.com/indoorequal/mapbox-gl-indoorequal
 
 ## Development
 
