@@ -57,7 +57,7 @@
     <template v-slot:append>
       <div
         v-if="state"
-        class="pa-3 font-italic caption"
+        class="pa-3 caption"
       >
         {{ $t('sidebar.last_update') }}
         <time
