@@ -11,7 +11,7 @@
       :is="componentName"
       class="pa-3"
       @toggleMenu="toggleValue"
-      @close="component = null"
+      @close="component = false"
     />
     <template v-else>
       <div class="pa-3">
@@ -144,6 +144,9 @@ export default {
 
     updateValue(value) {
       this.$emit('input', value);
+      if (!value) {
+        this.component = false;
+      }
     }
   },
 
