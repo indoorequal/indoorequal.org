@@ -26,6 +26,10 @@
       "subtitle": "Showcase indoor location"
     },
     "last_update": "last data update",
+    "learn": {
+      "title": "Learn",
+      "subtitle": "Map indoor area in OpenStreetMap"
+    },
     "osm": "OpenStreetMap"
   },
   "toolbar": {

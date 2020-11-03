@@ -51,6 +51,18 @@
             <v-list-item-subtitle>{{ $t('sidebar.explore.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item
+          href="https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging"
+          rel="noopener"
+        >
+          <v-list-item-icon>
+            <v-icon>mdi-puzzle-edit-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ $t('sidebar.learn.title') }}</v-list-item-title>
+            <v-list-item-subtitle>{{ $t('sidebar.learn.subtitle') }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item @click="display('api')">
           <v-list-item-icon>
             <v-icon>mdi-map</v-icon>
