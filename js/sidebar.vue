@@ -69,8 +69,6 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-    </template>
-    <template v-slot:append>
       <div
         v-if="state"
         class="pa-3 caption"
