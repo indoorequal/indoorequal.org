@@ -3,7 +3,7 @@
     <h2 class="title flex align-center">
       <v-btn
         icon
-        @click="$emit('toggleExplore')"
+        @click="$emit('close')"
       >
         <v-icon>mdi-arrow-left</v-icon>
       </v-btn>

@@ -1,16 +1,17 @@
 <template>
   <v-navigation-drawer
     :value="value"
-    width="300"
+    width="350"
     temporary
     app
     @input="updateValue"
   >
-    <explore-list
-      v-if="explore"
+    <component
+      v-if="component"
+      :is="componentName"
       class="pa-3"
       @toggleMenu="toggleValue"
-      @toggleExplore="toggleExplore"
+      @close="component = null"
     />
     <template v-else>
       <div class="pa-3">
@@ -41,7 +42,7 @@
         </i18n>
       </div>
       <v-list>
-        <v-list-item @click="toggleExplore">
+        <v-list-item @click="display('explore')">
           <v-list-item-icon>
             <v-icon>mdi-map-marker-circle</v-icon>
           </v-list-item-icon>
@@ -50,8 +51,23 @@
             <v-list-item-subtitle>{{ $t('sidebar.explore.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
-        <api-dialog />
-        <about-dialog />
+        <v-list-item @click="display('api')">
+          <v-list-item-icon>
+            <v-icon>mdi-map</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ $t('sidebar.api.title') }}</v-list-item-title>
+            <v-list-item-subtitle>{{ $t('sidebar.api.subtitle') }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item @click="display('about')">
+          <v-list-item-icon>
+            <v-icon>mdi-information-outline</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ $t('sidebar.about.title') }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </template>
     <template v-slot:append>
@@ -72,15 +88,21 @@
 <script>
 import { DateTime } from 'luxon';
 import { tilesUrl } from '../config.json';
-import AboutDialog from './about_dialog';
-import ApiDialog from './api_dialog';
+import AboutInfo from './about_info';
+import ApiInfo from './api_info';
 import ExploreList from './explore_list';
 import logo from '../icons/indoorequal.svg';
 
+const COMPONENTS = {
+  explore: ExploreList,
+  api: ApiInfo,
+  about: AboutInfo,
+};
+
 export default {
   components: {
-    AboutDialog,
-    ApiDialog,
+    AboutInfo,
+    ApiInfo,
     ExploreList
   },
 
@@ -93,13 +115,16 @@ export default {
 
   data() {
     return {
-      explore: false,
+      component: false,
       logo,
       state: null
     };
   },
 
   computed: {
+    componentName() {
+      return COMPONENTS[this.component];
+    },
     lastUpdateTimestamp() {
       return this.state.match(/timestamp=(.+)/)[1].replace(/\\/g, '');
     },
@@ -109,8 +134,8 @@ export default {
   },
 
   methods: {
-    toggleExplore() {
-      this.explore = !this.explore;
+    display(component) {
+      this.component = component;
     },
 
     toggleValue() {
