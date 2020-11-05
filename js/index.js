@@ -28,6 +28,7 @@ import Vuetify, {
   VNavigationDrawer,
   VSkeletonLoader,
   VSpacer,
+  VSubheader,
   VTooltip
 } from 'vuetify/lib';
 import VueI18n from 'vue-i18n';
@@ -61,6 +62,7 @@ Vue.use(Vuetify, {
     VNavigationDrawer,
     VSkeletonLoader,
     VSpacer,
+    VSubheader,
     VTooltip
   }
 });

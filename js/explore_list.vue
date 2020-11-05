@@ -18,27 +18,30 @@
       type="card-heading@20"
       class="mx-4"
     />
-    <v-card
-      v-for="link in links"
-      :href="link.link"
-      class="my-3 mx-4"
-      @click="$emit('toggleMenu')"
-    >
-      <v-card-title class="subtitle-1">
-        {{ link.description }}
-      </v-card-title>
-      <v-card-subtitle>
-        {{ $t('explore_list.subtitle', { city: link.city, nation: link.nation }) }}
-      </v-card-subtitle>
-      <v-card-actions>
-        <v-btn
-          text
-          color="primary"
-        >
-          View
-        </v-btn>
-      </v-card-actions>
-    </v-card>
+    <template v-for="(links, country) in byCountry">
+      <v-subheader>{{ country }}</v-subheader>
+      <v-card
+        v-for="link in links"
+        :href="link.link"
+        class="my-3 mx-4"
+        @click="$emit('toggleMenu')"
+      >
+        <v-card-title class="subtitle-1">
+          {{ link.description }}
+        </v-card-title>
+        <v-card-subtitle>
+          {{ $t('explore_list.subtitle', { city: link.city, nation: link.nation }) }}
+        </v-card-subtitle>
+        <v-card-actions>
+          <v-btn
+            text
+            color="primary"
+          >
+            View
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </template>
   </sub-sidebar>
 </template>
 
@@ -60,6 +63,18 @@ export default {
     .then(res => res.json())
     .then(page => this.links = this.parse(page.parse.text['*']))
     .catch(() => this.error = true);
+  },
+
+  computed: {
+    byCountry() {
+      return this.links.reduce((memo, link) => {
+        if (!memo[link.nation]) {
+          memo[link.nation] = [];
+        }
+        memo[link.nation].push(link);
+        return memo;
+      }, {});
+    },
   },
 
   methods: {
