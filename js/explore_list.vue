@@ -24,12 +24,20 @@
       class="my-3 mx-4"
       @click="$emit('toggleMenu')"
     >
-      <v-card-title>
+      <v-card-title class="subtitle-1">
         {{ link.description }}
       </v-card-title>
       <v-card-subtitle>
         {{ $t('explore_list.subtitle', { city: link.city, nation: link.nation }) }}
       </v-card-subtitle>
+      <v-card-actions>
+        <v-btn
+          text
+          color="primary"
+        >
+          View
+        </v-btn>
+      </v-card-actions>
     </v-card>
   </sub-sidebar>
 </template>
