@@ -1,4 +1,7 @@
 {
+  "discover": {
+    "explore": "Explore Locations"
+  },
   "explore_list": {
     "title": "Explore",
     "description": "This list is extracted from the {wikipage}.",

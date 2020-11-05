@@ -28,6 +28,12 @@
           :min-zoom="minZoom"
           @updateBounds="updateBounds"
         />
+        <indoor-discover
+          v-if="discover"
+          class="indoor-discover"
+          @explore="openExplore"
+          @close="closeDiscover"
+        />
         <indoor-poi
           v-model="poi"
           :sprite="sprite"
@@ -41,17 +47,20 @@
 
 <script>
 import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
+import IndoorDiscover from './discover';
 import IndoorMap from './map';
 import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
 import IndoorToolbar from './toolbar';
 
 const MAP_VIEW_LOCAL_STORAGE = 'mapView';
+const DISCOVER_LOCAL_STORAGE = 'discover';
 const POI_PARAM = 'poi';
 const LEVEL_PARAM = 'level';
 
 export default {
   components: {
+    IndoorDiscover,
     IndoorMap,
     IndoorPoi,
     IndoorSidebar,
@@ -71,7 +80,8 @@ export default {
       menu: false,
       minZoom: 17,
       newMapBounds: [],
-      sprite: null
+      sprite: null,
+      discover: true,
     };
   },
 
@@ -82,6 +92,9 @@ export default {
     }
     if (hashParams.has(POI_PARAM)) {
       this.poi = hashParams.get(POI_PARAM);
+    }
+    if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
+      this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
     }
     this.loadInitialLocation(hashParams).finally(() => {
       this.loadMap = true;
@@ -106,7 +119,11 @@ export default {
       if (poi == '') {
         this.poiCoordinates = [];
       }
-    }
+    },
+
+    discover() {
+      this.saveDiscoverValue();
+    },
   },
 
   methods: {
@@ -163,6 +180,18 @@ export default {
 
     updateSprite(sprite) {
       this.sprite = sprite;
+    },
+
+    openExplore() {
+      this.menu = true;
+    },
+
+    closeDiscover() {
+      this.discover = false;
+    },
+
+    saveDiscoverValue() {
+      localStorage.setItem(DISCOVER_LOCAL_STORAGE, this.discover);
     }
   }
 };
@@ -184,7 +213,7 @@ html {
 .xs .mapboxgl-ctrl-top-right {
   margin-top: 70px;
 }
-.indoor-poi {
+.indoor-poi, .indoor-discover {
   margin-top: 1rem;
   z-index: 6;
 }
