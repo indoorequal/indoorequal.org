@@ -7,7 +7,11 @@
           @click="toggleMenu"
           v-on="on"
         >
-          <v-icon>mdi-menu</v-icon>
+          <img
+            :src="equalLogo"
+            alt="indoor="
+            width="36"
+          />
         </v-btn>
       </template>
       <span>{{ $t('toolbar.menu') }}</span>
@@ -57,6 +61,7 @@
 
 <script>
 import GeocoderInput from './geocoder';
+import equalLogo from '../icons/equal.svg';
 
 export default {
   components: {
@@ -94,6 +99,10 @@ export default {
       type: Boolean,
       required: true
     }
+  },
+
+  data() {
+    return { equalLogo };
   },
 
   computed: {
