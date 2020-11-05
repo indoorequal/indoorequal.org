@@ -9,7 +9,6 @@
     <component
       v-if="component"
       :is="componentName"
-      class="pa-3"
       @toggleMenu="toggleValue"
       @close="component = false"
     />

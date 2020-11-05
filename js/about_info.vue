@@ -1,14 +1,8 @@
 <template>
-  <div>
-    <h2 class="title flex align-center">
-      <v-btn
-        icon
-        @click="$emit('close')"
-      >
-        <v-icon>mdi-arrow-left</v-icon>
-      </v-btn>
-      {{ $t('sidebar.about.title') }}
-    </h2>
+  <sub-sidebar
+    :title="$t('sidebar.about.title')"
+    @close="$emit('close')"
+  >
     <v-list>
       <v-list-item
         href="https://2metz.fr"
@@ -47,5 +41,13 @@
         </v-list-item-content>
       </v-list-item>
     </v-list>
-  </div>
+  </sub-sidebar>
 </template>
+
+<script>
+import SubSidebar from './sub_sidebar';
+
+export default {
+  components: { SubSidebar },
+};
+</script>

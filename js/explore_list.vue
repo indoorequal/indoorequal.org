@@ -1,28 +1,27 @@
 <template>
-  <div>
-    <h2 class="title flex align-center">
-      <v-btn
-        icon
-        @click="$emit('close')"
-      >
-        <v-icon>mdi-arrow-left</v-icon>
-      </v-btn>
-      {{ $t('explore_list.title') }}
-    </h2>
+  <sub-sidebar
+    :title="$t('explore_list.title')"
+    @close="$emit('close')"
+  >
     <p
       v-html="$t('explore_list.description', { wikipage: `<a href='https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging'>${$t('explore_list.wikipage')}</a>` })"
-      class="my-2"
+      class="px-4 pt-2"
     />
 
-    <p v-if="error">{{ $t('explore_list.error') }}</p>
+    <p
+      v-if="error"
+      class="px-4 pt-2"
+
+    >{{ $t('explore_list.error') }}</p>
     <v-skeleton-loader
       v-else-if="links.length === 0"
       type="card-heading@20"
+      class="mx-4"
     />
     <v-card
       v-for="link in links"
       :href="link.link"
-      class="my-3"
+      class="my-3 mx-4"
       @click="$emit('toggleMenu')"
     >
       <v-card-title>
@@ -32,11 +31,15 @@
         {{ $t('explore_list.subtitle', { city: link.city, nation: link.nation }) }}
       </v-card-subtitle>
     </v-card>
-  </div>
+  </sub-sidebar>
 </template>
 
 <script>
+import SubSidebar from './sub_sidebar';
+
 export default {
+  components: { SubSidebar },
+
   data() {
     return {
       links: [],
