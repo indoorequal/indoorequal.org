@@ -29,7 +29,9 @@ import Vuetify, {
   VSkeletonLoader,
   VSpacer,
   VSubheader,
-  VTooltip
+  VTooltip,
+  VToolbar,
+  VToolbarTitle
 } from 'vuetify/lib';
 import VueI18n from 'vue-i18n';
 import messages from '../locales/*.json';
@@ -63,7 +65,9 @@ Vue.use(Vuetify, {
     VSkeletonLoader,
     VSpacer,
     VSubheader,
-    VTooltip
+    VTooltip,
+    VToolbar,
+    VToolbarTitle
   }
 });
 Vue.use(VueI18n);
