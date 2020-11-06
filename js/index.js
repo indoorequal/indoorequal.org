@@ -79,7 +79,15 @@ const i18n = new VueI18n({
   messages
 });
 
-const vuetify = new Vuetify({});
+const vuetify = new Vuetify({
+  theme: {
+    themes: {
+      light: {
+        primary: '#6667ad',
+      },
+    },
+  },
+});
 
 new Vue({
   i18n,

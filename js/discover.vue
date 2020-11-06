@@ -1,7 +1,7 @@
 <template>
   <v-card
     dark
-    color="#6667ad"
+    color="primary"
   >
     <v-card-title>
       indoor=
