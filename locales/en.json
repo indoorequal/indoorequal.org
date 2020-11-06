@@ -20,9 +20,21 @@
     "api": {
       "title": "Developers",
       "subtitle": "Integrate indoor= into your map",
-      "content": "To integrate indoor= into your map, you can use the {0}.\n\nYou'll need to register your free API key at {1}.",
-      "plugin": "mapbox-gl-indoorequal plugin",
-      "indoorequalcom": "indoorequal.com"
+      "indoorequal": {
+        "title": "Get your free API Key",
+        "subtitle": "To start, register your free account on indoorequal.com.",
+        "cta": "Register"
+      },
+      "mapboxgl": {
+        "title": "mapbox-gl-indoorequal",
+        "subtitle": "The easiest way to integrate indoor= in you map.",
+        "cta": "Install"
+      },
+      "schema": {
+        "title": "Read the schema",
+        "subtitle": "Discover the vector tile schema to integrate the tiles in any app.",
+        "cta": "Read"
+      }
     },
     "explore": {
       "title": "Explore",
