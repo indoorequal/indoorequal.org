@@ -5,7 +5,7 @@
   >
     <p
       v-html="$t('explore_list.description', { wikipage: `<a href='https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging'>${$t('explore_list.wikipage')}</a>` })"
-      class="px-4 pt-2"
+      class="px-4 pt-4"
     />
 
     <p
