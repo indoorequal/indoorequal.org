@@ -1,4 +1,7 @@
 {
+  "discover": {
+    "explore": "Explorer les endroits"
+  },
   "explore_list": {
     "title": "Explorer",
     "description": "Cette liste est extraite de {wikipage}.",
@@ -17,15 +20,31 @@
     "api": {
       "title": "Développeurs",
       "subtitle": "Intégrer indoor= à votre carte",
-      "content": "Pour intégrer indoor= à votre carte, vous pouvez utiliser {0}.\n\nVous aurez besoin d'enregistrer votre clef d'API gratuite sur {1}.",
-      "plugin": "le plugin mapbox-gl-indoorequal",
-      "indoorequalcom": "indoorequal.com"
+      "indoorequal": {
+        "title": "Créer votre clef d'API gratuite",
+        "subtitle": "Pour commencer, créer votre compte gratuit sur indoorequal.com.",
+        "cta": "S'enregistrer"
+      },
+      "mapboxgl": {
+        "title": "mapbox-gl-indoorequal",
+        "subtitle": "La façon la plus simple d'intégrer indoor= dans votre carte",
+        "cta": "Installer"
+      },
+      "schema": {
+        "title": "Lire le schéma",
+        "subtitle": "Découvrer le schéma des tuiles vectorielles pour les intégrer dans votre application",
+        "cta": "Lire"
+      }
     },
     "explore": {
       "title": "Explorer",
       "subtitle": "Lieux cartographié en intérieur"
     },
     "last_update": "Dernière mise à jour",
+    "learn": {
+      "title": "Apprendre",
+      "subtitle": "Cartographier les espaces intérieur dans OpenStreetMap"
+    },
     "osm": "OpenStreetMap"
   },
   "toolbar": {
@@ -56,6 +75,7 @@
       "station": "Station"
     },
     "amenity": {
+      "atm": "Distributeur de billets",
       "car_rental": "Location de voitures",
       "piano": "Piano",
       "bureau_de_change": "Bureau de change",
@@ -134,6 +154,11 @@
       "electronics_repair": "Réparation électronique"
     },
     "door": {
+      "yes": "Porte",
+      "no": "Porte",
+      "hinged": "Porte",
+      "sliding": "Porte coulissante",
+      "overhead": "Porte",
       "door": "Porte"
     },
     "emergency": {
@@ -193,6 +218,7 @@
       "tram_stop": "Tram stop"
     },
     "shop": {
+      "leather": "Cuir",
       "variety_store": "Magasin de variétés",
       "fashion_accessories": "Accessoires de modes",
       "houseware": "Articles ménagers",
@@ -234,7 +260,7 @@
       "cosmetics": "Cosmétique",
       "deli": "Épicerie",
       "delicatessen": "Épicerie fine",
-      "department_store": "Department store",
+      "department_store": "Grand magasin",
       "doityourself": "Bricolage",
       "dry_cleaning": "Nettoyage a sec",
       "electronics": "Électronique",
