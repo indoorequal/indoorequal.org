@@ -75,6 +75,7 @@
       "station": "Station"
     },
     "amenity": {
+      "atm": "ATM",
       "car_rental": "Car rental",
       "piano": "Piano",
       "bureau_de_change": "Bureau de change",
@@ -153,6 +154,11 @@
       "electronics_repair": "Electronics repair"
     },
     "door": {
+      "yes": "Door",
+      "no": "Door",
+      "hinged": "Door",
+      "sliding": "Sliding door",
+      "overhead": "Door",
       "door": "Door"
     },
     "emergency": {
@@ -212,6 +218,7 @@
       "tram_stop": "Tram stop"
     },
     "shop": {
+      "leather": "Leather",
       "variety_store": "Variety store",
       "fashion_accessories": "Fashion accessories",
       "houseware": "Houseware",
