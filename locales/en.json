@@ -419,5 +419,6 @@
     "yes": "Weelchair accessible",
     "limited": "Limited accessibility",
     "no": "Not accessible"
-  }
+  },
+  "zoom": "Zoom in to see indoor data"
 }

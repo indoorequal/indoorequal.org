@@ -18,6 +18,12 @@
           color="#6667ad"
         />
       </indoor-map>
+      <v-chip
+        v-if="mapZoom < 17"
+        color="primary"
+        class="zoom-chip"
+        @click="mapZoom = 17"
+      >{{ $t('zoom') }}</v-chip>
       <div class="indoor-toolbar">
         <indoor-toolbar
           v-model="menu"
@@ -204,5 +210,11 @@ html {
 .indoor-poi, .indoor-discover {
   margin-top: 1rem;
   z-index: 6;
+}
+.zoom-chip {
+  position: fixed;
+  bottom: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
 }
 </style>

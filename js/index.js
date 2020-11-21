@@ -11,6 +11,7 @@ import Vuetify, {
   VCardSubtitle,
   VCardText,
   VCardTitle,
+  VChip,
   VContent,
   VDialog,
   VDivider,
@@ -29,9 +30,9 @@ import Vuetify, {
   VSkeletonLoader,
   VSpacer,
   VSubheader,
-  VTooltip,
   VToolbar,
-  VToolbarTitle
+  VToolbarTitle,
+  VTooltip
 } from 'vuetify/lib';
 import VueI18n from 'vue-i18n';
 import messages from '../locales/*.json';
@@ -47,6 +48,7 @@ Vue.use(Vuetify, {
     VCardSubtitle,
     VCardText,
     VCardTitle,
+    VChip,
     VContent,
     VDialog,
     VDivider,
@@ -65,9 +67,9 @@ Vue.use(Vuetify, {
     VSkeletonLoader,
     VSpacer,
     VSubheader,
-    VTooltip,
     VToolbar,
-    VToolbarTitle
+    VToolbarTitle,
+    VTooltip
   }
 });
 Vue.use(VueI18n);
