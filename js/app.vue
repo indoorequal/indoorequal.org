@@ -96,9 +96,8 @@ export default {
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
     }
-    this.loadInitialLocation(hashParams).finally(() => {
-      this.loadMap = true;
-    });
+    this.loadInitialLocation(hashParams);
+    this.loadMap = true;
   },
 
   watch: {
@@ -129,7 +128,7 @@ export default {
   methods: {
     loadInitialLocation(hashParams) {
       if (hashParams.has('map')) {
-        return Promise.resolve();
+        return;
       }
       const savedMapView = this.savedMapView();
       if (savedMapView) {
@@ -137,18 +136,7 @@ export default {
         this.mapCenter = center;
         this.mapZoom = zoom;
         this.mapLevel = level;
-        return Promise.resolve();
       }
-      return this.centerMapViaGeoIP();
-    },
-
-    centerMapViaGeoIP() {
-      return fetch('https://geo.indoorequal.org/me')
-        .then(res => res.json())
-        .then(json => {
-          this.mapCenter = { lat: json.ll[0], lng: json.ll[1] };
-          this.mapZoom = 13;
-        });
     },
 
     updateBounds(bbox) {
