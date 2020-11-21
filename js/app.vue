@@ -72,9 +72,9 @@ export default {
     return {
       loadMap: false,
       mapBounds: [],
-      mapCenter: { lat: 46.8, lng: 5 },
+      mapCenter: { lat: 37.68, lng: -2.37 },
       mapLevel: '0',
-      mapZoom: 5,
+      mapZoom: 1.2,
       poi: '',
       poiCoordinates: [],
       menu: false,
