@@ -4,6 +4,7 @@
     width="350"
     temporary
     app
+    touchless
     @input="updateValue"
   >
     <component
