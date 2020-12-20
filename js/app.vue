@@ -1,7 +1,7 @@
 <template>
   <v-app :class="{ xs: $vuetify.breakpoint.xsOnly }">
     <indoor-sidebar v-model="menu" />
-    <v-content>
+    <v-main>
       <indoor-map
         v-if="loadMap"
         :map-bounds.sync="mapBounds"
@@ -48,7 +48,7 @@
         />
       </div>
     </v-content>
-  </v-app>
+  </v-main>
 </template>
 
 <script>
