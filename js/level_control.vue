@@ -16,11 +16,11 @@
 
 <script>
 import { $helpers } from 'vue-mapbox/dist/vue-mapbox.umd.js';
-import IndoorEqual from 'mapbox-gl-indoorequal';
-import { indoorEqualApiKey, tilesUrl } from '../config.json';
 
 export default {
   mixins: [$helpers.asControl],
+
+  inject: ['indoorequal'],
 
   props: {
     value: {
@@ -36,11 +36,6 @@ export default {
   },
 
   mounted() {
-    this.indoorequal = new IndoorEqual(this.map, { apiKey: indoorEqualApiKey, url: tilesUrl });
-    this.indoorequal.loadSprite('/indoorequal')
-      .then((sprite) => {
-        this.$emit('sprite', sprite);
-      });
     this.control = this;
     this.$_addControl();
     this.levels = this.indoorequal.levels;

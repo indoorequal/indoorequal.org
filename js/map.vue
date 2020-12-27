@@ -20,7 +20,6 @@
       :value="mapLevel"
       position="bottom-right"
       @input="updateMapLevel"
-      @sprite="(sprite) => $emit('sprite', sprite)"
     />
     <slot />
   </MglMap>
@@ -28,7 +27,8 @@
 
 <script>
 import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/dist/vue-mapbox.umd';
-import { mapTilerApiKey } from '../config.json';
+import IndoorEqual from 'mapbox-gl-indoorequal';
+import { mapTilerApiKey, indoorEqualApiKey, tilesUrl } from '../config.json';
 import LevelControl from './level_control';
 
 export default {
@@ -68,6 +68,15 @@ export default {
     },
   },
 
+  provide() {
+    const self = this;
+    return {
+      get indoorequal() {
+        return self.indoorEqualInstance;
+      }
+    };
+  },
+
   data() {
     return {
       mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${mapTilerApiKey}`
@@ -83,6 +92,11 @@ export default {
   methods: {
     load({ map }) {
       this.map = map;
+      this.indoorEqualInstance = new IndoorEqual(this.map, { apiKey: indoorEqualApiKey, url: tilesUrl });
+      this.indoorEqualInstance.loadSprite('/indoorequal')
+        .then((sprite) => {
+          this.$emit('sprite', sprite);
+        });
       setTimeout(() => {
         this.updateMapZoom(map.getZoom());
       }, 100);
