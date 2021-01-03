@@ -16,6 +16,7 @@
   >
     <MglNavigationControl show-compass />
     <MglGeolocateControl />
+    <heatmap-control />
     <level-control
       :value="mapLevel"
       position="bottom-right"
@@ -30,9 +31,11 @@ import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/di
 import IndoorEqual from 'mapbox-gl-indoorequal';
 import { mapTilerApiKey, indoorEqualApiKey, tilesUrl } from '../config.json';
 import LevelControl from './level_control';
+import HeatmapControl from './heatmap_control';
 
 export default {
   components: {
+    HeatmapControl,
     LevelControl,
     MglGeolocateControl,
     MglMap,

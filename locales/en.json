@@ -420,5 +420,9 @@
     "limited": "Limited accessibility",
     "no": "Not accessible"
   },
-  "zoom": "Zoom in to see indoor data"
+  "zoom": "Zoom in to see indoor data",
+  "heatmap": {
+    "hide": "Hide the heatmap",
+    "show": "Show the heatmap"
+  }
 }
