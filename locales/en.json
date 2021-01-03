@@ -1,94 +1,53 @@
 {
+  "days": {
+    "friday": "Friday",
+    "monday": "Monday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "thursday": "Thursday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday"
+  },
   "discover": {
     "explore": "Explore Locations"
   },
   "explore_list": {
-    "title": "Explore",
     "description": "This list is extracted from the {wikipage}.",
-    "wikipage": "Simple Indoor Tagging wiki page",
+    "error": "Error while loading the list.",
     "subtitle": "{city} - {nation}",
-    "error": "Error while loading the list."
+    "title": "Explore",
+    "wikipage": "Simple Indoor Tagging wiki page"
   },
-  "search": "Search",
-  "sidebar": {
-    "description": "indoor= is a map that display indoor data from {0}.",
-    "collapse": "Collapse",
-    "about": {
-      "title": "About",
-      "created_by": "Created by François de Metz"
-    },
-    "api": {
-      "title": "Developers",
-      "subtitle": "Integrate indoor= into your map",
-      "indoorequal": {
-        "title": "Get your free API Key",
-        "subtitle": "To start, register your free account on indoorequal.com.",
-        "cta": "Register"
-      },
-      "mapboxgl": {
-        "title": "mapbox-gl-indoorequal",
-        "subtitle": "The easiest way to integrate indoor= in you map.",
-        "cta": "Install"
-      },
-      "schema": {
-        "title": "Read the schema",
-        "subtitle": "Discover the vector tile schema to integrate the tiles in any app.",
-        "cta": "Read"
-      }
-    },
-    "explore": {
-      "title": "Explore",
-      "subtitle": "Showcase indoor location"
-    },
-    "last_update": "last data update",
-    "learn": {
-      "title": "Learn",
-      "subtitle": "Map indoor area in OpenStreetMap"
-    },
-    "osm": "OpenStreetMap"
-  },
-  "toolbar": {
-    "menu": "Menu",
-    "zoom_to_edit": "Zoom in to edit",
-    "edit": "Edit OpenStreetMap"
-  },
-  "days": {
-    "monday": "Monday",
-    "tuesday": "Tuesday",
-    "wednesday": "Wednesday",
-    "thursday": "Thursday",
-    "friday": "Friday",
-    "saturday": "Saturday",
-    "sunday": "Sunday"
+  "heatmap": {
+    "hide": "Hide the heatmap",
+    "show": "Show the heatmap"
   },
   "opening_hours": {
-    "state_until_date": "{state} until {date}",
     "state": {
-      "open": "open",
-      "closed": "closed"
+      "closed": "closed",
+      "open": "open"
     },
-    "url": "Visit the website to consult the opening hours",
-    "tomorrow": "tomorrow"
+    "state_until_date": "{state} until {date}",
+    "tomorrow": "tomorrow",
+    "url": "Visit the website to consult the opening hours"
   },
   "poi": {
     "aerialway": {
       "station": "Station"
     },
     "amenity": {
-      "atm": "ATM",
-      "car_rental": "Car rental",
-      "piano": "Piano",
-      "bureau_de_change": "Bureau de change",
-      "vending_machine": "Vending machine",
       "arts_centre": "Arts centre",
+      "atm": "ATM",
       "bank": "Bank",
       "bar": "Bar",
       "bbq": "BBQ",
       "bicycle_parking": "Bicycle parking",
       "bicycle_rental": "Bicycle rental",
       "biergarten": "Biergarten",
+      "bureau_de_change": "Bureau de change",
       "bus_station": "Bus station",
       "cafe": "Cafe",
+      "car_rental": "Car rental",
       "cinema": "Cinema",
       "clinic": "Clinic",
       "college": "College",
@@ -113,6 +72,7 @@
       "nursing_home": "Nursing home",
       "parking": "Parking",
       "pharmacy": "Pharmacy",
+      "piano": "Piano",
       "place_of_worship": "Place of worship",
       "police": "Police",
       "post_box": "Post box",
@@ -131,6 +91,7 @@
       "toilets": "Toilets",
       "townhall": "Townhall",
       "university": "University",
+      "vending_machine": "Vending machine",
       "veterinary": "Veterinary",
       "waste_basket": "Waste basket"
     },
@@ -145,35 +106,35 @@
       "toll_booth": "Toll booth"
     },
     "craft": {
-      "caterer": "Caterer",
-      "shoemaker": "Shoemaker",
-      "tailor": "Tailor",
       "brewery": "Brewery",
+      "caterer": "Caterer",
       "confectionery": "Confectionery",
       "dressmaker": "Dressmaker",
-      "electronics_repair": "Electronics repair"
+      "electronics_repair": "Electronics repair",
+      "shoemaker": "Shoemaker",
+      "tailor": "Tailor"
     },
     "door": {
-      "yes": "Door",
-      "no": "Door",
+      "door": "Door",
       "hinged": "Door",
-      "sliding": "Sliding door",
+      "no": "Door",
       "overhead": "Door",
-      "door": "Door"
+      "sliding": "Sliding door",
+      "yes": "Door"
     },
     "emergency": {
       "defibrillator": "Defibrillator"
     },
     "entrance": {
-      "yes": "Entrance",
-      "main": "Entrance",
-      "staircase": "Entrance",
-      "home": "Entrance",
-      "service": "Service",
+      "building": "Entrance",
       "emergency": "Emergency exit",
       "exit": "Exit",
+      "home": "Entrance",
+      "main": "Entrance",
+      "service": "Service",
       "shop": "Entrance",
-      "building": "Entrance"
+      "staircase": "Entrance",
+      "yes": "Entrance"
     },
     "exhibit": {
       "artwork": "Artwork",
@@ -194,8 +155,8 @@
       "escape_game": "Escape game",
       "garden": "Garden",
       "golf_course": "Golf course",
-      "ice_rink": "Ice rink",
       "hackerspace": "Hackerspace",
+      "ice_rink": "Ice rink",
       "marina": "Marina",
       "miniature_golf": "Miniature golf",
       "park": "Park",
@@ -218,18 +179,6 @@
       "tram_stop": "Tram stop"
     },
     "shop": {
-      "leather": "Leather",
-      "variety_store": "Variety store",
-      "fashion_accessories": "Fashion accessories",
-      "houseware": "Houseware",
-      "seafood": "Seafood",
-      "pastry": "Pastry",
-      "cheese": "Cheese",
-      "kitchen": "Kitchen",
-      "ticket": "Ticket",
-      "frame": "Frame",
-      "tea": "Tea",
-      "locksmith": "Locksmith",
       "accessories": "Accessories",
       "alcohol": "Alcohol",
       "antiques": "Antiques",
@@ -245,10 +194,11 @@
       "butcher": "Butcher",
       "camera": "Camera",
       "car": "Car",
-      "car_repair": "Car repair",
       "car_parts": "Car parts",
+      "car_repair": "Car repair",
       "carpet": "Carpet",
       "charity": "Charity",
+      "cheese": "Cheese",
       "chemist": "Chemist",
       "chocolate": "Chocolate",
       "clothes": "Clothes",
@@ -266,7 +216,9 @@
       "electronics": "Electronics",
       "erotic": "Erotic",
       "fabric": "Fabric",
+      "fashion_accessories": "Fashion accessories",
       "florist": "Florist",
+      "frame": "Frame",
       "frozen_food": "Frozen food",
       "furniture": "Furniture",
       "garden_centre": "Garden centre",
@@ -277,12 +229,16 @@
       "hardware": "Hardware",
       "hearing_aids": "Hearing aids",
       "hifi": "Hifi",
+      "houseware": "Houseware",
       "ice_cream": "Ice cream",
       "interior_decoration": "Interior decoration",
       "jewelry": "Jewelry",
       "kiosk": "Kiosk",
+      "kitchen": "Kitchen",
       "lamps": "Lamps",
       "laundry": "Laundry",
+      "leather": "Leather",
+      "locksmith": "Locksmith",
       "mall": "Mall",
       "massage": "Massage",
       "mobile_phone": "Mobile phone",
@@ -292,10 +248,12 @@
       "newsagent": "Newsagent",
       "optician": "Optician",
       "outdoor": "Outdoor",
+      "pastry": "Pastry",
       "perfume": "Perfume",
       "perfumery": "Perfumery",
       "pet": "Pet",
       "photo": "Photo",
+      "seafood": "Seafood",
       "second_hand": "Second hand",
       "shoes": "Shoes",
       "sports": "Sports",
@@ -303,9 +261,12 @@
       "supermarket": "Supermarket",
       "tailor": "Tailor",
       "tattoo": "Tattoo",
+      "tea": "Tea",
+      "ticket": "Ticket",
       "tobacco": "Tobacco",
       "toys": "Toys",
       "travel_agency": "Travel agency",
+      "variety_store": "Variety store",
       "video": "Video",
       "video_games": "Video games",
       "watches": "Watches",
@@ -415,14 +376,53 @@
       "zoo": "Zoo"
     }
   },
-  "wheelchair": {
-    "yes": "Weelchair accessible",
-    "limited": "Limited accessibility",
-    "no": "Not accessible"
+  "search": "Search",
+  "sidebar": {
+    "about": {
+      "created_by": "Created by François de Metz",
+      "title": "About"
+    },
+    "api": {
+      "indoorequal": {
+        "cta": "Register",
+        "subtitle": "To start, register your free account on indoorequal.com.",
+        "title": "Get your free API Key"
+      },
+      "mapboxgl": {
+        "cta": "Install",
+        "subtitle": "The easiest way to integrate indoor= in you map.",
+        "title": "mapbox-gl-indoorequal"
+      },
+      "schema": {
+        "cta": "Read",
+        "subtitle": "Discover the vector tile schema to integrate the tiles in any app.",
+        "title": "Read the schema"
+      },
+      "subtitle": "Integrate indoor= into your map",
+      "title": "Developers"
+    },
+    "collapse": "Collapse",
+    "description": "indoor= is a map that display indoor data from {0}.",
+    "explore": {
+      "subtitle": "Showcase indoor location",
+      "title": "Explore"
+    },
+    "last_update": "last data update",
+    "learn": {
+      "subtitle": "Map indoor area in OpenStreetMap",
+      "title": "Learn"
+    },
+    "osm": "OpenStreetMap"
   },
-  "zoom": "Zoom in to see indoor data",
-  "heatmap": {
-    "hide": "Hide the heatmap",
-    "show": "Show the heatmap"
-  }
+  "toolbar": {
+    "edit": "Edit OpenStreetMap",
+    "menu": "Menu",
+    "zoom_to_edit": "Zoom in to edit"
+  },
+  "wheelchair": {
+    "limited": "Limited accessibility",
+    "no": "Not accessible",
+    "yes": "Weelchair accessible"
+  },
+  "zoom": "Zoom in to see indoor data"
 }

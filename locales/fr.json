@@ -1,94 +1,49 @@
 {
+  "days": {
+    "friday": "Vendredi",
+    "monday": "Lundi",
+    "saturday": "Samedi",
+    "sunday": "Dimanche",
+    "thursday": "Jeudi",
+    "tuesday": "Mardi",
+    "wednesday": "Mercredi"
+  },
   "discover": {
     "explore": "Explorer les endroits"
   },
   "explore_list": {
-    "title": "Explorer",
     "description": "Cette liste est extraite de {wikipage}.",
-    "wikipage": "la page wiki Simple Indoor Tagging",
+    "error": "Une erreur est survenue lors du chargement de la liste.",
     "subtitle": "{city} - {nation}",
-    "error": "Une erreur est survenue lors du chargement de la liste."
-  },
-  "search": "Rechercher",
-  "sidebar": {
-    "description": "indoor= est une carte qui affiche les données intérieure d'{0}.",
-    "collapse": "Replier",
-    "about": {
-      "title": "A propos",
-      "created_by": "Créé par François de Metz"
-    },
-    "api": {
-      "title": "Développeurs",
-      "subtitle": "Intégrer indoor= à votre carte",
-      "indoorequal": {
-        "title": "Créer votre clef d'API gratuite",
-        "subtitle": "Pour commencer, créer votre compte gratuit sur indoorequal.com.",
-        "cta": "S'enregistrer"
-      },
-      "mapboxgl": {
-        "title": "mapbox-gl-indoorequal",
-        "subtitle": "La façon la plus simple d'intégrer indoor= dans votre carte",
-        "cta": "Installer"
-      },
-      "schema": {
-        "title": "Lire le schéma",
-        "subtitle": "Découvrer le schéma des tuiles vectorielles pour les intégrer dans votre application",
-        "cta": "Lire"
-      }
-    },
-    "explore": {
-      "title": "Explorer",
-      "subtitle": "Lieux cartographié en intérieur"
-    },
-    "last_update": "Dernière mise à jour",
-    "learn": {
-      "title": "Apprendre",
-      "subtitle": "Cartographier les espaces intérieur dans OpenStreetMap"
-    },
-    "osm": "OpenStreetMap"
-  },
-  "toolbar": {
-    "menu": "Menu",
-    "zoom_to_edit": "Zoomer pour pouvoir éditer",
-    "edit": "Modifier OpenStreetMap"
-  },
-  "days": {
-    "monday": "Lundi",
-    "tuesday": "Mardi",
-    "wednesday": "Mercredi",
-    "thursday": "Jeudi",
-    "friday": "Vendredi",
-    "saturday": "Samedi",
-    "sunday": "Dimanche"
+    "title": "Explorer",
+    "wikipage": "la page wiki Simple Indoor Tagging"
   },
   "opening_hours": {
-    "state_until_date": "{state} jusqu'à {date}",
     "state": {
-      "open": "ouvert",
-      "closed": "fermé"
+      "closed": "fermé",
+      "open": "ouvert"
     },
-    "url": "Visiter le site pour consulter les horaires",
-    "tomorrow": "demain"
+    "state_until_date": "{state} jusqu'à {date}",
+    "tomorrow": "demain",
+    "url": "Visiter le site pour consulter les horaires"
   },
   "poi": {
     "aerialway": {
       "station": "Station"
     },
     "amenity": {
-      "atm": "Distributeur de billets",
-      "car_rental": "Location de voitures",
-      "piano": "Piano",
-      "bureau_de_change": "Bureau de change",
-      "vending_machine": "Distributeur automatique",
       "arts_centre": "Centre des arts",
+      "atm": "Distributeur de billets",
       "bank": "Banque",
       "bar": "Bar",
       "bbq": "Barbecue",
       "bicycle_parking": "Parking vélo",
       "bicycle_rental": "Location de vélos",
       "biergarten": "Biergarten",
+      "bureau_de_change": "Bureau de change",
       "bus_station": "Station de bus",
       "cafe": "Café",
+      "car_rental": "Location de voitures",
       "cinema": "Cinéma",
       "clinic": "Clinique",
       "college": "Établissement d'enseignement supérieur",
@@ -113,6 +68,7 @@
       "nursing_home": "Maison de repos",
       "parking": "Parking",
       "pharmacy": "Pharmacie",
+      "piano": "Piano",
       "place_of_worship": "Lieu de culte",
       "police": "Police",
       "post_box": "Boite au lettres",
@@ -131,6 +87,7 @@
       "toilets": "Toilette",
       "townhall": "Mairie",
       "university": "Université",
+      "vending_machine": "Distributeur automatique",
       "veterinary": "Vétérinaire",
       "waste_basket": "Poubelle"
     },
@@ -145,35 +102,35 @@
       "toll_booth": "Péage"
     },
     "craft": {
-      "caterer": "Traiteur",
-      "shoemaker": "Cordonnier",
-      "tailor": "Tailleur",
       "brewery": "Brasserie",
+      "caterer": "Traiteur",
       "confectionery": "Confisery",
       "dressmaker": "Couturier",
-      "electronics_repair": "Réparation électronique"
+      "electronics_repair": "Réparation électronique",
+      "shoemaker": "Cordonnier",
+      "tailor": "Tailleur"
     },
     "door": {
-      "yes": "Porte",
-      "no": "Porte",
+      "door": "Porte",
       "hinged": "Porte",
-      "sliding": "Porte coulissante",
+      "no": "Porte",
       "overhead": "Porte",
-      "door": "Porte"
+      "sliding": "Porte coulissante",
+      "yes": "Porte"
     },
     "emergency": {
       "defibrillator": "Défibrilateur"
     },
     "entrance": {
-      "yes": "Entrée",
-      "main": "Entrée",
-      "staircase": "Entrée",
-      "home": "Entrée",
-      "service": "Service",
+      "building": "Entrée",
       "emergency": "Sortie de secours",
       "exit": "Sortie",
+      "home": "Entrée",
+      "main": "Entrée",
+      "service": "Service",
       "shop": "Entrée",
-      "building": "Entrée"
+      "staircase": "Entrée",
+      "yes": "Entrée"
     },
     "exhibit": {
       "artwork": "Œuvre d'art",
@@ -194,8 +151,8 @@
       "escape_game": "Escape game",
       "garden": "Jardin",
       "golf_course": "Terrain de course",
-      "ice_rink": "Patinoire",
       "hackerspace": "Hackerspace",
+      "ice_rink": "Patinoire",
       "marina": "Marina",
       "miniature_golf": "Mini-golf",
       "park": "Parc",
@@ -218,18 +175,6 @@
       "tram_stop": "Tram stop"
     },
     "shop": {
-      "leather": "Cuir",
-      "variety_store": "Magasin de variétés",
-      "fashion_accessories": "Accessoires de modes",
-      "houseware": "Articles ménagers",
-      "seafood": "Poissonerie",
-      "pastry": "Pâtisserie",
-      "cheese": "Fromagerie",
-      "kitchen": "Cuisine",
-      "ticket": "Ticket",
-      "frame": "Cadre",
-      "tea": "Thé",
-      "locksmith": "Serurerie",
       "accessories": "Accessoires",
       "alcohol": "Alcool",
       "antiques": "Antiquités",
@@ -245,10 +190,11 @@
       "butcher": "Boucherie",
       "camera": "Caméra",
       "car": "Voiture",
-      "car_repair": "Réparation de voiture",
       "car_parts": "Pièces de voitures",
+      "car_repair": "Réparation de voiture",
       "carpet": "Tapis",
       "charity": "Charité",
+      "cheese": "Fromagerie",
       "chemist": "Chimiste",
       "chocolate": "Chocolaterie",
       "clothes": "Vêtement",
@@ -266,7 +212,9 @@
       "electronics": "Électronique",
       "erotic": "Érotique",
       "fabric": "Tissu",
+      "fashion_accessories": "Accessoires de modes",
       "florist": "Fleuriste",
+      "frame": "Cadre",
       "frozen_food": "Surgelès",
       "furniture": "Meuble",
       "garden_centre": "Jardin",
@@ -277,12 +225,16 @@
       "hardware": "Matériel",
       "hearing_aids": "Prothèses auditives",
       "hifi": "Hifi",
+      "houseware": "Articles ménagers",
       "ice_cream": "Glace",
       "interior_decoration": "Décoration intérieur",
       "jewelry": "Bijoux",
       "kiosk": "Kiosque",
+      "kitchen": "Cuisine",
       "lamps": "Lampes",
       "laundry": "Blanchisserie",
+      "leather": "Cuir",
+      "locksmith": "Serurerie",
       "mall": "Centre commercial",
       "massage": "Massage",
       "mobile_phone": "Téléphone mobile",
@@ -292,10 +244,12 @@
       "newsagent": "Marchand de journaux",
       "optician": "Opticien",
       "outdoor": "Plein air",
+      "pastry": "Pâtisserie",
       "perfume": "Parfumerie",
       "perfumery": "Parfumerie",
       "pet": "Animal de compagni",
       "photo": "Photo",
+      "seafood": "Poissonerie",
       "second_hand": "Occasion",
       "shoes": "Chaussures",
       "sports": "Sports",
@@ -303,9 +257,12 @@
       "supermarket": "Supermarché",
       "tailor": "Tailleur",
       "tattoo": "Tatoueur",
+      "tea": "Thé",
+      "ticket": "Ticket",
       "tobacco": "Tabac",
       "toys": "Jouets",
       "travel_agency": "Agence de voyage",
+      "variety_store": "Magasin de variétés",
       "video": "Video",
       "video_games": "Jeux videos",
       "watches": "Montre",
@@ -415,9 +372,52 @@
       "zoo": "Zoo"
     }
   },
+  "search": "Rechercher",
+  "sidebar": {
+    "about": {
+      "created_by": "Créé par François de Metz",
+      "title": "A propos"
+    },
+    "api": {
+      "indoorequal": {
+        "cta": "S'enregistrer",
+        "subtitle": "Pour commencer, créer votre compte gratuit sur indoorequal.com.",
+        "title": "Créer votre clef d'API gratuite"
+      },
+      "mapboxgl": {
+        "cta": "Installer",
+        "subtitle": "La façon la plus simple d'intégrer indoor= dans votre carte",
+        "title": "mapbox-gl-indoorequal"
+      },
+      "schema": {
+        "cta": "Lire",
+        "subtitle": "Découvrer le schéma des tuiles vectorielles pour les intégrer dans votre application",
+        "title": "Lire le schéma"
+      },
+      "subtitle": "Intégrer indoor= à votre carte",
+      "title": "Développeurs"
+    },
+    "collapse": "Replier",
+    "description": "indoor= est une carte qui affiche les données intérieure d'{0}.",
+    "explore": {
+      "subtitle": "Lieux cartographié en intérieur",
+      "title": "Explorer"
+    },
+    "last_update": "Dernière mise à jour",
+    "learn": {
+      "subtitle": "Cartographier les espaces intérieur dans OpenStreetMap",
+      "title": "Apprendre"
+    },
+    "osm": "OpenStreetMap"
+  },
+  "toolbar": {
+    "edit": "Modifier OpenStreetMap",
+    "menu": "Menu",
+    "zoom_to_edit": "Zoomer pour pouvoir éditer"
+  },
   "wheelchair": {
-    "yes": "Accessible aux fauteuils",
     "limited": "Accessibilité limité",
-    "no": "Non accessible"
+    "no": "Non accessible",
+    "yes": "Accessible aux fauteuils"
   }
 }
