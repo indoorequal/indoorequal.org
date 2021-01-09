@@ -16,6 +16,7 @@
   >
     <MglNavigationControl show-compass />
     <MglGeolocateControl />
+    <three-d-control v-model="threeD" />
     <heatmap-control />
     <level-control
       :value="mapLevel"
@@ -27,19 +28,22 @@
 </template>
 
 <script>
-import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/dist/vue-mapbox.umd';
+import { MglMap, MglNavigationControl, MglGeolocateControl, MglVectorLayer } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorEqual from 'mapbox-gl-indoorequal';
 import { mapTilerApiKey, indoorEqualApiKey, tilesUrl } from '../config.json';
-import LevelControl from './level_control';
+import ThreeDControl from './3d_control';
 import HeatmapControl from './heatmap_control';
+import LevelControl from './level_control';
 
 export default {
   components: {
+    ThreeDControl,
     HeatmapControl,
     LevelControl,
     MglGeolocateControl,
     MglMap,
-    MglNavigationControl
+    MglNavigationControl,
+    MglVectorLayer
   },
 
   props: {
@@ -82,13 +86,47 @@ export default {
 
   data() {
     return {
-      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${mapTilerApiKey}`
+      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${mapTilerApiKey}`,
+      threeD: false
     };
   },
 
   watch: {
     newMapBounds(bbox) {
       this.map.fitBounds(bbox, { duration: 0 });
+    },
+    threeD(value) {
+      if (value) {
+        const levelHeight = 3;
+        this.map.addLayer({
+          source: 'indoorequal',
+          id: "indoor-3d",
+          type: "fill-extrusion",
+          "source-layer": "area",
+          "no-filter": true,
+          filter: [
+            "all",
+            [
+              "==",
+              "$type",
+              "Polygon"
+            ],
+            [
+              "!=",
+              "class",
+              "level"
+            ]
+          ],
+          paint: {
+            "fill-extrusion-height": ["+", ["*", ["to-number", ["get", "level"]], levelHeight], 0.1],
+            "fill-extrusion-base": ["*", ["to-number", ["get", "level"]], levelHeight],
+            "fill-extrusion-opacity": 0.9,
+            "fill-extrusion-color":  "#fdfcfa"
+          }
+        })
+      } else {
+        this.map.removeLayer('indoor-3d')
+      }
     }
   },
 
