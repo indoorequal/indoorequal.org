@@ -36,7 +36,7 @@
         color="blue darken-3"
         dark
         class="mt-4"
-        href="https://indoorequal.com/schema"
+        href="https://indoorequal.com/doc/schema"
         target="_blank"
         rel="noopener"
       >
