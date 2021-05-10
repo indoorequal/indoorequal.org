@@ -43,7 +43,7 @@
     "parcel": "^1.11.0",
     "parcel-plugin-static-files-copy": "^2.4.3",
     "vue-hot-reload-api": "^2.3.3",
-    "vue-jest": "^4.0.0-beta.5",
+    "vue-jest": "^4.0.1",
     "vue-template-compiler": "^2.6.9"
   },
   "dependencies": {
