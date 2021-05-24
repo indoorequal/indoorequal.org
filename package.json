@@ -47,7 +47,7 @@
     "vue-template-compiler": "^2.6.9"
   },
   "dependencies": {
-    "country-language": "^0.1.7",
+    "country-language": "bdswiss/country-language",
     "i18next-client": "^1.11.1",
     "luxon": "^1.22.0",
     "mapbox-gl": "^1.12.0",

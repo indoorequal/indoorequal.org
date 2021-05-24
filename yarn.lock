@@ -2472,13 +2472,12 @@ cosmiconfig@^5.0.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
-country-language@^0.1.7:
-  version "0.1.7"
-  resolved "https://registry.yarnpkg.com/country-language/-/country-language-0.1.7.tgz#7870f4ba125db9a6071f19737bd9ef9343ae35db"
-  integrity sha1-eHD0uhJduaYHHxlze9nvk0OuNds=
+country-language@bdswiss/country-language:
+  version "0.1.8"
+  resolved "https://codeload.github.com/bdswiss/country-language/tar.gz/32091c1a2dffa196cac41f2d4aebfc5bf8bd3f94"
   dependencies:
-    underscore "~1.7.0"
-    underscore.deep "~0.5.1"
+    underscore "^1.13.1"
+    underscore.deep "^0.5.1"
 
 create-ecdh@^4.0.0:
   version "4.0.4"
@@ -7446,15 +7445,15 @@ uncss@^0.17.3:
     postcss-selector-parser "6.0.2"
     request "^2.88.0"
 
-underscore.deep@~0.5.1:
+underscore.deep@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/underscore.deep/-/underscore.deep-0.5.1.tgz#072671f48d68735c34223fcfef63e69e5276cc2b"
   integrity sha1-ByZx9I1oc1w0Ij/P72PmnlJ2zCs=
 
-underscore@~1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.7.0.tgz#6bbaf0877500d36be34ecaa584e0db9fef035209"
-  integrity sha1-a7rwh3UA02vjTsqlhODbn+8DUgk=
+underscore@^1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.13.1.tgz#0c1c6bd2df54b6b69f2314066d65b6cde6fcf9d1"
+  integrity sha512-hzSoAVtJF+3ZtiFX0VgfFPHEDRm7Y/QPjGyNo4TVdnDTdft3tr8hEkD25a1jC+TjTuE7tkHGKkhwCgs9dgBB2g==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"
