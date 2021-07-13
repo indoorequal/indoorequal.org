@@ -15,6 +15,14 @@ Using docker:
 
 And visit http://localhost:1234
 
+## Configuration
+
+A few configuration options are available by editing the `config.json` file:
+
+- `mapTilerApiKey`: the [MapTiler](https://www.maptiler.com/) API Key
+- `tilesUrl`: The URL of the indoor= tileJSON
+- `indoorEqualApiKey`: the [indoor=](https://indoorequal.com/) API Key (optional if you don't use the official indoor= tileJSON
+
 ## Translation
 
 Translations are managed via Transifex, [go here to translate it in your language](https://www.transifex.com/indoorequal/indoorequalorg/languages/).
