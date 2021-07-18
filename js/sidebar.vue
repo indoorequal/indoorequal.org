@@ -85,7 +85,7 @@
         </v-list-item>
       </v-list>
       <div
-        v-if="state"
+        v-if="replicationStatus"
         class="pa-3 caption"
       >
         {{ $t('sidebar.last_update') }}
@@ -112,6 +112,11 @@ const COMPONENTS = {
   about: AboutInfo,
 };
 
+const fetchReplicationStatus = async function() {
+  const replicationStatusRequest = await fetch(`${tilesUrl}state`);
+  return replicationStatusRequest.text();
+}
+
 export default {
   components: {
     AboutInfo,
@@ -130,7 +135,7 @@ export default {
     return {
       component: false,
       logo,
-      state: null
+      replicationStatus: null
     };
   },
 
@@ -139,7 +144,7 @@ export default {
       return COMPONENTS[this.component];
     },
     lastUpdateTimestamp() {
-      return this.state.match(/timestamp=(.+)/)[1].replace(/\\/g, '');
+      return this.replicationStatus.match(/timestamp=(.+)/)[1].replace(/\\/g, '');
     },
     lastUpdateTimestampFormatted() {
       return DateTime.fromISO(this.lastUpdateTimestamp).toRelative();
@@ -166,11 +171,9 @@ export default {
   watch: {
     value: {
       immediate: true,
-      handler(value) {
-        if (value && !this.state) {
-          fetch(`${tilesUrl}state`)
-            .then(res => res.text())
-            .then(state => this.state = state);
+      async handler(value) {
+        if (value && !this.replicationStatus) {
+          this.replicationStatus = await fetchReplicationStatus();
         }
       }
     }
