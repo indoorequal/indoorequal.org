@@ -19,6 +19,11 @@
 <script>
 import { mapTilerApiKey } from '../config.json';
 
+const fetchGeocoding = async function(search) {
+  const geocodingRequest = await fetch(`https://api.maptiler.com/geocoding/${search}.json?key=${mapTilerApiKey}`);
+  return geocodingRequest.json();
+}
+
 export default {
   data() {
     return {
@@ -30,25 +35,24 @@ export default {
     };
   },
   watch: {
-    search(val) {
+    async search(val) {
       if (!val) return;
       this.error = null;
       this.isLoading = true;
 
-      fetch(`https://api.maptiler.com/geocoding/${this.search}.json?key=${mapTilerApiKey}`)
-        .then(res => res.json())
-        .then(body => {
-          this.items = body.features.map((feature) => {
-            return {
-              text: feature.place_name,
-              value: feature.bbox
-            };
-          });
-        })
-        .catch(err => {
-          this.error = err;
-        })
-        .finally(() => (this.isLoading = false))
+      try {
+        const geocodingResponse = await fetchGeocoding(val);
+        this.items = geocodingResponse.features.map((feature) => {
+          return {
+            text: feature.place_name,
+            value: feature.bbox
+          };
+        });
+      } catch(err) {
+        this.error = err;
+      } finally {
+        this.isLoading = false;
+      }
     },
     selected(val) {
       this.$emit('select', val);
