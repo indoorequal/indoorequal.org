@@ -17,12 +17,7 @@
 </template>
 
 <script>
-import { mapTilerApiKey } from '../config.json';
-
-const fetchGeocoding = async function(search) {
-  const geocodingRequest = await fetch(`https://api.maptiler.com/geocoding/${search}.json?key=${mapTilerApiKey}`);
-  return geocodingRequest.json();
-}
+import { fetchGeocoding } from './maptiler';
 
 export default {
   data() {

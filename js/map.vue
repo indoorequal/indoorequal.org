@@ -29,7 +29,8 @@
 <script>
 import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorEqual from 'mapbox-gl-indoorequal';
-import { mapTilerApiKey, indoorEqualApiKey, tilesUrl } from '../config.json';
+import { indoorEqualApiKey, tilesUrl } from '../config.json';
+import { mapStyle } from './maptiler';
 import LevelControl from './level_control';
 import HeatmapControl from './heatmap_control';
 
@@ -82,7 +83,7 @@ export default {
 
   data() {
     return {
-      mapStyle: `https://api.maptiler.com/maps/bright/style.json?key=${mapTilerApiKey}`
+      mapStyle: mapStyle()
     };
   },
 
