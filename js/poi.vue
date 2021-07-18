@@ -98,6 +98,11 @@ function dataToCanvas(data, width, height) {
   return context.canvas;
 }
 
+const fetchPoiGeojson = async function(poiInfo) {
+  const poiGeojsonRequest = await fetch(`${tilesUrl}poi/${poiInfo}?key=${indoorEqualApiKey}`);
+  return poiGeojsonRequest.json();
+}
+
 export default {
   components: {
     OpeningHours
@@ -174,19 +179,18 @@ export default {
   watch: {
     value: {
       immediate: true,
-      handler() {
+      async handler() {
         this.geojson = null;
         if (this.value === '') {
           return;
         }
         this.loading = true;
-        fetch(`${tilesUrl}poi/${this.value}?key=${indoorEqualApiKey}`)
-          .then(res => res.json())
-          .then((geojson) => {
-            this.geojson = geojson;
-            this.$emit('poiCoordinates', geojson.geometry.coordinates);
-          })
-          .finally(() => this.loading = false);
+        try {
+          this.geojson = await fetchPoiGeojson(this.value);
+          this.$emit('poiCoordinates', this.geojson.geometry.coordinates);
+        } finally {
+          this.loading = false;
+        }
       }
     }
   }
