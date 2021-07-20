@@ -390,7 +390,7 @@
       },
       "mapboxgl": {
         "cta": "Install",
-        "subtitle": "The easiest way to integrate indoor= in you map.",
+        "subtitle": "The easiest way to integrate indoor= in your map.",
         "title": "mapbox-gl-indoorequal"
       },
       "schema": {
