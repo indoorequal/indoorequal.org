@@ -22,7 +22,7 @@
         color="secondary"
         dark
         class="mt-4"
-        href="https://github.com/indoorequal/mapbox-gl-indoorequal"
+        href="https://indoorequal.com/doc/mapbox-gl-indoorequal"
         target="_blank"
         rel="noopener"
       >
