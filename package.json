@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "parcel serve parcel --hmr-port 1235 index.html",
+    "dev": "parcel serve --hmr-port 1235 index.html",
     "build": "parcel build index.html",
     "test": "jest --watch",
     "extract-poi-mapping": "node ./script/extract-poi-mapping"
