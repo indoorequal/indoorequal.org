@@ -33,6 +33,20 @@
         </v-card-actions>
       </v-card>
       <v-card
+        color="secondary"
+        dark
+        class="mt-4"
+        href="https://indoorequal.com/doc/openlayers-indoorequal"
+        target="_blank"
+        rel="noopener"
+      >
+        <v-card-title>{{ $t('sidebar.api.openlayers.title') }}</v-card-title>
+        <v-card-subtitle>{{ $t('sidebar.api.openlayers.subtitle') }}</v-card-subtitle>
+        <v-card-actions>
+          <v-btn text>{{ $t('sidebar.api.openlayers.cta') }}</v-btn>
+        </v-card-actions>
+      </v-card>
+      <v-card
         color="blue darken-3"
         dark
         class="mt-4"

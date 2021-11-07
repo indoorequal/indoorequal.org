@@ -389,6 +389,11 @@
         "subtitle": "La façon la plus simple d'intégrer indoor= dans votre carte",
         "title": "mapbox-gl-indoorequal"
       },
+      "openlayers": {
+        "cta": "Installer",
+        "subtitle": "La façon la plus simple d'intégrer indoor= dans votre carte",
+        "title": "openlayers-indoorequal"
+      },
       "schema": {
         "cta": "Lire",
         "subtitle": "Découvrer le schéma des tuiles vectorielles pour les intégrer dans votre application",

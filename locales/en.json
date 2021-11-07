@@ -393,6 +393,11 @@
         "subtitle": "The easiest way to integrate indoor= in your map.",
         "title": "mapbox-gl-indoorequal"
       },
+      "openlayers": {
+        "cta": "Install",
+        "subtitle": "Easy to use OpenLayers plugin to integrate indoor= in your map.",
+        "title": "openlayers-indoorequal"
+      },
       "schema": {
         "cta": "Read",
         "subtitle": "Discover the vector tile schema to integrate the tiles in any app.",
