@@ -83,12 +83,15 @@ export default {
       const doc = parser.parseFromString(fragment, 'text/html');
       return Array.from(doc.querySelectorAll('table tr')).map((row, index) => {
         if (index === 0) return;
+        const location = row.querySelector('td:first-child');
+        const nation = location.querySelector('span').textContent;
+        location.removeChild(location.querySelector('span'));
+        const city = location.textContent;
         return {
-          nation: row.querySelector('td:first-child').textContent,
-          province: row.querySelector('td:nth-child(2)').textContent,
-          city: row.querySelector('td:nth-child(3)').textContent,
-          description: row.querySelector('td:nth-child(4)').textContent,
-          link: row.querySelector('td:nth-child(5) a').getAttribute('href').replace('https://www.openstreetmap.org/', '')
+          nation,
+          city,
+          description: row.querySelector('td:nth-child(2)').textContent,
+          link: row.querySelector('td:nth-child(5) a').getAttribute('href').replace('https://indoorequal.org', '')
         };
       }).filter(n => !!n);
     }
