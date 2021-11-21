@@ -21,11 +21,12 @@
           </v-btn>
         </v-card-title>
         <v-card-subtitle v-if="tags.name">{{ type }}</v-card-subtitle>
-        <v-img
+        <iframe
           v-if="tags.mapillary"
-          :src="`https://images.mapillary.com/${tags.mapillary}/thumb-320.jpg`"
-        >
-        </v-img>
+          :src="`https://www.mapillary.com/embed?image_key=${tags.mapillary}&style=photo`"
+          width="100%"
+          frameborder="0"
+        ></iframe>
         <v-list
           v-if="displayList"
           dense
