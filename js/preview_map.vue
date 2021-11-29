@@ -7,16 +7,9 @@
     @load="load"
     @update:center="updateMapCenter"
     @update:zoom="updateMapZoom"
-    @mouseenter-indoor-poi-rank1="mouseenterLayer"
-    @click-indoor-poi-rank1="clickLayer"
-    @mouseleave-indoor-poi-rank1="mouseleaveLayer"
-    @mouseenter-indoor-poi-rank2="mouseenterLayer"
-    @click-indoor-poi-rank2="clickLayer"
-    @mouseleave-indoor-poi-rank2="mouseleaveLayer"
   >
     <MglNavigationControl show-compass />
     <MglGeolocateControl />
-    <heatmap-control />
     <level-control
       :value="mapLevel"
       position="bottom-right"
@@ -29,46 +22,41 @@
 <script>
 import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorEqual from 'mapbox-gl-indoorequal';
-import { indoorEqualApiKey, tilesUrl } from '../config.json';
+import bbox from '@turf/bbox';
 import LevelControl from './level_control';
-import HeatmapControl from './heatmap_control';
+import { transformGeoJSON } from './geojson';
 import baseMapMixin from './base_map';
 
 export default {
   mixins: [baseMapMixin],
 
   components: {
-    HeatmapControl,
     LevelControl,
     MglGeolocateControl,
     MglMap,
     MglNavigationControl
   },
 
+  props: {
+    geojson: {
+      type: Object,
+      required: true
+    }
+  },
+
   methods: {
     load({ map }) {
       this.map = map;
-      this.indoorEqualInstance = new IndoorEqual(this.map, { apiKey: indoorEqualApiKey, url: tilesUrl });
+      this.indoorEqualInstance = new IndoorEqual(this.map, { geojson: transformGeoJSON(this.geojson) });
       this.indoorEqualInstance.loadSprite('/indoorequal')
         .then((sprite) => {
           this.$emit('sprite', sprite);
         });
       setTimeout(() => {
         this.updateMapZoom(map.getZoom());
+        const newbbox = bbox(this.geojson);
+        this.$emit('updateBounds', newbbox);
       }, 100);
-    },
-
-    mouseenterLayer(e) {
-      e.map.getCanvas().style.cursor = 'pointer';
-    },
-
-    clickLayer(e) {
-      const id = e.mapboxEvent.features[0].properties.id;
-      this.$emit('clickPoi', id);
-    },
-
-    mouseleaveLayer(e) {
-      e.map.getCanvas().style.cursor = '';
     }
   }
 };

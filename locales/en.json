@@ -417,7 +417,16 @@
       "subtitle": "Map indoor area in OpenStreetMap",
       "title": "Learn"
     },
+    "preview": {
+      "title": "Preview",
+      "subtitle": "Preview rendering before upload"
+    },
     "osm": "OpenStreetMap"
+  },
+  "preview": {
+    "title": "Preview rendering",
+    "description": "Do you need to check the rendering of your indoor mapping? Upload a geojson and you will be able to preview the rendering. You can also drag and drop your geojson on the window.",
+    "file": "Choose a geojson file"
   },
   "toolbar": {
     "edit": "Edit OpenStreetMap",

@@ -1,22 +1,31 @@
 <template>
-  <v-app :class="{ xs: $vuetify.breakpoint.xsOnly }">
-    <indoor-sidebar v-model="menu" />
+  <v-app
+    :class="{ xs: $vuetify.breakpoint.xsOnly }"
+    @dragover.native.prevent
+    @drop.native="onDropPreview"
+  >
+    <indoor-sidebar
+      v-model="menu"
+      @openPreview="openPreview" />
     <v-main>
-      <indoor-map
+      <component
+        :is="mapComponent"
         :map-bounds.sync="mapBounds"
         :map-center.sync="mapCenter"
         :map-level.sync="mapLevel"
         :map-zoom.sync="mapZoom"
         :new-map-bounds="newMapBounds"
+        :geojson="geojson"
         @clickPoi="clickPoi"
         @sprite="updateSprite"
+        @updateBounds="updateBounds"
       >
         <MglMarker
           v-if="poiCoordinates.length > 0"
           :coordinates="poiCoordinates"
           color="#6667ad"
         />
-      </indoor-map>
+      </component>
       <v-chip
         v-if="mapZoom < 17"
         color="primary"
@@ -54,6 +63,7 @@
 import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorDiscover from './discover';
 import IndoorMap from './map';
+import IndoorPreviewMap from './preview_map';
 import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
 import IndoorToolbar from './toolbar';
@@ -68,6 +78,7 @@ export default {
     IndoorDiscover,
     IndoorMap,
     IndoorPoi,
+    IndoorPreviewMap,
     IndoorSidebar,
     IndoorToolbar,
     MglMarker
@@ -86,6 +97,8 @@ export default {
       newMapBounds: [],
       sprite: null,
       discover: true,
+      preview: false,
+      geojson: {}
     };
   },
 
@@ -101,6 +114,12 @@ export default {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
     }
     this.loadInitialLocation(hashParams);
+  },
+
+  computed: {
+    mapComponent() {
+      return this.preview ? IndoorPreviewMap : IndoorMap;
+    }
   },
 
   watch: {
@@ -183,6 +202,24 @@ export default {
 
     saveDiscoverValue() {
       localStorage.setItem(DISCOVER_LOCAL_STORAGE, this.discover);
+    },
+
+    onDropPreview(e) {
+      e.preventDefault();
+
+      const files = e.dataTransfer.files;
+      this.openPreview(files[0]);
+    },
+
+    openPreview(file) {
+      this.menu = false;
+      this.preview = false;
+      const reader = new FileReader();
+      reader.addEventListener('load', () => {
+        this.geojson = JSON.parse(reader.result);
+        this.preview = true;
+      });
+      reader.readAsText(file);
     }
   }
 };
