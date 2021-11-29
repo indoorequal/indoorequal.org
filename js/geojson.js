@@ -32,11 +32,23 @@ function expandLevels(feature) {
   });
 }
 
-export function transformGeoJSON(featureCollection) {
-  const indoorFeatures = featureCollection.features.filter((feature) => {
-    return feature.properties.level && feature.properties.level.match(/^-?\d+\.?\d*(;-?\d+\.?\d*)*$/);
+export function transformTransportationFeatures(indoorFeatures) {
+  return indoorFeatures.filter((feature) => {
+    return feature.properties.highway === 'steps';
+  }).map((feature) => {
+    return {
+      ...feature,
+      properties: {
+        ...feature.properties,
+        class: feature.properties.highway,
+        highway: undefined
+      }
+    };
   });
-  const areaFeatures = indoorFeatures.filter((feature) => {
+}
+
+export function transformAreaFeatures(indoorFeatures) {
+  return indoorFeatures.filter((feature) => {
     return ['room', 'area', 'corridor', 'platform', 'wall', 'column'].includes(feature.properties.indoor);
   }).map((feature) => {
     return {
@@ -46,13 +58,25 @@ export function transformGeoJSON(featureCollection) {
         class: feature.properties.indoor,
         indoor: undefined
       }
-    }
+    };
   }).map((feature) => {
     if (feature.geometry.type !== 'Polygon' && feature.properties.class !== 'wall') {
       return lineToPolygon(feature);
     }
     return feature;
-  }).flatMap(expandLevels);
+  });
+}
+
+export function filterIndoorFeatures(features) {
+  return features.filter((feature) => {
+    return feature.properties.level && feature.properties.level.match(/^-?\d+\.?\d*(;-?\d+\.?\d*)*$/);
+  });
+}
+
+export function transformGeoJSON(featureCollection) {
+  const indoorFeatures = filterIndoorFeatures(featureCollection.features);
+  const areaFeatures = transformAreaFeatures(indoorFeatures).flatMap(expandLevels);
+  const transportationFeatures = transformTransportationFeatures(indoorFeatures).flatMap(expandLevels);
   return {
     area: {
       type: 'FeatureCollection',
@@ -61,6 +85,10 @@ export function transformGeoJSON(featureCollection) {
     area_name: {
       type: 'FeatureCollection',
       features: areaFeatures,
+    },
+    transportation: {
+      type: 'FeatureCollection',
+      features: transportationFeatures,
     }
   };
 }

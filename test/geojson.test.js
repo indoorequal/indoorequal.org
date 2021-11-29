@@ -1,223 +1,181 @@
-import { findAllLevels, transformGeoJSON } from '../js/geojson';
+import {
+  filterIndoorFeatures,
+  findAllLevels,
+  transformGeoJSON,
+  transformAreaFeatures,
+  transformTransportationFeatures,
+} from '../js/geojson';
 
-describe('Transform the geojson', () => {
+describe('transformAreaFeatures', () => {
   it('returns area data', () => {
-    const featureCollection = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {
-            indoor: 'room',
-            level: '0',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
+    const features =  [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          name: 'Test',
         },
-        {
-          type: 'Feature',
-          properties: {
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
+        geometry: {
+          type: 'Polygon',
+          coordinates: []
+        }
+      },
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'nope',
+          level: '0'
         },
-      ]
-    };
-    const featureResult = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {
-            class: 'room',
-            level: '0',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
+        geometry: {
+          type: 'Polygon',
+          coordinates: []
+        }
+      },
+    ];
+    const featuresResult = [
+      {
+        type: 'Feature',
+        properties: {
+          class: 'room',
+          level: '0',
+          name: 'Test',
         },
-      ]
-    };
-    const result = transformGeoJSON(featureCollection);
-    expect(result).toEqual({
-      area: featureResult,
-      area_name: featureResult,
-    });
+        geometry: {
+          type: 'Polygon',
+          coordinates: []
+        }
+      },
+    ];
+    const result = transformAreaFeatures(features);
+    expect(result).toEqual(featuresResult);
   });
 
   it('transform linestring feature to polygon', () => {
-    const featureCollection = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {
-            indoor: 'room',
-            level: '0',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'LineString',
-            coordinates: [[0, 0], [1, 1], [2, 2], [3, 3]]
-          }
+    const features = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          name: 'Test',
         },
-      ]
-    };
-    const featureResult = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {
-            class: 'room',
-            level: '0',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: [[[0, 0], [1, 1], [2, 2], [3, 3], [0, 0]]]
-          }
+        geometry: {
+          type: 'LineString',
+          coordinates: [[0, 0], [1, 1], [2, 2], [3, 3]]
+        }
+      },
+    ];
+    const featuresResult = [
+      {
+        type: 'Feature',
+        properties: {
+          class: 'room',
+          level: '0',
+          name: 'Test',
         },
-      ]
-    };
-    const result = transformGeoJSON(featureCollection);
-    expect(result).toEqual({
-      area: featureResult,
-      area_name: featureResult,
-    });
+        geometry: {
+          type: 'Polygon',
+          coordinates: [[[0, 0], [1, 1], [2, 2], [3, 3], [0, 0]]]
+        }
+      },
+    ];
+    const result = transformAreaFeatures(features);
+    expect(result).toEqual(featuresResult);
   });
+});
 
-  it('expand indoor data by level', () => {
-    const featureCollection = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {
-            indoor: 'room',
-            level: '0;1',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
+describe('filterIndoorFeatures', () => {
+  it('return indoor features ', () => {
+    const features = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          name: 'Test',
+          level: '1'
         },
-        {
-          type: 'Feature',
-          properties: {
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
-        },
-      ]
-    };
-    const featureResult = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {
-            class: 'room',
-            level: '0',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
-        },
-        {
-          type: 'Feature',
-          properties: {
-            class: 'room',
-            level: '1',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
-        },
-      ]
-    };
-    const result = transformGeoJSON(featureCollection);
-    expect(result).toEqual({
-      area: featureResult,
-      area_name: featureResult,
-    });
+        geometry: {
+          type: 'Polygon',
+          coordinates: []
+        }
+      },
+    ];
+    const result = filterIndoorFeatures(features);
+    expect(result).toEqual(features);
   });
 
   it('ignore non indoor features', () => {
-    const featureCollection = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {
-            indoor: 'room',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
+    const features = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          name: 'Test',
         },
-      ]
-    };
-    const result = transformGeoJSON(featureCollection);
-    expect(result).toEqual({
-      area: {
-        type: 'FeatureCollection',
-        features: []
+        geometry: {
+          type: 'Polygon',
+          coordinates: []
+        }
       },
-      area_name: {
-        type: 'FeatureCollection',
-        features: []
-      },
-    });
+    ];
+    const result = filterIndoorFeatures(features);
+    expect(result).toEqual([]);
   });
 
   it('ignore invalid level features', () => {
-    const featureCollection = {
-      type: 'FeatureCollection',
-      features: [
-        {
-          type: 'Feature',
-          properties: {
-            indoor: 'room',
-            level: 'badlevel',
-            name: 'Test',
-          },
-          geometry: {
-            type: 'Polygon',
-            coordinates: []
-          }
+    const features = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: 'badlevel',
+          name: 'Test',
         },
-      ]
-    };
-    const result = transformGeoJSON(featureCollection);
-    expect(result).toEqual({
-      area: {
-        type: 'FeatureCollection',
-        features: []
+        geometry: {
+          type: 'Polygon',
+          coordinates: []
+        }
       },
-      area_name: {
-        type: 'FeatureCollection',
-        features: []
+    ];
+    const result = filterIndoorFeatures(features);
+    expect(result).toEqual([]);
+  });
+});
+
+describe('transformTransporationFeatures', () => {
+  it('returns higway=steps features', () => {
+    const features = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '1',
+          name: 'Test',
+          highway: 'steps'
+        },
+        geometry: {
+          type: 'Linestring',
+          coordinates: []
+        }
       },
-    });
+    ];
+    const result = transformTransportationFeatures(features);
+    expect(result).toEqual([
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '1',
+          name: 'Test',
+          class: 'steps'
+        },
+        geometry: {
+          type: 'Linestring',
+          coordinates: []
+        }
+      }
+    ]);
   });
 });
 
