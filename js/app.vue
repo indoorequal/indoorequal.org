@@ -46,8 +46,8 @@
           @poiCoordinates="setPoiCoordinates"
         />
       </div>
-    </v-content>
-  </v-main>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
