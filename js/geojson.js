@@ -20,6 +20,12 @@ export function findAllLevels(feature) {
   return levels.concat(repeatOnLevels);
 }
 
+export function isPoi(feature) {
+  return ['amenity', 'shop', 'craft', 'leisure', 'office', 'sport', 'tourism', 'exhibit', 'door'].some((tag) => {
+    return !!feature.properties[tag];
+  })
+}
+
 function expandLevels(feature) {
   return findAllLevels(feature).map((level) => {
     return {
@@ -56,7 +62,8 @@ export function transformAreaFeatures(indoorFeatures) {
       properties: {
         ...feature.properties,
         class: feature.properties.indoor,
-        indoor: undefined
+        indoor: undefined,
+        is_poi: isPoi(feature)
       }
     };
   }).map((feature) => {

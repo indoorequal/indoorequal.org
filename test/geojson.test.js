@@ -4,6 +4,7 @@ import {
   transformGeoJSON,
   transformAreaFeatures,
   transformTransportationFeatures,
+  isPoi
 } from '../js/geojson';
 
 describe('transformAreaFeatures', () => {
@@ -40,6 +41,7 @@ describe('transformAreaFeatures', () => {
           class: 'room',
           level: '0',
           name: 'Test',
+          is_poi: false,
         },
         geometry: {
           type: 'Polygon',
@@ -73,6 +75,7 @@ describe('transformAreaFeatures', () => {
           class: 'room',
           level: '0',
           name: 'Test',
+          is_poi: false,
         },
         geometry: {
           type: 'Polygon',
@@ -231,5 +234,42 @@ describe('find all levels', () => {
         repeat_on: '-2,8'
       }
     })).toEqual(['0']);
+  });
+});
+
+describe('is poi', () => {
+  ['amenity', 'shop', 'craft', 'leisure', 'office', 'sport', 'tourism', 'exhibit', 'door'].forEach((tag) => {
+    test(`returns true if feature has tag ${tag}`, () => {
+      const feature = {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          name: 'Test',
+          [tag]: 'restaurant'
+        },
+        geometry: {
+          type: 'LineString',
+          coordinates: []
+        }
+      };
+      expect(isPoi(feature)).toBe(true);
+    });
+  });
+
+  test(`returns false if feature has no tag`, () => {
+    const feature = {
+      type: 'Feature',
+      properties: {
+        indoor: 'room',
+        level: '0',
+        name: 'Test',
+      },
+      geometry: {
+        type: 'LineString',
+        coordinates: []
+      }
+    };
+    expect(isPoi(feature)).toBe(false);
   });
 });
