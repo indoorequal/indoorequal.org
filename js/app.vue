@@ -28,7 +28,7 @@
         />
       </component>
       <v-chip
-        v-if="mapZoom < 17"
+        v-if="!preview && mapZoom < 17"
         color="primary"
         class="zoom-chip"
         @click="mapZoom = 17"
