@@ -3,7 +3,6 @@
     <indoor-sidebar v-model="menu" />
     <v-main>
       <indoor-map
-        v-if="loadMap"
         :map-bounds.sync="mapBounds"
         :map-center.sync="mapCenter"
         :map-level.sync="mapLevel"
@@ -76,7 +75,6 @@ export default {
 
   data() {
     return {
-      loadMap: false,
       mapBounds: [],
       mapCenter: { lat: 37.68, lng: -2.37 },
       mapLevel: '0',
@@ -103,7 +101,6 @@ export default {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
     }
     this.loadInitialLocation(hashParams);
-    this.loadMap = true;
   },
 
   watch: {
