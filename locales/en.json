@@ -426,7 +426,8 @@
   "preview": {
     "title": "Preview rendering",
     "description": "Do you need to check the rendering of your indoor mapping? Upload a geojson and you will be able to preview the rendering. You can also drag and drop your geojson on the window.",
-    "file": "Choose a geojson file"
+    "file": "Choose a geojson file",
+    "close": "Quit preview"
   },
   "toolbar": {
     "edit": "Edit OpenStreetMap",

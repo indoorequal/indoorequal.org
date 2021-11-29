@@ -6,7 +6,8 @@
   >
     <indoor-sidebar
       v-model="menu"
-      @openPreview="openPreview" />
+      @openPreview="openPreview"
+    />
     <v-main>
       <component
         :is="mapComponent"
@@ -34,6 +35,7 @@
       >{{ $t('zoom') }}</v-chip>
       <div class="indoor-toolbar">
         <indoor-toolbar
+          v-if="!preview"
           v-model="menu"
           :map-bounds="mapBounds"
           :map-center="mapCenter"
@@ -42,8 +44,13 @@
           :min-zoom="minZoom"
           @updateBounds="updateBounds"
         />
+        <indoor-preview-toolbar
+          v-else
+          @openPreview="openPreview"
+          @closePreview="preview = false"
+        />
         <indoor-discover
-          v-if="discover"
+          v-if="discover && !preview"
           class="indoor-discover"
           @explore="openExplore"
           @close="closeDiscover"
@@ -64,6 +71,7 @@ import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorDiscover from './discover';
 import IndoorMap from './map';
 import IndoorPreviewMap from './preview_map';
+import IndoorPreviewToolbar from './preview_toolbar';
 import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
 import IndoorToolbar from './toolbar';
@@ -79,6 +87,7 @@ export default {
     IndoorMap,
     IndoorPoi,
     IndoorPreviewMap,
+    IndoorPreviewToolbar,
     IndoorSidebar,
     IndoorToolbar,
     MglMarker
