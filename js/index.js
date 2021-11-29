@@ -37,7 +37,7 @@ import Vuetify, {
 } from 'vuetify/lib';
 import VueI18n from 'vue-i18n';
 import messages from '../locales/*.json';
-import App from './app';
+import App from './app.vue';
 
 Vue.use(Vuetify, {
   components: {
