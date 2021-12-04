@@ -5,24 +5,33 @@ const deepmerge = require('deepmerge');
 const yaml = require('js-yaml');
 const fs = require('fs');
 
-const locales = ['en', 'fr'];
+async function fetchData() {
+  const res = await fetch('https://raw.githubusercontent.com/indoorequal/indoorequal/master/layers/poi/mapping.yaml');
+  return res.text();
+}
 
-fetch('https://raw.githubusercontent.com/indoorequal/indoorequal/master/layers/poi/mapping.yaml')
-  .then(res => res.text())
-  .then((res) => {
-    const doc = yaml.safeLoad(res);
-    const mapping = doc.tables.poi_point.mapping;
-    const keys = Object.keys(doc.tables.poi_point.mapping);
-    const types = keys.reduce((memo, key) => {
-      memo[key] = mapping[key].reduce((memo, v) => {
-        memo[v] = v;
-        return memo;
-      }, {});
+function updateLocalesFiles(yamlContent) {
+  const doc = yaml.safeLoad(yamlContent);
+  const mapping = doc.tables.poi_point.mapping;
+  const keys = Object.keys(doc.tables.poi_point.mapping);
+  const types = keys.reduce((memo, key) => {
+    memo[key] = mapping[key].reduce((memo, v) => {
+      memo[v] = v;
       return memo;
     }, {});
-    locales.forEach((locale) => {
-      const l = require(`../locales/${locale}.json`);
-      l.poi = deepmerge(types, l.poi);
-      fs.writeFileSync(`./locales/${locale}.json`, JSON.stringify(l, null, '  ') + "\n", { encoding: 'utf-8' });
-    });
+    return memo;
+  }, {});
+  const locales = ['en', 'fr'];
+  locales.forEach((locale) => {
+    const l = require(`../locales/${locale}.json`);
+    l.poi = deepmerge(types, l.poi);
+    fs.writeFileSync(`./locales/${locale}.json`, JSON.stringify(l, null, '  ') + "\n", { encoding: 'utf-8' });
   });
+}
+
+async function main() {
+  const yamlContent = await fetchData();
+  updateLocalesFiles(yamlContent);
+}
+
+main();
