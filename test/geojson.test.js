@@ -128,6 +128,20 @@ describe('filterIndoorFeatures', () => {
     expect(result).toEqual([]);
   });
 
+  it('ignore features without properties', () => {
+    const features = [
+      {
+        type: 'Feature',
+        geometry: {
+          type: 'Polygon',
+          coordinates: []
+        }
+      },
+    ];
+    const result = filterIndoorFeatures(features);
+    expect(result).toEqual([]);
+  });
+
   it('ignore invalid level features', () => {
     const features = [
       {

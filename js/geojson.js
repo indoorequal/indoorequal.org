@@ -241,7 +241,7 @@ export function transformPoiFeatures(indoorFeatures) {
 
 export function filterIndoorFeatures(features) {
   return features.filter((feature) => {
-    return feature.properties.level && feature.properties.level.match(/^-?\d+\.?\d*(;-?\d+\.?\d*)*$/);
+    return feature.properties && feature.properties.level && feature.properties.level.match(/^-?\d+\.?\d*(;-?\d+\.?\d*)*$/);
   });
 }
 
