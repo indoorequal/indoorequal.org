@@ -13,7 +13,7 @@ async function fetchData() {
 function updateLocalesFiles(yamlContent) {
   const doc = yaml.safeLoad(yamlContent);
   const mapping = doc.tables.poi_point.mapping;
-  const keys = Object.keys(doc.tables.poi_point.mapping);
+  const keys = Object.keys(mapping);
   const types = keys.reduce((memo, key) => {
     memo[key] = mapping[key].reduce((memo, v) => {
       memo[v] = v;
@@ -29,9 +29,16 @@ function updateLocalesFiles(yamlContent) {
   });
 }
 
+function updatePoiMapping(yamlContent) {
+  const doc = yaml.safeLoad(yamlContent);
+  const mapping = doc.tables.poi_point.mapping;
+  fs.writeFileSync('./js/poimapping.json', JSON.stringify(mapping, null, '  ') + "\n", { encoding: 'utf-8' });
+}
+
 async function main() {
   const yamlContent = await fetchData();
   updateLocalesFiles(yamlContent);
+  updatePoiMapping(yamlContent);
 }
 
 main();

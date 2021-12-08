@@ -4,6 +4,8 @@ import {
   transformGeoJSON,
   transformAreaFeatures,
   transformTransportationFeatures,
+  transformPoiFeatures,
+  poiClassAndSubclass,
   isPoi
 } from '../js/geojson';
 
@@ -182,6 +184,146 @@ describe('transformTransporationFeatures', () => {
   });
 });
 
+describe('transformPoiFeatures', () => {
+  it('returns poi features', () => {
+    const features = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          shop: 'seafood',
+          name: 'Test',
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: []
+        }
+      },
+      {
+        type: 'Feature',
+        properties: {
+          level: '0'
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: []
+        }
+      },
+    ];
+    const featuresResult = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          name: 'Test',
+          class: 'grocery',
+          subclass: 'seafood',
+          shop: 'seafood',
+          'name:latin': 'Test'
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: []
+        }
+      },
+    ];
+    const result = transformPoiFeatures(features);
+    expect(result).toEqual(featuresResult);
+  });
+
+  it('transform geometry to a point ', () => {
+    const features = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          shop: 'seafood',
+        },
+        geometry: {
+          type: 'Polygon',
+          coordinates: [[[0, 0], [1, 1], [2, 2], [3, 3], [0, 0]]]
+        }
+      },
+    ];
+    const featuresResult = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          class: 'grocery',
+          subclass: 'seafood',
+          shop: 'seafood',
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: [1.5, 1.5]
+        }
+      },
+    ];
+    const result = transformPoiFeatures(features);
+    expect(result).toEqual(featuresResult);
+  });
+
+  const specialSubclass = [
+    { tags: { tourism: 'information', information: 'test' }, subclass: 'test' },
+    { tags: { amenity: 'place_of_worship', religion: 're' }, subclass: 're' },
+    { tags: { leisure: 'pitch', sport: 'tennis' }, subclass: 'tennis' },
+    { tags: { amenity: 'vending_machine', vending: 'can' }, subclass: 'can' }
+  ];
+
+  it('returns special subclass', () => {
+    specialSubclass.forEach(({ tags, subclass }) => {
+      const features = [
+        {
+          type: 'Feature',
+          properties: {
+            indoor: 'room',
+            level: '0',
+            ...tags
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: []
+          }
+        },
+      ];
+      const result = transformPoiFeatures(features);
+      expect(result[0].properties.subclass).toEqual(subclass);
+    });
+  });
+});
+
+describe('poi class and subclass', () => {
+  const tests = [
+    { tags: { amenity: 'cafe' }, expected: ['cafe', 'cafe'] },
+    { tags: { shop: 'books' }, expected: ['library', 'books'] },
+    { tags: { amenity: 'courthouse' }, expected: ['town_hall', 'courthouse'] },
+    { tags: { door: 'hinged' }, expected: ['entrance', 'hinged'] },
+    { tags: { amenity: 'test' }, expected: null },
+  ];
+
+  it('returns the class and the subclass of the poi', () => {
+    tests.forEach(({ tags, expected }) => {
+      expect(poiClassAndSubclass({
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          ...tags
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: []
+        }
+      })).toEqual(expected);
+    });
+  });
+});
+
 describe('find all levels', () => {
   it('find levels with ;', () => {
     expect(findAllLevels({
@@ -238,7 +380,7 @@ describe('find all levels', () => {
 });
 
 describe('is poi', () => {
-  ['amenity', 'shop', 'craft', 'leisure', 'office', 'sport', 'tourism', 'exhibit', 'door'].forEach((tag) => {
+  [['amenity', 'cafe'], ['shop', 'leather' ], ['craft', 'caterer' ], ['leisure', 'dog_park' ], ['office', 'government' ], ['sport', 'archery' ], ['tourism', 'hotel' ], ['exhibit', 'artwork' ], ['door', 'yes' ]].forEach(([tag, value]) => {
     test(`returns true if feature has tag ${tag}`, () => {
       const feature = {
         type: 'Feature',
@@ -246,7 +388,7 @@ describe('is poi', () => {
           indoor: 'room',
           level: '0',
           name: 'Test',
-          [tag]: 'restaurant'
+          [tag]: value
         },
         geometry: {
           type: 'LineString',

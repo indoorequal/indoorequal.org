@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@turf/bbox": "^6.5.0",
+    "@turf/center-of-mass": "^6.5.0",
     "@turf/line-to-polygon": "^6.5.0",
     "country-language": "bdswiss/country-language",
     "i18next-client": "^1.11.1",
