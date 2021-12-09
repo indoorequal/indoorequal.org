@@ -206,7 +206,7 @@ export function transformAreaFeatures(indoorFeatures) {
       }
     };
   }).map((feature) => {
-    if (feature.geometry.type !== 'Polygon' && feature.properties.class !== 'wall') {
+    if (['LineString', 'MultiLineString'].includes(feature.geometry.type) && feature.properties.class !== 'wall') {
       return lineToPolygon(feature);
     }
     return feature;
