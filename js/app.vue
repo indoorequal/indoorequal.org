@@ -229,6 +229,7 @@ export default {
         this.preview = true;
       });
       reader.readAsText(file);
+      plausible('Open preview');
     }
   }
 };

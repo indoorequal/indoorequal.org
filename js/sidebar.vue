@@ -166,6 +166,7 @@ export default {
   methods: {
     display(component) {
       this.component = component;
+      plausible(`Display ${component}`);
     },
 
     toggleValue() {
