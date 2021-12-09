@@ -424,10 +424,11 @@
     "osm": "OpenStreetMap"
   },
   "preview": {
-    "title": "Preview rendering",
+    "close": "Exit preview",
     "description": "Check the rendering of your indoor mapping. Select a GeoJSON file that follow the Simple Indoor Tagging scheme. You can also drag and drop your GeoJSON on the window.",
     "file": "Select a GeoJSON file",
-    "close": "Exit preview"
+    "no_data_uploaded": "No data are uploaded. Everything happens in your computer.",
+    "title": "Preview rendering"
   },
   "toolbar": {
     "edit": "Edit OpenStreetMap",

@@ -5,6 +5,7 @@
   >
     <div class="mx-4">
       <p class="pt-4">{{ $t('preview.description') }}</p>
+      <p><strong>{{ $t('preview.no_data_uploaded') }}</strong></p>
       <v-file-input
         :label="$t('preview.file')"
         accept=".geojson"
