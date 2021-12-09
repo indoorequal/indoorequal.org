@@ -10,6 +10,7 @@
     <component
       v-if="component"
       :is="componentName"
+      @openPreview="(file) => this.$emit('openPreview', file)"
       @toggleMenu="toggleValue"
       @close="component = false"
     />
@@ -69,6 +70,15 @@
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
+        <v-list-item @click="display('preview')">
+          <v-list-item-icon>
+            <v-icon>mdi-puzzle-check</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ $t('sidebar.preview.title') }}</v-list-item-title>
+            <v-list-item-subtitle>{{ $t('sidebar.preview.subtitle') }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item
           href="https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging"
           rel="noopener"
@@ -104,12 +114,14 @@ import { tilesUrl } from '../config.json';
 import AboutInfo from './about_info';
 import ApiInfo from './api_info';
 import ExploreList from './explore_list';
+import PreviewConfig from './preview_config';
 import logo from '../icons/indoorequal.svg';
 
 const COMPONENTS = {
   explore: ExploreList,
   api: ApiInfo,
   about: AboutInfo,
+  preview: PreviewConfig,
 };
 
 const fetchReplicationStatus = async function() {

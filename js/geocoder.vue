@@ -12,7 +12,6 @@
     dense
     background-color="white"
     prepend-inner-icon="mdi-magnify"
-    class="geocoder"
   />
 </template>
 
