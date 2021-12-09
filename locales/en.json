@@ -418,16 +418,16 @@
       "title": "Learn"
     },
     "preview": {
-      "title": "Preview",
-      "subtitle": "Preview rendering before upload"
+      "title": "Preview rendering",
+      "subtitle": "Preview indoor mapping before upload"
     },
     "osm": "OpenStreetMap"
   },
   "preview": {
     "title": "Preview rendering",
-    "description": "Do you need to check the rendering of your indoor mapping? Upload a geojson and you will be able to preview the rendering. You can also drag and drop your geojson on the window.",
-    "file": "Choose a geojson file",
-    "close": "Quit preview"
+    "description": "Check the rendering of your indoor mapping. Select a GeoJSON file that follow the Simple Indoor Tagging scheme. You can also drag and drop your GeoJSON on the window.",
+    "file": "Select a GeoJSON file",
+    "close": "Exit preview"
   },
   "toolbar": {
     "edit": "Edit OpenStreetMap",

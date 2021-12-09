@@ -9,7 +9,7 @@
     "wednesday": "Mercredi"
   },
   "discover": {
-    "explore": "Explorer les endroits"
+    "explore": "Explorer les lieux"
   },
   "explore_list": {
     "description": "Cette liste est extraite de {wikipage}.",
@@ -410,10 +410,20 @@
     },
     "last_update": "Dernière mise à jour",
     "learn": {
-      "subtitle": "Cartographier les espaces intérieur dans OpenStreetMap",
-      "title": "Apprendre"
+      "subtitle": "Les espaces intérieur dans OpenStreetMap",
+      "title": "Apprendre à cartographier"
+    },
+    "preview": {
+      "title": "Prévisualisation du rendu",
+      "subtitle": "Validation avant envoi"
     },
     "osm": "OpenStreetMap"
+  },
+  "preview": {
+    "title": "Prévisualisation du rendu",
+    "description": "Vérifier le rendu de votre cartographie intérieur. Sélectionner un fichier GeoJSON qui suit les recommandations de Simple Indoor Tagging. Ou bien glisser déposer directement un fichier GeoJSON dans la fenêtre.",
+    "file": "Sélectionner un fichier GeoJSON",
+    "close": "Quitter la prévisualisation"
   },
   "toolbar": {
     "edit": "Modifier OpenStreetMap",
