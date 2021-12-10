@@ -1,4 +1,4 @@
-import 'mapbox-gl/dist/mapbox-gl.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
 import '@mdi/font/css/materialdesignicons.css';
 
 import Vue from 'vue';

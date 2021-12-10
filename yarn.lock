@@ -5464,10 +5464,10 @@ mapbox-gl-indoorequal@^0.2.9:
     array-equal "^1.0.0"
     debounce "^1.2.0"
 
-mapbox-gl@^1.12.0:
-  version "1.13.2"
-  resolved "https://registry.yarnpkg.com/mapbox-gl/-/mapbox-gl-1.13.2.tgz#76639c44f141f8dff71b7d8f1504f2aed11f7517"
-  integrity sha512-CPjtWygL+f7naL+sGHoC2JQR0DG7u+9ik6WdkjjVmz2uy0kBC2l+aKfdi3ZzUR7VKSQJ6Mc/CeCN+6iVNah+ww==
+maplibre-gl@>=1.15.2:
+  version "1.15.2"
+  resolved "https://registry.yarnpkg.com/maplibre-gl/-/maplibre-gl-1.15.2.tgz#7fb47868b62455af916c090903f2154394450f9c"
+  integrity sha512-uPeV530apb4JfX3cRFfE+awFnbcJTOnCv2QvY4mw4huiInbybElWYkNzTs324YLSADq0f4bidRoYcR81ho3aLA==
   dependencies:
     "@mapbox/geojson-rewind" "^0.5.0"
     "@mapbox/geojson-types" "^1.0.2"
@@ -7649,7 +7649,7 @@ vue-i18n@^8.21.1:
 
 vue-mapbox@osmontrouge/vue-mapbox#update:
   version "0.4.1"
-  resolved "https://codeload.github.com/osmontrouge/vue-mapbox/tar.gz/d85a057ce90c75ccee10bbc2ed58ffcc2895cc36"
+  resolved "https://codeload.github.com/osmontrouge/vue-mapbox/tar.gz/28dabf74dd8a5be3c81aa00c9da1781697a118b4"
   dependencies:
     map-promisified latest
 
