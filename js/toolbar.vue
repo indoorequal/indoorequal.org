@@ -21,8 +21,8 @@
       @select="updateBounds"
     />
     <v-menu>
-      <template v-slot:activator="{ on: menu }">
-        <v-tooltip bottom>
+      <template v-slot:activator="{ on: menu, value }">
+        <v-tooltip bottom :disabled="value">
           <template v-slot:activator="{ on: tooltip }">
             <div v-on="tooltip">
               <v-btn
