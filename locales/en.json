@@ -427,6 +427,12 @@
     "close": "Exit preview",
     "description": "Check the rendering of your indoor mapping. Select a GeoJSON file that follow the Simple Indoor Tagging scheme. You can also drag and drop your GeoJSON on the window.",
     "file": "Select a GeoJSON file",
+    "how": {
+      "content1": "Open JOSM and edit an indoor area",
+      "content2": "Click on \"File\" -> \"Save as\" and save the file as GeoJSON.",
+      "content3": "Select the file in the form below",
+      "title": "How to"
+    },
     "no_data_uploaded": "No data are uploaded remotly. Everything happens in your computer.",
     "title": "Preview rendering"
   },
