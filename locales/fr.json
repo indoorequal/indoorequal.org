@@ -429,6 +429,7 @@
   "toolbar": {
     "edit": "Modifier OpenStreetMap",
     "menu": "Menu",
+    "view": "Voir la carte",
     "zoom_to_edit": "Zoomer pour pouvoir éditer"
   },
   "wheelchair": {

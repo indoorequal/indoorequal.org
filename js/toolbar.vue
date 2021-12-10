@@ -38,6 +38,7 @@
         </v-tooltip>
       </template>
       <v-list>
+        <v-subheader>{{ $t('toolbar.edit') }}</v-subheader>
         <v-list-item :href="OSMUrl">
           <v-list-item-title>iD</v-list-item-title>
         </v-list-item>
@@ -51,6 +52,7 @@
           <v-list-item-title>OsmInEdit</v-list-item-title>
         </v-list-item>
         <v-divider></v-divider>
+        <v-subheader>{{ $t('toolbar.view') }}</v-subheader>
         <v-list-item :href="OpenLevelUpUrl">
           <v-list-item-title>OpenLevelUp!</v-list-item-title>
         </v-list-item>

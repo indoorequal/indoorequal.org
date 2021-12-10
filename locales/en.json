@@ -433,6 +433,7 @@
   "toolbar": {
     "edit": "Edit OpenStreetMap",
     "menu": "Menu",
+    "view": "View map",
     "zoom_to_edit": "Zoom in to edit"
   },
   "wheelchair": {
