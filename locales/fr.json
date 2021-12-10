@@ -423,7 +423,7 @@
     "close": "Quitter la prévisualisation",
     "description": "Vérifier le rendu de votre cartographie intérieur. Sélectionner un fichier GeoJSON qui suit les recommandations de Simple Indoor Tagging. Ou bien glisser déposer directement un fichier GeoJSON dans la fenêtre.",
     "file": "Sélectionner un fichier GeoJSON",
-    "no_data_uploaded": "Aucune données n'est envoyés. Tout se passe sur votre ordinateur.",
+    "no_data_uploaded": "Aucune données n'est envoyé a distance. Tout se passe sur votre ordinateur.",
     "title": "Prévisualisation du rendu"
   },
   "toolbar": {
