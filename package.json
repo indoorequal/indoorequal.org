@@ -39,7 +39,7 @@
     "babel-jest": "^27.4.4",
     "deepmerge": "^4.2.2",
     "jest-cli": "^27.4.4",
-    "js-yaml": "^3.14.0",
+    "js-yaml": "^4.1.0",
     "minipass-fetch": "^1.2.1",
     "parcel": "^2.0.0",
     "parcel-config-vue2": "^0.1.3",
