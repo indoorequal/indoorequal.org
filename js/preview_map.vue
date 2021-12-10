@@ -47,14 +47,15 @@ export default {
   methods: {
     load({ map }) {
       this.map = map;
-      this.indoorEqualInstance = new IndoorEqual(this.map, { geojson: transformGeoJSON(this.geojson) });
+      const geojsonByLayers = transformGeoJSON(this.geojson);
+      this.indoorEqualInstance = new IndoorEqual(this.map, { geojson: geojsonByLayers });
       this.indoorEqualInstance.loadSprite('/indoorequal')
         .then((sprite) => {
           this.$emit('sprite', sprite);
         });
       setTimeout(() => {
         this.updateMapZoom(map.getZoom());
-        const newbbox = bbox(this.geojson);
+        const newbbox = bbox(geojsonByLayers.area);
         this.$emit('updateBounds', newbbox);
       }, 100);
     }
