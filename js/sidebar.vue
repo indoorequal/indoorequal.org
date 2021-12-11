@@ -75,7 +75,13 @@
             <v-icon>mdi-puzzle-check</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>{{ $t('sidebar.preview.title') }}</v-list-item-title>
+            <v-list-item-title>
+              <v-chip
+                color="primary"
+                x-small
+              >New</v-chip>
+              {{ $t('sidebar.preview.title') }}
+            </v-list-item-title>
             <v-list-item-subtitle>{{ $t('sidebar.preview.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
