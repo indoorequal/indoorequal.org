@@ -80,6 +80,7 @@ const MAP_VIEW_LOCAL_STORAGE = 'mapView';
 const DISCOVER_LOCAL_STORAGE = 'discover';
 const POI_PARAM = 'poi';
 const LEVEL_PARAM = 'level';
+const MENU_PARAM = 'menu';
 
 export default {
   components: {
@@ -101,7 +102,7 @@ export default {
       mapZoom: 1.2,
       poi: '',
       poiCoordinates: [],
-      menu: false,
+      menu: null,
       minZoom: 17,
       newMapBounds: [],
       sprite: null,
@@ -119,6 +120,9 @@ export default {
     if (hashParams.has(POI_PARAM)) {
       this.poi = hashParams.get(POI_PARAM);
     }
+    if (hashParams.has(MENU_PARAM)) {
+      this.menu = hashParams.get(MENU_PARAM);
+    }
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
     }
@@ -132,6 +136,10 @@ export default {
   },
 
   watch: {
+    menu() {
+      this.updateHash();
+    },
+
     mapLevel(mapLevel) {
       this.updateHash();
     },
@@ -185,7 +193,8 @@ export default {
     updateHash() {
       const hash = new URLSearchParams(window.location.hash.replace('#', ''));
       const poi = this.poi !== '' ? `&${POI_PARAM}=${this.poi}` : '';
-      window.location.hash = `map=${hash.get('map')}&${LEVEL_PARAM}=${this.mapLevel}${poi}`;
+      const menu = this.menu !== null ? `&${MENU_PARAM}=${this.menu}` : '';
+      window.location.hash = `map=${hash.get('map')}&${LEVEL_PARAM}=${this.mapLevel}${poi}${menu}`;
       this.saveMapView();
     },
 
@@ -202,7 +211,7 @@ export default {
     },
 
     openExplore() {
-      this.menu = true;
+      this.menu = 'explore';
     },
 
     closeDiscover() {
@@ -221,7 +230,7 @@ export default {
     },
 
     openPreview(file) {
-      this.menu = false;
+      this.menu = null;
       this.preview = false;
       const reader = new FileReader();
       reader.addEventListener('load', () => {

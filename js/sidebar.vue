@@ -1,6 +1,6 @@
 <template>
   <v-navigation-drawer
-    :value="value"
+    :value="value !== null"
     width="350"
     temporary
     app
@@ -8,11 +8,11 @@
     @input="updateValue"
   >
     <component
-      v-if="component"
+      v-if="hasSubSidebar"
       :is="componentName"
       @openPreview="(file) => this.$emit('openPreview', file)"
-      @toggleMenu="toggleValue"
-      @close="component = false"
+      @hideMenu="hideMenu"
+      @close="updateMenu('')"
     />
     <template v-else>
       <div class="pa-3">
@@ -28,7 +28,7 @@
             <template v-slot:activator="{ on }">
               <v-btn
                 icon
-                @click="toggleValue"
+                @click="hideMenu"
                 v-on="on"
               >
                 <v-icon>mdi-arrow-expand-left</v-icon>
@@ -138,22 +138,23 @@ export default {
 
   props: {
     value: {
-      type: Boolean,
-      required: true
+      type: String,
     }
   },
 
   data() {
     return {
-      component: false,
       logo,
       replicationStatus: null
     };
   },
 
   computed: {
+    hasSubSidebar() {
+      return this.value !== '';
+    },
     componentName() {
-      return COMPONENTS[this.component];
+      return COMPONENTS[this.value];
     },
     lastUpdateTimestamp() {
       return this.replicationStatus.match(/timestamp=(.+)/)[1].replace(/\\/g, '');
@@ -165,19 +166,22 @@ export default {
 
   methods: {
     display(component) {
-      this.component = component;
+      this.updateMenu(component)
       plausible(`Display ${component}`);
     },
 
-    toggleValue() {
-      this.updateValue(!this.value);
+    hideMenu() {
+      this.updateMenu(null);
     },
 
     updateValue(value) {
-      this.$emit('input', value);
       if (!value) {
-        this.component = false;
+        this.updateMenu(null);
       }
+    },
+
+    updateMenu(value) {
+      this.$emit('input', value);
     }
   },
 
@@ -185,6 +189,9 @@ export default {
     value: {
       immediate: true,
       async handler(value) {
+        if (value !== null && value !== '' && !Object.keys(COMPONENTS).includes(value)) {
+          this.updateMenu('');
+        }
         if (value && !this.replicationStatus) {
           this.replicationStatus = await fetchReplicationStatus();
         }

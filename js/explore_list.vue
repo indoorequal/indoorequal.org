@@ -24,7 +24,7 @@
         v-for="link in links"
         :href="link.link"
         class="my-3 mx-4"
-        @click="$emit('toggleMenu')"
+        @click="$emit('hideMenu')"
       >
         <v-card-title class="subtitle-1">
           {{ link.description }}

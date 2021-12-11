@@ -9,13 +9,13 @@ describe('Toolbar', () => {
     toolbar = shallowMount(IndoorToolbar, {
       localVue,
       propsData: {
-        value: false,
+        value: null,
         mapCenter: { lat: 1, lng: 2 },
         mapLevel: '1',
         mapZoom: 17,
         minZoom: 17
       },
-      stubs: ['v-card', 'v-divider', 'v-list', 'v-list-item', 'v-list-item-title', 'v-menu', 'v-tooltip']
+      stubs: ['v-card', 'v-divider', 'v-list', 'v-list-item', 'v-list-item-title', 'v-menu', 'v-tooltip', 'v-subheader']
     });
   });
 

@@ -4,7 +4,7 @@
       <template v-slot:activator="{ on }">
         <v-btn
           icon
-          @click="toggleMenu"
+          @click="openMenu"
           v-on="on"
         >
           <img
@@ -98,8 +98,7 @@ export default {
     },
 
     value: {
-      type: Boolean,
-      required: true
+      type: String,
     }
   },
 
@@ -145,8 +144,8 @@ export default {
       });
     },
 
-    toggleMenu() {
-      this.$emit('input', !this.value);
+    openMenu() {
+      this.$emit('input', '');
     },
 
     updateBounds(bbox) {
