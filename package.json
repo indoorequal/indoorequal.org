@@ -54,6 +54,7 @@
     "@turf/line-to-polygon": "^6.5.0",
     "country-language": "bdswiss/country-language",
     "i18next-client": "^1.11.1",
+    "jszip": "^3.7.1",
     "luxon": "^2.0.1",
     "mapbox-gl-indoorequal": "^0.2.9",
     "maplibre-gl": ">=1.15.2",

@@ -75,6 +75,8 @@ import IndoorPreviewToolbar from './preview_toolbar';
 import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
 import IndoorToolbar from './toolbar';
+import { transformGeoJSON } from './geojson';
+import { transformIMDF } from './imdf';
 
 const MAP_VIEW_LOCAL_STORAGE = 'mapView';
 const DISCOVER_LOCAL_STORAGE = 'discover';
@@ -229,15 +231,12 @@ export default {
       this.openPreview(files[0]);
     },
 
-    openPreview(file) {
+    async openPreview(file) {
       this.menu = null;
       this.preview = false;
-      const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        this.geojson = JSON.parse(reader.result);
-        this.preview = true;
-      });
-      reader.readAsText(file);
+      const transformer = file.name.endsWith('.zip') ? transformIMDF : transformGeoJSON;
+      this.geojson = await transformer(file);
+      this.preview = true;
       plausible('Open preview');
     }
   }

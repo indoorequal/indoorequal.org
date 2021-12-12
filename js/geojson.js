@@ -245,7 +245,18 @@ export function filterIndoorFeatures(features) {
   });
 }
 
-export function transformGeoJSON(featureCollection) {
+function readFileAsText(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+      resolve(reader.result);
+    });
+    reader.readAsText(file);
+  });
+}
+
+export async function transformGeoJSON(file) {
+  const featureCollection = JSON.parse(await readFileAsText(file));
   const indoorFeatures = filterIndoorFeatures(featureCollection.features);
   const areaFeatures = transformAreaFeatures(indoorFeatures).flatMap(expandLevels);
   const transportationFeatures = transformTransportationFeatures(indoorFeatures).flatMap(expandLevels);

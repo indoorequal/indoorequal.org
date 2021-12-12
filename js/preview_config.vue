@@ -14,7 +14,7 @@
       <p><strong>{{ $t('preview.no_data_uploaded') }}</strong></p>
       <v-file-input
         :label="$t('preview.file')"
-        accept=".geojson"
+        accept=".geojson,.zip"
         @change="openPreview"
       ></v-file-input>
     </div>

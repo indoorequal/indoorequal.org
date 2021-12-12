@@ -22,7 +22,7 @@
       dense
       full-width
       hide-details
-      accept=".geojson"
+      accept=".geojson,.zip"
       @change="openPreview"
     ></v-file-input>
   </v-card>
