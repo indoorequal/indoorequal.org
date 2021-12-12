@@ -1,7 +1,7 @@
 <template>
   <v-card class="pa-2">
     <div class="d-flex align-center">
-      <span class="flex-grow-1">{{ $t('preview.title') }}</span>
+      <span class="text-h6 flex-grow-1">{{ $t('preview.title') }}</span>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn

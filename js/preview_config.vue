@@ -5,7 +5,7 @@
   >
     <div class="mx-4">
       <p class="pt-4">{{ $t('preview.description') }}</p>
-      <h3>{{ $t('preview.how.title') }}</h3>
+      <h3 class="text-h5">{{ $t('preview.how.title') }}</h3>
       <ol class="py-3">
         <li>{{ $t('preview.how.content1') }}</li>
         <li>{{ $t('preview.how.content2') }}</li>
