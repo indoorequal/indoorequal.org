@@ -14,7 +14,7 @@
       <p><strong>{{ $t('preview.no_data_uploaded') }}</strong></p>
       <v-file-input
         :label="$t('preview.file')"
-        accept=".geojson"
+        :accept="fileFormats"
         @change="openPreview"
       ></v-file-input>
     </div>
@@ -23,9 +23,16 @@
 
 <script>
 import SubSidebar from './sub_sidebar';
+import { fileFormats } from './preview';
 
 export default {
   components: { SubSidebar },
+
+  data() {
+    return {
+      fileFormats: fileFormats.join(','),
+    };
+  },
 
   methods: {
     openPreview(file) {

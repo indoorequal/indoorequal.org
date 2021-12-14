@@ -24,7 +24,6 @@ import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/di
 import IndoorEqual from 'mapbox-gl-indoorequal';
 import bbox from '@turf/bbox';
 import LevelControl from './level_control';
-import { transformGeoJSON } from './geojson';
 import baseMapMixin from './base_map';
 
 export default {
@@ -47,15 +46,14 @@ export default {
   methods: {
     load({ map }) {
       this.map = map;
-      const geojsonByLayers = transformGeoJSON(this.geojson);
-      this.indoorEqualInstance = new IndoorEqual(this.map, { geojson: geojsonByLayers });
+      this.indoorEqualInstance = new IndoorEqual(this.map, { geojson: this.geojson });
       this.indoorEqualInstance.loadSprite('/indoorequal')
         .then((sprite) => {
           this.$emit('sprite', sprite);
         });
       setTimeout(() => {
         this.updateMapZoom(map.getZoom());
-        const newbbox = bbox(geojsonByLayers.area);
+        const newbbox = bbox(this.geojson.area);
         this.$emit('updateBounds', newbbox);
       }, 100);
     }
