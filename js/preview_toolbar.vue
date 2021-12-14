@@ -18,18 +18,26 @@
     <v-file-input
       :label="$t('preview.file')"
       :clearable="false"
+      :accept="fileFormats"
       prepend-icon="mdi-puzzle-check"
       dense
       full-width
       hide-details
-      accept=".geojson,.zip"
       @change="openPreview"
     ></v-file-input>
   </v-card>
 </template>
 
 <script>
+import { fileFormats } from './preview';
+
 export default {
+  data() {
+    return {
+      fileFormats: fileFormats.join(','),
+    };
+  },
+
   methods: {
     openPreview(file) {
       if (!file) return;
