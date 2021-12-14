@@ -40,7 +40,7 @@ export function transformAreaFeatures(units, levelsById) {
   });
 }
 
-export async function transformIMDF(file) {
+export async function transformIMDFFile(file) {
   const zip = await JSZip.loadAsync(file);
   const levels = JSON.parse(await zip.file('level.geojson').async('string'));
   const units = JSON.parse(await zip.file('unit.geojson').async('string'));

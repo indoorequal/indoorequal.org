@@ -245,7 +245,7 @@ export function filterIndoorFeatures(features) {
   });
 }
 
-function readFileAsText(file) {
+export function readFileAsText(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.addEventListener('load', () => {
@@ -255,8 +255,12 @@ function readFileAsText(file) {
   });
 }
 
-export async function transformGeoJSON(file) {
+export async function transformGeoJSONFile(file) {
   const featureCollection = JSON.parse(await readFileAsText(file));
+  return transformGeoJSON(featureCollection);
+}
+
+export function transformGeoJSON(featureCollection) {
   const indoorFeatures = filterIndoorFeatures(featureCollection.features);
   const areaFeatures = transformAreaFeatures(indoorFeatures).flatMap(expandLevels);
   const transportationFeatures = transformTransportationFeatures(indoorFeatures).flatMap(expandLevels);
