@@ -421,11 +421,11 @@
   },
   "preview": {
     "close": "Quitter la prévisualisation",
-    "description": "Vérifier le rendu de votre cartographie intérieur. Sélectionner un fichier GeoJSON qui suit les recommandations de Simple Indoor Tagging. Ou bien glisser déposer directement un fichier GeoJSON dans la fenêtre.",
-    "file": "Sélectionner un fichier GeoJSON",
+    "description": "Vérifier le rendu de votre cartographie intérieur. Sélectionner un fichier GeoJSON ou osm qui suit les recommandations de Simple Indoor Tagging. Ou bien glisser déposer directement un fichier GeoJSON ou osm dans la fenêtre.",
+    "file": "Sélectionner un fichier GeoJSON ou osm",
     "how": {
       "content1": "Ouvrir JOSM et modifier une zone intérieur",
-      "content2": "Clicker sur \"Fichier\" -> \"Enregistrer sous\" et enregistrer le fichier en tant que GeoJSON",
+      "content2": "Clicker sur \"Fichier\" -> \"Enregistrer sous\" et enregistrer le fichier en tant que GeoJSON ou osm",
       "content3": "Sélectionner le fichier obtenu dans le formulaire en dessous",
       "title": "Comment faire"
     },

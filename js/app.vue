@@ -70,13 +70,9 @@
 import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorDiscover from './discover';
 import IndoorMap from './map';
-import IndoorPreviewMap from './preview_map';
-import IndoorPreviewToolbar from './preview_toolbar';
 import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
 import IndoorToolbar from './toolbar';
-import { transformGeoJSON } from './geojson';
-import { transformIMDF } from './imdf';
 
 const MAP_VIEW_LOCAL_STORAGE = 'mapView';
 const DISCOVER_LOCAL_STORAGE = 'discover';
@@ -84,12 +80,13 @@ const POI_PARAM = 'poi';
 const LEVEL_PARAM = 'level';
 const MENU_PARAM = 'menu';
 
+const IndoorPreviewMap = () => import('./preview_map');
+const IndoorPreviewToolbar = () => import('./preview_toolbar');
+
 export default {
   components: {
     IndoorDiscover,
-    IndoorMap,
     IndoorPoi,
-    IndoorPreviewMap,
     IndoorPreviewToolbar,
     IndoorSidebar,
     IndoorToolbar,
@@ -234,8 +231,7 @@ export default {
     async openPreview(file) {
       this.menu = null;
       this.preview = false;
-      const transformer = file.name.endsWith('.zip') ? transformIMDF : transformGeoJSON;
-      this.geojson = await transformer(file);
+      this.geojson = await (await import('./preview')).transform(file);
       this.preview = true;
       plausible('Open preview');
     }
