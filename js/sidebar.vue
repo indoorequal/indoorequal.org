@@ -117,17 +117,13 @@
 <script>
 import { DateTime } from 'luxon';
 import { tilesUrl } from '../config.json';
-import AboutInfo from './about_info';
-import ApiInfo from './api_info';
-import ExploreList from './explore_list';
-import PreviewConfig from './preview_config';
 import logo from '../icons/indoorequal.svg';
 
 const COMPONENTS = {
-  explore: ExploreList,
-  api: ApiInfo,
-  about: AboutInfo,
-  preview: PreviewConfig,
+  explore: () => import('./explore_list'),
+  api: () => import('./api_info'),
+  about: () => import('./about_info'),
+  preview: () => import('./preview_config'),
 };
 
 const fetchReplicationStatus = async function() {
@@ -136,12 +132,6 @@ const fetchReplicationStatus = async function() {
 }
 
 export default {
-  components: {
-    AboutInfo,
-    ApiInfo,
-    ExploreList
-  },
-
   props: {
     value: {
       type: String,
