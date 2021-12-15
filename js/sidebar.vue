@@ -115,9 +115,12 @@
 </template>
 
 <script>
-import { DateTime } from 'luxon';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import { tilesUrl } from '../config.json';
 import logo from '../icons/indoorequal.svg';
+
+dayjs.extend(relativeTime);
 
 const COMPONENTS = {
   explore: () => import('./explore_list'),
@@ -156,7 +159,7 @@ export default {
       return this.replicationStatus.match(/timestamp=(.+)/)[1].replace(/\\/g, '');
     },
     lastUpdateTimestampFormatted() {
-      return DateTime.fromISO(this.lastUpdateTimestamp).toRelative();
+      return dayjs(this.lastUpdateTimestamp).fromNow();
     }
   },
 
@@ -188,7 +191,7 @@ export default {
         if (value !== null && value !== '' && !Object.keys(COMPONENTS).includes(value)) {
           this.updateMenu('');
         }
-        if (value && !this.replicationStatus) {
+        if (value !== null && !this.replicationStatus) {
           this.replicationStatus = await fetchReplicationStatus();
         }
       }
