@@ -1,4 +1,4 @@
-import osmtogeojson from 'osmtogeojson';
+import osmtogeojson from '@map-gl-indoor/osmtogeojson';
 import { readFileAsText, transformGeoJSON } from './geojson';
 
 export async function transformOSMFile(file) {
