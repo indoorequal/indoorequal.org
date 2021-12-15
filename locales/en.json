@@ -425,11 +425,11 @@
   },
   "preview": {
     "close": "Exit preview",
-    "description": "Check the rendering of your indoor mapping. Select a GeoJSON file that follow the Simple Indoor Tagging scheme. You can also drag and drop your GeoJSON on the window.",
-    "file": "Select a GeoJSON file",
+    "description": "Check the rendering of your indoor mapping. Select a GeoJSON or osm file that follow the Simple Indoor Tagging scheme. You can also drag and drop your GeoJSON or osm file on the window.",
+    "file": "Select a GeoJSON or osm file",
     "how": {
       "content1": "Open JOSM and edit an indoor area",
-      "content2": "Click on \"File\" -> \"Save as\" and save the file as GeoJSON.",
+      "content2": "Click on \"File\" -> \"Save as\" and save the file as GeoJSON or osm.",
       "content3": "Select the file in the form below",
       "title": "How to"
     },
