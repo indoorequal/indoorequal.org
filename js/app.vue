@@ -84,6 +84,7 @@ const DISCOVER_LOCAL_STORAGE = 'discover';
 const POI_PARAM = 'poi';
 const LEVEL_PARAM = 'level';
 const MENU_PARAM = 'menu';
+const URL_PARAM = 'url';
 
 const IndoorPreviewMap = () => import('./preview_map');
 const IndoorPreviewToolbar = () => import('./preview_toolbar');
@@ -128,6 +129,16 @@ export default {
     }
     if (hashParams.has(MENU_PARAM)) {
       this.menu = hashParams.get(MENU_PARAM);
+    }
+    if (hashParams.has(URL_PARAM)) {
+      const url = hashParams.get(URL_PARAM);
+      fetch(url)
+        .then(r => r.arrayBuffer())
+        .then(b => {
+          const filename = new URL(url).pathname.split('/').reverse()[0];
+          this.openPreview(new File([b], filename));
+        })
+        .catch((e) => { console.log(e); }) ;
     }
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
