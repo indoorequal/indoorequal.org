@@ -426,6 +426,9 @@
   "preview": {
     "close": "Exit preview",
     "description": "Check the rendering of your indoor mapping. Select a GeoJSON or osm file that follow the Simple Indoor Tagging scheme. You can also drag and drop your GeoJSON or osm file on the window.",
+    "error": "Error while displaying the preview: {msg}.",
+    "error_bad_file": "Could not parse the file",
+    "error_no_level": "No indoor features detected",
     "file": "Select a GeoJSON or osm file",
     "how": {
       "content1": "Open JOSM and edit an indoor area",

@@ -33,6 +33,11 @@
         class="zoom-chip"
         @click="mapZoom = 17"
       >{{ $t('zoom') }}</v-chip>
+      <v-snackbar
+        v-model="errorPreview"
+        bottom
+        color="red"
+      >{{ $t('preview.error', { msg: errorPreviewMessage }) }}</v-snackbar>
       <div class="indoor-toolbar">
         <indoor-toolbar
           v-if="!preview"
@@ -106,6 +111,8 @@ export default {
       newMapBounds: [],
       sprite: null,
       discover: true,
+      errorPreview: false,
+      errorPreviewMessage: '',
       preview: false,
       geojson: {}
     };
@@ -231,9 +238,21 @@ export default {
     async openPreview(file) {
       this.menu = null;
       this.preview = false;
-      this.geojson = await (await import('./preview')).transform(file);
-      this.preview = true;
-      plausible('Open preview');
+      try {
+        this.geojson = await (await import('./preview')).transform(file);
+        if (this.geojson.area.features.length === 0) {
+          this.menu = 'preview';
+          this.errorPreviewMessage = this.$t('preview.error_no_level');
+          this.errorPreview = true;
+        } else {
+          this.preview = true;
+          plausible('Open preview');
+        }
+      } catch (e) {
+        this.menu = 'preview';
+        this.errorPreviewMessage = this.$t('preview.error_bad_file');
+        this.errorPreview = true;
+      }
     }
   }
 };
