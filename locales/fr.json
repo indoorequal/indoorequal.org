@@ -433,7 +433,13 @@
       "title": "Comment faire"
     },
     "no_data_uploaded": "Aucune données n'est envoyé a distance. Tout se passe sur votre ordinateur.",
-    "title": "Prévisualisation du rendu"
+    "title": "Prévisualisation du rendu",
+    "url": {
+      "no": "Non",
+      "text": "Voulez charger un fichier de prévisualisation depuis {0}?",
+      "title": "Chargement d'une prévisualisation externe",
+      "yes": "Oui"
+    }
   },
   "toolbar": {
     "edit": "Modifier OpenStreetMap",
