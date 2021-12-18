@@ -437,7 +437,13 @@
       "title": "How to"
     },
     "no_data_uploaded": "No data are uploaded remotely. Everything happens in your computer.",
-    "title": "Preview rendering"
+    "title": "Preview rendering",
+    "url": {
+      "no": "No",
+      "text": "Do you want to load a preview file from {0}?",
+      "title": "Load external preview",
+      "yes": "Yes"
+    }
   },
   "toolbar": {
     "edit": "Edit OpenStreetMap",

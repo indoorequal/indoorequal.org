@@ -67,6 +67,11 @@
           @poiCoordinates="setPoiCoordinates"
         />
       </div>
+      <indoor-preview-url
+        v-if="url"
+        :url="url"
+        @openPreview="openPreview"
+      />
     </v-main>
   </v-app>
 </template>
@@ -88,12 +93,14 @@ const URL_PARAM = 'url';
 
 const IndoorPreviewMap = () => import('./preview_map');
 const IndoorPreviewToolbar = () => import('./preview_toolbar');
+const IndoorPreviewUrl = () => import('./preview_url');
 
 export default {
   components: {
     IndoorDiscover,
     IndoorPoi,
     IndoorPreviewToolbar,
+    IndoorPreviewUrl,
     IndoorSidebar,
     IndoorToolbar,
     MglMarker
@@ -115,6 +122,7 @@ export default {
       errorPreview: false,
       errorPreviewMessage: '',
       preview: false,
+      url: null,
       geojson: {}
     };
   },
@@ -131,14 +139,7 @@ export default {
       this.menu = hashParams.get(MENU_PARAM);
     }
     if (hashParams.has(URL_PARAM)) {
-      const url = hashParams.get(URL_PARAM);
-      fetch(url)
-        .then(r => r.arrayBuffer())
-        .then(b => {
-          const filename = new URL(url).pathname.split('/').reverse()[0];
-          this.openPreview(new File([b], filename));
-        })
-        .catch((e) => { console.log(e); }) ;
+      this.url = hashParams.get(URL_PARAM);
     }
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
