@@ -11,7 +11,6 @@
       <v-card-text>
         <i18n path="preview.url.text" tag="p">
           <strong>{{ domain }}</strong>
-        />
         </i18n>
       </v-card-text>
       <v-card-actions>
