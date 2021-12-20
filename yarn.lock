@@ -5914,10 +5914,9 @@ os-browserify@^0.3.0:
   resolved "https://registry.yarnpkg.com/os-browserify/-/os-browserify-0.3.0.tgz#854373c7f5c2315914fc9bfc6bd8238fdda1ec27"
   integrity sha1-hUNzx/XCMVkU/Jv8a9gjj92h7Cc=
 
-osm2geojson-lite@^0.8.16:
-  version "0.8.16"
-  resolved "https://registry.yarnpkg.com/osm2geojson-lite/-/osm2geojson-lite-0.8.16.tgz#0cb5557dd612e712f1a4194d2591af7e52beb964"
-  integrity sha512-oighpbh0SYMB046/jOFMbzee/wFAGhf6GnknQgwdVwumtU/4woZ5nz+9Am76RFx5lP4ZbkofEuYo4XPGZtVxBQ==
+osm2geojson-lite@indoorequal/osm2geojson-lite#update:
+  version "0.8.15"
+  resolved "https://codeload.github.com/indoorequal/osm2geojson-lite/tar.gz/d9e0d77aba17d22f0338066673c281ca7f54c908"
   optionalDependencies:
     "@types/geojson" "^1.0.6"
 
