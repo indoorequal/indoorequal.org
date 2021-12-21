@@ -91,9 +91,9 @@ const LEVEL_PARAM = 'level';
 const MENU_PARAM = 'menu';
 const URL_PARAM = 'url';
 
-const IndoorPreviewMap = () => import('./preview_map');
-const IndoorPreviewToolbar = () => import('./preview_toolbar');
-const IndoorPreviewUrl = () => import('./preview_url');
+const IndoorPreviewMap = () => import('./preview/preview_map');
+const IndoorPreviewToolbar = () => import('./preview/preview_toolbar');
+const IndoorPreviewUrl = () => import('./preview/preview_url');
 
 export default {
   components: {
@@ -251,7 +251,7 @@ export default {
       this.menu = null;
       this.preview = false;
       try {
-        this.geojsonPreview = await (await import('./preview')).transform(file);
+        this.geojsonPreview = await (await import('./preview/preview')).transform(file);
         if (this.geojsonPreview.area.features.length === 0) {
           this.menu = 'preview';
           this.errorPreviewMessage = this.$t('preview.error_no_level');

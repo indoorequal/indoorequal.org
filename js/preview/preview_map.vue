@@ -23,8 +23,8 @@
 import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/dist/vue-mapbox.umd';
 import IndoorEqual from 'mapbox-gl-indoorequal';
 import bbox from '@turf/bbox';
-import LevelControl from './level_control';
-import baseMapMixin from './base_map';
+import LevelControl from '../level_control';
+import baseMapMixin from '../base_map';
 
 export default {
   mixins: [baseMapMixin],

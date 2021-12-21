@@ -126,7 +126,7 @@ const COMPONENTS = {
   explore: () => import('./explore_list'),
   api: () => import('./api_info'),
   about: () => import('./about_info'),
-  preview: () => import('./preview_config'),
+  preview: () => import('./preview/preview_config'),
 };
 
 const fetchReplicationStatus = async function() {

@@ -32,7 +32,7 @@ function updateLocalesFiles(yamlContent) {
 function updatePoiMapping(yamlContent) {
   const doc = yaml.load(yamlContent);
   const mapping = doc.tables.poi_point.mapping;
-  fs.writeFileSync('./js/poimapping.json', JSON.stringify(mapping, null, '  ') + "\n", { encoding: 'utf-8' });
+  fs.writeFileSync('./js/preview/poimapping.json', JSON.stringify(mapping, null, '  ') + "\n", { encoding: 'utf-8' });
 }
 
 async function main() {

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import SubSidebar from './sub_sidebar';
+import SubSidebar from '../sub_sidebar';
 import { fileFormats } from './preview';
 
 export default {
