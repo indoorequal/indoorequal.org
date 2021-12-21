@@ -68,8 +68,8 @@
         />
       </div>
       <indoor-preview-url
-        v-if="previewUrl"
-        :url="previewUrl"
+        v-if="urlPreview"
+        :url="urlPreview"
         @openPreview="openPreview"
       />
     </v-main>
@@ -139,7 +139,7 @@ export default {
       this.menu = hashParams.get(MENU_PARAM);
     }
     if (hashParams.has(URL_PARAM)) {
-      this.previewUrl = hashParams.get(URL_PARAM);
+      this.urlPreview = hashParams.get(URL_PARAM);
     }
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
