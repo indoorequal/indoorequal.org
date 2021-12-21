@@ -7,7 +7,7 @@ import {
   transformPoiFeatures,
   poiClassAndSubclass,
   isPoi
-} from '../js/geojson';
+} from '../js/preview/geojson';
 
 describe('transformAreaFeatures', () => {
   it('returns area data', () => {

@@ -3,7 +3,7 @@ import {
   unitFeatureToAccess,
   unitFeatureIsPoi,
   transformAreaFeatures,
-} from '../js/imdf';
+} from '../js/preview/imdf';
 
 describe('unitCategoryToClass', () => {
   const categories = {
