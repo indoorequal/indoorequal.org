@@ -16,7 +16,7 @@
         :map-level.sync="mapLevel"
         :map-zoom.sync="mapZoom"
         :new-map-bounds="newMapBounds"
-        :geojson="geojson"
+        :geojson="geojsonPreview"
         @clickPoi="clickPoi"
         @sprite="updateSprite"
         @updateBounds="updateBounds"
@@ -68,8 +68,8 @@
         />
       </div>
       <indoor-preview-url
-        v-if="url"
-        :url="url"
+        v-if="previewUrl"
+        :url="previewUrl"
         @openPreview="openPreview"
       />
     </v-main>
@@ -122,8 +122,8 @@ export default {
       errorPreview: false,
       errorPreviewMessage: '',
       preview: false,
-      url: null,
-      geojson: {}
+      urlPreview: null,
+      geojsonPreview: {}
     };
   },
 
@@ -139,7 +139,7 @@ export default {
       this.menu = hashParams.get(MENU_PARAM);
     }
     if (hashParams.has(URL_PARAM)) {
-      this.url = hashParams.get(URL_PARAM);
+      this.previewUrl = hashParams.get(URL_PARAM);
     }
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
@@ -251,8 +251,8 @@ export default {
       this.menu = null;
       this.preview = false;
       try {
-        this.geojson = await (await import('./preview')).transform(file);
-        if (this.geojson.area.features.length === 0) {
+        this.geojsonPreview = await (await import('./preview')).transform(file);
+        if (this.geojsonPreview.area.features.length === 0) {
           this.menu = 'preview';
           this.errorPreviewMessage = this.$t('preview.error_no_level');
           this.errorPreview = true;
