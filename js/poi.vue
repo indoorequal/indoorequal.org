@@ -83,7 +83,6 @@
 </template>
 
 <script>
-import { tilesUrl, indoorEqualApiKey } from '../config.json';
 import { contactsFor } from './place';
 import OpeningHours from './opening_hours';
 
@@ -99,11 +98,6 @@ function dataToCanvas(data, width, height) {
   return context.canvas;
 }
 
-const fetchPoiGeojson = async function(poiInfo) {
-  const poiGeojsonRequest = await fetch(`${tilesUrl}poi/${poiInfo}?key=${indoorEqualApiKey}`);
-  return poiGeojsonRequest.json();
-}
-
 export default {
   components: {
     OpeningHours
@@ -117,6 +111,10 @@ export default {
     sprite: {
       type: Object,
       required: false
+    },
+    poiFetcher: {
+      type: Function,
+      required: true
     }
   },
 
@@ -187,7 +185,7 @@ export default {
         }
         this.loading = true;
         try {
-          this.geojson = await fetchPoiGeojson(this.value);
+          this.geojson = await this.poiFetcher(this.value);
           this.$emit('poiCoordinates', this.geojson.geometry.coordinates);
         } finally {
           this.loading = false;

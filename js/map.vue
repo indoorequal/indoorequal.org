@@ -56,19 +56,6 @@ export default {
       setTimeout(() => {
         this.updateMapZoom(map.getZoom());
       }, 100);
-    },
-
-    mouseenterLayer(e) {
-      e.map.getCanvas().style.cursor = 'pointer';
-    },
-
-    clickLayer(e) {
-      const id = e.mapboxEvent.features[0].properties.id;
-      this.$emit('clickPoi', id);
-    },
-
-    mouseleaveLayer(e) {
-      e.map.getCanvas().style.cursor = '';
     }
   }
 };

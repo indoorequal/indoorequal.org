@@ -52,7 +52,7 @@
         <indoor-preview-toolbar
           v-else
           @openPreview="openPreview"
-          @closePreview="preview = false"
+          @closePreview="closePreview"
         />
         <indoor-discover
           v-if="discover && !preview"
@@ -63,6 +63,7 @@
         <indoor-poi
           v-model="poi"
           :sprite="sprite"
+          :poi-fetcher="poiFetcher"
           class="indoor-poi"
           @poiCoordinates="setPoiCoordinates"
         />
@@ -78,11 +79,17 @@
 
 <script>
 import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
+import { tilesUrl, indoorEqualApiKey } from '../config.json';
 import IndoorDiscover from './discover';
 import IndoorMap from './map';
 import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
 import IndoorToolbar from './toolbar';
+
+const fetchPoiGeojson = async function(poiInfo) {
+  const poiGeojsonRequest = await fetch(`${tilesUrl}poi/${poiInfo}?key=${indoorEqualApiKey}`);
+  return poiGeojsonRequest.json();
+}
 
 const MAP_VIEW_LOCAL_STORAGE = 'mapView';
 const DISCOVER_LOCAL_STORAGE = 'discover';
@@ -150,6 +157,18 @@ export default {
   computed: {
     mapComponent() {
       return this.preview ? IndoorPreviewMap : IndoorMap;
+    },
+
+    poiFetcher() {
+      return (poi) => {
+        if (this.preview) {
+          const result = this.geojsonPreview.poi.features.find(({ properties: { id } }) => id === poi);
+          result.properties.tags = result.properties;
+          return result;
+        } else {
+          return fetchPoiGeojson(poi);
+        }
+      };
     }
   },
 
@@ -257,6 +276,7 @@ export default {
           this.errorPreviewMessage = this.$t('preview.error_no_level');
           this.errorPreview = true;
         } else {
+          this.poi = '';
           this.preview = true;
           plausible('Open preview');
         }
@@ -265,6 +285,12 @@ export default {
         this.errorPreviewMessage = this.$t('preview.error_bad_file');
         this.errorPreview = true;
       }
+    },
+
+    closePreview() {
+      this.preview = false;
+      this.geojsonPreview = {};
+      this.poi = '';
     }
   }
 };
