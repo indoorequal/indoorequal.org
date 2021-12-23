@@ -153,6 +153,7 @@ export default {
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
     }
+    this.registerMessageListener();
     this.loadInitialLocation(hashParams);
   },
 
@@ -294,6 +295,17 @@ export default {
       this.preview = false;
       this.geojsonPreview = {};
       this.poi = '';
+    },
+
+    registerMessageListener() {
+      window.addEventListener('message', (e) => {
+        const data = e.data;
+
+        if (data.command === 'preview') {
+          const file = new File([JSON.stringify(data.data)], `preview.${data.extension}`);
+          this.openPreview(file);
+        }
+      });
     }
   }
 };
