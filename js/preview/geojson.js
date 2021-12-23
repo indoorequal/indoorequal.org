@@ -216,11 +216,12 @@ export function transformAreaFeatures(indoorFeatures) {
 export function transformPoiFeatures(indoorFeatures) {
   return indoorFeatures.filter((feature) => {
     return isPoi(feature);
-  }).map((feature) => {
+  }).map((feature, index) => {
     const [classe, subclass] = poiClassAndSubclass(feature)
     return {
       ...feature,
       properties: {
+        id: `poi_${index}`,
         ...feature.properties,
         class: classe,
         subclass,

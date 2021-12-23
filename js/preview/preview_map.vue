@@ -7,6 +7,12 @@
     @load="load"
     @update:center="updateMapCenter"
     @update:zoom="updateMapZoom"
+    @mouseenter-indoor-poi-rank1="mouseenterLayer"
+    @click-indoor-poi-rank1="clickLayer"
+    @mouseleave-indoor-poi-rank1="mouseleaveLayer"
+    @mouseenter-indoor-poi-rank2="mouseenterLayer"
+    @click-indoor-poi-rank2="clickLayer"
+    @mouseleave-indoor-poi-rank2="mouseleaveLayer"
   >
     <MglNavigationControl show-compass />
     <MglGeolocateControl />

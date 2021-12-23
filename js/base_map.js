@@ -52,6 +52,19 @@ export default {
   },
 
   methods: {
+    mouseenterLayer(e) {
+      e.map.getCanvas().style.cursor = 'pointer';
+    },
+
+    clickLayer(e) {
+      const id = e.mapboxEvent.features[0].properties.id;
+      this.$emit('clickPoi', id);
+    },
+
+    mouseleaveLayer(e) {
+      e.map.getCanvas().style.cursor = '';
+    },
+
     updateMapCenter(mapCenter) {
       this.$emit('update:mapCenter', mapCenter);
       this.updateMapBounds();
