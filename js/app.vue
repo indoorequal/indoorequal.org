@@ -229,7 +229,7 @@ export default {
 
     updateHash() {
       const hash = new URLSearchParams(window.location.hash.replace('#', ''));
-      const poi = this.poi !== '' ? `&${POI_PARAM}=${this.poi}` : '';
+      const poi = (this.poi !== '' && !this.preview) ? `&${POI_PARAM}=${this.poi}` : '';
       const menu = this.menu !== null ? `&${MENU_PARAM}=${this.menu}` : '';
       window.location.hash = `map=${hash.get('map')}&${LEVEL_PARAM}=${this.mapLevel}${poi}${menu}`;
       this.saveMapView();
