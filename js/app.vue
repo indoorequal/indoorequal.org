@@ -51,6 +51,7 @@
         />
         <indoor-preview-toolbar
           v-else
+          :filePreview="filePreview"
           @openPreview="openPreview"
           @closePreview="closePreview"
         />
@@ -129,6 +130,7 @@ export default {
       errorPreview: false,
       errorPreviewMessage: '',
       preview: false,
+      filePreview: null,
       urlPreview: null,
       geojsonPreview: {}
     };
@@ -269,6 +271,7 @@ export default {
     async openPreview(file) {
       this.menu = null;
       this.preview = false;
+      this.filePreview = file;
       try {
         this.geojsonPreview = await (await import('./preview/preview')).transform(file);
         if (this.geojsonPreview.area.features.length === 0) {

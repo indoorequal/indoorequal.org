@@ -5,6 +5,19 @@
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn
+            :href="fileUrl"
+            :download="filePreview.name"
+            icon
+            v-on="on"
+          >
+            <v-icon>mdi-download</v-icon>
+          </v-btn>
+        </template>
+        <span>{{ $t('preview.download') }}</span>
+      </v-tooltip>
+      <v-tooltip bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn
             icon
             @click="$emit('closePreview')"
             v-on="on"
@@ -32,10 +45,23 @@
 import { fileFormats } from './preview';
 
 export default {
+  props: {
+    filePreview: {
+      type: File,
+      required: true,
+    }
+  },
+
   data() {
     return {
       fileFormats: fileFormats.join(','),
     };
+  },
+
+  computed: {
+    fileUrl() {
+       return URL.createObjectURL(this.filePreview);
+    }
   },
 
   methods: {
