@@ -204,6 +204,7 @@ describe('transformPoiFeatures', () => {
       {
         type: 'Feature',
         properties: {
+          id: 1,
           indoor: 'room',
           level: '0',
           shop: 'seafood',
@@ -229,6 +230,7 @@ describe('transformPoiFeatures', () => {
       {
         type: 'Feature',
         properties: {
+          id: 1,
           indoor: 'room',
           level: '0',
           name: 'Test',
@@ -252,6 +254,7 @@ describe('transformPoiFeatures', () => {
       {
         type: 'Feature',
         properties: {
+          id: 1,
           indoor: 'room',
           level: '0',
           shop: 'seafood',
@@ -266,6 +269,7 @@ describe('transformPoiFeatures', () => {
       {
         type: 'Feature',
         properties: {
+          id: 1,
           indoor: 'room',
           level: '0',
           class: 'grocery',
@@ -275,6 +279,45 @@ describe('transformPoiFeatures', () => {
         geometry: {
           type: 'Point',
           coordinates: [1.5, 1.5]
+        }
+      },
+    ];
+    const result = transformPoiFeatures(features);
+    expect(result).toEqual(featuresResult);
+  });
+
+  it('it assigns an unique id if there was none', () => {
+    const features = [
+      {
+        type: 'Feature',
+        properties: {
+          indoor: 'room',
+          level: '0',
+          shop: 'seafood',
+          name: 'Test',
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: []
+        }
+      }
+    ];
+    const featuresResult = [
+      {
+        type: 'Feature',
+        properties: {
+          id: 'poi_0',
+          indoor: 'room',
+          level: '0',
+          name: 'Test',
+          class: 'grocery',
+          subclass: 'seafood',
+          shop: 'seafood',
+          'name:latin': 'Test'
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: []
         }
       },
     ];
