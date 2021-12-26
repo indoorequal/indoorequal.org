@@ -119,7 +119,7 @@ import { mdiArrowExpandLeft, mdiMapMarkerCircle, mdiMap, mdiInformationOutline, 
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { tilesUrl } from '../config.json';
-import logo from '../icons/indoorequal.svg';
+import logo from 'data-url:../icons/indoorequal.svg';
 
 dayjs.extend(relativeTime);
 

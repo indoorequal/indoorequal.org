@@ -1561,6 +1561,16 @@
     cssnano "^5.0.5"
     postcss "^8.3.0"
 
+"@parcel/optimizer-data-url@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@parcel/optimizer-data-url/-/optimizer-data-url-2.0.1.tgz#3ff8ac8e217fb4b5a07485db47b1b72138cf7a1c"
+  integrity sha512-YiiwUQAzlalSzhLPzPoXDCj9CvQL4HGJQ0RzshQkOfX/k/r9/nmzvEAdBIO4e34Gl6FCCLRJxS0fV7QxMlsiVg==
+  dependencies:
+    "@parcel/plugin" "^2.0.1"
+    "@parcel/utils" "^2.0.1"
+    isbinaryfile "^4.0.2"
+    mime "^2.4.4"
+
 "@parcel/optimizer-htmlnano@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@parcel/optimizer-htmlnano/-/optimizer-htmlnano-2.0.1.tgz#6789ebc8140f04a31929a5f7e106cd594afd5771"
@@ -1828,6 +1838,13 @@
     "@parcel/plugin" "^2.0.1"
     "@parcel/workers" "^2.0.1"
     nullthrows "^1.1.1"
+
+"@parcel/transformer-inline-string@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@parcel/transformer-inline-string/-/transformer-inline-string-2.0.1.tgz#311473227bc95f4a57dfb11c7de1acbaa5ab4608"
+  integrity sha512-4hF5hMs3+ZJ/Vl8jtygkTo6doDW8UJEfcQ9c8jAqDAsNrNjERnHEhanIrOfWI+lqfnpdIUpMq/5a/+TgBdW+Mg==
+  dependencies:
+    "@parcel/plugin" "^2.0.1"
 
 "@parcel/transformer-js@^2.0.1":
   version "2.0.1"
@@ -4681,6 +4698,11 @@ isarray@~1.0.0:
   resolved "https://registry.yarnpkg.com/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
   integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
 
+isbinaryfile@^4.0.2:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/isbinaryfile/-/isbinaryfile-4.0.8.tgz#5d34b94865bd4946633ecc78a026fc76c5b11fcf"
+  integrity sha512-53h6XFniq77YdW+spoRrebh0mnmTxRPTlcuIArO57lmMdq4uBKFKaeTjnb92oYWrSn/LVL+LT+Hap2tFQj8V+w==
+
 isexe@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
@@ -5602,6 +5624,11 @@ mime-types@~2.1.19:
   integrity sha512-XGZnNzm3QvgKxa8dpzyhFTHmpP3l5YNusmne07VUOXxou9CqUqYa/HBy124RqtVh/O2pECas/MOcsDgpilPOPg==
   dependencies:
     mime-db "1.48.0"
+
+mime@^2.4.4:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.6.0.tgz#a2a682a95cd4d0cb1d6257e28f83da7e35800367"
+  integrity sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==
 
 mimic-fn@^2.1.0:
   version "2.1.0"

@@ -64,7 +64,7 @@
 <script>
 import { mdiPencilOutline } from '@mdi/js';
 import GeocoderInput from './geocoder';
-import equalLogo from '../icons/equal.svg';
+import equalLogo from 'data-url:../icons/equal.svg';
 
 export default {
   components: {
