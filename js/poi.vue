@@ -84,7 +84,8 @@
 
 <script>
 import { contactsFor } from './place';
-import OpeningHours from './opening_hours';
+
+const OpeningHours = () => import('./opening_hours');
 
 function dataToCanvas(data, width, height) {
   const canvas = document.createElement('canvas');
