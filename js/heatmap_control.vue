@@ -7,7 +7,7 @@
       @click="toggleHeatmap"
     >
       <span class="mapbox-ctrl-icon">
-        <v-icon :color="iconColor">mdi-blur</v-icon>
+        <v-icon :color="iconColor">{{ mdiBlur }}</v-icon>
       </span>
     </button>
   </div>
@@ -15,6 +15,7 @@
 
 <script>
 import { $helpers } from 'vue-mapbox/dist/vue-mapbox.umd.js';
+import { mdiBlur } from '@mdi/js';
 
 export default {
   mixins: [$helpers.asControl],
@@ -23,6 +24,7 @@ export default {
 
   data() {
     return {
+      mdiBlur,
       heatmap: true
     };
   },

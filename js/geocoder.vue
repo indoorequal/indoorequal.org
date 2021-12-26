@@ -6,26 +6,28 @@
     :search-input.sync="search"
     :error="!!error"
     :placeholder="$t('search')"
+    :prepend-inner-icon="mdiMagnify"
     hide-no-data
     hide-details
     no-filter
     dense
     background-color="white"
-    prepend-inner-icon="mdi-magnify"
   />
 </template>
 
 <script>
+import { mdiMagnify } from '@mdi/js';
 import { fetchGeocoding } from './maptiler';
 
 export default {
   data() {
     return {
+      error: null,
       isLoading: false,
       items: [],
+      mdiMagnify,
       search: '',
-      selected: null,
-      error: null
+      selected: null
     };
   },
   watch: {

@@ -1,5 +1,4 @@
 import 'maplibre-gl/dist/maplibre-gl.css';
-import '@mdi/font/css/materialdesignicons.css';
 
 import Vue from 'vue';
 import Vuetify, {
@@ -86,6 +85,9 @@ const i18n = new VueI18n({
 });
 
 const vuetify = new Vuetify({
+  icons: {
+    iconfont: 'mdiSvg',
+  },
   theme: {
     themes: {
       light: {

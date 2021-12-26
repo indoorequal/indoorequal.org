@@ -10,7 +10,7 @@
         icon
         @click="$emit('close')"
       >
-        <v-icon>mdi-close</v-icon>
+        <v-icon>{{ mdiClose }}</v-icon>
       </v-btn>
     </v-card-title>
 
@@ -31,5 +31,11 @@
 </template>
 
 <script>
-export default {};
+import { mdiClose } from '@mdi/js';
+
+export default {
+  data() {
+    return { mdiClose };
+  }
+};
 </script>

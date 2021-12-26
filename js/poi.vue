@@ -17,7 +17,7 @@
             icon
             @click="close"
           >
-            <v-icon>mdi-close</v-icon>
+            <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </v-card-title>
         <v-card-subtitle v-if="tags.name">{{ type }}</v-card-subtitle>
@@ -43,7 +43,7 @@
             rel="noopener"
           >
             <v-list-item-icon>
-              <v-icon dense>mdi-clock-outline</v-icon>
+              <v-icon dense>{{ mdiClockOutline }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>
@@ -58,7 +58,7 @@
             rel="noopener"
           >
             <v-list-item-icon>
-              <v-icon dense>mdi-{{ contact.type }}</v-icon>
+              <v-icon dense>{{ contactIcons[contact.type] }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>
@@ -68,7 +68,7 @@
           </v-list-item>
           <v-list-item v-if="tags.wheelchair && $te(`wheelchair.${tags.wheelchair}`)">
             <v-list-item-icon>
-              <v-icon dense>mdi-wheelchair-accessibility</v-icon>
+              <v-icon dense>{{ mdiWheelchairAccessibility }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>
@@ -83,6 +83,7 @@
 </template>
 
 <script>
+import { mdiClose, mdiClockOutline, mdiWheelchairAccessibility, mdiPhone, mdiLink, mdiFacebook } from '@mdi/js';
 import { contactsFor } from './place';
 
 const OpeningHours = () => import('./opening_hours');
@@ -98,6 +99,12 @@ function dataToCanvas(data, width, height) {
   context.putImageData(imageData, 0, 0);
   return context.canvas;
 }
+
+const contactIcons = {
+  facebook: mdiFacebook,
+  link: mdiLink,
+  phone: mdiPhone
+};
 
 export default {
   components: {
@@ -121,9 +128,13 @@ export default {
 
   data() {
     return {
+      contactIcons,
+      geojson: null,
       loading: false,
-      geojson: null
-    }
+      mdiClockOutline,
+      mdiClose,
+      mdiWheelchairAccessibility,
+    };
   },
 
   computed: {

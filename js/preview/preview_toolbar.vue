@@ -10,7 +10,7 @@
             icon
             v-on="on"
           >
-            <v-icon>mdi-download</v-icon>
+            <v-icon>{{ mdiDownload }}</v-icon>
           </v-btn>
         </template>
         <span>{{ $t('preview.download') }}</span>
@@ -22,7 +22,7 @@
             @click="$emit('closePreview')"
             v-on="on"
           >
-            <v-icon>mdi-close</v-icon>
+            <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </template>
         <span>{{ $t('preview.close') }}</span>
@@ -32,7 +32,7 @@
       :label="$t('preview.file')"
       :clearable="false"
       :accept="fileFormats"
-      prepend-icon="mdi-puzzle-check"
+      :prepend-icon="mdiPuzzleCheck"
       dense
       full-width
       hide-details
@@ -42,6 +42,7 @@
 </template>
 
 <script>
+import { mdiDownload, mdiClose, mdiPuzzleCheck } from '@mdi/js';
 import { fileFormats } from './preview';
 
 export default {
@@ -55,6 +56,9 @@ export default {
   data() {
     return {
       fileFormats: fileFormats.join(','),
+      mdiClose,
+      mdiDownload,
+      mdiPuzzleCheck
     };
   },
 

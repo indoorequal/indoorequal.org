@@ -5,7 +5,7 @@
         icon
         @click="$emit('close')"
       >
-        <v-icon>mdi-arrow-left</v-icon>
+        <v-icon>{{ mdiArrowLeft }}</v-icon>
       </v-btn>
       <v-toolbar-title>
         {{ title }}
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { mdiArrowLeft } from '@mdi/js';
+
 export default {
   props: {
     title: {
@@ -23,5 +25,9 @@ export default {
       required: true,
     },
   },
+
+  data() {
+    return { mdiArrowLeft };
+  }
 };
 </script>

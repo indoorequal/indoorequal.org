@@ -31,7 +31,7 @@
                 @click="hideMenu"
                 v-on="on"
               >
-                <v-icon>mdi-arrow-expand-left</v-icon>
+                <v-icon>{{ mdiArrowExpandLeft }}</v-icon>
               </v-btn>
             </template>
             <span>{{ $t("sidebar.collapse") }}</span>
@@ -45,7 +45,7 @@
       <v-list>
         <v-list-item @click="display('explore')">
           <v-list-item-icon>
-            <v-icon>mdi-map-marker-circle</v-icon>
+            <v-icon>{{ mdiMapMarkerCircle }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>{{ $t('sidebar.explore.title') }}</v-list-item-title>
@@ -54,7 +54,7 @@
         </v-list-item>
         <v-list-item @click="display('api')">
           <v-list-item-icon>
-            <v-icon>mdi-map</v-icon>
+            <v-icon>{{ mdiMap }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>{{ $t('sidebar.api.title') }}</v-list-item-title>
@@ -63,7 +63,7 @@
         </v-list-item>
         <v-list-item @click="display('about')">
           <v-list-item-icon>
-            <v-icon>mdi-information-outline</v-icon>
+            <v-icon>{{ mdiInformationOutline }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>{{ $t('sidebar.about.title') }}</v-list-item-title>
@@ -72,7 +72,7 @@
         <v-divider></v-divider>
         <v-list-item @click="display('preview')">
           <v-list-item-icon>
-            <v-icon>mdi-puzzle-check</v-icon>
+            <v-icon>{{ mdiPuzzleCheck }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>
@@ -91,13 +91,13 @@
           target="_blank"
         >
           <v-list-item-icon>
-            <v-icon>mdi-puzzle-edit-outline</v-icon>
+            <v-icon>{{ mdiPuzzleEditOutline }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>{{ $t('sidebar.learn.title') }}</v-list-item-title>
             <v-list-item-subtitle>{{ $t('sidebar.learn.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
-          <v-list-item-icon><v-icon>mdi-open-in-new</v-icon></v-list-item-icon>
+          <v-list-item-icon><v-icon>{{ mdiOpenInNew }}</v-icon></v-list-item-icon>
         </v-list-item>
       </v-list>
       <div
@@ -115,6 +115,7 @@
 </template>
 
 <script>
+import { mdiArrowExpandLeft, mdiMapMarkerCircle, mdiMap, mdiInformationOutline, mdiPuzzleCheck, mdiPuzzleEditOutline, mdiOpenInNew } from '@mdi/js';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { tilesUrl } from '../config.json';
@@ -143,6 +144,13 @@ export default {
 
   data() {
     return {
+      mdiArrowExpandLeft,
+      mdiInformationOutline,
+      mdiMap,
+      mdiMapMarkerCircle,
+      mdiOpenInNew,
+      mdiPuzzleCheck,
+      mdiPuzzleEditOutline,
       logo,
       replicationStatus: null
     };

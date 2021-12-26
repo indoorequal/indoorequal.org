@@ -10,7 +10,7 @@
         rel="noopener"
       >
         <v-list-item-icon>
-          <v-icon>mdi-link</v-icon>
+          <v-icon>{{ mdiLink }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>{{ $t('sidebar.about.created_by') }}</v-list-item-title>
@@ -22,7 +22,7 @@
         rel="noopener"
       >
         <v-list-item-icon>
-          <v-icon>mdi-twitter</v-icon>
+          <v-icon>{{ mdiTwitter }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>@francois2metz</v-list-item-title>
@@ -34,7 +34,7 @@
         rel="noopener"
       >
         <v-list-item-icon>
-          <v-icon>mdi-github</v-icon>
+          <v-icon>{{ mdiGithub }}</v-icon>
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title>GitHub</v-list-item-title>
@@ -45,9 +45,14 @@
 </template>
 
 <script>
+import { mdiLink, mdiTwitter, mdiGithub } from '@mdi/js';
 import SubSidebar from './sub_sidebar';
 
 export default {
   components: { SubSidebar },
+
+  data() {
+    return { mdiLink, mdiTwitter, mdiGithub };
+  }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <v-list-item v-if="alwaysOpen">
-    <v-list-item-icon><v-icon dense>mdi-clock-outline</v-icon></v-list-item-icon>
+    <v-list-item-icon><v-icon dense>{{ mdiClockOutline }}</v-icon></v-list-item-icon>
     <v-list-item-content>
       <v-list-item-title>24/7</v-list-item-title>
     </v-list-item-content>
@@ -10,7 +10,7 @@
     no-action
   >
     <template v-slot:prependIcon>
-      <v-icon dense>mdi-clock-outline</v-icon>
+      <v-icon dense>{{ mdiClockOutline }}</v-icon>
     </template>
     <template v-slot:activator>
       <v-list-item-content>
@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { mdiClockOutline } from '@mdi/js';
 import OpeningHours from 'opening_hours';
 
 export default {
@@ -51,6 +52,10 @@ export default {
       required: false,
       default: 0
     }
+  },
+
+  data() {
+    return { mdiClockOutline };
   },
 
   computed: {

@@ -30,7 +30,7 @@
                 icon
                 v-on="menu"
               >
-                <v-icon>mdi-pencil-outline</v-icon>
+                <v-icon>{{ mdiPencilOutline }}</v-icon>
               </v-btn>
             </div>
           </template>
@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import { mdiPencilOutline } from '@mdi/js';
 import GeocoderInput from './geocoder';
 import equalLogo from '../icons/equal.svg';
 
@@ -103,7 +104,7 @@ export default {
   },
 
   data() {
-    return { equalLogo };
+    return { equalLogo, mdiPencilOutline };
   },
 
   computed: {
