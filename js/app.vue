@@ -314,11 +314,13 @@ export default {
     registerMessageListener() {
       window.addEventListener('message', (e) => {
         const data = e.data;
-
-        if (data.command === 'preview') {
+        switch (data.command) {
+        case 'preview':
           this.confirmBeforePreview(e.origin, () => {
             return data.file;
           });
+        case 'level':
+          this.mapLevel = e.data.level;
         }
       });
       const otherWindow = window.opener || window.parent;
