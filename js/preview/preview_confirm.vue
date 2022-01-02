@@ -1,6 +1,6 @@
 <template>
   <v-dialog
-    v-model="dialog"
+    :value="value"
     persistent
     max-width="500"
   >
@@ -18,7 +18,7 @@
         <v-btn
           color="darken-1"
           text
-          @click="dialog = false"
+          @click="close"
         >
           {{ $t('preview.url.no') }}
         </v-btn>
@@ -26,7 +26,7 @@
           :loading="loading"
           color="green darken-1"
           text
-          @click="downloadAndPreview"
+          @click="ok"
         >
           {{ $t('preview.url.yes') }}
         </v-btn>
@@ -38,8 +38,16 @@
 <script>
 export default {
   props: {
-    url: {
+    origin: {
       type: String,
+      required: true,
+    },
+    action: {
+      type: Function,
+      required: true
+    },
+    value: {
+      type: Boolean,
       required: true
     }
   },
@@ -53,27 +61,26 @@ export default {
 
   computed: {
     domain() {
-      return new URL(this.url).hostname;
+      return new URL(this.origin).hostname;
     }
   },
 
   methods: {
-    downloadAndPreview() {
+    close() {
+      this.$emit('input', false);
+    },
+
+    async ok() {
       this.loading = true;
-      fetch(this.url)
-        .then(r => r.arrayBuffer())
-        .then(b => {
-          this.dialog = false;
-          const filename = new URL(this.url).pathname.split('/').reverse()[0];
-          const file = new File([b], filename);
-          this.$emit('openPreview', file);
-        })
-        .catch((e) => {
-          console.error(e);
-        })
-        .finally(() => {
-          this.loading = false;
-        });
+      try {
+        const file = await this.action();
+        this.close();
+        this.$emit('openPreview', file);
+      } catch(e) {
+        console.error(e);
+      } finally {
+        this.loading = false;
+      }
     }
   }
 };

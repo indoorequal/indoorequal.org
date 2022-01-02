@@ -69,9 +69,11 @@
           @poiCoordinates="setPoiCoordinates"
         />
       </div>
-      <indoor-preview-url
-        v-if="urlPreview"
-        :url="urlPreview"
+      <indoor-preview-confirm
+        v-if="confirmPreview"
+        v-model="confirmPreview"
+        :origin="confirmPreviewOrigin"
+        :action="confirmPreviewAction"
         @openPreview="openPreview"
       />
     </v-main>
@@ -101,14 +103,14 @@ const URL_PARAM = 'url';
 
 const IndoorPreviewMap = () => import('./preview/preview_map');
 const IndoorPreviewToolbar = () => import('./preview/preview_toolbar');
-const IndoorPreviewUrl = () => import('./preview/preview_url');
+const IndoorPreviewConfirm = () => import('./preview/preview_confirm');
 
 export default {
   components: {
     IndoorDiscover,
     IndoorPoi,
+    IndoorPreviewConfirm,
     IndoorPreviewToolbar,
-    IndoorPreviewUrl,
     IndoorSidebar,
     IndoorToolbar,
     MglMarker
@@ -132,7 +134,11 @@ export default {
       preview: false,
       filePreview: null,
       urlPreview: null,
-      geojsonPreview: {}
+      confirmPreview: false,
+      confirmPreviewAction: null,
+      confirmPreviewOrigin: null,
+      confirmPreviewAllowedOrigins: [],
+      geojsonPreview: {},
     };
   },
 
@@ -148,11 +154,20 @@ export default {
       this.menu = hashParams.get(MENU_PARAM);
     }
     if (hashParams.has(URL_PARAM)) {
-      this.urlPreview = hashParams.get(URL_PARAM);
+      const url = hashParams.get(URL_PARAM);
+      this.confirmBeforePreview(url, () => {
+        return fetch(url)
+          .then(r => r.arrayBuffer())
+          .then(b => {
+            const filename = new URL(url).pathname.split('/').reverse()[0];
+            return new File([b], filename);
+          });
+      });
     }
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
       this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
     }
+    this.registerMessageListener();
     this.loadInitialLocation(hashParams);
   },
 
@@ -294,6 +309,37 @@ export default {
       this.preview = false;
       this.geojsonPreview = {};
       this.poi = '';
+    },
+
+    registerMessageListener() {
+      window.addEventListener('message', (e) => {
+        const data = e.data;
+        switch (data.command) {
+        case 'preview':
+          this.confirmBeforePreview(e.origin, () => {
+            return data.file;
+          });
+        case 'level':
+          this.mapLevel = e.data.level;
+        }
+      });
+      const otherWindow = window.opener || window.parent;
+      if (otherWindow !== window) {
+        otherWindow.postMessage({ event: 'ready' }, '*');
+      }
+    },
+
+    async confirmBeforePreview(origin, action) {
+      if (this.confirmPreviewAllowedOrigins.includes(origin)) {
+        const file = await action();
+        return this.openPreview(file);
+      }
+      this.confirmPreviewAction = () => {
+        this.confirmPreviewAllowedOrigins.push(origin);
+        return action()
+      };
+      this.confirmPreviewOrigin = origin;
+      this.confirmPreview = true;
     }
   }
 };
