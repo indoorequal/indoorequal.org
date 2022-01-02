@@ -321,6 +321,10 @@ export default {
           });
         }
       });
+      const otherWindow = window.opener || window.parent;
+      if (otherWindow !== window) {
+        otherWindow.postMessage({ event: 'ready' }, '*');
+      }
     },
 
     async confirmBeforePreview(origin, action) {
