@@ -317,7 +317,7 @@ export default {
 
         if (data.command === 'preview') {
           this.confirmBeforePreview(e.origin, () => {
-            return new File([JSON.stringify(data.data)], `preview.${data.extension}`);
+            return data.file;
           });
         }
       });
