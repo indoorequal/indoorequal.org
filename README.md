@@ -23,6 +23,30 @@ A few configuration options are available by editing the `config.json` file:
 - `tilesUrl`: The URL of the indoor= tileJSON
 - `indoorEqualApiKey`: the [indoor=](https://indoorequal.com/) API Key (optional if you don't use the official indoor= tileJSON
 
+## Remote Command API
+
+The remote command API allows you to interact with the viewer via the `window.postMessage()` method.
+
+**Example**
+
+```javascript
+const indoorEqualWindow = window.open("https://indoorequal.org/");
+window.addEventListener('message', (e) => {
+  if (e.data.event === 'ready') {
+    const file = new File([JSON.stringify({type: 'FeatureCollection', features: []})], 'test.geojson');
+    indoorEqualWindow.postMessage({ command: 'preview', file }, '*');
+  }
+});
+```
+
+**Open a preview**
+
+`{ command: 'preview', file: new File([], 'filename.geojson') }`
+
+**Set level**
+
+`{ command: 'level', level: '0' }`
+
 ## Translation
 
 Translations are managed via Transifex, [go here to translate it in your language](https://www.transifex.com/indoorequal/indoorequalorg/languages/).
