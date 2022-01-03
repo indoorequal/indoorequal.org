@@ -5,13 +5,13 @@
   >
     <v-expand-transition>
       <div v-if="geojson">
-        <v-card-title class="subtitle-1 flex-grow-1">
+        <v-card-title class="subtitle-1 flex-grow-1 flex-nowrap">
           <img
             v-if="icon"
             :src="iconURL"
             class="flex-grow-0 pr-1"
           >
-          {{ tags.name || type }}
+          <span class="text-truncate">{{ tags.name || type }}</span>
           <v-spacer></v-spacer>
           <v-btn
             icon
