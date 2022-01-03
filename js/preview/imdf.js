@@ -40,10 +40,14 @@ export function transformAreaFeatures(units, levelsById) {
   });
 }
 
+async function readFileJSONFromZip(zip, filename) {
+  return JSON.parse(await zip.file(filename).async('string'));
+}
+
 export async function transformIMDFFile(file) {
   const zip = await JSZip.loadAsync(file);
-  const levels = JSON.parse(await zip.file('level.geojson').async('string'));
-  const units = JSON.parse(await zip.file('unit.geojson').async('string'));
+  const levels = await readFileJSONFromZip(zip, 'level.geojson');
+  const units = await readFileJSONFromZip(zip, 'unit.geojson');
   const levelsById = levels.features.reduce((memo, level) => {
     memo[level.id] = level.properties.short_name.en;
     return memo;
