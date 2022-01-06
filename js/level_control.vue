@@ -56,6 +56,14 @@ export default {
     setLevel(level) {
       this.indoorequal.setLevel(level);
     }
+  },
+
+  watch: {
+    value(newLevel) {
+      if (newLevel !== this.indoorequal.level) {
+        this.setLevel(newLevel);
+      }
+    }
   }
 };
 </script>
