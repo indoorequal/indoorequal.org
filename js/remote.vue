@@ -2,6 +2,29 @@
   <v-app>
     <v-main>
       <v-text-field
+        label="BBox"
+        placeholder="1.971874,48.921259,2.299404,49.029990"
+        @change="sendBbox"
+      ></v-text-field>
+      <div class="d-flex">
+        <v-text-field
+          v-model="center"
+          label="Center"
+          placeholder="2.134953,48.9638220"
+        ></v-text-field>
+        <v-text-field
+          v-model="zoom"
+          label="Zoom"
+          placeholder="2"
+        ></v-text-field>
+        <v-btn @click="sendCenterAndZoom">Send</v-btn>
+      </div>
+      <v-text-field
+        label="BBox"
+        placeholder="1.971874,48.921259,2.299404,49.029990"
+        @change="sendBbox"
+      ></v-text-field>
+      <v-text-field
         label="Level"
         @change="sendLevel"
       ></v-text-field>
@@ -21,6 +44,13 @@
 
 <script>
 export default {
+  data() {
+    return {
+      center: '',
+      zoom: 0,
+    };
+  },
+
   methods: {
     sendPreviewFile(file) {
       if (!file) return;
@@ -33,6 +63,15 @@ export default {
 
     sendLevel(level) {
       this.sendMessage({ command: 'level', level });
+    },
+
+    sendBbox(bbox) {
+      this.sendMessage({ command: 'coordinates', bbox: bbox.split(',') });
+    },
+
+    sendCenterAndZoom() {
+      const center = this.center.split(',').map(parseFloat);
+      this.sendMessage({ command: 'coordinates', center: { lng: center[0], lat: center[1]}, zoom: parseInt(this.zoom, 10) });
     },
 
     sendMessage(message) {

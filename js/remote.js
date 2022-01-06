@@ -4,6 +4,7 @@ import Vuetify, {
   VFileInput,
   VIcon,
   VMain,
+  VBtn,
   VTextField,
 } from 'vuetify/lib';
 import App from './remote.vue';
@@ -14,6 +15,7 @@ Vue.use(Vuetify, {
     VFileInput,
     VIcon,
     VMain,
+    VBtn,
     VTextField,
   }
 });

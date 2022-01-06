@@ -16,6 +16,7 @@
         :map-level.sync="mapLevel"
         :map-zoom.sync="mapZoom"
         :new-map-bounds="newMapBounds"
+        :new-map-center="newMapCenter"
         :geojson="geojsonPreview"
         @clickPoi="clickPoi"
         @sprite="updateSprite"
@@ -136,6 +137,7 @@ export default {
       menu: null,
       minZoom: 17,
       newMapBounds: [],
+      newMapCenter: {},
       sprite: null,
       discover: true,
       errorPreview: false,
@@ -327,8 +329,18 @@ export default {
               return downloadFromUrl(data.url);
             }
           });
+          break;
         case 'level':
           this.mapLevel = e.data.level;
+          break;
+        case 'coordinates':
+          if (e.data.bbox) {
+            this.newMapBounds = e.data.bbox;
+          } else if (e.data.center && e.data.zoom) {
+            this.newMapCenter = e.data.center;
+            this.mapZoom = e.data.zoom;
+          }
+          break;
         }
       });
       const otherWindow = window.opener || window.parent;

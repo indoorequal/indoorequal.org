@@ -28,6 +28,12 @@ export default {
       required: false,
       default() { return []; }
     },
+
+    newMapCenter: {
+      type: Object,
+      required: false,
+      default() { return {}; }
+    },
   },
 
   provide() {
@@ -48,6 +54,10 @@ export default {
   watch: {
     newMapBounds(bbox) {
       this.map.fitBounds(bbox, { duration: 0 });
+    },
+
+    newMapCenter(center) {
+      this.map.setCenter(center);
     }
   },
 

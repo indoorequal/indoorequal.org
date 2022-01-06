@@ -39,18 +39,29 @@ window.addEventListener('message', (e) => {
 });
 ```
 
-**Open a preview with a file**
+**Open a preview**
+
+With a file
 
 `{ command: 'preview', file: new File([], 'filename.geojson') }`
 
-**Open a preview with an URL**
+With an URL
 
 `{ command: 'preview', url: '' }`
-
 
 **Set level**
 
 `{ command: 'level', level: '0' }`
+
+**Set coordinates**
+
+Via the [bounding box](https://wiki.openstreetmap.org/wiki/Bounding_Box)
+
+`{ command: 'coordinates', bbox: [1.971874, 48.921259, 2.299404, 49.029990] }`
+
+Via the center and the zoom
+
+`{ command: 'coordinates', center: [lng, lat], zoom: 1 }`
 
 ## Translation
 
