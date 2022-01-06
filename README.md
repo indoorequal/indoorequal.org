@@ -62,7 +62,7 @@ Via the [bounding box](https://wiki.openstreetmap.org/wiki/Bounding_Box)
 
 Via the center and the zoom
 
-`{ command: 'coordinates', center: [lng, lat], zoom: 1 }`
+`{ command: 'coordinates', center: { lng: 1.971874, lat: 48.921259 }, zoom: 1 }`
 
 ## Translation
 
