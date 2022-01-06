@@ -26,6 +26,7 @@ A few configuration options are available by editing the `config.json` file:
 ## Remote Command API
 
 The remote command API allows you to interact with the viewer via the `window.postMessage()` method.
+**Test page**: https://indoorequal.org/remote.html
 
 **Example**
 
