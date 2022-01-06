@@ -105,6 +105,15 @@ const IndoorPreviewMap = () => import('./preview/preview_map');
 const IndoorPreviewToolbar = () => import('./preview/preview_toolbar');
 const IndoorPreviewConfirm = () => import('./preview/preview_confirm');
 
+const downloadFromUrl = function (url) {
+  return fetch(url)
+    .then(r => r.arrayBuffer())
+    .then(b => {
+      const filename = new URL(url).pathname.split('/').reverse()[0];
+      return new File([b], filename);
+    });
+};
+
 export default {
   components: {
     IndoorDiscover,
@@ -156,12 +165,7 @@ export default {
     if (hashParams.has(URL_PARAM)) {
       const url = hashParams.get(URL_PARAM);
       this.confirmBeforePreview(url, () => {
-        return fetch(url)
-          .then(r => r.arrayBuffer())
-          .then(b => {
-            const filename = new URL(url).pathname.split('/').reverse()[0];
-            return new File([b], filename);
-          });
+        return downloadFromUrl(url);
       });
     }
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
@@ -317,7 +321,11 @@ export default {
         switch (data.command) {
         case 'preview':
           this.confirmBeforePreview(e.origin, () => {
-            return data.file;
+            if (data.file) {
+              return data.file;
+            } else if (data.url) {
+              return downloadFromUrl(data.url);
+            }
           });
         case 'level':
           this.mapLevel = e.data.level;

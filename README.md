@@ -39,9 +39,14 @@ window.addEventListener('message', (e) => {
 });
 ```
 
-**Open a preview**
+**Open a preview with a file**
 
 `{ command: 'preview', file: new File([], 'filename.geojson') }`
+
+**Open a preview with an URL**
+
+`{ command: 'preview', url: '' }`
+
 
 **Set level**
 

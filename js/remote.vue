@@ -5,10 +5,14 @@
         label="Level"
         @change="sendLevel"
       ></v-text-field>
+      <v-text-field
+        label="Preview URL"
+        @change="sendPreviewURL"
+      ></v-text-field>
       <v-file-input
         accept=".osm,.geojson,.zip"
         label="File input for preview"
-        @change="sendPreview"
+        @change="sendPreviewFile"
       ></v-file-input>
       <iframe ref="iframe" src="/" width="100%" frameborder="0"></iframe>
     </v-main>
@@ -18,9 +22,13 @@
 <script>
 export default {
   methods: {
-    sendPreview(file) {
+    sendPreviewFile(file) {
       if (!file) return;
-      this.sendMessage({ command: 'preview', file  });
+      this.sendMessage({ command: 'preview', file });
+    },
+
+    sendPreviewURL(url) {
+      this.sendMessage({ command: 'preview', url });
     },
 
     sendLevel(level) {
