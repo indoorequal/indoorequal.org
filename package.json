@@ -1,10 +1,14 @@
 {
   "scripts": {
-    "dev": "parcel serve --hmr-port 1235 index.html",
-    "build": "parcel build index.html",
+    "dev": "parcel serve --hmr-port 1235",
+    "build": "parcel build",
     "test": "jest --watch",
     "extract-poi-mapping": "node ./script/extract-poi-mapping"
   },
+  "source": [
+    "index.html",
+    "remote.html"
+  ],
   "browserslist": "last 2 Firefox versions, last 2 Chrome versions, last 2 Edge versions, last 2 Safari versions",
   "jest": {
     "testEnvironment": "jsdom",
