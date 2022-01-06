@@ -1,10 +1,16 @@
 import Vue from 'vue';
 import Vuetify, {
   VApp,
+  VBtn,
+  VCol,
+  VExpansionPanel,
+  VExpansionPanelContent,
+  VExpansionPanelHeader,
+  VExpansionPanels,
   VFileInput,
   VIcon,
   VMain,
-  VBtn,
+  VRow,
   VTextField,
 } from 'vuetify/lib';
 import App from './remote.vue';
@@ -12,10 +18,16 @@ import App from './remote.vue';
 Vue.use(Vuetify, {
   components: {
     VApp,
+    VBtn,
+    VCol,
+    VExpansionPanel,
+    VExpansionPanelContent,
+    VExpansionPanelHeader,
+    VExpansionPanels,
     VFileInput,
     VIcon,
     VMain,
-    VBtn,
+    VRow,
     VTextField,
   }
 });
