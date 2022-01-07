@@ -3,6 +3,7 @@ import {
   unitFeatureToAccess,
   unitFeatureIsPoi,
   transformAreaFeatures,
+  transformPoiFeatures,
 } from '../js/preview/imdf';
 
 describe('unitCategoryToClass', () => {
@@ -162,5 +163,62 @@ describe('transformAreaFeatures', () => {
         level: '1'
       },
     }]);
+  });
+});
+
+describe('transformPoiFeatures', () => {
+  it('transform occupants to POI', () => {
+    const unitFeatures = [{
+      type: 'Feature',
+      id: 'unitId',
+      properties: {
+        category: 'walkway',
+        level_id: 'L1',
+      },
+    }];
+    const anchorFeatures = [{
+      type: 'Feature',
+      id: 'anchorId',
+      geometry: {
+        type: 'Point'
+      },
+      properties: {
+        unit_id: 'unitId',
+      },
+    }];
+    const occupantFeatures = [{
+      type: 'Feature',
+      properties: {
+        anchor_id: 'anchorId',
+        category: 'coffee',
+        name: {
+          en: 'Test'
+        },
+        hours: 'Mo-Fr 08:00-18:00',
+        website: 'http://example.net',
+        phone: '123456',
+      }
+    }];
+    const levelsById = {
+      L1: '1'
+    };
+    const result = transformPoiFeatures(unitFeatures, anchorFeatures, occupantFeatures, levelsById);
+    expect(result).toEqual([{
+      geometry: {
+        type: 'Point',
+      },
+      properties: {
+        id: 'poi_0',
+        class: 'shop',
+        subclass: 'coffee',
+        shop: 'coffee',
+        name: 'Test',
+        'name:latin': 'Test',
+        level: '1',
+        opening_hours: 'Mo-Fr 08:00-18:00',
+        website: 'http://example.net',
+        phone: '123456',
+      }
+    }])
   });
 });
