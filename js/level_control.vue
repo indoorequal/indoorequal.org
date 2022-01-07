@@ -36,12 +36,23 @@ export default {
   },
 
   mounted() {
+    function sortLevels(a, b) {
+      if (a < b) {
+        return -1;
+      } else if (a > b) {
+        return 1;
+      }
+      return 0;
+    }
+    const updateLevels = (levels) => {
+      this.levels = levels.sort(sortLevels).reverse();
+    }
     this.control = this;
     this.$_addControl();
-    this.levels = this.indoorequal.levels;
+    updateLevels(this.indoorequal.levels);
     this.indoorequal.setLevel(this.value);
     this.indoorequal.on('levelchange', (level) => this.$emit('input', level));
-    this.indoorequal.on('levelschange', (levels) => this.levels = levels);
+    this.indoorequal.on('levelschange', (levels) => updateLevels(levels));
   },
 
   methods: {
