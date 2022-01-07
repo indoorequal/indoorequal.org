@@ -1,4 +1,5 @@
 import JSZip from 'jszip';
+import centerOfMass from '@turf/center-of-mass';
 import { poiClassAndSubclass } from './geojson';
 
 const unitCategoryToOsm = {
@@ -1148,7 +1149,7 @@ export function unitFeatureIsPoi(feature) {
   return feature.properties.category.startsWith('restroom');
 }
 
-export function transformPoiFeatures(units, anchors, occupants, levelsById) {
+export function transformOccupantFeatures(units, anchors, occupants, levelsById) {
   return occupants.filter((feature) => {
     return occupantCategoryToOsm[feature.properties.category];
   }).map((feature, index) => {
@@ -1180,6 +1181,23 @@ export function transformPoiFeatures(units, anchors, occupants, levelsById) {
   });
 }
 
+export function transformOpeningFeatures(openings, levelsById) {
+  return openings.map((feature, index) => {
+    const featureCenter = centerOfMass(feature);
+    return {
+      ...feature,
+      ...featureCenter,
+      properties: {
+        id: `poi_door_${index}`,
+        door: 'yes',
+        class: 'entrance',
+        subclass: 'door',
+        level: levelsById[feature.properties.level_id]
+      }
+    };
+  });
+}
+
 export function transformAreaFeatures(units, levelsById) {
   return units.map((feature) => {
     return {
@@ -1205,6 +1223,7 @@ export async function transformIMDFFile(file) {
   const units = await readFileJSONFromZip(zip, 'unit.geojson');
   const occupants = await readFileJSONFromZip(zip, 'occupant.geojson');
   const anchors = await readFileJSONFromZip(zip, 'anchor.geojson');
+  const openings = await readFileJSONFromZip(zip, 'opening.geojson');
   const levelsById = levels.features.reduce((memo, level) => {
     memo[level.id] = level.properties.short_name.en;
     return memo;
@@ -1216,7 +1235,10 @@ export async function transformIMDFFile(file) {
     },
     poi: {
       type: 'FeatureCollection',
-      features: transformPoiFeatures(units.features, anchors.features, occupants.features, levelsById)
+      features: [
+        ...transformOccupantFeatures(units.features, anchors.features, occupants.features, levelsById),
+        ...transformOpeningFeatures(openings.features, levelsById)
+      ]
     }
   };
 }

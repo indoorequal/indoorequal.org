@@ -3,7 +3,8 @@ import {
   unitFeatureToAccess,
   unitFeatureIsPoi,
   transformAreaFeatures,
-  transformPoiFeatures,
+  transformOccupantFeatures,
+  transformOpeningFeatures,
 } from '../js/preview/imdf';
 
 describe('unitCategoryToClass', () => {
@@ -166,7 +167,7 @@ describe('transformAreaFeatures', () => {
   });
 });
 
-describe('transformPoiFeatures', () => {
+describe('transformOccupantFeatures', () => {
   it('transform occupants to POI', () => {
     const unitFeatures = [{
       type: 'Feature',
@@ -202,7 +203,7 @@ describe('transformPoiFeatures', () => {
     const levelsById = {
       L1: '1'
     };
-    const result = transformPoiFeatures(unitFeatures, anchorFeatures, occupantFeatures, levelsById);
+    const result = transformOccupantFeatures(unitFeatures, anchorFeatures, occupantFeatures, levelsById);
     expect(result).toEqual([{
       geometry: {
         type: 'Point',
@@ -218,6 +219,43 @@ describe('transformPoiFeatures', () => {
         opening_hours: 'Mo-Fr 08:00-18:00',
         website: 'http://example.net',
         phone: '123456',
+      }
+    }])
+  });
+});
+
+describe('transformOpeningFeatures', () => {
+  it('transform opening to POI', () => {
+    const openingFeatures = [{
+      type: 'Feature',
+      geometry: {
+        type: 'LineString',
+        coordinates: [
+          [-123.4304155, 48.6405846],
+          [-123.4304278, 48.6405859]
+        ]
+      },
+      properties: {
+        category: 'service',
+        level_id: 'L1'
+      }
+    }];
+    const levelsById = {
+      L1: '1'
+    };
+    const result = transformOpeningFeatures(openingFeatures, levelsById);
+    expect(result).toEqual([{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [-123.43042165, 48.64058525],
+      },
+      properties: {
+        id: 'poi_door_0',
+        door: 'yes',
+        class: 'entrance',
+        subclass: 'door',
+        level: '1',
       }
     }])
   });
