@@ -5,6 +5,7 @@ import {
   transformAreaFeatures,
   transformOccupantFeatures,
   transformOpeningFeatures,
+  transformAmenityFeatures,
 } from '../js/preview/imdf';
 
 describe('unitCategoryToClass', () => {
@@ -256,6 +257,52 @@ describe('transformOpeningFeatures', () => {
         class: 'entrance',
         subclass: 'door',
         level: '1',
+      }
+    }])
+  });
+});
+
+describe('transformAmenityFeatures', () => {
+  it('transform amenity to POI', () => {
+    const unitFeatures = [{
+      type: 'Feature',
+      id: 'unitId',
+      properties: {
+        category: 'walkway',
+        level_id: 'L1',
+      },
+    }];
+    const amenityFeatures = [{
+      type: 'Feature',
+      geometry: {
+        type: 'Point'
+      },
+      properties: {
+        unit_ids: ['unitId'],
+        category: 'atm',
+        hours: 'Mo-Fr 08:00-18:00',
+        website: 'http://example.net',
+        phone: '123456',
+      }
+    }];
+    const levelsById = {
+      L1: '1'
+    };
+    const result = transformAmenityFeatures(unitFeatures, amenityFeatures, levelsById);
+    expect(result).toEqual([{
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+      },
+      properties: {
+        id: 'poi_amenity_0',
+        class: 'bank',
+        subclass: 'atm',
+        amenity: 'atm',
+        level: '1',
+        opening_hours: 'Mo-Fr 08:00-18:00',
+        website: 'http://example.net',
+        phone: '123456',
       }
     }])
   });

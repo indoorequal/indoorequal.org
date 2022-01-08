@@ -1133,6 +1133,182 @@ const occupantCategoryToOsm = {
   'yugoslav': null,
 };
 
+const amenitiesCategoryToOsm = {
+  'amphitheater': null,
+  'animalreliefarea': null,
+  'arrivalgate': null,
+  'atm': { amenity: 'atm' },
+  'babychanging': null,
+  'baggagecarousel': null,
+  'baggagecarousel.intl': null,
+  'baggagecarts': null,
+  'baggageclaim': null,
+  'baggageclaim.oversize': null,
+  'baggagerecheck': null,
+  'baggagestorage': null,
+  'boardinggate': null,
+  'boardinggate.aircraft': null,
+  'boardinggate.bus': null,
+  'boardinggate.ferry': null,
+  'boardinggate.train': null,
+  'bus': null,
+  'bus.muni': null,
+  'bus.national': null,
+  'businesscenter': null,
+  'cabin': null,
+  'caregiver': null,
+  'carrental': null,
+  'cashier': null,
+  'changemachine': null,
+  'checkin': null,
+  'checkin.desk': null,
+  'checkin.desk.oversizebaggage': null,
+  'checkin.desk.transfer': null,
+  'checkin.selfservice': null,
+  'childplayarea': null,
+  'coinlocker': null,
+  'copymachine': null,
+  'defibrillator': { emergency: 'defibrillator' },
+  'drinkingfountain': null,
+  'eatingdrinking': null,
+  'elevator': null,
+  'emergencyshelter': null,
+  'entry': null,
+  'escalator': null,
+  'exhibit': null,
+  'faregate': null,
+  'faregate.oversized': null,
+  'fieldofplay': null,
+  'fieldofplay.americanfootball': null,
+  'fieldofplay.baseball': null,
+  'fieldofplay.basketball': null,
+  'fieldofplay.fieldhockey': null,
+  'fieldofplay.icehockey': null,
+  'fieldofplay.rugby': null,
+  'fieldofplay.soccer': null,
+  'fieldofplay.softball': null,
+  'fieldofplay.tennis': null,
+  'fieldofplay.trackfield': null,
+  'fieldofplay.volleyball': null,
+  'firealarmpullstation': null,
+  'fireextinguisher': null,
+  'firstaid': null,
+  'fittingroom': null,
+  'foodservice': null,
+  'gatearea': null,
+  'groundtransportation': null,
+  'guestservices': null,
+  'handsanitizerstation': null,
+  'healthscreening': null,
+  'hoteling': null,
+  'immigration': null,
+  'information': { tourism: 'information' },
+  'information.bid': { tourism: 'information' },
+  'information.carrental': { tourism: 'information' },
+  'information.hotel': { tourism: 'information' },
+  'information.mufid': { tourism: 'information' },
+  'information.mufid.arrivals': { tourism: 'information' },
+  'information.mufid.departures': { tourism: 'information' },
+  'information.transit': { tourism: 'information' },
+  'landmark': null,
+  'library': null,
+  'limo': null,
+  'lostandfound': null,
+  'mailbox': null,
+  'meditation': null,
+  'meetingpoint': null,
+  'mobilityrescue': null,
+  'mothersroom': null,
+  'movingwalkway': null,
+  'paidarea': null,
+  'parkandride': null,
+  'parking': null,
+  'parking.bicycle': null,
+  'parking.compact': null,
+  'parking.ev': null,
+  'parking.longterm': null,
+  'parking.motorcycle': null,
+  'parking.shortterm': null,
+  'parking.waitingarea': null,
+  'payphone': null,
+  'pedestriancrossing': null,
+  'peoplemover': null,
+  'phone': { amenity: 'telephone' },
+  'phone.emergency': null,
+  'photobooth': null,
+  'platform': null,
+  'police': null,
+  'powerchargingstation': null,
+  'prayerroom': null,
+  'prayerroom.buddhism': null,
+  'prayerroom.christianity': null,
+  'prayerroom.hinduism': null,
+  'prayerroom.islam': null,
+  'prayerroom.islam.female': null,
+  'prayerroom.islam.male': null,
+  'prayerroom.judaism': null,
+  'prayerroom.shintoism': null,
+  'prayerroom.sikh': null,
+  'prayerroom.taoic': null,
+  'privatelounge': null,
+  'productreturn': null,
+  'rail.muni': null,
+  'rail.national': null,
+  'ramp': null,
+  'reception.desk': null,
+  'recreation': null,
+  'restroom': { amenity: 'toilets' },
+  'restroom.family': { amenity: 'toilets' },
+  'restroom.female': { amenity: 'toilets' },
+  'restroom.female.wheelchair': { amenity: 'toilets', wheelchair: 'yes' },
+  'restroom.male': { amenity: 'toilets' },
+  'restroom.male.wheelchair': { amenity: 'toilets', wheelchair: 'yes' },
+  'restroom.transgender': { amenity: 'toilets' },
+  'restroom.transgender.wheelchair': { amenity: 'toilets', wheelchair: 'yes' },
+  'restroom.unisex': { amenity: 'toilets' },
+  'restroom.unisex.wheelchair': { amenity: 'toilets', wheelchair: 'yes' },
+  'restroom.wheelchair': { amenity: 'toilets', wheelchair: 'yes' },
+  'rideshare': null,
+  'seat': null,
+  'seating': null,
+  'security': null,
+  'security.checkpoint': null,
+  'security.inspection': null,
+  'service': null,
+  'shower': null,
+  'shuttle': null,
+  'sleepbox': null,
+  'smokingarea': null,
+  'stairs': null,
+  'storage': null,
+  'strollerrental': null,
+  'studentadmissions': null,
+  'studentservices': null,
+  'swimmingpool': null,
+  'swimmingpool.children': null,
+  'swimmingpool.family': null,
+  'taxi': null,
+  'ticketing': null,
+  'ticketing.airline': null,
+  'ticketing.bus': null,
+  'ticketing.bus.muni': null,
+  'ticketing.bus.national': null,
+  'ticketing.rail': null,
+  'ticketing.rail.muni': null,
+  'ticketing.rail.national': null,
+  'ticketing.shuttle': null,
+  'traintrack': null,
+  'transit': null,
+  'unspecified': null,
+  'valet': null,
+  'vendingmachine': { amenity: 'vending_machine' },
+  'vendingmachine.trainticket': { amenity: 'vending_machine', vending: 'public_transport_tickets' },
+  'wheelchairassist': null,
+  'wifi': null,
+  'yoga': null,
+};
+
+
 export function unitCategoryToClass(category) {
   return unitCategoryToOsm[category] ? unitCategoryToOsm[category] : 'room';
 }
@@ -1198,6 +1374,37 @@ export function transformOpeningFeatures(openings, levelsById) {
   });
 }
 
+export function transformAmenityFeatures(units, amenities, levelsById) {
+  return amenities.filter((feature) => {
+    return amenitiesCategoryToOsm[feature.properties.category];
+  }).map((feature, index) => {
+    const unit = units.find((unit) => feature.properties.unit_ids.includes(unit.id));
+    const mapping = amenitiesCategoryToOsm[feature.properties.category];
+    const newFeature = {
+      ...feature,
+      properties: {
+        id: `poi_amenity_${index}`,
+        ...mapping,
+        'name': feature.properties.name?.en,
+        'name:latin': feature.properties?.name?.en,
+        level: levelsById[unit.properties.level_id],
+        opening_hours: feature.properties.hours,
+        website: feature.properties.website,
+        phone: feature.properties.phone,
+      }
+    };
+    const [classe, subclass] = poiClassAndSubclass(newFeature);
+    return {
+      ...newFeature,
+      properties: {
+        ...newFeature.properties,
+        class: classe,
+        subclass
+      }
+    };
+  });
+}
+
 export function transformAreaFeatures(units, levelsById) {
   return units.map((feature) => {
     return {
@@ -1224,6 +1431,7 @@ export async function transformIMDFFile(file) {
   const occupants = await readFileJSONFromZip(zip, 'occupant.geojson');
   const anchors = await readFileJSONFromZip(zip, 'anchor.geojson');
   const openings = await readFileJSONFromZip(zip, 'opening.geojson');
+  const amenities = await readFileJSONFromZip(zip, 'amenity.geojson');
   const levelsById = levels.features.reduce((memo, level) => {
     memo[level.id] = level.properties.short_name.en;
     return memo;
@@ -1237,7 +1445,8 @@ export async function transformIMDFFile(file) {
       type: 'FeatureCollection',
       features: [
         ...transformOccupantFeatures(units.features, anchors.features, occupants.features, levelsById),
-        ...transformOpeningFeatures(openings.features, levelsById)
+        ...transformAmenityFeatures(units.features, amenities.features, levelsById),
+        ...transformOpeningFeatures(openings.features, levelsById),
       ]
     }
   };
