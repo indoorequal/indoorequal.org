@@ -1,6 +1,6 @@
 import JSZip from 'jszip';
 import centerOfMass from '@turf/center-of-mass';
-import { poiClassAndSubclass } from './geojson';
+import { poiClassAndSubclass } from './poi';
 
 const unitCategoryToOsm = {
   brick: 'column',
