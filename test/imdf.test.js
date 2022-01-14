@@ -1,11 +1,11 @@
 import {
   unitCategoryToClass,
   unitFeatureToAccess,
-  unitFeatureIsPoi,
   transformAreaFeatures,
   transformOccupantFeatures,
   transformOpeningFeatures,
   transformAmenityFeatures,
+  collectUnitIdsWithPoi,
 } from '../js/preview/imdf';
 
 describe('unitCategoryToClass', () => {
@@ -119,28 +119,6 @@ describe('unitFeatureToAccess', () => {
   });
 });
 
-describe('unitFeatureIsPoi', () => {
-  it('returns true when feature is a restroom', () => {
-    const unitFeature = {
-      type: 'Feature',
-      properties: {
-        category: 'restroom.unisex',
-      },
-    };
-    expect(unitFeatureIsPoi(unitFeature)).toBe(true);
-  });
-
-  it('returns true when feature is a rool', () => {
-    const unitFeature = {
-      type: 'Feature',
-      properties: {
-        category: 'room',
-      },
-    };
-    expect(unitFeatureIsPoi(unitFeature)).toBe(false);
-  });
-});
-
 describe('transformAreaFeatures', () => {
   it('return area features from unit.geojson', () => {
     const unitFeatures = [{
@@ -153,7 +131,8 @@ describe('transformAreaFeatures', () => {
     const levels = {
       L1: '1'
     };
-    const result = transformAreaFeatures(unitFeatures, levels);
+    const unitIdsWithPoi = [];
+    const result = transformAreaFeatures(unitFeatures, unitIdsWithPoi, levels);
     expect(result).toEqual([{
       type: 'Feature',
       properties: {
@@ -305,5 +284,48 @@ describe('transformAmenityFeatures', () => {
         phone: '123456',
       }
     }])
+  });
+});
+
+describe('collectUnitIdsWithPoi', () => {
+  it('return unit id that have a matching occupant or amenity feature', () => {
+    const anchorFeatures = [{
+      type: 'Feature',
+      id: 'anchorId',
+      geometry: {
+        type: 'Point'
+      },
+      properties: {
+        unit_id: 'unitId',
+      },
+    }];
+    const occupantFeatures = [{
+      type: 'Feature',
+      properties: {
+        anchor_id: 'anchorId',
+        category: 'coffee',
+        name: {
+          en: 'Test'
+        },
+        hours: 'Mo-Fr 08:00-18:00',
+        website: 'http://example.net',
+        phone: '123456',
+      }
+    }];
+    const amenityFeatures = [{
+      type: 'Feature',
+      geometry: {
+        type: 'Point'
+      },
+      properties: {
+        unit_ids: ['unitId2'],
+        category: 'atm',
+        hours: 'Mo-Fr 08:00-18:00',
+        website: 'http://example.net',
+        phone: '123456',
+      }
+    }];
+    const unitIds = collectUnitIdsWithPoi(anchorFeatures, occupantFeatures, amenityFeatures);
+    expect(unitIds).toEqual(['unitId', 'unitId2']);
   });
 });

@@ -1,5 +1,6 @@
 import JSZip from 'jszip';
 import centerOfMass from '@turf/center-of-mass';
+import uniq from 'lodash.uniq';
 import { poiClassAndSubclass } from './poi';
 
 const unitCategoryToOsm = {
@@ -1321,8 +1322,18 @@ export function unitFeatureToAccess(feature) {
   return 'yes';
 };
 
-export function unitFeatureIsPoi(feature) {
-  return feature.properties.category.startsWith('restroom');
+export function collectUnitIdsWithPoi(anchors, occupants, amenities) {
+  const unitIdOccupants = occupants.filter((feature) => {
+    return occupantCategoryToOsm[feature.properties.category];
+  }).map((feature, index) => {
+    return anchors.find((anchor) => anchor.id === feature.properties.anchor_id).properties.unit_id;
+  });
+  const unitIdAmenities = amenities.filter((feature) => {
+    return amenitiesCategoryToOsm[feature.properties.category];
+  }).flatMap((feature, index) => {
+    return feature.properties.unit_ids;
+  });
+  return uniq(unitIdOccupants.concat(unitIdAmenities));
 }
 
 export function transformOccupantFeatures(units, anchors, occupants, levelsById) {
@@ -1405,14 +1416,14 @@ export function transformAmenityFeatures(units, amenities, levelsById) {
   });
 }
 
-export function transformAreaFeatures(units, levelsById) {
+export function transformAreaFeatures(units, unitIdsWithPoi, levelsById) {
   return units.map((feature) => {
     return {
       ...feature,
       properties: {
         ...feature.properties,
         class: unitCategoryToClass(feature.properties.category),
-        is_poi: unitFeatureIsPoi(feature),
+        is_poi: unitIdsWithPoi.includes(feature.id),
         access: unitFeatureToAccess(feature),
         level: levelsById[feature.properties.level_id]
       }
@@ -1436,10 +1447,11 @@ export async function transformIMDFFile(file) {
     memo[level.id] = level.properties.short_name.en;
     return memo;
   }, {});
+  const unitIdsWithPoi = collectUnitIdsWithPoi(anchors.features, occupants.features, amenities.features);
   return {
     area: {
       type: 'FeatureCollection',
-      features: transformAreaFeatures(units.features, levelsById)
+      features: transformAreaFeatures(units.features, unitIdsWithPoi, levelsById)
     },
     poi: {
       type: 'FeatureCollection',
