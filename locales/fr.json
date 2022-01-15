@@ -382,24 +382,14 @@
       "indoorequal": {
         "cta": "S'enregistrer",
         "subtitle": "Pour commencer, créer votre compte gratuit sur indoorequal.com.",
-        "title": "Créer votre clef d'API gratuite"
-      },
-      "mapboxgl": {
-        "cta": "Installer",
-        "subtitle": "La façon la plus simple d'intégrer indoor= dans votre carte",
-        "title": "mapbox-gl-indoorequal"
-      },
-      "openlayers": {
-        "cta": "Installer",
-        "subtitle": "La façon la plus simple d'intégrer indoor= dans votre carte",
-        "title": "openlayers-indoorequal"
+        "title": "Afficher les tuiles vectorielles d'indoor="
       },
       "schema": {
         "cta": "Lire",
         "subtitle": "Découvrer le schéma des tuiles vectorielles pour les intégrer dans votre application",
         "title": "Lire le schéma"
       },
-      "subtitle": "Intégrer indoor= à votre carte",
+      "subtitle": "Intégrer indoor= à votre app",
       "title": "Développeurs"
     },
     "collapse": "Replier",

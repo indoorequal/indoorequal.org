@@ -386,24 +386,14 @@
       "indoorequal": {
         "cta": "Register",
         "subtitle": "To start, register your free account on indoorequal.com.",
-        "title": "Get your free API Key"
-      },
-      "mapboxgl": {
-        "cta": "Install",
-        "subtitle": "The easiest way to integrate indoor= in your map.",
-        "title": "mapbox-gl-indoorequal"
-      },
-      "openlayers": {
-        "cta": "Install",
-        "subtitle": "Easy to use OpenLayers plugin to integrate indoor= in your map.",
-        "title": "openlayers-indoorequal"
+        "title": "Display indoor= vector tiles"
       },
       "schema": {
         "cta": "Read",
         "subtitle": "Discover the vector tile schema to integrate the tiles in any app.",
         "title": "Read the schema"
       },
-      "subtitle": "Integrate indoor= into your map",
+      "subtitle": "Integrate indoor= to your app",
       "title": "Developers"
     },
     "collapse": "Collapse",
