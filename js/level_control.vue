@@ -37,12 +37,16 @@ export default {
 
   mounted() {
     function sortLevels(a, b) {
-      if (a < b) {
-        return -1;
-      } else if (a > b) {
-        return 1;
+      if (isNaN(parseInt(a, 10))) {
+        if (a < b) {
+          return -1;
+        } else if (a > b) {
+          return 1;
+        }
+        return 0;
+      } else {
+        return a - b;
       }
-      return 0;
     }
     const updateLevels = (levels) => {
       this.levels = levels.sort(sortLevels).reverse();
