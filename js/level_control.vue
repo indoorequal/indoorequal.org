@@ -46,6 +46,13 @@ export default {
     }
     const updateLevels = (levels) => {
       this.levels = levels.sort(sortLevels).reverse();
+      if (this.levels.length > 0 && !this.levels.includes(this.indoorequal.level)) {
+        if (this.levels.includes('0')) {
+          this.setLevel('0');
+        } else {
+          this.setLevel(this.levels[this.levels.length - 1]);
+        }
+      }
     }
     this.control = this;
     this.$_addControl();
