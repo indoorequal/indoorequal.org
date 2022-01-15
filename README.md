@@ -1,6 +1,10 @@
 # indoorequal.org
 
-An indoor viewer based on OSM Data. This repository is the frontend part.
+A web based indoor viewer.
+
+- display vector tiles from the [indoor= backend](https://github.com/indoorequal/indoorequal)
+- render local or remote GeoJSON, OSM or [Indoor Mapping Data Format (IMDF)](https://register.apple.com/resources/imdf/) files
+- provide an API to [control the viewer from another web page](#remote-command-api)
 
 Discover:
 
