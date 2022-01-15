@@ -36,12 +36,34 @@ export default {
   },
 
   mounted() {
+    function sortLevels(a, b) {
+      if (isNaN(parseInt(a, 10))) {
+        if (a < b) {
+          return -1;
+        } else if (a > b) {
+          return 1;
+        }
+        return 0;
+      } else {
+        return a - b;
+      }
+    }
+    const updateLevels = (levels) => {
+      this.levels = levels.sort(sortLevels).reverse();
+      if (this.levels.length > 0 && !this.levels.includes(this.indoorequal.level)) {
+        if (this.levels.includes('0')) {
+          this.setLevel('0');
+        } else {
+          this.setLevel(this.levels[this.levels.length - 1]);
+        }
+      }
+    }
     this.control = this;
     this.$_addControl();
-    this.levels = this.indoorequal.levels;
+    updateLevels(this.indoorequal.levels);
     this.indoorequal.setLevel(this.value);
     this.indoorequal.on('levelchange', (level) => this.$emit('input', level));
-    this.indoorequal.on('levelschange', (levels) => this.levels = levels);
+    this.indoorequal.on('levelschange', (levels) => updateLevels(levels));
   },
 
   methods: {
