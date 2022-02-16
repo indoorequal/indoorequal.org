@@ -1340,9 +1340,9 @@
   integrity sha1-ioP5M1x4YO/6Lu7KJUMyqgru2PI=
 
 "@mapbox/tiny-sdf@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@mapbox/tiny-sdf/-/tiny-sdf-2.0.4.tgz#497d7153a61b7cef4638b9e9e91cd37403dead07"
-  integrity sha512-CBtL2rhZiYmdIryksp0zh4Mmx54iClYfNb0mpYeHrZnq4z84lVjre7LBWGPEjWspEn6AiF0lxC1HaZDye89m3g==
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@mapbox/tiny-sdf/-/tiny-sdf-2.0.5.tgz#cdba698d3d65087643130f9af43a2b622ce0b372"
+  integrity sha512-OhXt2lS//WpLdkqrzo/KwB7SRD8AiNTFFzuo9n14IBupzIMa67yGItcK7I2W9D8Ghpa4T04Sw9FWsKCJG50Bxw==
 
 "@mapbox/unitbezier@^0.0.1":
   version "0.0.1"
@@ -5188,9 +5188,9 @@ mapbox-gl-indoorequal@^0.2.9:
     debounce "^1.2.0"
 
 maplibre-gl@>=1.15.2:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/maplibre-gl/-/maplibre-gl-2.1.1.tgz#561f5ad94a2e7e1f3e1be75ed994a5bf0b54c9c9"
-  integrity sha512-FRAHc4kPYKDF0+QMm8tnkyhv65Ed5SKLbzcH6hHM20XAK+9pqHMIHxlwpxcb4zGl+czz1bUegYf/KXjJRh9aDA==
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/maplibre-gl/-/maplibre-gl-2.1.6.tgz#774dea8043d3b898b881e33b1f4684b733997f5e"
+  integrity sha512-UHdw4YeCkIyfG7vMdNK6e/sDNPB7jjUN5MUytKE1DFQB7sKM9V19ar1GUyn0uYRvQwJ5iC01fWhH3r/5bbHlKQ==
   dependencies:
     "@mapbox/geojson-rewind" "^0.5.1"
     "@mapbox/jsonlint-lines-primitives" "^2.0.2"
