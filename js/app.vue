@@ -9,14 +9,14 @@
       @openPreview="openPreview"
     />
     <v-main>
-      <component
-        :is="mapComponent"
+      <indoor-map
         :map-bounds.sync="mapBounds"
         :map-center.sync="mapCenter"
         :map-level.sync="mapLevel"
         :map-zoom.sync="mapZoom"
         :new-map-bounds="newMapBounds"
         :new-map-center="newMapCenter"
+        :preview="preview"
         :geojson="geojsonPreview"
         @clickPoi="clickPoi"
         @sprite="updateSprite"
@@ -27,7 +27,7 @@
           :coordinates="poiCoordinates"
           color="#6667ad"
         />
-      </component>
+      </indoor-map>
       <v-chip
         v-if="!preview && mapZoom < 17"
         color="primary"
@@ -102,7 +102,6 @@ const LEVEL_PARAM = 'level';
 const MENU_PARAM = 'menu';
 const URL_PARAM = 'url';
 
-const IndoorPreviewMap = () => import('./preview/preview_map');
 const IndoorPreviewToolbar = () => import('./preview/preview_toolbar');
 const IndoorPreviewConfirm = () => import('./preview/preview_confirm');
 
@@ -118,6 +117,7 @@ const downloadFromUrl = function (url) {
 export default {
   components: {
     IndoorDiscover,
+    IndoorMap,
     IndoorPoi,
     IndoorPreviewConfirm,
     IndoorPreviewToolbar,
@@ -178,10 +178,6 @@ export default {
   },
 
   computed: {
-    mapComponent() {
-      return this.preview ? IndoorPreviewMap : IndoorMap;
-    },
-
     poiFetcher() {
       return (poi) => {
         if (this.preview) {
