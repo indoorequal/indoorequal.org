@@ -1,5 +1,6 @@
 <template>
   <MglMap
+    :mapbox-gl="maplibre"
     :center="mapCenter"
     :zoom="mapZoom"
     :map-style="mapStyle"
@@ -28,7 +29,8 @@
 </template>
 
 <script>
-import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/dist/vue-mapbox.umd';
+import maplibre from 'maplibre';
+import { MglMap, MglNavigationControl, MglGeolocateControl } from 'v-mapbox';
 import IndoorEqual from 'mapbox-gl-indoorequal';
 import bbox from '@turf/bbox';
 import { mapStyle } from './maptiler';
@@ -102,6 +104,7 @@ export default {
 
   data() {
     return {
+      maplibre,
       mapStyle: mapStyle()
     };
   },

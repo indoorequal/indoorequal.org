@@ -82,7 +82,7 @@
 </template>
 
 <script>
-import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
+import { MglMarker } from 'v-mapbox';
 import { tilesUrl, indoorEqualApiKey } from '../config.json';
 import IndoorDiscover from './discover';
 import IndoorMap from './map';

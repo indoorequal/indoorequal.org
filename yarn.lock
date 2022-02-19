@@ -5238,7 +5238,7 @@ makeerror@1.0.12:
   dependencies:
     tmpl "1.0.5"
 
-map-promisified@latest:
+map-promisified@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/map-promisified/-/map-promisified-0.4.0.tgz#c33cc8b93d2d28b0df0b0937ffabcd145b9b9a82"
   integrity sha512-VYBQ3rTMykg2CSVgSrZBvhAwxuIuYbAHCtjjq/ATnD5kMq7I/ROmMBckwlmfwtEIx9yXufF+3QY5WxUH5EeM/Q==
@@ -7093,6 +7093,13 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
 
+v-mapbox@^1.10.1:
+  version "1.10.1"
+  resolved "https://registry.yarnpkg.com/v-mapbox/-/v-mapbox-1.10.1.tgz#0ffa6c95323b5c961468a3c159844ab88af86fbc"
+  integrity sha512-6/e2W+Uw3Y3x2hMFxM4Cml9JrfOOLNmwPUxIMz8pttrxuyUgtfcZSJOIU4oSsKFNVOEnucII5u67KkFTW/EHYg==
+  dependencies:
+    map-promisified "^0.4.0"
+
 v8-compile-cache@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
@@ -7130,12 +7137,6 @@ vue-i18n@^8.21.1:
   version "8.27.0"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-8.27.0.tgz#3e3b3ed2c107ccbd7f20dbdd7a96763a9990253e"
   integrity sha512-SX35iJHL5PJ4Gfh0Mo/q0shyHiI2V6Zkh51c+k8E9O1RKv5BQyYrCxRzpvPrsIOJEnLaeiovet3dsUB0e/kDzw==
-
-vue-mapbox@osmontrouge/vue-mapbox#update:
-  version "0.4.1"
-  resolved "https://codeload.github.com/osmontrouge/vue-mapbox/tar.gz/28dabf74dd8a5be3c81aa00c9da1781697a118b4"
-  dependencies:
-    map-promisified latest
 
 vue-template-compiler@^2.6.14, vue-template-compiler@^2.6.9:
   version "2.6.14"
