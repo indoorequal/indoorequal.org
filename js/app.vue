@@ -29,7 +29,7 @@
         />
       </indoor-map>
       <v-chip
-        v-if="!preview && mapZoom < 17"
+        v-if="!preview && mapZoom < indoorMinZoom"
         color="primary"
         class="zoom-chip"
         @click="mapZoom = 17"
@@ -47,7 +47,7 @@
           :map-center="mapCenter"
           :map-level="mapLevel"
           :map-zoom="mapZoom"
-          :min-zoom="minZoom"
+          :indoor-min-zoom="indoorMinZoom"
           @updateBounds="updateBounds"
         />
         <indoor-preview-toolbar
@@ -83,7 +83,7 @@
 
 <script>
 import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
-import { tilesUrl, indoorEqualApiKey } from '../config.json';
+import { tilesUrl, indoorEqualApiKey, indoorMinZoom } from '../config.json';
 import IndoorDiscover from './discover';
 import IndoorMap from './map';
 import IndoorPoi from './poi';
@@ -135,7 +135,7 @@ export default {
       poi: '',
       poiCoordinates: [],
       menu: null,
-      minZoom: 17,
+      indoorMinZoom: indoorMinZoom,
       newMapBounds: [],
       newMapCenter: {},
       sprite: null,

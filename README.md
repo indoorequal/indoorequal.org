@@ -26,6 +26,7 @@ A few configuration options are available by editing the `config.json` file:
 - `mapTilerApiKey`: the [MapTiler](https://www.maptiler.com/) API Key
 - `tilesUrl`: The URL of the indoor= tileJSON
 - `indoorEqualApiKey`: the [indoor=](https://indoorequal.com/) API Key (optional if you don't use the official indoor= tileJSON
+- `indoorMinZoom`: The minimum level of zoom when the indoor features are displayed
 
 ## Remote Command API
 

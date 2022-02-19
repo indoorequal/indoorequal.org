@@ -93,7 +93,7 @@ export default {
       required: true
     },
 
-    minZoom: {
+    indoorMinZoom: {
       type: Number,
       required: true
     },
@@ -109,7 +109,7 @@ export default {
 
   computed: {
     editDisabled() {
-      return this.mapZoom < this.minZoom;
+      return this.mapZoom < this.indoorMinZoom;
     },
 
     JOSMParams() {
