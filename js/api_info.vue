@@ -42,9 +42,3 @@ export default {
   components: { SubSidebar },
 };
 </script>
-
-<style scoped>
-.text-pre {
-  white-space: pre-line;
-}
-</style>
