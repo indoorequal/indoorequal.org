@@ -32,7 +32,7 @@
         v-if="!preview && mapZoom < indoorMinZoom"
         color="primary"
         class="zoom-chip"
-        @click="mapZoom = 17"
+        @click="mapZoom = indoorMinZoom"
       >{{ $t('zoom') }}</v-chip>
       <v-snackbar
         v-model="errorPreview"
