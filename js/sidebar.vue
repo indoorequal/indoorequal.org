@@ -61,6 +61,15 @@
             <v-list-item-subtitle>{{ $t('sidebar.api.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
+        <v-list-item @click="display('news')">
+          <v-list-item-icon>
+            <v-icon>{{ mdiNewspaperVariantOutline }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ $t('sidebar.news.title') }}</v-list-item-title>
+            <v-list-item-subtitle>{{ $t('sidebar.news.subtitle') }}</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item @click="display('about')">
           <v-list-item-icon>
             <v-icon>{{ mdiInformationOutline }}</v-icon>
@@ -115,7 +124,7 @@
 </template>
 
 <script>
-import { mdiArrowExpandLeft, mdiMapMarkerCircle, mdiMap, mdiInformationOutline, mdiPuzzleCheck, mdiPuzzleEditOutline, mdiOpenInNew } from '@mdi/js';
+import { mdiArrowExpandLeft, mdiMapMarkerCircle, mdiMap, mdiInformationOutline, mdiPuzzleCheck, mdiPuzzleEditOutline, mdiOpenInNew, mdiNewspaperVariantOutline } from '@mdi/js';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { tilesUrl } from '../config.json';
@@ -127,6 +136,7 @@ const COMPONENTS = {
   explore: () => import('./explore_list'),
   api: () => import('./api_info'),
   about: () => import('./about_info'),
+  news: () => import('./news_info'),
   preview: () => import('./preview/preview_config'),
 };
 
@@ -148,6 +158,7 @@ export default {
       mdiInformationOutline,
       mdiMap,
       mdiMapMarkerCircle,
+      mdiNewspaperVariantOutline,
       mdiOpenInNew,
       mdiPuzzleCheck,
       mdiPuzzleEditOutline,

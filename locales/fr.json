@@ -403,6 +403,10 @@
       "subtitle": "Les espaces intérieur dans OpenStreetMap",
       "title": "Apprendre à cartographier"
     },
+    "news": {
+      "subtitle": "Quoi de neuf sur indoor=",
+      "title": "Nouveautés"
+    },
     "preview": {
       "title": "Prévisualisation du rendu",
       "subtitle": "Validation avant envoi"

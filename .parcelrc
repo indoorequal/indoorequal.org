@@ -3,6 +3,7 @@
   "resolvers": ["@parcel/resolver-glob", "..."],
   "reporters":  ["...", "parcel-reporter-static-files-copy"],
   "transformers": {
+    "*.md": [ "parcel-transformer-markdown-front-matter" ],
     "*.{js,mjs,jsx,cjs,ts,tsx}": [
       "@parcel/transformer-js"
     ]
