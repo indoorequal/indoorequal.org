@@ -3573,6 +3573,11 @@ deepmerge@^4.2.2:
   resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
   integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
 
+deepsortobj@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/deepsortobj/-/deepsortobj-0.1.3.tgz#9cd8eb32f7bfd6ea858767e934eb6012fcbeeb5b"
+  integrity sha512-CUWz4V+9FcTQt1RUAh8fYDvSV3JccqNWVOBGoDMKZAq0Ul4ieNW2hyzYpb1AUB7BRMC27VhGZVT356eQVt8xCg==
+
 defaults@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/defaults/-/defaults-1.0.3.tgz#c656051e9817d9ff08ed881477f3fe4019f3ef7d"
