@@ -7,11 +7,16 @@
           @click="openMenu"
           v-on="on"
         >
-          <img
-            :src="equalLogo"
-            alt="indoor="
-            width="36"
-          />
+          <v-badge
+            :value="hasNews"
+            dot
+          >
+            <img
+              :src="equalLogo"
+              alt="indoor="
+              width="36"
+            />
+          </v-badge>
         </v-btn>
       </template>
       <span>{{ $t('toolbar.menu') }}</span>
@@ -64,12 +69,15 @@
 <script>
 import { mdiPencilOutline } from '@mdi/js';
 import GeocoderInput from './geocoder';
+import news from './news';
 import equalLogo from 'data-url:../icons/equal.svg';
 
 export default {
   components: {
     GeocoderInput
   },
+
+  mixins: [news],
 
   props: {
     mapBounds: {

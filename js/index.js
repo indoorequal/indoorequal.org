@@ -4,6 +4,7 @@ import Vue from 'vue';
 import Vuetify, {
   VApp,
   VAutocomplete,
+  VBadge,
   VBtn,
   VCard,
   VCardActions,
@@ -43,6 +44,7 @@ Vue.use(Vuetify, {
   components: {
     VApp,
     VAutocomplete,
+    VBadge,
     VBtn,
     VCard,
     VCardActions,

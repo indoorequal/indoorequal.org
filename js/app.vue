@@ -171,7 +171,7 @@ export default {
       });
     }
     if (localStorage.getItem(DISCOVER_LOCAL_STORAGE)) {
-      this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) == 'true';
+      this.discover = localStorage.getItem(DISCOVER_LOCAL_STORAGE) === 'true';
     }
     this.registerMessageListener();
     this.loadInitialLocation(hashParams);

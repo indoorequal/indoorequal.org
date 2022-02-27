@@ -407,6 +407,10 @@
       "subtitle": "Map indoor area in OpenStreetMap",
       "title": "Learn"
     },
+    "news": {
+      "subtitle": "What's news on indoor=",
+      "title": "News"
+    },
     "preview": {
       "title": "Preview rendering",
       "subtitle": "Preview indoor mapping before upload"
