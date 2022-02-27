@@ -22,7 +22,8 @@
       "^.+\\.vue$": "@vue/vue2-jest"
     },
     "moduleNameMapper": {
-      "\\.svg$": "<rootDir>/test/file_mock.js"
+      "\\.svg$": "<rootDir>/test/file_mock.js",
+      "\\.md$": "<rootDir>/test/file_mock.js"
     }
   },
   "htmlnano": {

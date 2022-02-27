@@ -63,7 +63,12 @@
         </v-list-item>
         <v-list-item @click="display('news')">
           <v-list-item-icon>
-            <v-icon>{{ mdiNewspaperVariantOutline }}</v-icon>
+            <v-badge
+              :value="hasNews"
+              dot
+            >
+              <v-icon>{{ mdiNewspaperVariantOutline }}</v-icon>
+            </v-badge>
           </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title>{{ $t('sidebar.news.title') }}</v-list-item-title>
@@ -128,6 +133,7 @@ import { mdiArrowExpandLeft, mdiMapMarkerCircle, mdiMap, mdiInformationOutline, 
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { tilesUrl } from '../config.json';
+import news from './news';
 import logo from 'data-url:../icons/indoorequal.svg';
 
 dayjs.extend(relativeTime);
@@ -146,6 +152,8 @@ const fetchReplicationStatus = async function() {
 }
 
 export default {
+  mixins: [news],
+
   props: {
     value: {
       type: String,

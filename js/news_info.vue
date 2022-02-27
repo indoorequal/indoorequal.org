@@ -19,17 +19,16 @@
 </template>
 
 <script>
-import news from '../news.js';
+import news from './news';
 import SubSidebar from './sub_sidebar';
-
 
 export default {
   components: { SubSidebar },
 
-  data() {
-    return {
-      news,
-    };
+  mixins: [news],
+
+  mounted() {
+    this.markAsRead();
   }
 };
 </script>
