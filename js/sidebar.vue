@@ -143,7 +143,7 @@ const COMPONENTS = {
   api: () => import('./api_info'),
   about: () => import('./about_info'),
   news: () => import('./news_info'),
-  preview: () => import('./preview/preview_config'),
+  preview: () => import('./preview/preview_sidebar'),
 };
 
 const fetchReplicationStatus = async function() {
