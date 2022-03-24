@@ -425,13 +425,14 @@
     "error": "Error while displaying the preview: {msg}.",
     "error_bad_file": "Could not parse the file",
     "error_no_level": "No indoor features detected",
-    "file": "Select a GeoJSON or osm file",
+    "file": "GeoJSON, osm or IMDF (zip) file",
     "how": {
       "content1": "Open JOSM and edit an indoor area",
       "content2": "Click on \"File\" -> \"Save as\" and save the file as GeoJSON or osm.",
       "content3": "Select the file in the form below",
       "title": "How to"
     },
+    "imdf": "The preview also support IMDF files.",
     "no_data_uploaded": "No data are uploaded remotely. Everything happens in your computer.",
     "title": "Preview rendering",
     "url": {

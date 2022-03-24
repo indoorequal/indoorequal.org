@@ -421,13 +421,14 @@
     "error": "Une erreur est apparue lors de la prévisualisation: {msg}.",
     "error_bad_file": "Impossible d'ouvrir le fichier",
     "error_no_level": "Aucune données intérieure détectées",
-    "file": "Sélectionner un fichier GeoJSON ou osm",
+    "file": "Fichier GeoJSON, osm ou IMDF (zip)",
     "how": {
       "content1": "Ouvrir JOSM et modifier une zone intérieur",
       "content2": "Clicker sur \"Fichier\" -> \"Enregistrer sous\" et enregistrer le fichier en tant que GeoJSON ou osm",
       "content3": "Sélectionner le fichier obtenu dans le formulaire en dessous",
       "title": "Comment faire"
     },
+    "imdf": "La prévisualisation fonctionne également avec les fichiers IMDF.",
     "no_data_uploaded": "Aucune données n'est envoyé a distance. Tout se passe sur votre ordinateur.",
     "title": "Prévisualisation du rendu",
     "url": {
