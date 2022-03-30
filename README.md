@@ -53,7 +53,7 @@ With a file
 
 With an URL
 
-`{ command: 'preview', url: '' }`
+`{ command: 'preview', url: 'https://exemple.net/file.osm' }`
 
 **Set level**
 
