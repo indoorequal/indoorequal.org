@@ -384,6 +384,11 @@
       "title": "About"
     },
     "api": {
+      "embed": {
+        "cta": "Read the doc",
+        "subtitle": "Display the interactive viewer, preview files and more with the remote API.",
+        "title": "Embed indoor="
+      },
       "indoorequal": {
         "cta": "Register",
         "subtitle": "To start, register your free account on indoorequal.com.",

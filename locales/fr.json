@@ -380,6 +380,11 @@
       "title": "A propos"
     },
     "api": {
+      "embed": {
+        "cta": "Lire la doc",
+        "subtitle": "Afficher le lecteur interactif, prévisualiser des fichiers et plus avec l'API de télécommande.",
+        "title": "Intégrer indoor="
+      },
       "indoorequal": {
         "cta": "S'enregistrer",
         "subtitle": "Pour commencer, créer votre compte gratuit sur indoorequal.com.",
