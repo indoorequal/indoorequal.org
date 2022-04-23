@@ -2,8 +2,8 @@ import lineToPolygon from '@turf/line-to-polygon';
 import centerOfMass from '@turf/center-of-mass';
 import { poiClassAndSubclass } from './poi';
 
-function extractLevelsFromRepeatOn(repeatOn) {
-  return repeatOn.split(';').flatMap((level) => {
+function levelToArray(level) {
+  return level.split(';').flatMap((level) => {
     const withInterval = level.match(/^(-?\d+)-(-?\d+)$/);
     const withNumeric = level.match(/^(-?\d+\.?\d?)$/);
     if (withInterval) {
@@ -17,8 +17,8 @@ function extractLevelsFromRepeatOn(repeatOn) {
 }
 
 export function findAllLevels(feature) {
-  const repeatOnLevels = feature.properties.repeat_on ? extractLevelsFromRepeatOn(feature.properties.repeat_on) : [];
-  const levels = feature.properties.level.split(';');
+  const repeatOnLevels = feature.properties.repeat_on ? levelToArray(feature.properties.repeat_on) : [];
+  const levels = levelToArray(feature.properties.level);
   return levels.concat(repeatOnLevels);
 }
 

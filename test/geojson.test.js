@@ -362,6 +362,14 @@ describe('find all levels', () => {
     })).toEqual(['1', '2']);
   });
 
+  it('find levels with -', () => {
+    expect(findAllLevels({
+      properties: {
+        level: '1-3'
+      }
+    })).toEqual(['1', '2', '3']);
+  });
+
   it('find levels with repeat_on', () => {
     expect(findAllLevels({
       properties: {
