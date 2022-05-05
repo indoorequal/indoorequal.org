@@ -399,14 +399,14 @@
       "title": "Développeurs"
     },
     "collapse": "Replier",
-    "description": "indoor= est une carte qui affiche les données intérieure d'{0}.",
+    "description": "indoor= est une carte qui affiche les données intérieures d'{0}.",
     "explore": {
-      "subtitle": "Lieux cartographié en intérieur",
+      "subtitle": "Lieux cartographiés en intérieur",
       "title": "Explorer"
     },
     "last_update": "Dernière mise à jour",
     "learn": {
-      "subtitle": "Les espaces intérieur dans OpenStreetMap",
+      "subtitle": "Les espaces intérieurs dans OpenStreetMap",
       "title": "Apprendre à cartographier"
     },
     "news": {
@@ -421,11 +421,11 @@
   },
   "preview": {
     "close": "Quitter la prévisualisation",
-    "description": "Vérifier le rendu de votre cartographie intérieur. Sélectionner un fichier GeoJSON ou osm qui suit les recommandations de Simple Indoor Tagging. Ou bien glisser déposer directement un fichier GeoJSON ou osm dans la fenêtre.",
+    "description": "Vérifier le rendu de votre cartographie intérieure. Sélectionner un fichier GeoJSON ou osm qui suit les recommandations de Simple Indoor Tagging. Ou bien glisser déposer directement un fichier GeoJSON ou osm dans la fenêtre.",
     "download": "Télécharger le fichier de prévisualisation",
     "error": "Une erreur est apparue lors de la prévisualisation: {msg}.",
     "error_bad_file": "Impossible d'ouvrir le fichier",
-    "error_no_level": "Aucune données intérieure détectées",
+    "error_no_level": "Aucune donnée intérieure détectée",
     "file": "Fichier GeoJSON, osm ou IMDF (zip)",
     "how": {
       "content1": "Ouvrir JOSM et modifier une zone intérieur",
@@ -434,7 +434,7 @@
       "title": "Comment faire"
     },
     "imdf": "La prévisualisation fonctionne également avec les fichiers IMDF.",
-    "no_data_uploaded": "Aucune données n'est envoyé a distance. Tout se passe sur votre ordinateur.",
+    "no_data_uploaded": "Aucune donnée n'est envoyée a distance. Tout se passe sur votre ordinateur.",
     "title": "Prévisualisation du rendu",
     "url": {
       "no": "Non",
