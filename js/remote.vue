@@ -10,6 +10,7 @@
           class="pa-3 sidebar overflow-auto"
         >
           <h1 class="text-h5 mb-2">Test Remote API</h1>
+          <p>The Remote API allows you to embed and interact with the viewer.</p>
           <p>Read the <a href="https://github.com/indoorequal/indoorequal.org#remote-command-api" target="_blank">remote API documentation</a>.</p>
           <v-expansion-panels accordion>
             <v-expansion-panel>
