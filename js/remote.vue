@@ -75,7 +75,7 @@
             <div
               v-for="message in messages"
               class="text-body-2"
-            >{{ message }}</div>
+            >{{ message.dir === 'in' ? '<' : '>' }} {{ message.data }}</div>
           </div>
         </v-col>
         <v-col>
@@ -102,6 +102,10 @@ export default {
     };
   },
 
+  mounted() {
+    this.registerMessageListener();
+  },
+
   methods: {
     sendPreviewFile(file) {
       if (!file) return;
@@ -126,8 +130,20 @@ export default {
     },
 
     sendMessage(message) {
-      this.messages.push(message);
+      this.messages.push({
+        dir: 'out',
+        data: message
+      });
       this.$refs.iframe.contentWindow.postMessage(message, '*');
+    },
+
+    registerMessageListener() {
+      window.addEventListener('message', (e) => {
+        this.messages.push({
+          dir: 'in',
+          data: e.data
+        });
+      });
     }
   }
 }
