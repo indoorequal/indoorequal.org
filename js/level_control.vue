@@ -57,6 +57,7 @@ export default {
           this.setLevel(this.levels[this.levels.length - 1]);
         }
       }
+      this.$emit('levels', levels);
     }
     this.control = this;
     this.$_addControl();

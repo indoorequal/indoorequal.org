@@ -22,6 +22,7 @@
       :value="mapLevel"
       position="bottom-right"
       @input="updateMapLevel"
+      @levels="(levels) => $emit('update:mapLevels', levels)"
     />
     <slot />
   </MglMap>

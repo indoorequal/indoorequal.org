@@ -13,6 +13,7 @@
         :map-bounds.sync="mapBounds"
         :map-center.sync="mapCenter"
         :map-level.sync="mapLevel"
+        :map-levels.sync="mapLevels"
         :map-zoom.sync="mapZoom"
         :new-map-bounds="newMapBounds"
         :new-map-center="newMapCenter"
@@ -131,6 +132,7 @@ export default {
       mapBounds: [],
       mapCenter: { lat: 37.68, lng: -2.37 },
       mapLevel: '0',
+      mapLevels: [],
       mapZoom: 1.2,
       poi: '',
       poiCoordinates: [],
@@ -336,6 +338,9 @@ export default {
             this.newMapCenter = e.data.center;
             this.mapZoom = e.data.zoom;
           }
+          break;
+        case 'levels':
+          e.source.postMessage({ event: 'levels', levels: this.mapLevels });
           break;
         default:
           e.source.postMessage({ event: 'unknow', message: `unknow command "${data.command}"` });

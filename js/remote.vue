@@ -51,6 +51,12 @@
               </v-expansion-panel-content>
             </v-expansion-panel>
             <v-expansion-panel>
+              <v-expansion-panel-header>Get levels</v-expansion-panel-header>
+              <v-expansion-panel-content>
+                <v-btn @click="getLevels">Get levels</v-btn>
+              </v-expansion-panel-content>
+            </v-expansion-panel>
+            <v-expansion-panel>
               <v-expansion-panel-header>Open preview with URL</v-expansion-panel-header>
               <v-expansion-panel-content>
                 <v-text-field
@@ -118,6 +124,10 @@ export default {
 
     sendLevel(level) {
       this.sendMessage({ command: 'level', level });
+    },
+
+    getLevels(level) {
+      this.sendMessage({ command: 'levels' });
     },
 
     sendBbox(bbox) {

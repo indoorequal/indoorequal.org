@@ -49,25 +49,31 @@ window.addEventListener('message', (e) => {
 
 With a file
 
-`{ command: 'preview', file: new File([], 'filename.geojson') }`
+Message: `{ command: 'preview', file: new File([], 'filename.geojson') }`
 
 With an URL
 
-`{ command: 'preview', url: 'https://exemple.net/file.osm' }`
+Message: `{ command: 'preview', url: 'https://exemple.net/file.osm' }`
 
 **Set level**
 
-`{ command: 'level', level: '0' }`
+Message: `{ command: 'level', level: '0' }`
 
 **Set coordinates**
 
 Via the [bounding box](https://wiki.openstreetmap.org/wiki/Bounding_Box)
 
-`{ command: 'coordinates', bbox: [1.971874, 48.921259, 2.299404, 49.029990] }`
+Message: `{ command: 'coordinates', bbox: [1.971874, 48.921259, 2.299404, 49.029990] }`
 
 Via the center and the zoom
 
-`{ command: 'coordinates', center: { lng: 1.971874, lat: 48.921259 }, zoom: 1 }`
+Message: `{ command: 'coordinates', center: { lng: 1.971874, lat: 48.921259 }, zoom: 1 }`
+
+**Get levels**
+
+Message: `{ command: 'levels' }`
+
+Response: `{ event: 'levels', levels: ['0', '1', '2']}`
 
 ## Translation
 
