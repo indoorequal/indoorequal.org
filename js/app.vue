@@ -337,6 +337,9 @@ export default {
             this.mapZoom = e.data.zoom;
           }
           break;
+        default:
+          e.source.postMessage({ event: 'unknow', message: `unknow command "${data.command}"` });
+          break;
         }
       });
       const otherWindow = window.opener || window.parent;
