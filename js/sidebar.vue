@@ -147,8 +147,8 @@ const COMPONENTS = {
 };
 
 const fetchReplicationStatus = async function() {
-  const replicationStatusRequest = await fetch(`${tilesUrl}state`);
-  return replicationStatusRequest.text();
+  const replicationStatusRequest = await fetch(`${tilesUrl}replicationstatus`);
+  return replicationStatusRequest.json();
 }
 
 export default {
@@ -183,7 +183,7 @@ export default {
       return COMPONENTS[this.value];
     },
     lastUpdateTimestamp() {
-      return this.replicationStatus.match(/timestamp=(.+)/)[1].replace(/\\/g, '');
+      return this.replicationStatus.timestamp;
     },
     lastUpdateTimestampFormatted() {
       return dayjs(this.lastUpdateTimestamp).fromNow();
