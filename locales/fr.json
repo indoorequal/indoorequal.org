@@ -404,7 +404,7 @@
       "subtitle": "Lieux cartographiés en intérieur",
       "title": "Explorer"
     },
-    "last_update": "Dernière mise à jour",
+    "last_update": "Dernière mise à jour {0}",
     "learn": {
       "subtitle": "Les espaces intérieurs dans OpenStreetMap",
       "title": "Apprendre à cartographier"

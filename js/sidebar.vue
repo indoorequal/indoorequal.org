@@ -114,16 +114,17 @@
           <v-list-item-icon><v-icon>{{ mdiOpenInNew }}</v-icon></v-list-item-icon>
         </v-list-item>
       </v-list>
-      <div
+      <i18n
         v-if="replicationStatus"
+        path="sidebar.last_update"
         class="pa-3 caption"
+        tag="div"
       >
-        {{ $t('sidebar.last_update') }}
         <time
           :datetime="lastUpdateTimestamp"
           :title="lastUpdateTimestamp"
         >{{ lastUpdateTimestampFormatted }}</time>
-      </div>
+      </i18n>
     </template>
   </v-navigation-drawer>
 </template>
