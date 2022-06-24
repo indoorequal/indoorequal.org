@@ -408,7 +408,8 @@
       "subtitle": "Showcase indoor location",
       "title": "Explore"
     },
-    "last_update": "last data update {0}",
+    "last_update": "Last data update {0}. {1}.",
+    "status": "Status",
     "learn": {
       "subtitle": "Map indoor area in OpenStreetMap",
       "title": "Learn"

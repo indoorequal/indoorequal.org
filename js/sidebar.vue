@@ -124,6 +124,11 @@
           :datetime="lastUpdateTimestamp"
           :title="lastUpdateTimestamp"
         >{{ lastUpdateTimestampFormatted }}</time>
+        <a
+          href="https://status.indoorequal.org/"
+          target="_blank"
+          rel="noopener"
+        >{{ $t('sidebar.status') }}</a>
       </i18n>
     </template>
   </v-navigation-drawer>
