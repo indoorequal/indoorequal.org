@@ -399,7 +399,7 @@
       "title": "Développeurs"
     },
     "collapse": "Replier",
-    "description": "indoor= est une carte qui affiche les données intérieures d'{0}.",
+    "description": "indoor= affiche les données intérieures d'{0} et prévisualise les fichiers GeoJSON, OSM et IMDF.",
     "explore": {
       "subtitle": "Lieux cartographiés en intérieur",
       "title": "Explorer"

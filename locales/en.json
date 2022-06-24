@@ -403,7 +403,7 @@
       "title": "Developers"
     },
     "collapse": "Collapse",
-    "description": "indoor= is a map that display indoor data from {0}.",
+    "description": "indoor= display indoor data from {0} and preview GeoJSON, OSM and IMDF files.",
     "explore": {
       "subtitle": "Showcase indoor location",
       "title": "Explore"
