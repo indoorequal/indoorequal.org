@@ -2782,7 +2782,7 @@ argparse@^2.0.1:
 array-equal@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/array-equal/-/array-equal-1.0.0.tgz#8c2a5ef2472fd9ea742b04c77a75093ba2757c93"
-  integrity sha1-jCpe8kcv2ep0KwTHenUJO6J1fJM=
+  integrity sha512-H3LU5RLiSsGXPhN+Nipar0iR0IofH+8r89G2y1tBKxQ/agagKyAjhkAFDRBfodP2caPrNKHpAWNIM/c9yeL7uA==
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -4668,9 +4668,9 @@ map-promisified@latest:
   integrity sha512-VYBQ3rTMykg2CSVgSrZBvhAwxuIuYbAHCtjjq/ATnD5kMq7I/ROmMBckwlmfwtEIx9yXufF+3QY5WxUH5EeM/Q==
 
 mapbox-gl-indoorequal@^0.2.9:
-  version "0.2.12"
-  resolved "https://registry.yarnpkg.com/mapbox-gl-indoorequal/-/mapbox-gl-indoorequal-0.2.12.tgz#eff14baf27729aefd24fdf2c0d116f5a0835391d"
-  integrity sha512-IkaBQSkSGY8IgklJ8aoQRcc9Bsq5mWKI+Ot6omzLBrRMlz/op6lOP8XgkCXmMX8fiAPhRaEyvSb+wVkWuS5uTg==
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/mapbox-gl-indoorequal/-/mapbox-gl-indoorequal-0.2.13.tgz#e4e378154371f73b056ea4c95d79886086962a6a"
+  integrity sha512-Fd9Khr9QtKmUYq11gMvJD+pKGqMD8PCLO9qpjdHnE+e2sqJFZp7PcxxucCOEGMoY9VlY77RR3rVW7MhnCgrVHA==
   dependencies:
     array-equal "^1.0.0"
     debounce "^1.2.0"
