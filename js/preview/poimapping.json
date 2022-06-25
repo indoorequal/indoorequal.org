@@ -3,6 +3,8 @@
     "station"
   ],
   "amenity": [
+    "ticket_validator",
+    "photo_booth",
     "bench",
     "atm",
     "car_rental",
