@@ -18,6 +18,10 @@
     "title": "Explorer",
     "wikipage": "la page wiki Simple Indoor Tagging"
   },
+  "heatmap": {
+    "hide": "Cacher la carte de chaleur",
+    "show": "Voir la carte de chaleur"
+  },
   "opening_hours": {
     "state": {
       "closed": "fermé",
@@ -456,5 +460,6 @@
     "limited": "Accessibilité limité",
     "no": "Non accessible",
     "yes": "Accessible aux fauteuils"
-  }
+  },
+  "zoom": "Zoomer pour voir les données intérieures"
 }
