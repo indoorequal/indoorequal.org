@@ -24,6 +24,7 @@
       @input="updateMapLevel"
       @levels="(levels) => $emit('update:mapLevels', levels)"
     />
+    <language-control />
     <slot />
   </MglMap>
 </template>
@@ -34,6 +35,7 @@ import IndoorEqual from 'mapbox-gl-indoorequal';
 import bbox from '@turf/bbox';
 import { mapStyle } from './maptiler';
 import { indoorEqualApiKey, tilesUrl } from '../config.json';
+import LanguageControl from './language_control';
 import LevelControl from './level_control';
 import HeatmapControl from './heatmap_control';
 
@@ -41,6 +43,7 @@ export default {
   components: {
     HeatmapControl,
     LevelControl,
+    LanguageControl,
     MglGeolocateControl,
     MglMap,
     MglNavigationControl
