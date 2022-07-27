@@ -4673,9 +4673,9 @@ map-promisified@latest:
   integrity sha512-VYBQ3rTMykg2CSVgSrZBvhAwxuIuYbAHCtjjq/ATnD5kMq7I/ROmMBckwlmfwtEIx9yXufF+3QY5WxUH5EeM/Q==
 
 mapbox-gl-indoorequal@^0.2.9:
-  version "0.2.13"
-  resolved "https://registry.yarnpkg.com/mapbox-gl-indoorequal/-/mapbox-gl-indoorequal-0.2.13.tgz#e4e378154371f73b056ea4c95d79886086962a6a"
-  integrity sha512-Fd9Khr9QtKmUYq11gMvJD+pKGqMD8PCLO9qpjdHnE+e2sqJFZp7PcxxucCOEGMoY9VlY77RR3rVW7MhnCgrVHA==
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/mapbox-gl-indoorequal/-/mapbox-gl-indoorequal-0.2.14.tgz#f333c7a6649ae886d10290c0cb1eb8d76a439f59"
+  integrity sha512-79XZ4RWd/NdgCxGsXfhsYuk3g64PWr1rQRiKLjPI1TGbg0TaTxN96Kp4NB9Dqq8D+1z7vSRxnpIf/ebNLxbCDw==
   dependencies:
     array-equal "^1.0.0"
     debounce "^1.2.0"
