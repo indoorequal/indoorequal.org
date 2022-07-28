@@ -3,7 +3,9 @@ function adaptNestedExpressionField(property, languageFieldName) {
     for (let i = 1; i < property.length; i++) {
       if (Array.isArray(property[i])) {
         if (property[i][0] === 'get' && (property[i][1] === 'name' || property[i][1] === 'name:latin')) {
-          property[i][1] = languageFieldName;
+          const defaultProp = property[i].slice();
+          const adaptedProp = ['get', languageFieldName];
+          property[i] = ['coalesce', adaptedProp, defaultProp];
         }
       }
     }
@@ -19,11 +21,10 @@ function adaptPropertyLanguage(property, languageFieldName) {
     const adaptedProp = ['get', languageFieldName];
     property = ['coalesce', adaptedProp, defaultProp];
   } else if (property === '{name:latin}') {
-    property = ['get', languageFieldName];
+    property = ['coalesce', ['get', languageFieldName], ['get', 'name:latin']];
   } else if (property === '{name:latin}\n{name:nonlatin}') {
-    property = ['concat', ['get', languageFieldName], '\n', ['get', 'name:nonlatin']];
+    property = ['concat', ['coalesce', ['get', languageFieldName], ['get', 'name:latin']], '\n', ['get', 'name:nonlatin']];
   }
-
   return property;
 }
 

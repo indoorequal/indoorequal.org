@@ -70,7 +70,9 @@ describe('StyleLanguage', () => {
           layout: {
             'text-field': [
               'concat',
-              ['get', 'name:fr'],
+              ['coalesce',
+               ['get', 'name:fr'],
+               ['get', 'name:latin']],
               '\n',
               ['get', 'name:nonlatin'],
             ]
@@ -95,7 +97,9 @@ describe('StyleLanguage', () => {
       layers: [
         {
           layout: {
-            'text-field': ['get', 'name:fr']
+            'text-field': ['coalesce',
+                           ['get', 'name:fr'],
+                           ['get', 'name:latin']]
           }
         }
       ]
@@ -117,7 +121,9 @@ describe('StyleLanguage', () => {
       layers: [
         {
           layout: {
-            'text-field': ['concat', ['get', 'name:fr'], '\n', ['get', 'name:nonlatin']]
+            'text-field': ['concat', ['coalesce',
+                           ['get', 'name:fr'],
+                           ['get', 'name:latin']], '\n', ['get', 'name:nonlatin']]
           }
         }
       ]
