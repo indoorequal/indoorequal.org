@@ -129,4 +129,28 @@ describe('StyleLanguage', () => {
       ]
     });
   });
+
+ it('update text-field with non latin language', () => {
+    const style = {
+      layers: [
+        {
+          layout: {
+            'text-field': '{name:latin}\n{name:nonlatin}'
+          }
+        }
+      ]
+    };
+    const newStyle = updateStyle(style, 'zh');
+    expect(newStyle).toEqual({
+      layers: [
+        {
+          layout: {
+            'text-field': ['concat', ['coalesce',
+                           ['get', 'name:zh'],
+                           ['get', 'name:nonlatin']], '\n', ['get', 'name:latin']]
+          }
+        }
+      ]
+    });
+  });
 });
