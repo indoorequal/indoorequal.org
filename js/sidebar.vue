@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer
     :value="value !== null"
-    width="350"
+    :width="350"
     temporary
     app
     touchless
@@ -112,11 +112,7 @@
           </v-list-item-content>
           <v-list-item-icon><v-icon>{{ mdiOpenInNew }}</v-icon></v-list-item-icon>
         </v-list-item>
-        <v-list-item
-          href="https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging"
-          rel="noopener"
-          target="_blank"
-        >
+        <v-list-item @click="display('learn')">
           <v-list-item-icon>
             <v-icon>{{ mdiPuzzleEditOutline }}</v-icon>
           </v-list-item-icon>
@@ -124,7 +120,6 @@
             <v-list-item-title>{{ $t('sidebar.learn.title') }}</v-list-item-title>
             <v-list-item-subtitle>{{ $t('sidebar.learn.subtitle') }}</v-list-item-subtitle>
           </v-list-item-content>
-          <v-list-item-icon><v-icon>{{ mdiOpenInNew }}</v-icon></v-list-item-icon>
         </v-list-item>
       </v-list>
       <i18n
@@ -168,9 +163,10 @@ import logo from 'data-url:../icons/indoorequal.svg';
 dayjs.extend(relativeTime);
 
 const COMPONENTS = {
-  explore: () => import('./explore_list'),
-  api: () => import('./api_info'),
   about: () => import('./about_info'),
+  api: () => import('./api_info'),
+  explore: () => import('./explore_list'),
+  learn: () => import('./learn'),
   news: () => import('./news_info'),
   preview: () => import('./preview/preview_sidebar'),
 };
@@ -217,7 +213,7 @@ export default {
     },
     lastUpdateTimestampFormatted() {
       return dayjs(this.lastUpdateTimestamp).fromNow();
-    }
+    },
   },
 
   methods: {
