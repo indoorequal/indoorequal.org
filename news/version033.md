@@ -9,4 +9,4 @@ This is a bug fix release:
 
 - The `ref` tag on indoor polygons was no longer displayed if the name was missing
 
-Thanks [HMT-HRO-MaMe](https://github.com/HMT-HRO-MaMe) for reporthing these issues.
+Thanks [HMT-HRO-MaMe](https://github.com/HMT-HRO-MaMe) for reporting these issues.
