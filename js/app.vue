@@ -343,7 +343,6 @@ export default {
           e.source.postMessage({ event: 'levels', levels: this.mapLevels });
           break;
         default:
-          e.source.postMessage({ event: 'unknow', message: `unknow command "${data.command}"` });
           break;
         }
       });
