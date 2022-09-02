@@ -424,6 +424,10 @@
       "title": "Preview rendering",
       "subtitle": "Preview indoor mapping before upload"
     },
+    "taginfo": {
+      "title": "Taginfo indoor=",
+      "subtitle": "Instance dedicated to indoor features"
+    },
     "osm": "OpenStreetMap"
   },
   "preview": {

@@ -100,6 +100,19 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item
+          href="https://taginfo.indoorequal.org"
+          target="_blank"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ mdiTag }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ $t('sidebar.taginfo.title') }}</v-list-item-title>
+            <v-list-item-subtitle>{{ $t('sidebar.taginfo.subtitle') }}</v-list-item-subtitle>
+          </v-list-item-content>
+          <v-list-item-icon><v-icon>{{ mdiOpenInNew }}</v-icon></v-list-item-icon>
+        </v-list-item>
+        <v-list-item
           href="https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging"
           rel="noopener"
           target="_blank"
@@ -135,7 +148,17 @@
 </template>
 
 <script>
-import { mdiArrowExpandLeft, mdiMapMarkerCircle, mdiMap, mdiInformationOutline, mdiPuzzleCheck, mdiPuzzleEditOutline, mdiOpenInNew, mdiNewspaperVariantOutline } from '@mdi/js';
+import {
+  mdiArrowExpandLeft,
+  mdiInformationOutline,
+  mdiMap,
+  mdiMapMarkerCircle,
+  mdiNewspaperVariantOutline,
+  mdiOpenInNew,
+  mdiPuzzleCheck,
+  mdiPuzzleEditOutline,
+  mdiTag,
+} from '@mdi/js';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { tilesUrl } from '../config.json';
@@ -176,6 +199,7 @@ export default {
       mdiOpenInNew,
       mdiPuzzleCheck,
       mdiPuzzleEditOutline,
+      mdiTag,
       logo,
       replicationStatus: null
     };
