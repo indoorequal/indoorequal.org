@@ -11,7 +11,7 @@
             :src="iconURL"
             class="flex-grow-0 pr-1"
           >
-          <span class="text-truncate">{{ tags.name || type }}</span>
+          <span class="text-truncate">{{ tags['name:'+ this.$i18n.locale] || tags.name || type }}</span>
           <v-spacer></v-spacer>
           <v-btn
             icon
