@@ -1283,10 +1283,10 @@
   resolved "https://registry.yarnpkg.com/@mapbox/whoots-js/-/whoots-js-3.1.0.tgz#497c67a1cef50d1a2459ba60f315e448d2ad87fe"
   integrity sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==
 
-"@mdi/js@^6.5.95":
-  version "6.9.96"
-  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-6.9.96.tgz#90e8fadef05a975df384f0505b2100a795881873"
-  integrity sha512-rK0/vLFaiItYS2W7uVmaKPKnhNQE4XVkylpk5njtVwENnp8elwY5uRL6qvdj2esuvUHG7DwygE4Qu3eKxxuJiQ==
+"@mdi/js@^7.0.96":
+  version "7.0.96"
+  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-7.0.96.tgz#8e7a54d5cb38831e3150632cc19e380f54d9edd6"
+  integrity sha512-lNqhkV3cpPfYb/Avh+vXLFukUTbHbyHoFo4Jdc7Oc9UvURGVhamFIpgOVvEf2bNA78zvjXTZeVWExUTR+DLBfQ==
 
 "@mischnic/json-sourcemap@^0.1.0":
   version "0.1.0"
