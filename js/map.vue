@@ -192,11 +192,14 @@ export default {
   width: 100vw;
 }
 
-.mgl-map-wrapper .mapboxgl-map {
+.mgl-map-wrapper .maplibregl-map {
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
+}
+.maplibregl-ctrl-bottom-left, .maplibregl-ctrl-bottom-right, .maplibregl-ctrl-top-left, .maplibregl-ctrl-top-right {
+  position: fixed;
 }
 </style>
