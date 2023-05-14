@@ -77,5 +77,6 @@
     "vue-i18n": "^8.21.1",
     "vue-mapbox": "osmontrouge/vue-mapbox#update",
     "vuetify": "^2.2.3"
-  }
+  },
+  "packageManager": "yarn@3.5.1"
 }

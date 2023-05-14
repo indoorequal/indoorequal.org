@@ -2,8 +2,9 @@ FROM node:16 as builder
 
 WORKDIR /code
 
-COPY package.json yarn.lock /code/
-RUN yarn install --pure-lockfile
+RUN yarn set version berry
+COPY package.json yarn.lock .yarnrc.yml /code/
+RUN yarn install --immutable
 
 COPY . /code
 RUN yarn run build
