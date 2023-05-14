@@ -12,7 +12,6 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16.x'
-    - name: Install packages
-      run: yarn install
+        cache: 'yarn'
     - name: Run tests
       run: npx jest
