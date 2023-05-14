@@ -13,5 +13,7 @@ jobs:
       with:
         node-version: '16.x'
         cache: 'yarn'
+    - name: Install packages
+      run: yarn install --immutable
     - name: Run tests
       run: npx jest
