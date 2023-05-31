@@ -381,7 +381,7 @@ html {
 .xs .indoor-toolbar {
   width: calc(100% - 20px);
 }
-.xs .mapboxgl-ctrl-top-right {
+.xs .maplibregl-ctrl-top-right {
   margin-top: 70px;
 }
 .indoor-poi, .indoor-discover {

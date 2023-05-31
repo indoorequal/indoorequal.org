@@ -1,12 +1,12 @@
 <template>
-  <div class="mapboxgl-ctrl mapboxgl-ctrl-group">
+  <div class="maplibregl-ctrl maplibregl-ctrl-group">
     <button
       :title="title"
-      class="mapboxgl-ctrl-heatmap mapboxgl-ctrl-group"
+      class="maplibregl-ctrl-heatmap maplibregl-ctrl-group"
       type="button"
       @click="toggleHeatmap"
     >
-      <span class="mapbox-ctrl-icon">
+      <span class="maplibregl-ctrl-icon">
         <v-icon :color="iconColor">{{ mdiBlur }}</v-icon>
       </span>
     </button>

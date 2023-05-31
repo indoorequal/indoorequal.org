@@ -1,5 +1,5 @@
 <template>
-  <div class="mapboxgl-ctrl pt-2">
+  <div class="maplibregl-ctrl pt-2">
     <v-btn
       v-for="level in levels"
       :class="{ 'black--text': level !== value }"
@@ -92,7 +92,7 @@ export default {
 </script>
 
 <style scoped>
-.mapboxgl-ctrl {
+.maplibregl-ctrl {
   max-height: calc(100vh - 200px);
   overflow-y: auto;
   width: 90px;
