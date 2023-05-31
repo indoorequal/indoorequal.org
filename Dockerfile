@@ -4,6 +4,7 @@ WORKDIR /code
 
 RUN yarn set version berry
 COPY package.json yarn.lock .yarnrc.yml /code/
+COPY .yarn /code/.yarn
 RUN yarn install --immutable
 
 COPY . /code
