@@ -33,8 +33,8 @@
     "staticPath": "node_modules/mapbox-gl-indoorequal/sprite"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.1",
-    "@babel/preset-env": "^7.22.4",
+    "@babel/core": "^7.22.5",
+    "@babel/preset-env": "^7.22.5",
     "@mdi/js": "^7.2.96",
     "@parcel/optimizer-data-url": "^2.0.1",
     "@parcel/resolver-glob": "^2.0.1",
@@ -65,7 +65,7 @@
     "@turf/center-of-mass": "^6.5.0",
     "@turf/line-to-polygon": "^6.5.0",
     "country-language": "bdswiss/country-language",
-    "dayjs": "^1.10.7",
+    "dayjs": "^1.11.8",
     "i18next-client": "^1.11.1",
     "jszip": "^3.7.1",
     "lodash.uniq": "^4.5.0",
