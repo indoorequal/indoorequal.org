@@ -432,7 +432,7 @@
   },
   "preview": {
     "close": "Exit preview",
-    "description": "Check the rendering of your indoor mapping. Select a GeoJSON or osm file that follow the Simple Indoor Tagging scheme. You can also drag and drop your GeoJSON or osm file on the window.",
+    "description": "Check the rendering of your indoor mapping. Select or drag and drop a GeoJSON or osm file that follow the Simple Indoor Tagging scheme.",
     "download": "Download the preview file",
     "error": "Error while displaying the preview: {msg}.",
     "error_bad_file": "Could not parse the file",

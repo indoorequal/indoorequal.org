@@ -428,7 +428,7 @@
   },
   "preview": {
     "close": "Quitter la prévisualisation",
-    "description": "Vérifier le rendu de votre cartographie intérieure. Sélectionner un fichier GeoJSON ou osm qui suit les recommandations de Simple Indoor Tagging. Ou bien glisser déposer directement un fichier GeoJSON ou osm dans la fenêtre.",
+    "description": "Vérifier le rendu de votre cartographie intérieure. Sélectionner ou glisser déposer un fichier GeoJSON ou osm qui suit les recommandations de Simple Indoor Tagging.",
     "download": "Télécharger le fichier de prévisualisation",
     "error": "Une erreur est apparue lors de la prévisualisation: {msg}.",
     "error_bad_file": "Impossible d'ouvrir le fichier",
