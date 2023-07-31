@@ -81,7 +81,7 @@ export default {
     parse(fragment) {
       const parser = new DOMParser();
       const doc = parser.parseFromString(fragment, 'text/html');
-      return Array.from(doc.querySelectorAll('table tr')).map((row, index) => {
+      const result = Array.from(doc.querySelectorAll('table tr')).map((row, index) => {
         if (index === 0) return;
         const location = row.querySelector('td:first-child');
         const nation = location.querySelector('span').textContent;
@@ -94,6 +94,10 @@ export default {
           link: row.querySelector('td:nth-child(5) a').getAttribute('href').replace('https://indoorequal.org', '')
         };
       }).filter(n => !!n);
+      if (result.length === 0) {
+        throw new Error('Could not find any links.');
+      }
+      return result;
     }
   }
 }
