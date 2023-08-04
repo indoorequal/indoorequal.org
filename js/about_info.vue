@@ -17,18 +17,6 @@
         </v-list-item-content>
       </v-list-item>
       <v-list-item
-        href="https://twitter.com/francois2metz"
-        target="_blank"
-        rel="noopener"
-      >
-        <v-list-item-icon>
-          <v-icon>{{ mdiTwitter }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>@francois2metz</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item
         href="https://github.com/indoorequal"
         target="_blank"
         rel="noopener"
