@@ -70,7 +70,7 @@
     "jszip": "^3.7.1",
     "lodash.uniq": "^4.5.0",
     "mapbox-gl-indoorequal": "^0.2.9",
-    "maplibre-gl": "^3.2.1",
+    "maplibre-gl": "^4.0.0",
     "opening_hours": "^3.5.0",
     "osm2geojson-lite": "^0.9.4",
     "vue": "^2.7.16",
