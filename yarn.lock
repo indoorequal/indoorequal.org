@@ -1836,6 +1836,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@intlify/core-base@npm:9.13.0":
+  version: 9.13.0
+  resolution: "@intlify/core-base@npm:9.13.0"
+  dependencies:
+    "@intlify/message-compiler": "npm:9.13.0"
+    "@intlify/shared": "npm:9.13.0"
+  checksum: 10c0/2ff7a1b25eb45c23cc07f1aebc86158f95e22e2d52ed8f45a38970a0c61931971a415220c980acf67ccfad10074f92811ec7da1884ca495ebdc7b697b2acd6dd
+  languageName: node
+  linkType: hard
+
+"@intlify/message-compiler@npm:9.13.0":
+  version: 9.13.0
+  resolution: "@intlify/message-compiler@npm:9.13.0"
+  dependencies:
+    "@intlify/shared": "npm:9.13.0"
+    source-map-js: "npm:^1.0.2"
+  checksum: 10c0/9bd81326551284074f0fed448382cb62f36bebad4b706f10b2fd72c41b554e8cd7383b3552e921743fdcf45bd4a5a5aa229b7c128ec68edb406ab4ff94100899
+  languageName: node
+  linkType: hard
+
+"@intlify/shared@npm:9.13.0":
+  version: 9.13.0
+  resolution: "@intlify/shared@npm:9.13.0"
+  checksum: 10c0/c595b42383cde2f658f4c7133a201b3234811e7a0a6cfb8d968f006f30539a22410406d4d748cbd2d35387e1544cf4aea9e6484e19860bd38279ab20973ad175
+  languageName: node
+  linkType: hard
+
 "@istanbuljs/load-nyc-config@npm:^1.0.0":
   version: 1.1.0
   resolution: "@istanbuljs/load-nyc-config@npm:1.1.0"
@@ -3702,6 +3729,13 @@ __metadata:
     prettier:
       optional: true
   checksum: 10c0/ab471a561c29a307b92d019be9f0404157d7bec4ac5040bffea918db4fadc784765a52d9621bef9330a108eb123d1bcb4c276bf1c53fd6f4ac022739b3b80cbe
+  languageName: node
+  linkType: hard
+
+"@vue/devtools-api@npm:^6.5.0":
+  version: 6.6.1
+  resolution: "@vue/devtools-api@npm:6.6.1"
+  checksum: 10c0/ab9a1e09baae514b0d3a8bf1d670ecb7724f7e55b82eea30aa2e7255e6200b45c1086c1376560f243cf86e98c0726e94d69cefe0ad23dfd50c7c49dfcb1fbf21
   languageName: node
   linkType: hard
 
@@ -8094,7 +8128,7 @@ country-language@bdswiss/country-language:
     process: "npm:^0.11.10"
     vue: "npm:^2.7.16"
     vue-hot-reload-api: "npm:^2.3.3"
-    vue-i18n: "npm:^8.21.1"
+    vue-i18n: "npm:^9.0.0"
     vue-mapbox: "osmontrouge/vue-mapbox#update"
     vue-template-compiler: "npm:^2.7.16"
     vuetify: "npm:^2.2.3"
@@ -8945,10 +8979,16 @@ country-language@bdswiss/country-language:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^8.21.1":
-  version: 8.28.2
-  resolution: "vue-i18n@npm:8.28.2"
-  checksum: 10c0/6e76958f30d2be85fc8ebe8f1463301791f4cd7bf716a81058b219ef2764bb8e1c6ed5099a2ed205a2157e32d2dbea47ffe3e6a3ff4612cf9cfe4bad2efe7e84
+"vue-i18n@npm:^9.0.0":
+  version: 9.13.0
+  resolution: "vue-i18n@npm:9.13.0"
+  dependencies:
+    "@intlify/core-base": "npm:9.13.0"
+    "@intlify/shared": "npm:9.13.0"
+    "@vue/devtools-api": "npm:^6.5.0"
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: 10c0/a1282b93bb13c7d64552a2e452380735ded597ff462afc41a2307b175b0c1bcac3d9357e78f175747d3e92667a383b396f6d678cbf04c2af5ea0cbfc8b040718
   languageName: node
   linkType: hard
 
