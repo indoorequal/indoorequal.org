@@ -8925,9 +8925,9 @@ country-language@bdswiss/country-language:
   linkType: hard
 
 "vue-i18n@npm:^8.21.1":
-  version: 8.27.0
-  resolution: "vue-i18n@npm:8.27.0"
-  checksum: 10c0/20c9de6275735040f16a06358ae4c375c9dee9a2776e6ca794138e125446e4902daf22af29051b906f4837036fd8a645a043d99e878985d73e49ffbc0e558745
+  version: 8.28.2
+  resolution: "vue-i18n@npm:8.28.2"
+  checksum: 10c0/6e76958f30d2be85fc8ebe8f1463301791f4cd7bf716a81058b219ef2764bb8e1c6ed5099a2ed205a2157e32d2dbea47ffe3e6a3ff4612cf9cfe4bad2efe7e84
   languageName: node
   linkType: hard
 
