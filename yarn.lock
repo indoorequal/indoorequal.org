@@ -9012,11 +9012,11 @@ country-language@bdswiss/country-language:
   linkType: hard
 
 "vuetify@npm:^2.2.3":
-  version: 2.6.14
-  resolution: "vuetify@npm:2.6.14"
+  version: 2.7.2
+  resolution: "vuetify@npm:2.7.2"
   peerDependencies:
     vue: ^2.6.4
-  checksum: 10c0/e41ebcf69846bcfa800b6d657b2591dec3dc18fd609c8364283ca688a8afb20fa24669c1825dfd7f8231a602ef4b3968ff1bc355311bcd24c2cd805286e36b88
+  checksum: 10c0/2c7df556c50d0ab74901d112b3944cf7022c97a58c423cc8572ece129bf81ac077652e0bd59aca29a0999d94d4aae1d06653cec6cc82612e81c48690d78fa60f
   languageName: node
   linkType: hard
 
