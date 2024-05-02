@@ -73,7 +73,7 @@
     "maplibre-gl": "^3.2.1",
     "opening_hours": "^3.5.0",
     "osm2geojson-lite": "^0.9.4",
-    "vue": "^2.7.16",
+    "vue": "^3.0.0",
     "vue-i18n": "^8.21.1",
     "vue-mapbox": "osmontrouge/vue-mapbox#update",
     "vuetify": "^2.2.3"
