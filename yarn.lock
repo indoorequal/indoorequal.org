@@ -1704,15 +1704,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.16.7":
-  version: 7.20.13
-  resolution: "@babel/runtime@npm:7.20.13"
-  dependencies:
-    regenerator-runtime: "npm:^0.13.11"
-  checksum: 10c0/4bea540b54d50af157efc6e9117727c0e9a146b9db43fcd89b8f0024c9464620194efc73e57588b4b141974188dc6f9d338319d74b855d32a785bf14a6fd0d6d
-  languageName: node
-  linkType: hard
-
 "@babel/runtime@npm:^7.8.4":
   version: 7.20.1
   resolution: "@babel/runtime@npm:7.20.1"
@@ -3593,13 +3584,6 @@ __metadata:
     "@types/mapbox__point-geometry": "npm:*"
     "@types/pbf": "npm:*"
   checksum: 10c0/082907ed9cf96b82327dabf3b4c3a14746a825e4a81f0abf46b50e2557f25cbda652725d8af002e5edcc344a83c85e1a4b71a2d39ef4d829c243344a85ac13a6
-  languageName: node
-  linkType: hard
-
-"@types/marked@npm:^4.0.1":
-  version: 4.0.8
-  resolution: "@types/marked@npm:4.0.8"
-  checksum: 10c0/881438a5624f52757b23b9703a11957f9ecd9aa7cc50e8c0e92165c0a3c3e628cb09e47f2f0d0034670cdafe21a64abd62fffb0c03c4fa316ab99f7dbd75119b
   languageName: node
   linkType: hard
 
@@ -6827,12 +6811,12 @@ country-language@bdswiss/country-language:
   languageName: node
   linkType: hard
 
-"marked@npm:^4.0.10":
-  version: 4.2.12
-  resolution: "marked@npm:4.2.12"
+"marked@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "marked@npm:6.0.0"
   bin:
     marked: bin/marked.js
-  checksum: 10c0/ce8a2d0def715480f23ade1ee72ad74c9cdfe614442da88dac22049500566cf3e6a1fa41e70c4061bb378beba9896bb4bd542f58aa4a30c1f431e553a461ffe6
+  checksum: 10c0/ed3a57a2b701f7e95831de94379d21053db808e8114b74dd4ae37802d057636cc957c4cd35e6459117ba7d75e3b2cb2890779f91eadd20d6b79b83f05d360ed1
   languageName: node
   linkType: hard
 
@@ -7427,17 +7411,15 @@ country-language@bdswiss/country-language:
   linkType: hard
 
 "parcel-transformer-markdown-front-matter@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "parcel-transformer-markdown-front-matter@npm:2.0.1"
+  version: 2.1.3
+  resolution: "parcel-transformer-markdown-front-matter@npm:2.1.3"
   dependencies:
-    "@babel/runtime": "npm:^7.16.7"
     "@parcel/plugin": "npm:^2.2.0"
-    "@types/marked": "npm:^4.0.1"
-    marked: "npm:^4.0.10"
+    marked: "npm:^6.0.0"
     yaml-front-matter: "npm:^4.1.1"
   peerDependencies:
     parcel: ^2.2.0
-  checksum: 10c0/198d278b390ecbc64ecdc337b3ffe7b7079aa41f01350f6e791f95ccf6413ba42dadeb58e03c4a9e84ea4e475401e94d5025521587624e254ffafc514182030a
+  checksum: 10c0/0335268046db6b7c83d1778fc1dc044a4345d8f23ed1a36846ea0d339b91761ec5b95f4eed9684587fcbc280f48764bfc0d50281371cab029aa17aec7d2edf59
   languageName: node
   linkType: hard
 
@@ -7904,7 +7886,7 @@ country-language@bdswiss/country-language:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.10, regenerator-runtime@npm:^0.13.11, regenerator-runtime@npm:^0.13.7":
+"regenerator-runtime@npm:^0.13.10, regenerator-runtime@npm:^0.13.7":
   version: 0.13.11
   resolution: "regenerator-runtime@npm:0.13.11"
   checksum: 10c0/12b069dc774001fbb0014f6a28f11c09ebfe3c0d984d88c9bced77fdb6fedbacbca434d24da9ae9371bfbf23f754869307fb51a4c98a8b8b18e5ef748677ca24
