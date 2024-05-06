@@ -54,7 +54,7 @@
     "parcel": "^2.0.0",
     "parcel-config-vue2": "^0.1.3",
     "parcel-reporter-static-files-copy": "^1.5.3",
-    "parcel-transformer-markdown-front-matter": "^2.0.0",
+    "parcel-transformer-markdown-front-matter": "^3.0.0",
     "parcel-transformer-vue2": "^0.1.7",
     "process": "^0.11.10",
     "vue-hot-reload-api": "^2.3.3",
