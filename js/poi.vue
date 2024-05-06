@@ -5,7 +5,7 @@
   >
     <v-expand-transition>
       <div v-if="geojson">
-        <v-card-title class="subtitle-1 flex-grow-1 flex-nowrap">
+        <v-card-title class="text-subtitle-1 d-flex align-center flex-nowrap">
           <img
             v-if="icon"
             :src="iconURL"
@@ -15,6 +15,8 @@
           <v-spacer></v-spacer>
           <v-btn
             icon
+            flat
+            color="transparent"
             @click="close"
           >
             <v-icon>{{ mdiClose }}</v-icon>
@@ -42,14 +44,12 @@
             target="_blank"
             rel="noopener"
           >
-            <v-list-item-icon>
+            <template v-slot:prepend>
               <v-icon dense>{{ mdiClockOutline }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ $t('opening_hours.url') }}
-              </v-list-item-title>
-            </v-list-item-content>
+            </template>
+            <v-list-item-title>
+              {{ $t('opening_hours.url') }}
+            </v-list-item-title>
           </v-list-item>
           <v-list-item
             v-for="contact in contacts"
@@ -57,24 +57,20 @@
             :target="contact.href.startsWith('http') ? '_blank' : ''"
             rel="noopener"
           >
-            <v-list-item-icon>
+            <template v-slot:prepend>
               <v-icon dense>{{ contactIcons[contact.type] }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ contact.text }}
-              </v-list-item-title>
-            </v-list-item-content>
+            </template>
+            <v-list-item-title>
+              {{ contact.text }}
+            </v-list-item-title>
           </v-list-item>
           <v-list-item v-if="tags.wheelchair && $te(`wheelchair.${tags.wheelchair}`)">
-            <v-list-item-icon>
+            <template v-slot:prepend>
               <v-icon dense>{{ mdiWheelchairAccessibility }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>
-              <v-list-item-title>
-                {{ $t(`wheelchair.${tags.wheelchair}`) }}
-              </v-list-item-title>
-            </v-list-item-content>
+            </template>
+            <v-list-item-title>
+              {{ $t(`wheelchair.${tags.wheelchair}`) }}
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </div>
@@ -83,10 +79,11 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue';
 import { mdiClose, mdiClockOutline, mdiWheelchairAccessibility, mdiPhone, mdiLink, mdiFacebook } from '@mdi/js';
 import { contactsFor } from './place';
 
-const OpeningHours = () => import('./opening_hours');
+const OpeningHours = defineAsyncComponent(() => import('./opening_hours'));
 
 function dataToCanvas(data, width, height) {
   const canvas = document.createElement('canvas');
@@ -112,7 +109,7 @@ export default {
   },
 
   props: {
-    value: {
+    modelValue: {
       type: String,
       required: true
     },
@@ -164,7 +161,7 @@ export default {
                            'exhibit', 'emergency', 'entrance', 'highway', 'landuse', 'leisure',
                            'office', 'railway', 'shop', 'sport', 'tourism'];
       const mapping = mappingTags.find((t) => this.tags[t]);
-      return this.$i18n.t(`poi.${mapping}.${this.tags[mapping]}`);
+      return this.$t(`poi.${mapping}.${this.tags[mapping]}`);
     },
 
     displayList() {
@@ -183,21 +180,21 @@ export default {
   methods: {
     close() {
       this.geojson = null;
-      this.$emit('input', '');
+      this.$emit('update:modelValue', '');
     }
   },
 
   watch: {
-    value: {
+    modelValue: {
       immediate: true,
       async handler() {
         this.geojson = null;
-        if (this.value === '') {
+        if (this.modelValue === '') {
           return;
         }
         this.loading = true;
         try {
-          this.geojson = await this.poiFetcher(this.value);
+          this.geojson = await this.poiFetcher(this.modelValue);
           this.$emit('poiCoordinates', this.geojson.geometry.coordinates);
         } finally {
           this.loading = false;

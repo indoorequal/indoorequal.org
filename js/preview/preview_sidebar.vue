@@ -16,7 +16,8 @@
       <v-file-input
         :label="$t('preview.file')"
         :accept="fileFormats"
-        @change="openPreview"
+        variant="underlined"
+        @update:modelValue="openPreview"
       ></v-file-input>
     </div>
   </sub-sidebar>

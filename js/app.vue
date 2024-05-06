@@ -1,20 +1,19 @@
 <template>
   <v-app
-    :class="{ xs: $vuetify.breakpoint.xsOnly }"
+    :class="{ xs: $vuetify.display.xs }"
     @dragover.native.prevent
     @drop.native="onDropPreview"
   >
     <indoor-sidebar
-      v-model="menu"
+      v-model:menu="menu"
       @openPreview="openPreview"
     />
     <v-main>
       <indoor-map
-        :map-bounds.sync="mapBounds"
-        :map-center.sync="mapCenter"
-        :map-level.sync="mapLevel"
-        :map-levels.sync="mapLevels"
-        :map-zoom.sync="mapZoom"
+        v-model:map-bounds="mapBounds"
+        v-model:map-center="mapCenter"
+        v-model:map-level="mapLevel"
+        v-model:map-zoom="mapZoom"
         :new-map-bounds="newMapBounds"
         :new-map-center="newMapCenter"
         :preview="preview"
@@ -22,6 +21,7 @@
         @clickPoi="clickPoi"
         @sprite="updateSprite"
         @updateBounds="updateBounds"
+        @update:map-levels="(l) => mapLevels = l"
       >
         <MglMarker
           v-if="poiCoordinates.length > 0"
@@ -32,6 +32,7 @@
       <v-chip
         v-if="!preview && mapZoom < indoorMinZoom"
         color="primary"
+        variant="flat"
         class="zoom-chip"
         @click="mapZoom = indoorMinZoom"
       >{{ $t('zoom') }}</v-chip>
@@ -43,7 +44,7 @@
       <div class="indoor-toolbar">
         <indoor-toolbar
           v-if="!preview"
-          v-model="menu"
+          v-model:menu="menu"
           :map-bounds="mapBounds"
           :map-center="mapCenter"
           :map-level="mapLevel"
@@ -83,7 +84,8 @@
 </template>
 
 <script>
-import { MglMarker } from 'vue-mapbox/dist/vue-mapbox.umd';
+import { defineAsyncComponent, toRaw } from 'vue';
+import { MglMarker } from '@indoorequal/vue-maplibre-gl';
 import { tilesUrl, indoorEqualApiKey, indoorMinZoom } from '../config.json';
 import IndoorDiscover from './discover';
 import IndoorMap from './map';
@@ -103,8 +105,8 @@ const LEVEL_PARAM = 'level';
 const MENU_PARAM = 'menu';
 const URL_PARAM = 'url';
 
-const IndoorPreviewToolbar = () => import('./preview/preview_toolbar');
-const IndoorPreviewConfirm = () => import('./preview/preview_confirm');
+const IndoorPreviewToolbar = defineAsyncComponent(() => import('./preview/preview_toolbar'));
+const IndoorPreviewConfirm = defineAsyncComponent(() => import('./preview/preview_confirm'));
 
 const downloadFromUrl = function (url) {
   return fetch(url)
@@ -190,7 +192,7 @@ export default {
           return fetchPoiGeojson(poi);
         }
       };
-    }
+    },
   },
 
   watch: {
@@ -340,7 +342,7 @@ export default {
           }
           break;
         case 'levels':
-          e.source.postMessage({ event: 'levels', levels: this.mapLevels });
+          e.source.postMessage({ event: 'levels', levels: toRaw(this.mapLevels) });
           break;
         default:
           break;
@@ -359,7 +361,7 @@ export default {
       }
       this.confirmPreviewAction = () => {
         this.confirmPreviewAllowedOrigins.push(origin);
-        return action()
+        return action();
       };
       this.confirmPreviewOrigin = origin;
       this.confirmPreview = true;
@@ -371,6 +373,12 @@ export default {
 <style>
 html {
   overflow-y: auto;
+}
+p {
+  margin-bottom: 16px;
+}
+ol, ul {
+  padding-left: 24px;
 }
 .indoor-toolbar {
   left: 10px;
@@ -384,12 +392,12 @@ html {
 .xs .maplibregl-ctrl-top-right {
   margin-top: 70px;
 }
-.indoor-poi, .indoor-discover {
+.v-card.indoor-poi, .v-card.indoor-discover {
   margin-top: 1rem;
   z-index: 6;
 }
 .zoom-chip {
-  position: fixed;
+  position: fixed !important;
   bottom: 1.4rem;
   left: 50%;
   transform: translateX(-50%);

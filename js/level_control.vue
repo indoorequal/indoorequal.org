@@ -1,26 +1,28 @@
 <template>
-  <div class="maplibregl-ctrl pt-2">
+  <mgl-custom-control
+    class="maplibregl-ctrl level-ctrl"
+    position="bottom-right"
+  >
     <v-btn
       v-for="level in levels"
-      :class="{ 'black--text': level !== value }"
       :color="level == value ? 'primary' : 'white'"
-      fab
-      dark
       class="button d-block mb-2"
       @click="setLevel(level)"
     >
       {{ level }}
     </v-btn>
-  </div>
+  </mgl-custom-control>
 </template>
 
 <script>
-import { $helpers } from 'vue-mapbox/dist/vue-mapbox.umd.js';
+import { MglCustomControl } from '@indoorequal/vue-maplibre-gl';
 
 export default {
-  mixins: [$helpers.asControl],
+  components: { MglCustomControl },
 
   inject: ['indoorequal'],
+
+  emits: ['input', 'levels'],
 
   props: {
     value: {
@@ -59,8 +61,6 @@ export default {
       }
       this.$emit('levels', levels);
     }
-    this.control = this;
-    this.$_addControl();
     updateLevels(this.indoorequal.levels);
     this.indoorequal.setLevel(this.value);
     this.indoorequal.on('levelchange', (level) => this.$emit('input', level));
@@ -68,14 +68,6 @@ export default {
   },
 
   methods: {
-    onAdd() {
-      return this.$el;
-    },
-
-    onRemove() {
-      this.$el.remove();
-    },
-
     setLevel(level) {
       this.indoorequal.setLevel(level);
     }
@@ -91,12 +83,14 @@ export default {
 };
 </script>
 
-<style scoped>
-.maplibregl-ctrl {
+
+<style>
+.level-ctrl {
   max-height: calc(100vh - 200px);
   overflow-y: auto;
-  width: 90px;
 }
+</style>
+<style scoped>
 .button {
   margin: 0 auto;
 }

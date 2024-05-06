@@ -1,16 +1,18 @@
 <template>
   <v-autocomplete
     v-model="selected"
+    v-model:search="search"
     :items="items"
     :loading="isLoading"
-    :search-input.sync="search"
     :error="!!error"
     :placeholder="$t('search')"
     :prepend-inner-icon="mdiMagnify"
+    :return-object="true"
     hide-no-data
     hide-details
     no-filter
-    dense
+    density="compact"
+    variant="underlined"
     background-color="white"
   />
 </template>
@@ -40,7 +42,7 @@ export default {
         const geocodingResponse = await fetchGeocoding(val);
         this.items = geocodingResponse.features.map((feature) => {
           return {
-            text: feature.place_name,
+            title: feature.place_name,
             value: feature.bbox
           };
         });
@@ -51,7 +53,9 @@ export default {
       }
     },
     selected(val) {
-      this.$emit('select', val);
+      if (val) {
+        this.$emit('updateBounds', val.value);
+      }
     }
   }
 }

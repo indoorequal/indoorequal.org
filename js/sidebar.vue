@@ -1,11 +1,10 @@
 <template>
   <v-navigation-drawer
-    :value="value !== null"
+    :model-value="menu !== null"
     width="350"
     temporary
-    app
     touchless
-    @input="updateValue"
+    @update:modelValue="updateValue"
   >
     <component
       v-if="hasSubSidebar"
@@ -25,11 +24,12 @@
             />
           </h1>
           <v-tooltip bottom>
-            <template v-slot:activator="{ on }">
+            <template v-slot:activator="{ props }">
               <v-btn
                 icon
+                flat
                 @click="hideMenu"
-                v-on="on"
+                v-bind="props"
               >
                 <v-icon>{{ mdiArrowExpandLeft }}</v-icon>
               </v-btn>
@@ -37,96 +37,86 @@
             <span>{{ $t("sidebar.collapse") }}</span>
           </v-tooltip>
         </div>
-        <i18n path="sidebar.description" tag="p" class="mt-2 mb-1">
+        <i18n-t keypath="sidebar.description" tag="p" class="mt-2 mb-1">
           <a href="https://openstreetmap.org/" target="_blank">{{ $t('sidebar.osm') }}</a>
         />
-        </i18n>
+        </i18n-t>
       </div>
-      <v-list>
+      <v-list lines="two">
         <v-list-item @click="display('explore')">
-          <v-list-item-icon>
+          <template v-slot:prepend>
             <v-icon>{{ mdiMapMarkerCircle }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ $t('sidebar.explore.title') }}</v-list-item-title>
-            <v-list-item-subtitle>{{ $t('sidebar.explore.subtitle') }}</v-list-item-subtitle>
-          </v-list-item-content>
+          </template>
+          <v-list-item-title>{{ $t('sidebar.explore.title') }}</v-list-item-title>
+          <v-list-item-subtitle>{{ $t('sidebar.explore.subtitle') }}</v-list-item-subtitle>
         </v-list-item>
         <v-list-item @click="display('api')">
-          <v-list-item-icon>
+          <template v-slot:prepend>
             <v-icon>{{ mdiMap }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ $t('sidebar.api.title') }}</v-list-item-title>
-            <v-list-item-subtitle>{{ $t('sidebar.api.subtitle') }}</v-list-item-subtitle>
-          </v-list-item-content>
+          </template>
+          <v-list-item-title>{{ $t('sidebar.api.title') }}</v-list-item-title>
+          <v-list-item-subtitle>{{ $t('sidebar.api.subtitle') }}</v-list-item-subtitle>
         </v-list-item>
         <v-list-item @click="display('news')">
-          <v-list-item-icon>
+          <template v-slot:prepend>
             <v-badge
-              :value="hasNews"
+              :model-value="hasNews"
               dot
             >
               <v-icon>{{ mdiNewspaperVariantOutline }}</v-icon>
             </v-badge>
-          </v-list-item-icon>
-          <v-list-item-content>
+          </template>
             <v-list-item-title>{{ $t('sidebar.news.title') }}</v-list-item-title>
-            <v-list-item-subtitle>{{ $t('sidebar.news.subtitle') }}</v-list-item-subtitle>
-          </v-list-item-content>
+          <v-list-item-subtitle>{{ $t('sidebar.news.subtitle') }}</v-list-item-subtitle>
         </v-list-item>
         <v-list-item @click="display('about')">
-          <v-list-item-icon>
+          <template v-slot:prepend>
             <v-icon>{{ mdiInformationOutline }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ $t('sidebar.about.title') }}</v-list-item-title>
-          </v-list-item-content>
+          </template>
+          <v-list-item-title>{{ $t('sidebar.about.title') }}</v-list-item-title>
         </v-list-item>
         <v-divider></v-divider>
         <v-list-item @click="display('preview')">
-          <v-list-item-icon>
+          <template v-slot:prepend>
             <v-icon>{{ mdiPuzzleCheck }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>
-              {{ $t('sidebar.preview.title') }}
-            </v-list-item-title>
-            <v-list-item-subtitle>{{ $t('sidebar.preview.subtitle') }}</v-list-item-subtitle>
-          </v-list-item-content>
+          </template>
+          <v-list-item-title>
+            {{ $t('sidebar.preview.title') }}
+          </v-list-item-title>
+          <v-list-item-subtitle>{{ $t('sidebar.preview.subtitle') }}</v-list-item-subtitle>
         </v-list-item>
         <v-list-item
           href="https://taginfo.indoorequal.org"
           target="_blank"
         >
-          <v-list-item-icon>
+          <template v-slot:prepend>
             <v-icon>{{ mdiTag }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ $t('sidebar.taginfo.title') }}</v-list-item-title>
-            <v-list-item-subtitle>{{ $t('sidebar.taginfo.subtitle') }}</v-list-item-subtitle>
-          </v-list-item-content>
-          <v-list-item-icon><v-icon>{{ mdiOpenInNew }}</v-icon></v-list-item-icon>
+          </template>
+          <template v-slot:append>
+            <v-icon>{{ mdiOpenInNew }}</v-icon>
+          </template>
+          <v-list-item-title>{{ $t('sidebar.taginfo.title') }}</v-list-item-title>
+          <v-list-item-subtitle>{{ $t('sidebar.taginfo.subtitle') }}</v-list-item-subtitle>
         </v-list-item>
         <v-list-item
           href="https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging"
           rel="noopener"
           target="_blank"
         >
-          <v-list-item-icon>
+          <template v-slot:prepend>
             <v-icon>{{ mdiPuzzleEditOutline }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ $t('sidebar.learn.title') }}</v-list-item-title>
-            <v-list-item-subtitle>{{ $t('sidebar.learn.subtitle') }}</v-list-item-subtitle>
-          </v-list-item-content>
-          <v-list-item-icon><v-icon>{{ mdiOpenInNew }}</v-icon></v-list-item-icon>
+          </template>
+          <template v-slot:append>
+            <v-icon>{{ mdiOpenInNew }}</v-icon>
+          </template>
+          <v-list-item-title>{{ $t('sidebar.learn.title') }}</v-list-item-title>
+          <v-list-item-subtitle>{{ $t('sidebar.learn.subtitle') }}</v-list-item-subtitle>
         </v-list-item>
       </v-list>
-      <i18n
+      <i18n-t
         v-if="replicationStatus"
-        path="sidebar.last_update"
-        class="pa-3 caption"
+        keypath="sidebar.last_update"
+        class="pa-3 text-caption"
         tag="div"
       >
         <time
@@ -138,12 +128,13 @@
           target="_blank"
           rel="noopener"
         >{{ $t('sidebar.status') }}</a>
-      </i18n>
+      </i18n-t>
     </template>
   </v-navigation-drawer>
 </template>
 
 <script>
+import { defineAsyncComponent } from 'vue';
 import {
   mdiArrowExpandLeft,
   mdiInformationOutline,
@@ -164,11 +155,11 @@ import logo from 'data-url:../icons/indoorequal.svg';
 dayjs.extend(relativeTime);
 
 const COMPONENTS = {
-  explore: () => import('./explore_list'),
-  api: () => import('./api_info'),
-  about: () => import('./about_info'),
-  news: () => import('./news_info'),
-  preview: () => import('./preview/preview_sidebar'),
+  explore: defineAsyncComponent(() => import('./explore_list')),
+  api: defineAsyncComponent(() => import('./api_info')),
+  about: defineAsyncComponent(() => import('./about_info')),
+  news: defineAsyncComponent(() => import('./news_info')),
+  preview: defineAsyncComponent(() => import('./preview/preview_sidebar')),
 };
 
 const fetchReplicationStatus = async function() {
@@ -180,8 +171,8 @@ export default {
   mixins: [news],
 
   props: {
-    value: {
-      type: String,
+    menu: {
+      type: [String, null],
     }
   },
 
@@ -203,10 +194,10 @@ export default {
 
   computed: {
     hasSubSidebar() {
-      return this.value !== '';
+      return this.menu !== '';
     },
     componentName() {
-      return COMPONENTS[this.value];
+      return COMPONENTS[this.menu];
     },
     lastUpdateTimestamp() {
       return this.replicationStatus.timestamp;
@@ -233,12 +224,12 @@ export default {
     },
 
     updateMenu(value) {
-      this.$emit('input', value);
+      this.$emit('update:menu', value);
     }
   },
 
   watch: {
-    value: {
+    menu: {
       immediate: true,
       async handler(value) {
         if (value !== null && value !== '' && !Object.keys(COMPONENTS).includes(value)) {

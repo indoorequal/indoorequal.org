@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-toolbar>
+    <v-toolbar elevation="3" color="white">
       <v-btn
         icon
         @click="$emit('close')"

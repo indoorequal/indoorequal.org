@@ -1,14 +1,15 @@
 <template>
-  <v-card class="d-flex align-center pa-2">
+  <v-card class="d-flex align-center pa-1">
     <v-tooltip bottom>
-      <template v-slot:activator="{ on }">
+      <template v-slot:activator="{ props }">
         <v-btn
           icon
+          flat
           @click="openMenu"
-          v-on="on"
+          v-bind="props"
         >
           <v-badge
-            :value="hasNews"
+            :model-value="hasNews"
             dot
           >
             <img
@@ -23,17 +24,18 @@
     </v-tooltip>
     <geocoder-input
       class="mx-2"
-      @select="updateBounds"
+      @updateBounds="updateBounds"
     />
     <v-menu>
-      <template v-slot:activator="{ on: menu, value }">
+      <template v-slot:activator="{ props: menu, value }">
         <v-tooltip bottom :disabled="value">
-          <template v-slot:activator="{ on: tooltip }">
-            <div v-on="tooltip">
+          <template v-slot:activator="{ props: tooltip }">
+            <div v-bind="tooltip">
               <v-btn
                 :disabled="editDisabled"
                 icon
-                v-on="menu"
+                variant="plain"
+                v-bind="menu"
               >
                 <v-icon>{{ mdiPencilOutline }}</v-icon>
               </v-btn>
@@ -43,7 +45,7 @@
         </v-tooltip>
       </template>
       <v-list>
-        <v-subheader>{{ $t('toolbar.edit') }}</v-subheader>
+        <v-list-subheader>{{ $t('toolbar.edit') }}</v-list-subheader>
         <v-list-item :href="OSMUrl">
           <v-list-item-title>iD</v-list-item-title>
         </v-list-item>
@@ -57,7 +59,7 @@
           <v-list-item-title>OsmInEdit</v-list-item-title>
         </v-list-item>
         <v-divider></v-divider>
-        <v-subheader>{{ $t('toolbar.view') }}</v-subheader>
+        <v-list-subheader>{{ $t('toolbar.view') }}</v-list-subheader>
         <v-list-item :href="OpenLevelUpUrl">
           <v-list-item-title>OpenLevelUp!</v-list-item-title>
         </v-list-item>
@@ -106,7 +108,7 @@ export default {
       required: true
     },
 
-    value: {
+    menu: {
       type: String,
     }
   },
@@ -154,7 +156,7 @@ export default {
     },
 
     openMenu() {
-      this.$emit('input', '');
+      this.$emit('update:menu', '');
     },
 
     updateBounds(bbox) {

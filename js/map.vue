@@ -3,34 +3,32 @@
     :center="mapCenter"
     :zoom="mapZoom"
     :map-style="mapStyle"
+    :track-resize="true"
     hash="map"
-    @load="load"
+    @map:load="load"
     @update:center="updateMapCenter"
     @update:zoom="updateMapZoom"
-    @mouseenter-indoor-poi-rank1="mouseenterLayer"
-    @click-indoor-poi-rank1="clickLayer"
-    @mouseleave-indoor-poi-rank1="mouseleaveLayer"
-    @mouseenter-indoor-poi-rank2="mouseenterLayer"
-    @click-indoor-poi-rank2="clickLayer"
-    @mouseleave-indoor-poi-rank2="mouseleaveLayer"
   >
-    <MglNavigationControl show-compass />
-    <MglGeolocateControl />
-    <heatmap-control v-show="!preview" />
-    <level-control
-      :key="`level-control-${preview}`"
-      :value="mapLevel"
-      position="bottom-right"
-      @input="updateMapLevel"
-      @levels="(levels) => $emit('update:mapLevels', levels)"
-    />
-    <language-control />
-    <slot />
+    <template v-if="loaded">
+      <MglNavigationControl />
+      <MglGeolocateControl />
+      <heatmap-control v-if="!preview" />
+      <level-control
+        :key="`level-control-${preview}`"
+        :value="mapLevel"
+        position="bottom-right"
+        @input="updateMapLevel"
+        @levels="(levels) => $emit('update:mapLevels', levels)"
+      />
+      <language-control />
+      <slot />
+    </template>
   </MglMap>
 </template>
 
 <script>
-import { MglMap, MglNavigationControl, MglGeolocateControl } from 'vue-mapbox/dist/vue-mapbox.umd';
+import { MglMap, MglNavigationControl, MglGeolocateControl } from '@indoorequal/vue-maplibre-gl';
+import { computed } from 'vue';
 import IndoorEqual from 'maplibre-gl-indoorequal';
 import bbox from '@turf/bbox';
 import { mapStyle } from './maptiler';
@@ -48,6 +46,8 @@ export default {
     MglMap,
     MglNavigationControl
   },
+
+  emits: ['clickPoi', 'updateBounds', 'sprite', 'update:mapCenter', 'update:mapBounds', 'update:mapLevels', 'update:mapZoom', 'update:mapLevel'],
 
   props: {
     mapBounds: {
@@ -96,17 +96,16 @@ export default {
   },
 
   provide() {
-    const self = this;
     return {
-      get indoorequal() {
-        return self.indoorEqualInstance;
-      }
+      indoorequal: computed(() => this.indoorEqualInstance )
     };
   },
 
   data() {
     return {
-      mapStyle: mapStyle()
+      mapStyle: mapStyle(),
+      loaded: false,
+      indoorEqualInstance: null,
     };
   },
 
@@ -140,6 +139,13 @@ export default {
       setTimeout(() => {
         this.updateMapZoom(map.getZoom());
       }, 100);
+      this.loaded = true;
+      this.map.on('mouseenter', 'indoor-poi-rank1', this.mouseenterLayer);
+      this.map.on('click', 'indoor-poi-rank1', this.clickLayer);
+      this.map.on('mouseleave', 'indoor-poi-rank1', this.mouseleaveLayer);
+      this.map.on('mouseenter', 'indoor-poi-rank2', this.mouseenterLayer);
+      this.map.on('click', 'indoor-poi-rank2', this.clickLayer);
+      this.map.on('mouseleave', 'indoor-poi-rank2', this.mouseleaveLayer);
     },
 
     createIndoorEqualInstance() {
@@ -150,17 +156,17 @@ export default {
       this.indoorEqualInstance = new IndoorEqual(this.map, opts);
     },
 
-    mouseenterLayer(e) {
-      e.map.getCanvas().style.cursor = 'pointer';
+    mouseenterLayer() {
+      this.map.getCanvas().style.cursor = 'pointer';
     },
 
     clickLayer(e) {
-      const id = e.mapboxEvent.features[0].properties.id;
+      const id = e.features[0].properties.id;
       this.$emit('clickPoi', id);
     },
 
-    mouseleaveLayer(e) {
-      e.map.getCanvas().style.cursor = '';
+    mouseleaveLayer() {
+      this.map.getCanvas().style.cursor = '';
     },
 
     updateMapCenter(mapCenter) {
@@ -186,19 +192,6 @@ export default {
 </script>
 
 <style>
-.mgl-map-wrapper {
-  height: 100vh;
-  position: relative;
-  width: 100vw;
-}
-
-.mgl-map-wrapper .maplibregl-map {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  width: 100%;
-}
 .maplibregl-ctrl-bottom-left, .maplibregl-ctrl-bottom-right, .maplibregl-ctrl-top-left, .maplibregl-ctrl-top-right {
   position: fixed;
 }

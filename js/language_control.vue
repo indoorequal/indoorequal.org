@@ -1,5 +1,6 @@
-<script>
-import { $helpers } from 'vue-mapbox/dist/vue-mapbox.umd.js';
+<script setup>
+import { useControl } from '@indoorequal/vue-maplibre-gl';
+import { useI18n } from 'vue-i18n'
 import { updateStyle } from './style_language';
 
 class LanguageControl {
@@ -29,15 +30,12 @@ class LanguageControl {
   }
 }
 
-export default {
-  mixins: [$helpers.asControl],
-
-  created() {
-    this.control = new LanguageControl({
-      lang: this.$i18n.locale
-    });
-    this.$_addControl();
-  },
-
-};
+useControl(() => {
+  const { locale } = useI18n();
+  return new LanguageControl({
+    lang: locale.value
+  });
+}, { position: 'top-right' });
 </script>
+
+<template></template>

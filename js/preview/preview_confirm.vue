@@ -1,6 +1,6 @@
 <template>
   <v-dialog
-    :value="value"
+    :model-value="modelValue"
     persistent
     max-width="500"
   >
@@ -9,9 +9,9 @@
         {{ $t('preview.url.title') }}
       </v-card-title>
       <v-card-text>
-        <i18n path="preview.url.text" tag="p">
+        <i18n-t keypath="preview.url.text" tag="p">
           <strong>{{ domain }}</strong>
-        </i18n>
+        </i18n-t>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
@@ -46,7 +46,7 @@ export default {
       type: Function,
       required: true
     },
-    value: {
+    modelValue: {
       type: Boolean,
       required: true
     }
@@ -67,7 +67,7 @@ export default {
 
   methods: {
     close() {
-      this.$emit('input', false);
+      this.$emit('update:modelValue', false);
     },
 
     async ok() {

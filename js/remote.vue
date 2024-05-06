@@ -14,19 +14,19 @@
           <p>Read the <a href="https://github.com/indoorequal/indoorequal.org#remote-command-api" target="_blank">remote API documentation</a>.</p>
           <v-expansion-panels accordion>
             <v-expansion-panel>
-              <v-expansion-panel-header>Set bbox</v-expansion-panel-header>
-              <v-expansion-panel-content>
+              <v-expansion-panel-title>Set bbox</v-expansion-panel-title>
+              <v-expansion-panel-text>
                 <p>Use <a href="http://bboxfinder.com/" target="_blank">bboxfinder.com</a></p>
                 <v-text-field
                   label="bbox"
                   placeholder="1.971874,48.921259,2.299404,49.029990"
-                  @change="sendBbox"
+                  @update:modelValue="sendBbox"
                 ></v-text-field>
-              </v-expansion-panel-content>
+              </v-expansion-panel-text>
             </v-expansion-panel>
             <v-expansion-panel>
-              <v-expansion-panel-header>Set center and zoom</v-expansion-panel-header>
-              <v-expansion-panel-content>
+              <v-expansion-panel-title>Set center and zoom</v-expansion-panel-title>
+              <v-expansion-panel-text>
                 <p>Use <a href="http://bboxfinder.com/" target="_blank">bboxfinder.com</a></p>
                 <v-text-field
                   v-model="center"
@@ -39,41 +39,41 @@
                   placeholder="2"
                 ></v-text-field>
                 <v-btn @click="sendCenterAndZoom">Send</v-btn>
-              </v-expansion-panel-content>
+              </v-expansion-panel-text>
             </v-expansion-panel>
             <v-expansion-panel>
-              <v-expansion-panel-header>Set level</v-expansion-panel-header>
-              <v-expansion-panel-content>
+              <v-expansion-panel-title>Set level</v-expansion-panel-title>
+              <v-expansion-panel-text>
                 <v-text-field
                   label="Level"
-                  @change="sendLevel"
+                  @update:modelValue="sendLevel"
                 ></v-text-field>
-              </v-expansion-panel-content>
+              </v-expansion-panel-text>
             </v-expansion-panel>
             <v-expansion-panel>
-              <v-expansion-panel-header>Get levels</v-expansion-panel-header>
-              <v-expansion-panel-content>
+              <v-expansion-panel-title>Get levels</v-expansion-panel-title>
+              <v-expansion-panel-text>
                 <v-btn @click="getLevels">Get levels</v-btn>
-              </v-expansion-panel-content>
+              </v-expansion-panel-text>
             </v-expansion-panel>
             <v-expansion-panel>
-              <v-expansion-panel-header>Open preview with URL</v-expansion-panel-header>
-              <v-expansion-panel-content>
+              <v-expansion-panel-title>Open preview with URL</v-expansion-panel-title>
+              <v-expansion-panel-text>
                 <v-text-field
                   label="Preview URL"
-                  @change="sendPreviewURL"
+                  @update:modelValue="sendPreviewURL"
                 ></v-text-field>
-              </v-expansion-panel-content>
+              </v-expansion-panel-text>
             </v-expansion-panel>
             <v-expansion-panel>
-              <v-expansion-panel-header>Open preview with file</v-expansion-panel-header>
-              <v-expansion-panel-content>
+              <v-expansion-panel-title>Open preview with file</v-expansion-panel-title>
+              <v-expansion-panel-text>
                 <v-file-input
                   accept=".osm,.geojson,.zip"
                   label="File input for preview"
-                  @change="sendPreviewFile"
+                  @update:modelValue="sendPreviewFile"
                 ></v-file-input>
-              </v-expansion-panel-content>
+              </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
           <div v-if="messages.length > 0">
@@ -165,5 +165,8 @@ iframe {
 }
 .sidebar {
   height: 100vh;
+}
+p {
+  margin-bottom: 16px;
 }
 </style>

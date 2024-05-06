@@ -1,25 +1,25 @@
 <template>
-  <div class="maplibregl-ctrl maplibregl-ctrl-group">
+  <mgl-custom-control position="top-right">
     <button
       :title="title"
-      class="maplibregl-ctrl-heatmap maplibregl-ctrl-group"
+      class="maplibregl-ctrl-heatmap"
       type="button"
       @click="toggleHeatmap"
     >
       <span class="maplibregl-ctrl-icon">
-        <v-icon :color="iconColor">{{ mdiBlur }}</v-icon>
+        <v-icon :color="iconColor" size="24px">{{ mdiBlur }}</v-icon>
       </span>
     </button>
-  </div>
+  </mgl-custom-control>
 </template>
 
 <script>
-import { $helpers } from 'vue-mapbox/dist/vue-mapbox.umd.js';
+import { MglCustomControl } from '@indoorequal/vue-maplibre-gl';
 import { mdiBlur } from '@mdi/js';
 
 export default {
-  mixins: [$helpers.asControl],
-
+  components: { MglCustomControl },
+  
   inject: ['indoorequal'],
 
   data() {
@@ -27,11 +27,6 @@ export default {
       mdiBlur,
       heatmap: true
     };
-  },
-
-  mounted() {
-    this.control = this;
-    this.$_addControl();
   },
 
   computed: {
@@ -45,14 +40,6 @@ export default {
   },
 
   methods: {
-    onAdd() {
-      return this.$el;
-    },
-
-    onRemove() {
-      this.$el.remove();
-    },
-
     toggleHeatmap() {
       this.heatmap = !this.heatmap;
     }

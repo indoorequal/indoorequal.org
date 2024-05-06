@@ -4,10 +4,13 @@
     @close="$emit('close')"
   >
     <div class="pt-4 px-4">
-      <div v-for="info in news">
+      <div
+        v-for="info in news"
+        class="mb-3"
+      >
         <h3>
           <v-chip
-            small
+            size="small"
             label
             >{{ $d(info.date) }}</v-chip>
           {{ info.title }}

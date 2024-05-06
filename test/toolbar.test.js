@@ -1,21 +1,21 @@
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import IndoorToolbar from '../js/toolbar';
 
 describe('Toolbar', () => {
   let toolbar;
   beforeEach(() => {
-    const localVue = createLocalVue();
-    localVue.prototype.$t = () => {};
     toolbar = shallowMount(IndoorToolbar, {
-      localVue,
-      propsData: {
+      global: {
+        $t: () => {},
+        stubs: ['v-card', 'v-divider', 'v-list', 'v-list-item', 'v-list-item-title', 'v-menu', 'v-tooltip', 'v-list-subheader', 'v-icon', 'v-btn', 'v-badge']
+      },
+      props: {
         value: null,
         mapCenter: { lat: 1, lng: 2 },
         mapLevel: '1',
         mapZoom: 17,
         indoorMinZoom: 17
       },
-      stubs: ['v-card', 'v-divider', 'v-list', 'v-list-item', 'v-list-item-title', 'v-menu', 'v-tooltip', 'v-subheader']
     });
   });
 

@@ -1,3 +1,4 @@
+import { reactive } from 'vue';
 import newsFiles from '../news/*.md';
 
 const news = Object.values(newsFiles)
@@ -10,9 +11,9 @@ const news = Object.values(newsFiles)
 
 const LAST_READ_NEWS_AT_LOCAL_STORAGE = 'lastReadNewsAt';
 
-const state = {
+const state = reactive({
   hasNews: true,
-}
+});
 
 export default {
   data() {

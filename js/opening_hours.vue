@@ -1,33 +1,32 @@
 <template>
   <v-list-item v-if="alwaysOpen">
-    <v-list-item-icon><v-icon dense>{{ mdiClockOutline }}</v-icon></v-list-item-icon>
-    <v-list-item-content>
-      <v-list-item-title>24/7</v-list-item-title>
-    </v-list-item-content>
+    <template v-slot:prepend>
+      <v-icon dense>{{ mdiClockOutline }}</v-icon>
+    </template>
+    <v-list-item-title>24/7</v-list-item-title>
   </v-list-item>
   <v-list-group
     v-else
     no-action
   >
-    <template v-slot:prependIcon>
-      <v-icon dense>{{ mdiClockOutline }}</v-icon>
-    </template>
-    <template v-slot:activator>
-      <v-list-item-content>
+    <template v-slot:activator="{ props }">
+      <v-list-item v-bind="props">
+        <template v-slot:prepend>
+          <v-icon dense>{{ mdiClockOutline }}</v-icon>
+        </template>
         <v-list-item-title>
           {{ $t(`${namespace}.state_until_date`, { state: $t(`${namespace}.state.${state}`), date: formatNextDate}) }}
         </v-list-item-title>
-      </v-list-item-content>
+      </v-list-item>
     </template>
 
     <v-list-item
-      v-for="(interval, day) in weekDays">
-      <v-list-item-content>
-        <v-list-item-title>
-          {{ $t(`days.${day}`) }}:
-          {{ interval }}
-        </v-list-item-title>
-      </v-list-item-content>
+      v-for="(interval, day) in weekDays"
+    >
+      <v-list-item-title>
+        {{ $t(`days.${day}`) }}:
+        {{ interval }}
+      </v-list-item-title>
     </v-list-item>
   </v-list-group>
 </template>

@@ -3,12 +3,13 @@
     <div class="d-flex align-center">
       <span class="text-h6 flex-grow-1">{{ $t('preview.title') }}</span>
       <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
+        <template v-slot:activator="{ props }">
           <v-btn
             :href="fileUrl"
             :download="filePreview.name"
             icon
-            v-on="on"
+            flat
+            v-bind="props"
           >
             <v-icon>{{ mdiDownload }}</v-icon>
           </v-btn>
@@ -16,11 +17,12 @@
         <span>{{ $t('preview.download') }}</span>
       </v-tooltip>
       <v-tooltip bottom>
-        <template v-slot:activator="{ on }">
+        <template v-slot:activator="{ props }">
           <v-btn
             icon
+            flat
             @click="$emit('closePreview')"
-            v-on="on"
+            v-bind="props"
           >
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
@@ -36,7 +38,8 @@
       dense
       full-width
       hide-details
-      @change="openPreview"
+      variant="underlined"
+      @update:modelValue="openPreview"
     ></v-file-input>
   </v-card>
 </template>
