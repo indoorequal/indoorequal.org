@@ -15,5 +15,7 @@ jobs:
         cache: 'yarn'
     - name: Install packages
       run: yarn install --immutable
+    - name: Build
+      run: yarn build
     - name: Run tests
-      run: npx jest
+      run: yarn test
