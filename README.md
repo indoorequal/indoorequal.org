@@ -9,7 +9,7 @@ A web based indoor viewer.
 Discover:
 
 - the backend: https://github.com/indoorequal/indoorequal
-- the library to integrate indoor=: https://github.com/indoorequal/mapbox-gl-indoorequal
+- the library to integrate indoor=: https://github.com/indoorequal/maplibre-gl-indoorequal
 
 ## Development
 

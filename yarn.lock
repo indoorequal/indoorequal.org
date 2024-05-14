@@ -3920,10 +3920,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"array-equal@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "array-equal@npm:1.0.0"
-  checksum: 10c0/5841f0b823e6806d147d40e262a0f66cb7d3272b9f9ffa8dedb868fc7799cb410ae262a32f6f358baa6c3ee7d6271eeab86b516cdfd8f9a8fa12b4f15a18e119
+"array-equal@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "array-equal@npm:1.0.2"
+  checksum: 10c0/c308184b1df488bed0eba1a8835d77789349d3859a334cb60f77df15dc4ab232c185c78b643ae68651eef1b7148942223d72fa1aba218d24ec6cf9637fb49d8e
   languageName: node
   linkType: hard
 
@@ -4719,10 +4719,10 @@ country-language@bdswiss/country-language:
   languageName: node
   linkType: hard
 
-"debounce@npm:^1.2.0":
-  version: 1.2.1
-  resolution: "debounce@npm:1.2.1"
-  checksum: 10c0/6c9320aa0973fc42050814621a7a8a78146c1975799b5b3cc1becf1f77ba9a5aa583987884230da0842a03f385def452fad5d60db97c3d1c8b824e38a8edf500
+"debounce@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "debounce@npm:2.0.0"
+  checksum: 10c0/35a492f7f4f346f0539d486d7e68a68bd2eaa0c7fb159df8e59f89a20afd9b0ed024d0dc5a6f283b6963f5f032dacd66d805a325e9d8338511e77b505b76f26e
   languageName: node
   linkType: hard
 
@@ -6768,13 +6768,13 @@ country-language@bdswiss/country-language:
   languageName: node
   linkType: hard
 
-"mapbox-gl-indoorequal@npm:^0.2.9":
-  version: 0.2.16
-  resolution: "mapbox-gl-indoorequal@npm:0.2.16"
+"maplibre-gl-indoorequal@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "maplibre-gl-indoorequal@npm:1.0.0"
   dependencies:
-    array-equal: "npm:^1.0.0"
-    debounce: "npm:^1.2.0"
-  checksum: 10c0/b23db617bd02773baa1b7ac0e10eb563858bd93c326cc5efe9a73ef5c1bba1f9a42d1a95136f64497632e6390916eb482fc8b7800fd5b9b98f7765d704ddad63
+    array-equal: "npm:^1.0.2"
+    debounce: "npm:^2.0.0"
+  checksum: 10c0/d05d41ef8ba1122adedd342c362d6499da9e2c3bc952e375f2dbbc16f3c180b3ec300f7bedcfb5d041281bd95dfc27f855a03d28a9c592483b22a70552a79ab8
   languageName: node
   linkType: hard
 
@@ -8088,8 +8088,8 @@ country-language@bdswiss/country-language:
     js-yaml: "npm:^4.1.0"
     jszip: "npm:^3.7.1"
     lodash.uniq: "npm:^4.5.0"
-    mapbox-gl-indoorequal: "npm:^0.2.9"
     maplibre-gl: "npm:^3.2.1"
+    maplibre-gl-indoorequal: "npm:^1.0.0"
     minipass-fetch: "npm:^3.0.4"
     opening_hours: "npm:^3.5.0"
     osm2geojson-lite: "npm:^0.9.4"

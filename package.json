@@ -30,7 +30,7 @@
     "minifySvg": false
   },
   "staticFiles": {
-    "staticPath": "node_modules/mapbox-gl-indoorequal/sprite"
+    "staticPath": "node_modules/maplibre-gl-indoorequal/sprite"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
@@ -69,8 +69,8 @@
     "i18next-client": "^1.11.1",
     "jszip": "^3.7.1",
     "lodash.uniq": "^4.5.0",
-    "mapbox-gl-indoorequal": "^0.2.9",
     "maplibre-gl": "^3.2.1",
+    "maplibre-gl-indoorequal": "^1.0.0",
     "opening_hours": "^3.5.0",
     "osm2geojson-lite": "^0.9.4",
     "vue": "^2.7.16",
