@@ -6280,15 +6280,15 @@ country-language@bdswiss/country-language:
   languageName: node
   linkType: hard
 
-"maplibre-gl-indoorequal@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "maplibre-gl-indoorequal@npm:1.1.0"
+"maplibre-gl-indoorequal@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "maplibre-gl-indoorequal@npm:1.1.1"
   dependencies:
     array-equal: "npm:^1.0.2"
     debounce: "npm:^2.0.0"
   peerDependencies:
     maplibre-gl: ^3.0.0 || ^4.0.0
-  checksum: 10c0/4c31cabf4337510aaa5d9dcc501b9418478d28cf2af28c3a489bb33799217d813898aa93288d68fb4957b685694f327a4a500fe0f92b6d0c6893b6738d06b8e3
+  checksum: 10c0/13676a52325e73c5baa6f980b6755175cabefbfb8bef2e65d7e0918fc80900dc347540918fcafff98b8368fb0e92fe9edd27c50888c7ee02fe8b279f1e8646b3
   languageName: node
   linkType: hard
 
@@ -7411,7 +7411,7 @@ country-language@bdswiss/country-language:
     jszip: "npm:^3.7.1"
     lodash.uniq: "npm:^4.5.0"
     maplibre-gl: "npm:^3.2.1"
-    maplibre-gl-indoorequal: "npm:^1.1.0"
+    maplibre-gl-indoorequal: "npm:^1.1.1"
     minipass-fetch: "npm:^3.0.4"
     opening_hours: "npm:^3.5.0"
     osm2geojson-lite: "npm:^0.9.4"
