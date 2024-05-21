@@ -5,21 +5,14 @@ import { updateStyle } from './style_language';
 class LanguageControl {
   constructor(options) {
     this.lang = options.lang;
-
-    let hasStyleLoaded = false;
-    this._setStyleWithLang = (e) => {
-      if (hasStyleLoaded || !this._map.isStyleLoaded()) return;
-      this.setStyleWithLang();
-      hasStyleLoaded = this._map.isStyleLoaded();
-    };
   }
 
   onAdd(map) {
     this._map = map;
     if (this._map.isStyleLoaded()) {
-      this.setStyleWithLang(map);
+      this.setStyleWithLang();
     } else {
-      this._map.on('styledata', this._setStyleWithLang);
+      this._map.once('styledata', this.setStyleWithLang.bind(this));
     }
     this._container = document.createElement('div');
     return this._container;
@@ -32,7 +25,6 @@ class LanguageControl {
   }
 
   onRemove() {
-    this._map.off('styledata', this._setStyleWithLang);
     this._map = undefined;
   }
 }
