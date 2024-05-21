@@ -424,6 +424,10 @@
       "title": "Prévisualisation du rendu",
       "subtitle": "Validation avant envoi"
     },
+    "taginfo": {
+      "title": "Indoor= taginfo",
+      "subtitle": "Une instance dédiée aux données intérieures"
+    },
     "osm": "OpenStreetMap"
   },
   "preview": {
