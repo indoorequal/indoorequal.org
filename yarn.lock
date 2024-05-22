@@ -4170,16 +4170,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-country-language@bdswiss/country-language:
-  version: 0.1.8
-  resolution: "country-language@https://github.com/bdswiss/country-language.git#commit=32091c1a2dffa196cac41f2d4aebfc5bf8bd3f94"
-  dependencies:
-    underscore: "npm:^1.13.1"
-    underscore.deep: "npm:^0.5.1"
-  checksum: 10c0/14a80fa0aa26771178a157af25c57369ada616f718b3f7fe6b8e97bd3176609cf9c2d2e8950957b3f34f8db7af45802b0bf332fa086c22de9a021203896a4a5d
-  languageName: node
-  linkType: hard
-
 "create-jest@npm:^29.7.0":
   version: 29.7.0
   resolution: "create-jest@npm:29.7.0"
@@ -7401,7 +7391,6 @@ country-language@bdswiss/country-language:
     "@vue/vue3-jest": "npm:29"
     babel-jest: "npm:^29.7.0"
     buffer: "npm:^6.0.3"
-    country-language: bdswiss/country-language
     dayjs: "npm:^1.11.10"
     deepmerge: "npm:^4.3.1"
     deepsortobj: "npm:^0.1.3"
@@ -8009,22 +7998,6 @@ country-language@bdswiss/country-language:
   dependencies:
     typewise-core: "npm:^1.2.0"
   checksum: 10c0/0e300a963cd344f9f4216343eb1c9714e1aee12c5b928ae3ff4a19b4b1edcd82356b8bd763905bd72528718a3c863612f8259cb047934b59bdd849f305e12e80
-  languageName: node
-  linkType: hard
-
-"underscore.deep@npm:^0.5.1":
-  version: 0.5.3
-  resolution: "underscore.deep@npm:0.5.3"
-  peerDependencies:
-    underscore: 1.x
-  checksum: 10c0/e11e05a456118d9d78fcaa1f892f29fdd74051c249f351052ed75a3124df3ecd0fd3bbb4f56b01c63f251514873ea862d54db131034a3abdcd815cb50861416a
-  languageName: node
-  linkType: hard
-
-"underscore@npm:^1.13.1":
-  version: 1.13.6
-  resolution: "underscore@npm:1.13.6"
-  checksum: 10c0/5f57047f47273044c045fddeb8b141dafa703aa487afd84b319c2495de2e685cecd0b74abec098292320d518b267c0c4598e45aa47d4c3628d0d4020966ba521
   languageName: node
   linkType: hard
 

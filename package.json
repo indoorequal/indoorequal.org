@@ -67,7 +67,6 @@
     "@turf/bbox": "^6.5.0",
     "@turf/center-of-mass": "^6.5.0",
     "@turf/line-to-polygon": "^6.5.0",
-    "country-language": "bdswiss/country-language",
     "dayjs": "^1.11.10",
     "jszip": "^3.7.1",
     "lodash.uniq": "^4.5.0",
