@@ -28,15 +28,7 @@
   </sub-sidebar>
 </template>
 
-<script>
-import { mdiLink, mdiTwitter, mdiGithub } from '@mdi/js';
+<script setup>
+import { mdiLink, mdiGithub } from '@mdi/js';
 import SubSidebar from './sub_sidebar';
-
-export default {
-  components: { SubSidebar },
-
-  data() {
-    return { mdiLink, mdiTwitter, mdiGithub };
-  }
-};
 </script>

@@ -8,26 +8,20 @@
         <v-icon>{{ mdiArrowLeft }}</v-icon>
       </v-btn>
       <v-toolbar-title>
-        {{ title }}
+        {{ props.title }}
       </v-toolbar-title>
     </v-toolbar>
     <slot />
   </div>
 </template>
 
-<script>
+<script setup>
 import { mdiArrowLeft } from '@mdi/js';
 
-export default {
-  props: {
-    title: {
-      type: String,
-      required: true,
-    },
+const props = defineProps({
+  title: {
+    type: String,
+    required: true,
   },
-
-  data() {
-    return { mdiArrowLeft };
-  }
-};
+});
 </script>

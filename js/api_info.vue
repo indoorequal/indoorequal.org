@@ -48,10 +48,6 @@
   </sub-sidebar>
 </template>
 
-<script>
+<script setup>
 import SubSidebar from './sub_sidebar';
-
-export default {
-  components: { SubSidebar },
-};
 </script>
