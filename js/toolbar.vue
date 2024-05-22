@@ -39,7 +39,6 @@
               variant="plain"
               v-bind="mergeProps(tooltip, menu)"
               >
-              {{ value }}
               <v-icon>{{ mdiPencilOutline }}</v-icon>
             </v-btn>
           </template>
