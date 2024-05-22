@@ -98,64 +98,59 @@
   </v-app>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      center: '',
-      zoom: 0,
-      messages: [],
-    };
-  },
+<script setup>
+import { ref, onMounted } from 'vue';
 
-  mounted() {
-    this.registerMessageListener();
-  },
+const center = ref('');
+const zoom = ref(0);
+const messages = ref([]);
+const iframe = ref(null);
 
-  methods: {
-    sendPreviewFile(file) {
-      if (!file) return;
-      this.sendMessage({ command: 'preview', file });
-    },
+onMounted(() => {
+  registerMessageListener();
+});
 
-    sendPreviewURL(url) {
-      this.sendMessage({ command: 'preview', url });
-    },
+function sendPreviewFile(file) {
+  if (!file) return;
+  sendMessage({ command: 'preview', file });
+}
 
-    sendLevel(level) {
-      this.sendMessage({ command: 'level', level });
-    },
+function sendPreviewURL(url) {
+  sendMessage({ command: 'preview', url });
+}
 
-    getLevels(level) {
-      this.sendMessage({ command: 'levels' });
-    },
+function sendLevel(level) {
+  sendMessage({ command: 'level', level });
+}
 
-    sendBbox(bbox) {
-      this.sendMessage({ command: 'coordinates', bbox: bbox.split(',') });
-    },
+function getLevels(level) {
+  sendMessage({ command: 'levels' });
+}
 
-    sendCenterAndZoom() {
-      const center = this.center.split(',').map(parseFloat);
-      this.sendMessage({ command: 'coordinates', center: { lng: center[0], lat: center[1]}, zoom: parseInt(this.zoom, 10) });
-    },
+function sendBbox(bbox) {
+  sendMessage({ command: 'coordinates', bbox: bbox.split(',') });
+}
 
-    sendMessage(message) {
-      this.messages.push({
-        dir: 'out',
-        data: message
-      });
-      this.$refs.iframe.contentWindow.postMessage(message, '*');
-    },
+function sendCenterAndZoom() {
+  const [lng, lat] = center.value.split(',').map(parseFloat);
+  sendMessage({ command: 'coordinates', center: { lng, lat}, zoom: parseInt(zoom.value, 10) });
+}
 
-    registerMessageListener() {
-      window.addEventListener('message', (e) => {
-        this.messages.push({
-          dir: 'in',
-          data: e.data
-        });
-      });
-    }
-  }
+function sendMessage(message) {
+  messages.value.push({
+    dir: 'out',
+    data: message
+  });
+  iframe.value.contentWindow.postMessage(message, '*');
+};
+
+function registerMessageListener() {
+  window.addEventListener('message', (e) => {
+    messages.value.push({
+      dir: 'in',
+      data: e.data
+    });
+  });
 }
 </script>
 
