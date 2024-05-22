@@ -1,7 +1,7 @@
 <template>
   <v-card class="pa-2">
     <div class="d-flex align-center">
-      <span class="text-h6 flex-grow-1">{{ $t('preview.title') }}</span>
+      <span class="text-h6 flex-grow-1">{{ t('preview.title') }}</span>
       <v-tooltip bottom>
         <template v-slot:activator="{ props }">
           <v-btn
@@ -14,7 +14,7 @@
             <v-icon>{{ mdiDownload }}</v-icon>
           </v-btn>
         </template>
-        <span>{{ $t('preview.download') }}</span>
+        <span>{{ t('preview.download') }}</span>
       </v-tooltip>
       <v-tooltip bottom>
         <template v-slot:activator="{ props }">
@@ -27,13 +27,13 @@
             <v-icon>{{ mdiClose }}</v-icon>
           </v-btn>
         </template>
-        <span>{{ $t('preview.close') }}</span>
+        <span>{{ t('preview.close') }}</span>
       </v-tooltip>
     </div>
     <v-file-input
-      :label="$t('preview.file')"
+      :label="t('preview.file')"
       :clearable="false"
-      :accept="fileFormats"
+      :accept="acceptedFileFormats"
       :prepend-icon="mdiPuzzleCheck"
       dense
       full-width
@@ -44,38 +44,30 @@
   </v-card>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
 import { mdiDownload, mdiClose, mdiPuzzleCheck } from '@mdi/js';
+import { useI18n } from 'vue-i18n';
 import { fileFormats } from './preview';
 
-export default {
-  props: {
-    filePreview: {
-      type: File,
-      required: true,
-    }
-  },
+const { t } = useI18n();
 
-  data() {
-    return {
-      fileFormats: fileFormats.join(','),
-      mdiClose,
-      mdiDownload,
-      mdiPuzzleCheck
-    };
-  },
-
-  computed: {
-    fileUrl() {
-       return URL.createObjectURL(this.filePreview);
-    }
-  },
-
-  methods: {
-    openPreview(file) {
-      if (!file) return;
-      this.$emit('openPreview', file);
-    }
+const props = defineProps({
+  filePreview: {
+    type: File,
+    required: true,
   }
+});
+
+const acceptedFileFormats = fileFormats.join(',');
+
+const fileUrl = computed(() => {
+  return URL.createObjectURL(props.filePreview);
+});
+
+const emit = defineEmits(['openPreview']);
+function openPreview(file) {
+  if (!file) return;
+  emit('openPreview', file);
 }
 </script>

@@ -1,12 +1,12 @@
 <template>
   <v-dialog
-    :model-value="modelValue"
+    :model-value="model"
     persistent
     max-width="500"
   >
     <v-card>
       <v-card-title>
-        {{ $t('preview.url.title') }}
+        {{ t('preview.url.title') }}
       </v-card-title>
       <v-card-text>
         <i18n-t keypath="preview.url.text" tag="p">
@@ -20,7 +20,7 @@
           text
           @click="close"
         >
-          {{ $t('preview.url.no') }}
+          {{ t('preview.url.no') }}
         </v-btn>
         <v-btn
           :loading="loading"
@@ -28,60 +28,52 @@
           text
           @click="ok"
         >
-          {{ $t('preview.url.yes') }}
+          {{ t('preview.url.yes') }}
         </v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>
 </template>
 
-<script>
-export default {
-  props: {
-    origin: {
-      type: String,
-      required: true,
-    },
-    action: {
-      type: Function,
-      required: true
-    },
-    modelValue: {
-      type: Boolean,
-      required: true
-    }
+<script setup>
+import { computed, ref } from 'vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+
+const props = defineProps({
+  origin: {
+    type: String,
+    required: true,
   },
-
-  data() {
-    return {
-      dialog: true,
-      loading: false
-    };
+  action: {
+    type: Function,
+    required: true
   },
+});
 
-  computed: {
-    domain() {
-      return new URL(this.origin).hostname;
-    }
-  },
+const model = defineModel({ type: Boolean });
 
-  methods: {
-    close() {
-      this.$emit('update:modelValue', false);
-    },
+const loading = ref(false);
 
-    async ok() {
-      this.loading = true;
-      try {
-        const file = await this.action();
-        this.close();
-        this.$emit('openPreview', file);
-      } catch(e) {
-        console.error(e);
-      } finally {
-        this.loading = false;
-      }
-    }
+const domain = computed(() => {
+  return new URL(props.origin).hostname;
+});
+
+function close() {
+  model.value = false;
+}
+
+async function ok() {
+  loading.value = true;
+  try {
+    const file = await props.action();
+    close();
+    emit('openPreview', file);
+  } catch(e) {
+    console.error(e);
+  } finally {
+    loading.value = false;
   }
-};
+}
 </script>
