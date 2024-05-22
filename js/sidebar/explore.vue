@@ -24,13 +24,15 @@
           :href="link.link"
           class="my-3"
           @click="$emit('hideMenu')"
-        >
-          <v-card-title class="subtitle-1">
-            {{ link.description }}
-          </v-card-title>
-          <v-card-subtitle>
-            {{ $t('explore_list.subtitle', { city: link.city, nation: link.nation }) }}
-          </v-card-subtitle>
+          >
+          <v-card-item>
+            <v-card-title class="subtitle-1">
+              {{ link.description }}
+            </v-card-title>
+            <v-card-subtitle>
+              {{ $t('explore_list.subtitle', { city: link.city, nation: link.nation }) }}
+            </v-card-subtitle>
+          </v-card-item>
           <v-card-actions>
             <v-btn
               text

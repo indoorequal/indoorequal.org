@@ -3,18 +3,20 @@
     dark
     color="primary"
   >
-    <v-card-title class="d-flex align-center">
-      indoor=
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        icon
-        color="transparent"
-        @click="$emit('close')"
-      >
-        <v-icon>{{ mdiClose }}</v-icon>
-      </v-btn>
-    </v-card-title>
+    <v-card-item>
+      <v-card-title class="d-flex align-center">
+        indoor=
+        <v-spacer></v-spacer>
+        <v-btn
+          flat
+          icon
+          color="transparent"
+          @click="$emit('close')"
+        >
+          <v-icon>{{ mdiClose }}</v-icon>
+        </v-btn>
+      </v-card-title>
+    </v-card-item>
 
     <v-card-text>
       <i18n-t keypath="sidebar.description" tag="span">{{ $t('sidebar.osm') }}</i18n-t>

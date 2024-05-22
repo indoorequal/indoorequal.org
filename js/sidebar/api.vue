@@ -11,7 +11,9 @@
         target="_blank"
         rel="noopener"
       >
-        <v-card-title>{{ $t('sidebar.api.indoorequal.title') }}</v-card-title>
+        <v-card-item>
+          <v-card-title>{{ $t('sidebar.api.indoorequal.title') }}</v-card-title>
+        </v-card-item>
         <v-card-text>{{ $t('sidebar.api.indoorequal.subtitle') }}</v-card-text>
         <v-card-actions>
           <v-btn text>{{ $t('sidebar.api.indoorequal.cta') }}</v-btn>
@@ -24,7 +26,9 @@
         target="_blank"
         rel="noopener"
       >
-        <v-card-title>{{ $t('sidebar.api.embed.title') }}</v-card-title>
+        <v-card-item>
+          <v-card-title>{{ $t('sidebar.api.embed.title') }}</v-card-title>
+        </v-card-item>
         <v-card-text>{{ $t('sidebar.api.embed.subtitle') }}</v-card-text>
         <v-card-actions>
           <v-btn text>{{ $t('sidebar.api.embed.cta') }}</v-btn>
@@ -38,7 +42,9 @@
         target="_blank"
         rel="noopener"
       >
-        <v-card-title>{{ $t('sidebar.api.schema.title') }}</v-card-title>
+        <v-card-item>
+          <v-card-title>{{ $t('sidebar.api.schema.title') }}</v-card-title>
+        </v-card-item>
         <v-card-text>{{ $t('sidebar.api.schema.subtitle') }}</v-card-text>
         <v-card-actions>
           <v-btn text>{{ $t('sidebar.api.schema.cta') }}</v-btn>

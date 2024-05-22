@@ -5,9 +5,11 @@
     max-width="500"
   >
     <v-card>
-      <v-card-title>
-        {{ t('preview.url.title') }}
-      </v-card-title>
+      <v-card-item>
+        <v-card-title>
+          {{ t('preview.url.title') }}
+        </v-card-title>
+      </v-card-item>
       <v-card-text>
         <i18n-t keypath="preview.url.text" tag="p">
           <strong>{{ domain }}</strong>

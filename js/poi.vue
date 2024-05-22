@@ -5,24 +5,26 @@
   >
     <v-expand-transition>
       <div v-if="geojson">
-        <v-card-title class="text-subtitle-1 d-flex align-center flex-nowrap">
-          <img
-            v-if="icon"
-            :src="iconURL"
-            class="flex-grow-0 pr-1"
-          >
-          <span class="text-truncate">{{ tags['name:'+ this.$i18n.locale] || tags.name || type }}</span>
-          <v-spacer></v-spacer>
-          <v-btn
-            icon
-            flat
-            color="transparent"
-            @click="close"
-          >
-            <v-icon>{{ mdiClose }}</v-icon>
-          </v-btn>
-        </v-card-title>
-        <v-card-subtitle v-if="tags.name">{{ type }}</v-card-subtitle>
+        <v-card-item>
+          <v-card-title class="text-subtitle-1 d-flex align-center flex-nowrap">
+            <img
+              v-if="icon"
+              :src="iconURL"
+              class="flex-grow-0 pr-1"
+            >
+            <span class="text-truncate">{{ tags['name:'+ this.$i18n.locale] || tags.name || type }}</span>
+            <v-spacer></v-spacer>
+            <v-btn
+              icon
+              flat
+              color="transparent"
+              @click="close"
+            >
+              <v-icon>{{ mdiClose }}</v-icon>
+            </v-btn>
+          </v-card-title>
+          <v-card-subtitle v-if="tags.name">{{ type }}</v-card-subtitle>
+        </v-card-item>
         <iframe
           v-if="tags.mapillary"
           :src="`https://www.mapillary.com/embed?image_key=${tags.mapillary}&style=photo`"

@@ -10,6 +10,7 @@ import { VBadge } from 'vuetify/lib/components/VBadge/VBadge.mjs';
 import { VBtn } from 'vuetify/lib/components/VBtn/VBtn.mjs';
 import { VCard } from 'vuetify/lib/components/VCard/VCard.mjs';
 import { VCardActions } from 'vuetify/lib/components/VCard/VCardActions.mjs';
+import { VCardItem } from 'vuetify/lib/components/VCard/VCardItem.mjs';
 import { VCardSubtitle } from 'vuetify/lib/components/VCard/VCardSubtitle.mjs';
 import { VCardText } from 'vuetify/lib/components/VCard/VCardText.mjs';
 import { VCardTitle } from 'vuetify/lib/components/VCard/VCardTitle.mjs';
@@ -57,6 +58,7 @@ const vuetify = createVuetify({
     VBtn,
     VCard,
     VCardActions,
+    VCardItem,
     VCardSubtitle,
     VCardText,
     VCardTitle,
