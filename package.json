@@ -56,7 +56,6 @@
     "jest-cli": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "js-yaml": "^4.1.0",
-    "minipass-fetch": "^3.0.4",
     "parcel": "^2.12.0",
     "parcel-reporter-static-files-copy": "^1.5.3",
     "parcel-transformer-markdown-front-matter": "^3.0.1",

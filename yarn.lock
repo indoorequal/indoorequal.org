@@ -6430,7 +6430,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minipass-fetch@npm:^3.0.0, minipass-fetch@npm:^3.0.4":
+"minipass-fetch@npm:^3.0.0":
   version: 3.0.5
   resolution: "minipass-fetch@npm:3.0.5"
   dependencies:
@@ -7401,7 +7401,6 @@ __metadata:
     lodash.uniq: "npm:^4.5.0"
     maplibre-gl: "npm:^3.2.1"
     maplibre-gl-indoorequal: "npm:^1.1.1"
-    minipass-fetch: "npm:^3.0.4"
     opening_hours: "npm:^3.5.0"
     osm2geojson-lite: "npm:^0.9.4"
     parcel: "npm:^2.12.0"

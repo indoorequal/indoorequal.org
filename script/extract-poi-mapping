@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const fetch = require('minipass-fetch');
 const deepmerge = require('deepmerge');
 const deepsort = require('deepsortobj');
 const yaml = require('js-yaml');
