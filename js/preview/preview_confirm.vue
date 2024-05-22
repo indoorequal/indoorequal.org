@@ -64,6 +64,8 @@ function close() {
   model.value = false;
 }
 
+const emit = defineEmits(['openPreview']);
+
 async function ok() {
   loading.value = true;
   try {
