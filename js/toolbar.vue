@@ -9,7 +9,7 @@
           v-bind="props"
         >
           <v-badge
-            :model-value="hasNews"
+            :model-value="hasUnreadNews"
             dot
           >
             <img
@@ -71,7 +71,7 @@
 <script>
 import { mdiPencilOutline } from '@mdi/js';
 import GeocoderInput from './geocoder';
-import news from './news';
+import { useNews } from './news';
 import equalLogo from 'data-url:../icons/equal.svg';
 
 export default {
@@ -79,7 +79,10 @@ export default {
     GeocoderInput
   },
 
-  mixins: [news],
+  setup() {
+    const { hasUnreadNews } = useNews();
+    return { hasUnreadNews};
+  },
 
   props: {
     mapBounds: {

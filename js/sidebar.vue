@@ -60,7 +60,7 @@
         <v-list-item @click="display('news')">
           <template v-slot:prepend>
             <v-badge
-              :model-value="hasNews"
+              :model-value="hasUnreadNews"
               dot
             >
               <v-icon>{{ mdiNewspaperVariantOutline }}</v-icon>
@@ -149,7 +149,7 @@ import {
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { tilesUrl } from '../config.json';
-import news from './news';
+import { useNews } from './news';
 import logo from 'data-url:../icons/indoorequal.svg';
 
 dayjs.extend(relativeTime);
@@ -168,7 +168,10 @@ const fetchReplicationStatus = async function() {
 }
 
 export default {
-  mixins: [news],
+  setup() {
+    const { hasUnreadNews } = useNews();
+    return { hasUnreadNews};
+  },
 
   props: {
     menu: {

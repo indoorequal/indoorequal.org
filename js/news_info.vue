@@ -21,17 +21,14 @@
   </sub-sidebar>
 </template>
 
-<script>
-import news from './news';
+<script setup>
+import { onMounted } from 'vue';
+import { useNews } from './news';
 import SubSidebar from './sub_sidebar';
 
-export default {
-  components: { SubSidebar },
+const { news, markAsRead } = useNews();
 
-  mixins: [news],
-
-  mounted() {
-    this.markAsRead();
-  }
-};
+onMounted(() => {
+  markAsRead();
+});
 </script>

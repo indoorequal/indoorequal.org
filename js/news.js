@@ -1,4 +1,4 @@
-import { reactive } from 'vue';
+import { ref } from 'vue';
 import newsFiles from '../news/*.md';
 
 const news = Object.values(newsFiles)
@@ -11,37 +11,23 @@ const news = Object.values(newsFiles)
 
 const LAST_READ_NEWS_AT_LOCAL_STORAGE = 'lastReadNewsAt';
 
-const state = reactive({
-  hasNews: true,
-});
-
-export default {
-  data() {
-    return {
-      news,
-      internalState: state,
-    };
-  },
-
-  created() {
-    const lastReadNewsAt = localStorage.getItem(LAST_READ_NEWS_AT_LOCAL_STORAGE);
-    if (lastReadNewsAt) {
-      const date = new Date();
-      date.setTime(lastReadNewsAt);
-      state.hasNews = news[0].date > date;
-    }
-  },
-
-  computed: {
-    hasNews() {
-      return this.internalState.hasNews;
-    }
-  },
-
-  methods: {
-    markAsRead() {
-      localStorage.setItem(LAST_READ_NEWS_AT_LOCAL_STORAGE, news[0].date.getTime());
-      state.hasNews = false;
-    }
+function initHasUnreadNews() {
+  const lastReadNewsAt = localStorage.getItem(LAST_READ_NEWS_AT_LOCAL_STORAGE);
+  if (lastReadNewsAt) {
+    const date = new Date();
+    date.setTime(lastReadNewsAt);
+    return news[0].date > date;
   }
-};
+  return true;
+}
+
+const hasUnreadNews = ref(initHasUnreadNews());
+
+function markAsRead() {
+  localStorage.setItem(LAST_READ_NEWS_AT_LOCAL_STORAGE, news[0].date.getTime());
+  hasUnreadNews.value = false;
+}
+
+export function useNews() {
+  return { hasUnreadNews, news, markAsRead };
+}
