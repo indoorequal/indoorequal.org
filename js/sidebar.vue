@@ -133,8 +133,8 @@
   </v-navigation-drawer>
 </template>
 
-<script>
-import { defineAsyncComponent } from 'vue';
+<script setup>
+import { computed, defineAsyncComponent, ref, watch } from 'vue';
 import {
   mdiArrowExpandLeft,
   mdiInformationOutline,
@@ -167,84 +167,59 @@ const fetchReplicationStatus = async function() {
   return replicationStatusRequest.json();
 }
 
-export default {
-  setup() {
-    const { hasUnreadNews } = useNews();
-    return { hasUnreadNews};
-  },
+const { hasUnreadNews } = useNews();
 
-  props: {
-    menu: {
-      type: [String, null],
-    }
-  },
+const menu = defineModel('menu', { type: [String, null] });
 
-  data() {
-    return {
-      mdiArrowExpandLeft,
-      mdiInformationOutline,
-      mdiMap,
-      mdiMapMarkerCircle,
-      mdiNewspaperVariantOutline,
-      mdiOpenInNew,
-      mdiPuzzleCheck,
-      mdiPuzzleEditOutline,
-      mdiTag,
-      logo,
-      replicationStatus: null
-    };
-  },
+const replicationStatus = ref(null);
 
-  computed: {
-    hasSubSidebar() {
-      return this.menu !== '';
-    },
-    componentName() {
-      return COMPONENTS[this.menu];
-    },
-    lastUpdateTimestamp() {
-      return this.replicationStatus.timestamp;
-    },
-    lastUpdateTimestampFormatted() {
-      return dayjs(this.lastUpdateTimestamp).fromNow();
-    }
-  },
+const hasSubSidebar = computed(() => {
+  return menu.value !== '';
+});
 
-  methods: {
-    display(component) {
-      this.updateMenu(component)
-      plausible(`Display ${component}`);
-    },
+const componentName = computed(() => {
+  return COMPONENTS[menu.value];
+});
 
-    hideMenu() {
-      this.updateMenu(null);
-    },
+const lastUpdateTimestamp = computed(() => {
+  return replicationStatus.value.timestamp;
+});
 
-    updateValue(value) {
-      if (!value) {
-        this.updateMenu(null);
-      }
-    },
+const lastUpdateTimestampFormatted = computed(() => {
+  return dayjs(lastUpdateTimestamp.value).fromNow();
+});
 
-    updateMenu(value) {
-      this.$emit('update:menu', value);
-    }
-  },
+function display(component) {
+  updateMenu(component)
+  plausible(`Display ${component}`);
+};
 
-  watch: {
-    menu: {
-      immediate: true,
-      async handler(value) {
-        if (value !== null && value !== '' && !Object.keys(COMPONENTS).includes(value)) {
-          this.updateMenu('');
-        }
-        if (value !== null && !this.replicationStatus) {
-          this.replicationStatus = await fetchReplicationStatus();
-        }
-      }
-    }
+function hideMenu() {
+  updateMenu(null);
+}
+
+function updateValue(value) {
+  if (!value) {
+    updateMenu(null);
   }
 }
+
+function updateMenu(value) {
+  menu.value = value;
+}
+
+watch(
+  () => menu.value,
+  async (value) => {
+    if (value !== null && value !== '' && !Object.keys(COMPONENTS).includes(value)) {
+      updateMenu('');
+    }
+    if (value !== null && !replicationStatus.value) {
+      replicationStatus.value = await fetchReplicationStatus();
+    }
+  },
+  { immediate: true }
+);
 </script>
 
 <style scoped>
