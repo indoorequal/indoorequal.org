@@ -2,7 +2,7 @@
   <v-card class="pa-2">
     <div class="d-flex align-center">
       <span class="text-h6 flex-grow-1">{{ t('preview.title') }}</span>
-      <v-tooltip bottom>
+      <v-tooltip location="bottom">
         <template v-slot:activator="{ props }">
           <v-btn
             :href="fileUrl"
@@ -16,7 +16,7 @@
         </template>
         <span>{{ t('preview.download') }}</span>
       </v-tooltip>
-      <v-tooltip bottom>
+      <v-tooltip location="bottom">
         <template v-slot:activator="{ props }">
           <v-btn
             icon

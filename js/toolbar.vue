@@ -1,6 +1,9 @@
 <template>
   <v-card class="d-flex align-center pa-1">
-    <v-tooltip bottom>
+    <v-tooltip
+      :disabled="menu"
+      location="bottom"
+    >
       <template v-slot:activator="{ props }">
         <v-btn
           icon
@@ -26,20 +29,19 @@
       class="mx-2"
       @updateBounds="updateBounds"
     />
-    <v-menu>
-      <template v-slot:activator="{ props: menu, value }">
-        <v-tooltip bottom :disabled="value">
+    <v-menu v-model="editOpen">
+      <template v-slot:activator="{ props: menu }">
+        <v-tooltip location="bottom" :disabled="editOpen">
           <template v-slot:activator="{ props: tooltip }">
-            <div v-bind="tooltip">
-              <v-btn
-                :disabled="editDisabled"
-                icon
-                variant="plain"
-                v-bind="menu"
+            <v-btn
+              :disabled="editDisabled"
+              icon
+              variant="plain"
+              v-bind="mergeProps(tooltip, menu)"
               >
-                <v-icon>{{ mdiPencilOutline }}</v-icon>
-              </v-btn>
-            </div>
+              {{ value }}
+              <v-icon>{{ mdiPencilOutline }}</v-icon>
+            </v-btn>
           </template>
           <span>{{ editDisabled ? $t('toolbar.zoom_to_edit') : $t('toolbar.edit') }}</span>
         </v-tooltip>
@@ -69,11 +71,11 @@
 </template>
 
 <script>
+import { mergeProps } from 'vue';
 import { mdiPencilOutline } from '@mdi/js';
 import GeocoderInput from './geocoder';
 import { useNews } from './news';
 import equalLogo from 'data-url:../icons/equal.svg';
-
 export default {
   components: {
     GeocoderInput
@@ -81,7 +83,7 @@ export default {
 
   setup() {
     const { hasUnreadNews } = useNews();
-    return { hasUnreadNews};
+    return { hasUnreadNews, mergeProps };
   },
 
   props: {
@@ -117,7 +119,7 @@ export default {
   },
 
   data() {
-    return { equalLogo, mdiPencilOutline };
+    return { equalLogo, mdiPencilOutline, editOpen: false };
   },
 
   computed: {

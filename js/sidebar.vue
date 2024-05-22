@@ -23,7 +23,7 @@
               class="logo"
             />
           </h1>
-          <v-tooltip bottom>
+          <v-tooltip location="bottom">
             <template v-slot:activator="{ props }">
               <v-btn
                 icon
