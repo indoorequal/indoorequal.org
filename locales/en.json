@@ -35,6 +35,9 @@
     "aerialway": {
       "station": "Station"
     },
+    "aeroway": {
+      "gate": "Airport Gate"
+    },
     "amenity": {
       "arts_centre": "Arts centre",
       "atm": "ATM",
@@ -126,7 +129,9 @@
       "yes": "Door"
     },
     "emergency": {
-      "defibrillator": "Defibrillator"
+      "defibrillator": "Defibrillator",
+      "fire_extinguisher": "Fire extinguisher",
+      "phone": "Phone"
     },
     "entrance": {
       "building": "Entrance",

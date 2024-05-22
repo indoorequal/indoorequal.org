@@ -2,6 +2,9 @@
   "aerialway": [
     "station"
   ],
+  "aeroway": [
+    "gate"
+  ],
   "amenity": [
     "ticket_validator",
     "photo_booth",
@@ -92,7 +95,9 @@
     "overhead"
   ],
   "emergency": [
-    "defibrillator"
+    "defibrillator",
+    "phone",
+    "fire_extinguisher"
   ],
   "entrance": [
     "yes",
