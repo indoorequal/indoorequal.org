@@ -1,7 +1,7 @@
 <script setup>
 import { useControl } from '@indoorequal/vue-maplibre-gl';
 import { useI18n } from 'vue-i18n'
-import { updateStyle } from './style_language';
+import { updateStyle } from '../style_language';
 
 class LanguageControl {
   constructor(options) {

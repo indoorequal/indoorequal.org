@@ -33,9 +33,9 @@ import IndoorEqual from 'maplibre-gl-indoorequal';
 import bbox from '@turf/bbox';
 import { mapStyle } from './maptiler';
 import { indoorEqualApiKey, tilesUrl } from '../config.json';
-import LanguageControl from './language_control';
-import LevelControl from './level_control';
-import HeatmapControl from './heatmap_control';
+import LanguageControl from './controls/language_control';
+import LevelControl from './controls/level_control';
+import HeatmapControl from './controls/heatmap_control';
 
 export default {
   components: {
