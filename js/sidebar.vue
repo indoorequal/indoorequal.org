@@ -155,11 +155,11 @@ import logo from 'data-url:../icons/indoorequal.svg';
 dayjs.extend(relativeTime);
 
 const COMPONENTS = {
-  explore: defineAsyncComponent(() => import('./explore_list')),
-  api: defineAsyncComponent(() => import('./api_info')),
-  about: defineAsyncComponent(() => import('./about_info')),
-  news: defineAsyncComponent(() => import('./news_info')),
-  preview: defineAsyncComponent(() => import('./preview/preview_sidebar')),
+  explore: defineAsyncComponent(() => import('./sidebar/explore')),
+  api: defineAsyncComponent(() => import('./sidebar/api')),
+  about: defineAsyncComponent(() => import('./sidebar/about')),
+  news: defineAsyncComponent(() => import('./sidebar/news')),
+  preview: defineAsyncComponent(() => import('./sidebar/preview')),
 };
 
 const fetchReplicationStatus = async function() {

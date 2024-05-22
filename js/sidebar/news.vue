@@ -23,7 +23,7 @@
 
 <script setup>
 import { onMounted } from 'vue';
-import { useNews } from './news';
+import { useNews } from '../news';
 import SubSidebar from './sub_sidebar';
 
 const { news, markAsRead } = useNews();

@@ -15,7 +15,7 @@
       <p><strong>{{ $t('preview.no_data_uploaded') }}</strong></p>
       <v-file-input
         :label="$t('preview.file')"
-        :accept="fileFormats"
+        :accept="acceptedFileFormats"
         variant="underlined"
         @update:modelValue="openPreview"
       ></v-file-input>
@@ -23,24 +23,16 @@
   </sub-sidebar>
 </template>
 
-<script>
-import SubSidebar from '../sub_sidebar';
-import { fileFormats } from './preview';
+<script setup>
+import SubSidebar from './sub_sidebar';
+import { fileFormats } from '../preview/preview';
 
-export default {
-  components: { SubSidebar },
+const emit = defineEmits(['openPreview']);
 
-  data() {
-    return {
-      fileFormats: fileFormats.join(','),
-    };
-  },
+const acceptedFileFormats = fileFormats.join(',');
 
-  methods: {
-    openPreview(file) {
-      if (!file) return;
-      this.$emit('openPreview', file);
-    }
-  }
-};
+function openPreview(file) {
+  if (!file) return;
+  emit('openPreview', file);
+}
 </script>
