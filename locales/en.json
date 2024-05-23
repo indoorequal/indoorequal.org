@@ -131,7 +131,7 @@
     "emergency": {
       "defibrillator": "Defibrillator",
       "fire_extinguisher": "Fire extinguisher",
-      "phone": "Phone"
+      "phone": "Emergency phone"
     },
     "entrance": {
       "building": "Entrance",
