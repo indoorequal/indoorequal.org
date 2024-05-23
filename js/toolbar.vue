@@ -1,7 +1,7 @@
 <template>
   <v-card class="d-flex align-center pa-1">
     <v-tooltip
-      :disabled="menu"
+      :disabled="!!menu"
       location="bottom"
     >
       <template v-slot:activator="{ props }">
