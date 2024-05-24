@@ -62,14 +62,14 @@
     "process": "^0.11.10"
   },
   "dependencies": {
-    "@indoorequal/vue-maplibre-gl": "^6.3.0",
+    "@indoorequal/vue-maplibre-gl": "^7.0.0",
     "@turf/bbox": "^6.5.0",
     "@turf/center-of-mass": "^6.5.0",
     "@turf/line-to-polygon": "^6.5.0",
     "dayjs": "^1.11.10",
     "jszip": "^3.7.1",
     "lodash.uniq": "^4.5.0",
-    "maplibre-gl": "^3.2.1",
+    "maplibre-gl": "^4.3.2",
     "maplibre-gl-indoorequal": "^1.2.0",
     "opening_hours": "^3.5.0",
     "osm2geojson-lite": "^0.9.4",

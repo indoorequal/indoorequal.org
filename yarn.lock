@@ -1372,13 +1372,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@indoorequal/vue-maplibre-gl@npm:^6.3.0":
-  version: 6.3.0
-  resolution: "@indoorequal/vue-maplibre-gl@npm:6.3.0"
+"@indoorequal/vue-maplibre-gl@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@indoorequal/vue-maplibre-gl@npm:7.0.0"
   peerDependencies:
-    maplibre-gl: ^3.0.0
+    maplibre-gl: ^4.0.0
     vue: ^3.4.18
-  checksum: 10c0/fdd426b0231cebf0fdc7f83d6b7de4c612e6f2ace6c798d74fed5a6f5bdcb6e297afd7312a5c6924b311bac0d50ba1734dffabb39457bc66ea5241b35b7dd56e
+  checksum: 10c0/12047d75b159651b1079c1c1bbfdb83ff39eb609d35b87f285521d16f858453ccda088afdcd1d27898fe88a56651d33da7e0a6b44b5b7950e7605d70ae2e441f
   languageName: node
   linkType: hard
 
@@ -1829,21 +1829,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@maplibre/maplibre-gl-style-spec@npm:^19.3.3":
-  version: 19.3.3
-  resolution: "@maplibre/maplibre-gl-style-spec@npm:19.3.3"
+"@maplibre/maplibre-gl-style-spec@npm:^20.2.0":
+  version: 20.2.0
+  resolution: "@maplibre/maplibre-gl-style-spec@npm:20.2.0"
   dependencies:
     "@mapbox/jsonlint-lines-primitives": "npm:~2.0.2"
     "@mapbox/unitbezier": "npm:^0.0.1"
-    json-stringify-pretty-compact: "npm:^3.0.0"
+    json-stringify-pretty-compact: "npm:^4.0.0"
     minimist: "npm:^1.2.8"
+    quickselect: "npm:^2.0.0"
     rw: "npm:^1.3.3"
     sort-object: "npm:^3.0.3"
+    tinyqueue: "npm:^2.0.3"
   bin:
     gl-style-format: dist/gl-style-format.mjs
     gl-style-migrate: dist/gl-style-migrate.mjs
     gl-style-validate: dist/gl-style-validate.mjs
-  checksum: 10c0/ef315bf9c4e5ebce0d76a7722e53c3e4192b92ea405c95392f61655f551a112bbc17fd00c7c62a16eeb57cdb79a2145e385c4eaf2ca7f50222d2540c9e7e0a7a
+  checksum: 10c0/0f5585dcec90af0375edfb2e433630a728f28733c066947bef391edae1efe221bc7fdfd0e91890fadc5405df1035a48a0427c90e4589ee3ec65b3e953e7bafe0
   languageName: node
   linkType: hard
 
@@ -3149,7 +3151,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/geojson@npm:*, @types/geojson@npm:^7946.0.13":
+"@types/geojson-vt@npm:3.2.5":
+  version: 3.2.5
+  resolution: "@types/geojson-vt@npm:3.2.5"
+  dependencies:
+    "@types/geojson": "npm:*"
+  checksum: 10c0/bfd9157c7d0441dc4b420e0c6df65b4e4b29f3d33cc77667b3dc5acd68ba6326bfbfd867642645357382e3374ceebfb9c5d15f2b2c0ee3e3c492e0b5a2bb71be
+  languageName: node
+  linkType: hard
+
+"@types/geojson@npm:*, @types/geojson@npm:^7946.0.14":
   version: 7946.0.14
   resolution: "@types/geojson@npm:7946.0.14"
   checksum: 10c0/54f3997708fa2970c03eeb31f7e4540a0eb6387b15e9f8a60513a1409c23cafec8d618525404573468b59c6fecbfd053724b3327f7fca416729c26271d799f55
@@ -3205,6 +3216,13 @@ __metadata:
     "@types/tough-cookie": "npm:*"
     parse5: "npm:^7.0.0"
   checksum: 10c0/3d4b2a3eab145674ee6da482607c5e48977869109f0f62560bf91ae1a792c9e847ac7c6aaf243ed2e97333cb3c51aef314ffa54a19ef174b8f9592dfcb836b25
+  languageName: node
+  linkType: hard
+
+"@types/junit-report-builder@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@types/junit-report-builder@npm:3.0.2"
+  checksum: 10c0/3848c5247a57597695c86ab7a80cf64ba0bfcbc39e067e9e2e051eea80608a95261de065298aaaaee795b137b076f5ab3acb4e3ba003ee637a9dfd9715f86456
   languageName: node
   linkType: hard
 
@@ -5977,10 +5995,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"json-stringify-pretty-compact@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "json-stringify-pretty-compact@npm:3.0.0"
-  checksum: 10c0/fc522c25047bd96d72ded77af4002e7f12e9ba9f4b7e7e12a9316aee166f1b8f9c7b0d0d989a8494e3fdd804a23819f411479f68f2ef10b2f7a144581b2c68f4
+"json-stringify-pretty-compact@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "json-stringify-pretty-compact@npm:4.0.0"
+  checksum: 10c0/505781b4be7c72047ae8dfa667b520d20461ceac451b6516cb8ac5e12a758fbd7491d99d5e3f7e60423ce9d26ed4e4bcaccab3420bf651298901635c849017cf
   languageName: node
   linkType: hard
 
@@ -6282,9 +6300,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"maplibre-gl@npm:^3.2.1":
-  version: 3.6.2
-  resolution: "maplibre-gl@npm:3.6.2"
+"maplibre-gl@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "maplibre-gl@npm:4.3.2"
   dependencies:
     "@mapbox/geojson-rewind": "npm:^0.5.2"
     "@mapbox/jsonlint-lines-primitives": "npm:^2.0.2"
@@ -6293,8 +6311,10 @@ __metadata:
     "@mapbox/unitbezier": "npm:^0.0.1"
     "@mapbox/vector-tile": "npm:^1.3.1"
     "@mapbox/whoots-js": "npm:^3.1.0"
-    "@maplibre/maplibre-gl-style-spec": "npm:^19.3.3"
-    "@types/geojson": "npm:^7946.0.13"
+    "@maplibre/maplibre-gl-style-spec": "npm:^20.2.0"
+    "@types/geojson": "npm:^7946.0.14"
+    "@types/geojson-vt": "npm:3.2.5"
+    "@types/junit-report-builder": "npm:^3.0.2"
     "@types/mapbox__point-geometry": "npm:^0.1.4"
     "@types/mapbox__vector-tile": "npm:^1.3.4"
     "@types/pbf": "npm:^3.0.5"
@@ -6311,7 +6331,7 @@ __metadata:
     supercluster: "npm:^8.0.1"
     tinyqueue: "npm:^2.0.3"
     vt-pbf: "npm:^3.1.3"
-  checksum: 10c0/51245b634087dd5f2a971b1dfa4170b98e10472e0d00859774d2ab1bd646de9a78342616862f4a66e932d0a75a6a5695258ce044f128a26e77d2f6b9efe7dafe
+  checksum: 10c0/576f22f1ace796a4e4ea8f1567aec963ad92d977e3b8e6f832e695c080b5954080dc8d9ddcaef8fcbec700ca6a50aec08998500b47f24e4632caba4057e62d20
   languageName: node
   linkType: hard
 
@@ -7377,7 +7397,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.24.4"
     "@babel/preset-env": "npm:^7.24.4"
-    "@indoorequal/vue-maplibre-gl": "npm:^6.3.0"
+    "@indoorequal/vue-maplibre-gl": "npm:^7.0.0"
     "@mdi/js": "npm:^7.4.47"
     "@parcel/optimizer-data-url": "npm:^2.12.0"
     "@parcel/resolver-glob": "npm:^2.12.0"
@@ -7399,7 +7419,7 @@ __metadata:
     js-yaml: "npm:^4.1.0"
     jszip: "npm:^3.7.1"
     lodash.uniq: "npm:^4.5.0"
-    maplibre-gl: "npm:^3.2.1"
+    maplibre-gl: "npm:^4.3.2"
     maplibre-gl-indoorequal: "npm:^1.2.0"
     opening_hours: "npm:^3.5.0"
     osm2geojson-lite: "npm:^0.9.4"
