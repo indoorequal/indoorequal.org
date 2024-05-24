@@ -69,7 +69,7 @@
     "dayjs": "^1.11.10",
     "jszip": "^3.7.1",
     "lodash.uniq": "^4.5.0",
-    "maplibre-gl": "^3.2.1",
+    "maplibre-gl": "^4.3.2",
     "maplibre-gl-indoorequal": "^1.2.0",
     "opening_hours": "^3.5.0",
     "osm2geojson-lite": "^0.9.4",
