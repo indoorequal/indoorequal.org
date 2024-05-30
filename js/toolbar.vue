@@ -69,103 +69,88 @@
   </v-card>
 </template>
 
-<script>
-import { mergeProps } from 'vue';
+<script setup>
+import { mergeProps, ref, computed } from 'vue';
 import { mdiPencilOutline } from '@mdi/js';
 import GeocoderInput from './geocoder';
 import { useNews } from './news';
 import equalLogo from 'data-url:../icons/equal.svg';
-export default {
-  components: {
-    GeocoderInput
+
+const { hasUnreadNews } = useNews();
+
+const props = defineProps({
+  mapBounds: {
+    type: Array,
+    required: false,
+    default() { return []; }
   },
 
-  setup() {
-    const { hasUnreadNews } = useNews();
-    return { hasUnreadNews, mergeProps };
+  mapCenter: {
+    type: Object,
+    required: true
   },
 
-  props: {
-    mapBounds: {
-      type: Array,
-      required: false,
-      default() { return []; }
-    },
-
-    mapCenter: {
-      type: Object,
-      required: true
-    },
-
-    mapLevel: {
-      type: String,
-      required: true
-    },
-
-    mapZoom: {
-      type: Number,
-      required: true
-    },
-
-    indoorMinZoom: {
-      type: Number,
-      required: true
-    },
-
-    menu: {
-      type: String,
-    }
+  mapLevel: {
+    type: String,
+    required: true
   },
 
-  data() {
-    return { equalLogo, mdiPencilOutline, editOpen: false };
+  mapZoom: {
+    type: Number,
+    required: true
   },
 
-  computed: {
-    editDisabled() {
-      return this.mapZoom < this.indoorMinZoom;
-    },
-
-    JOSMParams() {
-      const bounds = this.mapBounds;
-      return `load_and_zoom?left=${bounds[0]}&right=${bounds[2]}&top=${bounds[3]}&bottom=${bounds[1]}`;
-    },
-
-    JOSMUrl() {
-      return `http://localhost:8111/${this.JOSMParams}`;
-    },
-
-    OSMUrl() {
-      return `https://www.openstreetmap.org/edit?editor=id#map=${this.mapZoom}/${this.mapCenter.lat}/${this.mapCenter.lng}`;
-    },
-
-    OsmInEditUrl() {
-      return `https://osminedit.pavie.info/#${this.mapZoom}/${this.mapCenter.lat}/${this.mapCenter.lng}`;
-    },
-
-    OpenLevelUpUrl() {
-      return `https://openlevelup.net/?l=${this.mapLevel}#${this.mapZoom}/${this.mapCenter.lat}/${this.mapCenter.lng}`;
-    },
-
-    VespucciUrl() {
-      return `josm:/${this.JOSMParams}`;
-    }
+  indoorMinZoom: {
+    type: Number,
+    required: true
   },
+});
 
-  methods: {
-    openJOSM() {
-      fetch(this.JOSMUrl).catch(() => {
-        alert("Could not talk to JOSM. Ensure it's running");
-      });
-    },
+const editOpen = ref(false);
 
-    openMenu() {
-      this.$emit('update:menu', '');
-    },
+const editDisabled = computed(() => {
+  return props.mapZoom < props.indoorMinZoom;
+})
 
-    updateBounds(bbox) {
-      this.$emit('updateBounds', bbox);
-    }
-  }
+const JOSMParams = computed(() => {
+  const [left, bottom, right, top] = props.mapBounds;
+  return `load_and_zoom?left=${left}&right=${right}&top=${top}&bottom=${bottom}`;
+});
+
+const JOSMUrl = computed(() => {
+  return `http://localhost:8111/${JOSMParams.value}`;
+});
+
+const OSMUrl = computed(() => {
+  return `https://www.openstreetmap.org/edit?editor=id#map=${props.mapZoom}/${props.mapCenter.lat}/${props.mapCenter.lng}`;
+});
+
+const OsmInEditUrl = computed(() => {
+  return `https://osminedit.pavie.info/#${props.mapZoom}/${props.mapCenter.lat}/${props.mapCenter.lng}`;
+});
+
+const OpenLevelUpUrl = computed(() => {
+  return `https://openlevelup.net/?l=${props.mapLevel}#${props.mapZoom}/${props.mapCenter.lat}/${props.mapCenter.lng}`;
+});
+
+const VespucciUrl = computed(() => {
+  return `josm:/${JOSMParams.value}`;
+});
+
+const openJOSM = function() {
+  fetch(JOSMUrl.value).catch(() => {
+    alert("Could not talk to JOSM. Ensure it's running");
+  });
+};
+
+const menu = defineModel('menu', { type: [String, null] });
+
+const openMenu = function() {
+  menu.value = '';
+};
+
+const emit = defineEmits(['updateBounds']);
+const updateBounds = function(bbox) {
+  emit('updateBounds', bbox);
 }
 </script>
