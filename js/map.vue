@@ -4,6 +4,7 @@
     :zoom="mapZoom"
     :map-style="mapStyle"
     :track-resize="true"
+    :attribution-control="{ customAttribution: '' }"
     hash="map"
     @map:load="load"
     @update:center="updateMapCenter"
