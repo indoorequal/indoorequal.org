@@ -1,5 +1,5 @@
 import JSZip from 'jszip';
-import centerOfMass from '@turf/center-of-mass';
+import { centerOfMass } from '@turf/center-of-mass';
 import uniq from 'lodash.uniq';
 import { poiClassAndSubclass } from './poi';
 
