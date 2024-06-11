@@ -31,7 +31,7 @@
 import { MglMap, MglNavigationControl, MglGeolocateControl } from '@indoorequal/vue-maplibre-gl';
 import { computed } from 'vue';
 import IndoorEqual from 'maplibre-gl-indoorequal';
-import bbox from '@turf/bbox';
+import { bbox } from '@turf/bbox';
 import { mapStyle } from './maptiler';
 import { indoorEqualApiKey, tilesUrl } from '../config.json';
 import LanguageControl from './controls/language_control';

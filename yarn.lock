@@ -3037,6 +3037,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@turf/bbox@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@turf/bbox@npm:7.0.0"
+  dependencies:
+    "@turf/helpers": "npm:^7.0.0"
+    "@turf/meta": "npm:^7.0.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/4e6f43471db8dee93ec4ab892aa72b4d752bec3310b2f9da9602c190b47466bdd1da555b7298e041812d03af7dd0db76ea3e2b5b5e75291d86c26697d0a59b3e
+  languageName: node
+  linkType: hard
+
 "@turf/center-of-mass@npm:^7.0.0":
   version: 7.0.0
   resolution: "@turf/center-of-mass@npm:7.0.0"
@@ -7833,7 +7844,7 @@ __metadata:
     "@parcel/transformer-inline-string": "npm:^2.12.0"
     "@parcel/transformer-sass": "npm:^2.12.0"
     "@parcel/transformer-vue": "npm:2.12.0"
-    "@turf/bbox": "npm:^6.5.0"
+    "@turf/bbox": "npm:^7.0.0"
     "@turf/center-of-mass": "npm:^7.0.0"
     "@turf/line-to-polygon": "npm:^6.5.0"
     "@vue/test-utils": "npm:^2.0.0"
