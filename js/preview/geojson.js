@@ -1,5 +1,5 @@
 import lineToPolygon from '@turf/line-to-polygon';
-import centerOfMass from '@turf/center-of-mass';
+import { centerOfMass } from '@turf/center-of-mass';
 import { poiClassAndSubclass } from './poi';
 
 function levelToArray(level) {
