@@ -65,7 +65,7 @@
     "@indoorequal/vue-maplibre-gl": "^7.3.0",
     "@turf/bbox": "^7.0.0",
     "@turf/center-of-mass": "^7.0.0",
-    "@turf/line-to-polygon": "^6.5.0",
+    "@turf/line-to-polygon": "^7.0.0",
     "dayjs": "^1.11.10",
     "jszip": "^3.7.1",
     "lodash.uniq": "^4.5.0",

@@ -3073,12 +3073,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/clone@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "@turf/clone@npm:6.5.0"
+"@turf/clone@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@turf/clone@npm:7.0.0"
   dependencies:
-    "@turf/helpers": "npm:^6.5.0"
-  checksum: 10c0/a7a6a390ba1303d0ec3beb2b18e557ab62f27d03245f8b13d587619af6bb22c0489ee9a3a70d3012a95ab43fd3af41e5d685db117d76492785bd7ed07e9b3a1f
+    "@turf/helpers": "npm:^7.0.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/4d59e18b3cafe04f73136b5a1610a16f7ad16ebff11b36708a9e48b0ad98af5776ba1fc1b7ac47537ac356a7e217852e97cefc9878b6ea42b977ddd476056bb7
   languageName: node
   linkType: hard
 
@@ -3111,15 +3112,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/invariant@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "@turf/invariant@npm:6.5.0"
-  dependencies:
-    "@turf/helpers": "npm:^6.5.0"
-  checksum: 10c0/5ff9f2043d629cc5f6d3df78452632b2213f17931caa34698d9e8c651640508814b3522d4ab747f36a4b9dfaf6ff64eedc3a04ba62c39ddeb6706f052b621dc6
-  languageName: node
-  linkType: hard
-
 "@turf/invariant@npm:^7.0.0":
   version: 7.0.0
   resolution: "@turf/invariant@npm:7.0.0"
@@ -3130,15 +3122,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/line-to-polygon@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "@turf/line-to-polygon@npm:6.5.0"
+"@turf/line-to-polygon@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "@turf/line-to-polygon@npm:7.0.0"
   dependencies:
-    "@turf/bbox": "npm:^6.5.0"
-    "@turf/clone": "npm:^6.5.0"
-    "@turf/helpers": "npm:^6.5.0"
-    "@turf/invariant": "npm:^6.5.0"
-  checksum: 10c0/e3187e45b38100f47566bac7817686af156d68e6e99536d6698277e9d50e3a7f6132e14fe78897ee2bf426b7a32b10e583882e63cb5764050e7d9728c0dd34a8
+    "@turf/bbox": "npm:^7.0.0"
+    "@turf/clone": "npm:^7.0.0"
+    "@turf/helpers": "npm:^7.0.0"
+    "@turf/invariant": "npm:^7.0.0"
+    tslib: "npm:^2.6.2"
+  checksum: 10c0/2661c323ceeb7e3bc7f515327b83ca3b1675373e1b8a938ec1972a28f6c50cbd66771a941c5b38c192ae6baccddecde28b6dd5b1c24f61d3f48353ed7350eeae
   languageName: node
   linkType: hard
 
@@ -7846,7 +7839,7 @@ __metadata:
     "@parcel/transformer-vue": "npm:2.12.0"
     "@turf/bbox": "npm:^7.0.0"
     "@turf/center-of-mass": "npm:^7.0.0"
-    "@turf/line-to-polygon": "npm:^6.5.0"
+    "@turf/line-to-polygon": "npm:^7.0.0"
     "@vue/test-utils": "npm:^2.0.0"
     "@vue/vue3-jest": "npm:29"
     babel-jest: "npm:^29.7.0"
