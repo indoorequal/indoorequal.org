@@ -3027,16 +3027,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/bbox@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "@turf/bbox@npm:6.5.0"
-  dependencies:
-    "@turf/helpers": "npm:^6.5.0"
-    "@turf/meta": "npm:^6.5.0"
-  checksum: 10c0/32c705ff0462f9f72fd4c78f013ebf3cbb30127c998770841d41540b246d3f3a73365a714ef335e45a70b9340317f402af76c36dbd64e9d9c2dfc65de71a9f84
-  languageName: node
-  linkType: hard
-
 "@turf/bbox@npm:^7.0.0":
   version: 7.0.0
   resolution: "@turf/bbox@npm:7.0.0"
@@ -3095,13 +3085,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/helpers@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "@turf/helpers@npm:6.5.0"
-  checksum: 10c0/786cbe0c0027f85db286fb3a0b7be04bb29bd63ec07760a49735ef32e9c5b4a7c059a8f691fafa31c7e0e9be34c281e014dc24077438bae01a09b492a680fb6f
-  languageName: node
-  linkType: hard
-
 "@turf/helpers@npm:^7.0.0":
   version: 7.0.0
   resolution: "@turf/helpers@npm:7.0.0"
@@ -3132,15 +3115,6 @@ __metadata:
     "@turf/invariant": "npm:^7.0.0"
     tslib: "npm:^2.6.2"
   checksum: 10c0/2661c323ceeb7e3bc7f515327b83ca3b1675373e1b8a938ec1972a28f6c50cbd66771a941c5b38c192ae6baccddecde28b6dd5b1c24f61d3f48353ed7350eeae
-  languageName: node
-  linkType: hard
-
-"@turf/meta@npm:^6.5.0":
-  version: 6.5.0
-  resolution: "@turf/meta@npm:6.5.0"
-  dependencies:
-    "@turf/helpers": "npm:^6.5.0"
-  checksum: 10c0/9df6cb5af7af98a477ddcd744fb44e4e890fe8a67afa50bb24cad7d9c15af67362d24f1f8890d706a9c369b18285b0ba42430509add769ad868ac452703bb59b
   languageName: node
   linkType: hard
 
