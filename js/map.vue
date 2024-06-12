@@ -72,18 +72,6 @@ export default {
       required: true
     },
 
-    newMapBounds: {
-      type: Array,
-      required: false,
-      default() { return []; }
-    },
-
-    newMapCenter: {
-      type: Object,
-      required: false,
-      default() { return {}; }
-    },
-
     preview: {
       type: Boolean,
       required: true,
@@ -111,20 +99,12 @@ export default {
   },
 
   watch: {
-    newMapBounds(bbox) {
-      this.map.fitBounds(bbox, { duration: 0 });
-    },
-
-    newMapCenter(center) {
-      this.map.setCenter(center);
-    },
-
     preview() {
       this.indoorEqualInstance.remove();
       this.createIndoorEqualInstance();
       if (this.preview) {
         const newbbox = bbox(this.geojson.area);
-        this.$emit('updateBounds', newbbox);
+        this.map.fitBounds(newbbox, { duration: 0 })
       }
     }
   },

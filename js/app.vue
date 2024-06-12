@@ -14,13 +14,10 @@
         v-model:map-center="mapCenter"
         v-model:map-level="mapLevel"
         v-model:map-zoom="mapZoom"
-        :new-map-bounds="newMapBounds"
-        :new-map-center="newMapCenter"
         :preview="preview"
         :geojson="geojsonPreview"
         @clickPoi="clickPoi"
         @sprite="updateSprite"
-        @updateBounds="updateBounds"
         @update:map-levels="(l) => mapLevels = l"
       >
         <MglMarker
@@ -85,7 +82,7 @@
 
 <script>
 import { defineAsyncComponent, toRaw } from 'vue';
-import { MglMarker } from '@indoorequal/vue-maplibre-gl';
+import { MglMarker, useMap } from '@indoorequal/vue-maplibre-gl';
 import { tilesUrl, indoorEqualApiKey, indoorMinZoom } from '../config.json';
 import IndoorDiscover from './discover';
 import IndoorMap from './map';
@@ -140,8 +137,6 @@ export default {
       poiCoordinates: [],
       menu: null,
       indoorMinZoom: indoorMinZoom,
-      newMapBounds: [],
-      newMapCenter: {},
       sprite: null,
       discover: true,
       errorPreview: false,
@@ -155,6 +150,10 @@ export default {
       confirmPreviewAllowedOrigins: [],
       geojsonPreview: {},
     };
+  },
+
+  setup() {
+    return { map: useMap() };
   },
 
   mounted() {
@@ -239,7 +238,7 @@ export default {
     },
 
     updateBounds(bbox) {
-      this.newMapBounds = bbox;
+      this.map.map.fitBounds(bbox, { duration: 0 });
     },
 
     savedMapView() {
@@ -335,9 +334,9 @@ export default {
           break;
         case 'coordinates':
           if (e.data.bbox) {
-            this.newMapBounds = e.data.bbox;
+            this.updateBounds(e.data.bbox);
           } else if (e.data.center && e.data.zoom) {
-            this.newMapCenter = e.data.center;
+            this.map.map.setCenter(e.data.center);
             this.mapZoom = e.data.zoom;
           }
           break;
