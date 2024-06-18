@@ -62,7 +62,7 @@
     "process": "^0.11.10"
   },
   "dependencies": {
-    "@indoorequal/vue-maplibre-gl": "^7.3.0",
+    "@indoorequal/vue-maplibre-gl": "^7.4.0",
     "@turf/bbox": "^7.0.0",
     "@turf/center-of-mass": "^7.0.0",
     "@turf/line-to-polygon": "^7.0.0",
