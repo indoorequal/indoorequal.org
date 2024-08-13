@@ -44,7 +44,7 @@ import App from './app.vue';
 
 const i18n = createI18n({
   legacy: false,
-  locale: navigator.language.split('-')[0],
+  locale: navigator.language,
   fallbackLocale: 'en',
   availableLocales: Object.keys(messages),
   messages
