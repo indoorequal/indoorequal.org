@@ -6,5 +6,5 @@ export async function fetchGeocoding(search) {
 }
 
 export function mapStyle() {
-  return `https://api.maptiler.com/maps/bright/style.json?key=${mapTilerApiKey}`;
+  return `https://api.maptiler.com/maps/bright-v2/style.json?key=${mapTilerApiKey}`;
 }
