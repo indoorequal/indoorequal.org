@@ -1370,30 +1370,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intlify/core-base@npm:9.14.0":
-  version: 9.14.0
-  resolution: "@intlify/core-base@npm:9.14.0"
+"@intlify/core-base@npm:10.0.1":
+  version: 10.0.1
+  resolution: "@intlify/core-base@npm:10.0.1"
   dependencies:
-    "@intlify/message-compiler": "npm:9.14.0"
-    "@intlify/shared": "npm:9.14.0"
-  checksum: 10c0/e648787d25601fdbbb9280cf372e9a51b3bfc504949cac71ca79122b7587eedb341ab11f278cd71af5a40769f6c38d78949a11b79089162cbb089774195da281
+    "@intlify/message-compiler": "npm:10.0.1"
+    "@intlify/shared": "npm:10.0.1"
+  checksum: 10c0/55266e2760d915bb0dd6c00f1802781980ca9c74f29ef6f3eaa441eeb0236471a6ef63149ea9baea84dd7a352ab753c7d99b583cbd1e862fbf6f154092fc9030
   languageName: node
   linkType: hard
 
-"@intlify/message-compiler@npm:9.14.0":
-  version: 9.14.0
-  resolution: "@intlify/message-compiler@npm:9.14.0"
+"@intlify/message-compiler@npm:10.0.1":
+  version: 10.0.1
+  resolution: "@intlify/message-compiler@npm:10.0.1"
   dependencies:
-    "@intlify/shared": "npm:9.14.0"
+    "@intlify/shared": "npm:10.0.1"
     source-map-js: "npm:^1.0.2"
-  checksum: 10c0/385bdfd242f4eb9700f250b3fa9c879ea2ddcade38eb97d58a8ba60702f2a2e7fd59bd4d38399ec6992e4e5708c2f9852b091dfcde388f814f31839f03dc8235
+  checksum: 10c0/8fc4880f8bb62df8d994aaa7e1b5ed559a4d1139fde685470dab4e69fbe5494173e35afcc1de7a84ff44597a0fd15c5d9c53111ae1d50a0398fda71f88312a4d
   languageName: node
   linkType: hard
 
-"@intlify/shared@npm:9.14.0":
-  version: 9.14.0
-  resolution: "@intlify/shared@npm:9.14.0"
-  checksum: 10c0/a71fa3d53567d6ad629cd4c0557eecad919cab6ab47edd18925169459a3c8c46823e61357d3532e4306f4ab2fe22ed4a61facaefc7b967e18538d4b2eed253c4
+"@intlify/shared@npm:10.0.1":
+  version: 10.0.1
+  resolution: "@intlify/shared@npm:10.0.1"
+  checksum: 10c0/e9c35113c64e9efa5d87cb1f28273a2f306c9f586d4e0049ea16a659a37882a5182ee24564fcecb40f460c8531e9126327605f04414b86632b1c244f96ef513d
   languageName: node
   linkType: hard
 
@@ -7452,7 +7452,7 @@ __metadata:
     parcel-transformer-markdown-front-matter: "npm:^3.0.1"
     process: "npm:^0.11.10"
     vue: "npm:^3.0.0"
-    vue-i18n: "npm:^9.0.0"
+    vue-i18n: "npm:^10.0.0"
     vuetify: "npm:^3.5.0"
   languageName: unknown
   linkType: soft
@@ -8193,16 +8193,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^9.0.0":
-  version: 9.14.0
-  resolution: "vue-i18n@npm:9.14.0"
+"vue-i18n@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "vue-i18n@npm:10.0.1"
   dependencies:
-    "@intlify/core-base": "npm:9.14.0"
-    "@intlify/shared": "npm:9.14.0"
+    "@intlify/core-base": "npm:10.0.1"
+    "@intlify/shared": "npm:10.0.1"
     "@vue/devtools-api": "npm:^6.5.0"
   peerDependencies:
     vue: ^3.0.0
-  checksum: 10c0/d22d4ece18655ecd4165c604a9fc97da923e066adacbe0bee500ad9c181e3c87d115178ce62ee7f7738d49b648fd749bb164308153b68b000aae2f1f2f1468a0
+  checksum: 10c0/4953ad97307f1bdbaf012c24570d9d06f8b5dd4190d8d23fdfdee6c814a6abfa0640af78aaf60faa85adcb298b3a95151624f1d846b522fb9a426ad084fa57b1
   languageName: node
   linkType: hard
 
