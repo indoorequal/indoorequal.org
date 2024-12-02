@@ -75,7 +75,7 @@
     "opening_hours": "^3.5.0",
     "osm2geojson-lite": "^0.9.4",
     "vue": "^3.0.0",
-    "vue-i18n": "^9.0.0",
+    "vue-i18n": "^10.0.0",
     "vuetify": "^3.5.0"
   },
   "packageManager": "yarn@4.6.0"
