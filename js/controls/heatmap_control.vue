@@ -24,12 +24,12 @@ const { t } = useI18n();
 const displayHeatmap = ref(true);
 
 const iconColor = computed(() => {
-  return displayHeatmap ? 'primary' : '';
+  return displayHeatmap.value ? 'primary' : '';
 });
 
 const title = computed(() => {
-  return displayHeatmap ? t('heatmap.hide') : t('heatmap.show');
-})
+  return displayHeatmap.value ? t('heatmap.hide') : t('heatmap.show');
+});
 
 function toggleHeatmap() {
   displayHeatmap.value = !displayHeatmap.value;
