@@ -78,5 +78,5 @@
     "vue-i18n": "^9.0.0",
     "vuetify": "^3.5.0"
   },
-  "packageManager": "yarn@4.5.3"
+  "packageManager": "yarn@4.6.0"
 }
