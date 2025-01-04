@@ -1283,13 +1283,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@indoorequal/vue-maplibre-gl@npm:^7.4.0":
-  version: 7.7.1
-  resolution: "@indoorequal/vue-maplibre-gl@npm:7.7.1"
+"@indoorequal/vue-maplibre-gl@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "@indoorequal/vue-maplibre-gl@npm:8.0.0"
   peerDependencies:
-    maplibre-gl: ^4.0.0
+    maplibre-gl: ^5.0.0
     vue: ^3.4.18
-  checksum: 10c0/a9ba863d12737efffc2f2bed2f4ce37f753bf5c005c222d14e8e88c4459bb52fd9058bfec5145eb0daa41ebff898a8f8230ce7b87c0ff4d3af05bce83f330631
+  checksum: 10c0/f946dcf122b19d19a12ed94b57a44c419159dc9790748bca007510ea94b4ca66fa2e23eace309321545ff210abe82dac2ebc380785897335ea1c97c6deac9109
   languageName: node
   linkType: hard
 
@@ -7406,7 +7406,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.24.4"
     "@babel/preset-env": "npm:^7.24.4"
-    "@indoorequal/vue-maplibre-gl": "npm:^7.4.0"
+    "@indoorequal/vue-maplibre-gl": "npm:^8.0.0"
     "@mdi/js": "npm:^7.4.47"
     "@parcel/optimizer-data-url": "npm:^2.13.0"
     "@parcel/resolver-glob": "npm:^2.13.0"
