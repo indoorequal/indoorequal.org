@@ -445,7 +445,7 @@
     "file": "Archivos GeoJSON, osm o IMDF (zip)",
     "how": {
       "content1": "Abre JOSM y edita una àrea interior",
-      "content2": "Haz clic en \"Archivo\" -> \"Guardar como\" y guarda el archivo GeoJSON o osm.",
+      "content2": "Haz clic en \"Archivo\" -> \"Guardar como\" y guarda el archivo como GeoJSON u osm.",
       "content3": "Selecciona el archivo en el siguiente formulario",
       "title": "Como"
     },
