@@ -437,7 +437,7 @@
   },
   "preview": {
     "close": "Salir de la previsualización",
-    "description": "Comprueba el renderizado de tu mapeo de interiores. Selecciona o arrastra GeoJSON o archivos osm que sigan el esquema de Etiquetado Sencillo de Interiores.",
+    "description": "Comprueba el renderizado de tu mapeo de interiores. Selecciona o arrastra un archivo GeoJSON u osm que sigan el esquema de Etiquetado de interior sencillo.",
     "download": "Descarga el archivo de previsualización",
     "error": "Error mientras se mostraba la previsualización: {msg}.",
     "error_bad_file": "No se puede leer el archivo",
