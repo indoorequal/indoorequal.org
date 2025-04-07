@@ -412,7 +412,7 @@
     "collapse": "Colapsa",
     "description": "indoor= muestra datos de {0} y previsualiza archivos GeoJSON, OSM y IMDF.",
     "explore": {
-      "subtitle": "Indicar la localización en interiores",
+      "subtitle": "Vitrina de ubicaciones en interiores",
       "title": "Explora"
     },
     "last_update": "Último dato actualizado {0}. {1}.",
