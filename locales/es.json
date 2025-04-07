@@ -454,7 +454,7 @@
     "title": "Previsualizar renderizado",
     "url": {
       "no": "No",
-      "text": "Quieres cargar una previsualización del fichero de {0}?",
+      "text": "¿Quieres cargar una previsualización del fichero de {0}?",
       "title": "Cargar previsualización externa",
       "yes": "Sí"
     }
