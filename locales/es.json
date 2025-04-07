@@ -16,7 +16,7 @@
     "error": "Error mientras se cargaba la lista.",
     "subtitle": "{city} - {nation}",
     "title": "Explora",
-    "wikipage": "Pàgina de la wiki de Etiquetaje Sencillo de Interiores"
+    "wikipage": "Página de la wiki de Etiquetado de interior sencillo"
   },
   "heatmap": {
     "hide": "Oculta el mapa de calor",
@@ -50,17 +50,17 @@
       "biergarten": "Biergarten",
       "bureau_de_change": "Cambio de divisas",
       "bus_station": "Estación de autobuses",
-      "cafe": "Cafeteria",
-      "car_rental": "Alquiler de coches",
+      "cafe": "Cafetería",
+      "car_rental": "Alquiler de automóviles",
       "cinema": "Cine",
       "clinic": "Clínica",
-      "college": "Universidad",
+      "college": "Centro de Educación Media",
       "community_centre": "Centro comunitario",
       "courthouse": "Juzgado",
       "dentist": "Dentista",
       "doctors": "Médicos",
       "embassy": "Embajada",
-      "fast_food": "Comida ràpida",
+      "fast_food": "Comida rápida",
       "ferry_terminal": "Terminal de ferri",
       "fire_station": "Estación de bomberos",
       "food_court": "Patio de restauración",
@@ -79,7 +79,7 @@
       "photo_booth": "Cabina de fotos",
       "piano": "Piano",
       "place_of_worship": "Lugar de culto",
-      "police": "Policia",
+      "police": "Policía",
       "post_box": "Buzón de correos",
       "post_office": "Oficina de correos",
       "prison": "Prisión",
@@ -97,7 +97,7 @@
       "toilets": "Lavabos",
       "townhall": "Ayuntamiento",
       "university": "Universidad",
-      "vending_machine": "Máquina de vending",
+      "vending_machine": "Máquina expendedora",
       "veterinary": "Veterinario",
       "waste_basket": "Papelera"
     },
@@ -108,12 +108,12 @@
       "gate": "Puerta",
       "lift_gate": "Puerta levadiza",
       "sally_port": "Entrada de seguridad",
-      "stile": "Estilo",
+      "stile": "Escaleras sobre cerca",
       "toll_booth": "Cabina de peaje"
     },
     "craft": {
       "brewery": "Cervecería",
-      "caterer": "Catering",
+      "caterer": "Cáterin",
       "confectionery": "Dulces",
       "dressmaker": "Modista",
       "electronics_repair": "Reparación de electrónica",
@@ -229,18 +229,18 @@
       "frame": "Marcos",
       "frozen_food": "Congelados",
       "furniture": "Muebles",
-      "garden_centre": "Centro de jardineria",
+      "garden_centre": "Centro de jardinería",
       "general": "General",
       "gift": "Regalos",
-      "greengrocer": "Fruteria",
+      "greengrocer": "Frutería",
       "hairdresser": "Peluquería",
-      "hardware": "Ferreteria",
+      "hardware": "Ferretería",
       "hearing_aids": "Audífonos",
       "hifi": "Hifi",
       "houseware": "Artículos para el hogar",
       "ice_cream": "Helados",
       "interior_decoration": "Decoración de interiores",
-      "jewelry": "Joieria",
+      "jewelry": "Joyería",
       "kiosk": "Kiosco",
       "kitchen": "Cocinas",
       "lamps": "Iluminación",
@@ -290,7 +290,7 @@
       "badminton": "Badminton",
       "baseball": "Beisbol",
       "basketball": "Baloncesto",
-      "beachvolleyball": "Volei playa",
+      "beachvolleyball": "Voleibol playa",
       "billiards": "Billar",
       "bmx": "Bmx",
       "boules": "Petanca",
@@ -354,11 +354,11 @@
       "surfing": "Surf",
       "swimming": "Natación",
       "table_soccer": "Futbolín",
-      "table_tennis": "Ping-pong",
+      "table_tennis": "Tenis de mesa",
       "team_handball": "Equipo de balonmano",
       "tennis": "Tenis",
       "toboggan": "Tobogán",
-      "volleyball": "Volei",
+      "volleyball": "Voleibol",
       "water_ski": "Esquí acuático",
       "yoga": "Yoga"
     },
@@ -371,7 +371,7 @@
       "camp_site": "Lugar de acampada",
       "caravan_site": "Lugar de caravanas",
       "chalet": "Chalet",
-      "gallery": "Galeria",
+      "gallery": "Galería",
       "guest_house": "Casa de invitados",
       "hostel": "Albergue",
       "hotel": "Hotel",
@@ -388,7 +388,7 @@
   "sidebar": {
     "about": {
       "created_by": "Creado por François de Metz",
-      "title": "Sobre"
+      "title": "Acerca de"
     },
     "api": {
       "embed": {
@@ -412,7 +412,7 @@
     "collapse": "Colapsa",
     "description": "indoor= muestra datos de {0} y previsualiza archivos GeoJSON, OSM y IMDF.",
     "explore": {
-      "subtitle": "Indicar la localización en interiores",
+      "subtitle": "Vitrina de ubicaciones en interiores",
       "title": "Explora"
     },
     "last_update": "Último dato actualizado {0}. {1}.",
@@ -427,7 +427,7 @@
     },
     "preview": {
       "title": "Previsualizar renderizado",
-      "subtitle": "Previsualizar mapeo de interiores antes de subirlo"
+      "subtitle": "Previsualiza mapeo de interiores antes de subirlo"
     },
     "taginfo": {
       "title": "Taginfo indoor=",
@@ -437,7 +437,7 @@
   },
   "preview": {
     "close": "Salir de la previsualización",
-    "description": "Comprueba el renderizado de tu mapeo de interiores. Selecciona o arrastra GeoJSON o archivos osm que sigan el esquema de Etiquetado Sencillo de Interiores.",
+    "description": "Comprueba el renderizado de tu mapeo de interiores. Selecciona o arrastra un archivo GeoJSON u osm que sigan el esquema de Etiquetado de interior sencillo.",
     "download": "Descarga el archivo de previsualización",
     "error": "Error mientras se mostraba la previsualización: {msg}.",
     "error_bad_file": "No se puede leer el archivo",
@@ -445,7 +445,7 @@
     "file": "Archivos GeoJSON, osm o IMDF (zip)",
     "how": {
       "content1": "Abre JOSM y edita una àrea interior",
-      "content2": "Haz clic en \"Archivo\" -> \"Guardar como\" y guarda el archivo GeoJSON o osm.",
+      "content2": "Haz clic en \"Archivo\" -> \"Guardar como\" y guarda el archivo como GeoJSON u osm.",
       "content3": "Selecciona el archivo en el siguiente formulario",
       "title": "Como"
     },
@@ -454,7 +454,7 @@
     "title": "Previsualizar renderizado",
     "url": {
       "no": "No",
-      "text": "Quieres cargar una previsualización del fichero de {0}?",
+      "text": "¿Quieres cargar una previsualización del fichero de {0}?",
       "title": "Cargar previsualización externa",
       "yes": "Sí"
     }
