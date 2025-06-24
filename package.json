@@ -60,7 +60,7 @@
     "parcel-reporter-static-files-copy": "^1.5.3",
     "parcel-transformer-markdown-front-matter": "^3.0.1",
     "process": "^0.11.10",
-    "svgo": "^3"
+    "svgo": "^4.0.0"
   },
   "dependencies": {
     "@indoorequal/vue-maplibre-gl": "^8.0.1",
