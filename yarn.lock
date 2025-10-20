@@ -1945,9 +1945,9 @@ __metadata:
   linkType: hard
 
 "@lezer/common@npm:^1.0.0":
-  version: 1.2.3
-  resolution: "@lezer/common@npm:1.2.3"
-  checksum: 10c0/fe9f8e111080ef94037a34ca2af1221c8d01c1763ba5ecf708a286185c76119509a5d19d924c8842172716716ddce22d7834394670c4a9432f0ba9f3b7c0f50d
+  version: 1.3.0
+  resolution: "@lezer/common@npm:1.3.0"
+  checksum: 10c0/e164094920761c2f56c8634d0ae9261ea7c5e6b8202aa08773febc59b8d8284dde5bc7a810c9438e27b978e5ad67d0db03af1ed72924df61b8fa2704acb55deb
   languageName: node
   linkType: hard
 
@@ -2061,8 +2061,8 @@ __metadata:
   linkType: hard
 
 "@maplibre/maplibre-gl-style-spec@npm:^24.2.0":
-  version: 24.2.0
-  resolution: "@maplibre/maplibre-gl-style-spec@npm:24.2.0"
+  version: 24.3.0
+  resolution: "@maplibre/maplibre-gl-style-spec@npm:24.3.0"
   dependencies:
     "@mapbox/jsonlint-lines-primitives": "npm:~2.0.2"
     "@mapbox/unitbezier": "npm:^0.0.1"
@@ -2075,7 +2075,7 @@ __metadata:
     gl-style-format: dist/gl-style-format.mjs
     gl-style-migrate: dist/gl-style-migrate.mjs
     gl-style-validate: dist/gl-style-validate.mjs
-  checksum: 10c0/974d27cd47b4e13902ec61208375569cb21b38323983080b73224af12e6c676177a0f5218a7b38ea46144f1ef9d2659cd196b3e41e5c6a3d60d292dc5bf87443
+  checksum: 10c0/b3f3ab25080ed2b043256a05c0bd798df780f791463ad244b0f6949e370bf9c4e389f3fa85763b4244835f1c6a06809cb038501a344aaed3a0a1fada8a08a02c
   languageName: node
   linkType: hard
 
@@ -3594,11 +3594,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 24.7.2
-  resolution: "@types/node@npm:24.7.2"
+  version: 24.8.1
+  resolution: "@types/node@npm:24.8.1"
   dependencies:
     undici-types: "npm:~7.14.0"
-  checksum: 10c0/03f662f10e4b89bc97016e067101cbabe55025b54c24afb581fb50992d5eeaaf417bdae34bbc668ae8759d3cdbbbadf35fc8b9b29d26f52ede2525d48e919e49
+  checksum: 10c0/d185f2f14aa26cc2b482aa730bfc452943f9636df37aad6ceed80aa397f1278f894043336bd72f74c47b3dbef23e772ac9b1a256168984aa8aee26836132d290
   languageName: node
   linkType: hard
 
@@ -4182,11 +4182,11 @@ __metadata:
   linkType: hard
 
 "baseline-browser-mapping@npm:^2.8.9":
-  version: 2.8.16
-  resolution: "baseline-browser-mapping@npm:2.8.16"
+  version: 2.8.18
+  resolution: "baseline-browser-mapping@npm:2.8.18"
   bin:
     baseline-browser-mapping: dist/cli.js
-  checksum: 10c0/e38a861f44236cfc5ba8bf9d4a024d37682e73efc3df3377e170a8a44303f466c0fce7fdc641029df27e47adb270b2f7cf29550b9be7dcdbeec18bc62858c9e9
+  checksum: 10c0/fa319aab5761ccb78ec7f5e5905149ae1916d65b68009aa1c8b6ec7f0bdb878bfa57a553235024179ed5ba8b36d668a22f599861990ce6ceb1aeeafb1e5704ae
   languageName: node
   linkType: hard
 
@@ -4308,9 +4308,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001746":
-  version: 1.0.30001750
-  resolution: "caniuse-lite@npm:1.0.30001750"
-  checksum: 10c0/aa77ebf264ca8dcfe913fadaa19f06bf839d65dec24498fdb9c45739ab0828b8275ca30c698f4ee86829d38264eaa461edf4577e407753da8205ab1d285e105d
+  version: 1.0.30001751
+  resolution: "caniuse-lite@npm:1.0.30001751"
+  checksum: 10c0/c3f2d448f3569004ace160fd9379ea0def8e7a7bc6e65611baadb57d24e1f418258647a6210e46732419f5663e2356c22aa841f92449dd3849eb6471bb7ad592
   languageName: node
   linkType: hard
 
@@ -4405,9 +4405,9 @@ __metadata:
   linkType: hard
 
 "collect-v8-coverage@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "collect-v8-coverage@npm:1.0.2"
-  checksum: 10c0/ed7008e2e8b6852c5483b444a3ae6e976e088d4335a85aa0a9db2861c5f1d31bd2d7ff97a60469b3388deeba661a619753afbe201279fb159b4b9548ab8269a1
+  version: 1.0.3
+  resolution: "collect-v8-coverage@npm:1.0.3"
+  checksum: 10c0/bc62ba251bcce5e3354a8f88fa6442bee56e3e612fec08d4dfcf66179b41ea0bf544b0f78c4ebc0f8050871220af95bb5c5578a6aef346feea155640582f09dc
   languageName: node
   linkType: hard
 
@@ -4792,9 +4792,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.227":
-  version: 1.5.234
-  resolution: "electron-to-chromium@npm:1.5.234"
-  checksum: 10c0/e27a46ff9af818adeb4b01fb9d346c5bd550049dfd18cfab222fe10ae7ce98ec18e4eb8630d4ca116b756b813ca14f2880f5ee9e76abcd85144c63060de636b2
+  version: 1.5.237
+  resolution: "electron-to-chromium@npm:1.5.237"
+  checksum: 10c0/b9a9ba6ba3db5cc7e402fcc78f2ddf8bfc4b142dfcfa83e37a6ba99337d186025c4311db345d95ecf2b404e9d3fcd5ec7b1be56e6b998ff6b8fe348569eaf4b7
   languageName: node
   linkType: hard
 
@@ -5269,9 +5269,9 @@ __metadata:
   linkType: hard
 
 "immutable@npm:^5.0.2":
-  version: 5.1.3
-  resolution: "immutable@npm:5.1.3"
-  checksum: 10c0/f094891dcefb9488a84598376c9218ebff3a130c8b807bda3f6b703c45fe7ef238b8bf9a1eb9961db0523c8d7eb116ab6f47166702e4bbb1927ff5884157cd97
+  version: 5.1.4
+  resolution: "immutable@npm:5.1.4"
+  checksum: 10c0/f1c98382e4cde14a0b218be3b9b2f8441888da8df3b8c064aa756071da55fbed6ad696e5959982508456332419be9fdeaf29b2e58d0eadc45483cc16963c0446
   languageName: node
   linkType: hard
 
@@ -6672,8 +6672,8 @@ __metadata:
   linkType: hard
 
 "node-gyp@npm:latest":
-  version: 11.4.2
-  resolution: "node-gyp@npm:11.4.2"
+  version: 11.5.0
+  resolution: "node-gyp@npm:11.5.0"
   dependencies:
     env-paths: "npm:^2.2.0"
     exponential-backoff: "npm:^3.1.1"
@@ -6687,7 +6687,7 @@ __metadata:
     which: "npm:^5.0.0"
   bin:
     node-gyp: bin/node-gyp.js
-  checksum: 10c0/0bfd3e96770ed70f07798d881dd37b4267708966d868a0e585986baac487d9cf5831285579fd629a83dc4e434f53e6416ce301097f2ee464cb74d377e4d8bdbe
+  checksum: 10c0/31ff49586991b38287bb15c3d529dd689cfc32f992eed9e6997b9d712d5d21fe818a8b1bbfe3b76a7e33765c20210c5713212f4aa329306a615b87d8a786da3a
   languageName: node
   linkType: hard
 
@@ -6699,9 +6699,9 @@ __metadata:
   linkType: hard
 
 "node-releases@npm:^2.0.21":
-  version: 2.0.23
-  resolution: "node-releases@npm:2.0.23"
-  checksum: 10c0/3fdcddb574a9d56c050469b027f3fd2b8830fd321edd12f34b862969b67d0a3d6713eb2af8916f91618d555354f6c7bd33ae39e3b37117b1e7ddf2e42bc3f4be
+  version: 2.0.25
+  resolution: "node-releases@npm:2.0.25"
+  checksum: 10c0/d4aeb1e04578d96e54d6c40540122e6240671b971887f04aca07b6805752a78de1f1c1522f3fa3843706bf8acf6de2cb35f104914957f269e328b41a9fa9fd2f
   languageName: node
   linkType: hard
 
