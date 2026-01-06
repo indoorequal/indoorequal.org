@@ -14,9 +14,8 @@
   "explore_list": {
     "description": "Cette liste est extraite de {wikipage}.",
     "error": "Une erreur est survenue lors du chargement de la liste.",
-    "subtitle": "{city} - {nation}",
     "title": "Explorer",
-    "wikipage": "la page wiki Simple Indoor Tagging"
+    "wikipage": "la page wiki Indoor Mapping"
   },
   "heatmap": {
     "hide": "Cacher la carte de chaleur",

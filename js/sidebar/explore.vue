@@ -5,7 +5,7 @@
   >
     <div class="mx-4">
       <p
-        v-html="$t('explore_list.description', { wikipage: `<a href='https://wiki.openstreetmap.org/wiki/Simple_Indoor_Tagging'>${$t('explore_list.wikipage')}</a>` })"
+        v-html="$t('explore_list.description', { wikipage: `<a href='https://wiki.openstreetmap.org/wiki/Indoor_Mapping#Examples'>${$t('explore_list.wikipage')}</a>` })"
         class="pt-4 pb-3"
       />
 
@@ -30,7 +30,7 @@
               {{ link.description }}
             </v-card-title>
             <v-card-subtitle>
-              {{ $t('explore_list.subtitle', { city: link.city, nation: link.nation }) }}
+              {{ link.city }}
             </v-card-subtitle>
           </v-card-item>
           <v-card-actions>
@@ -57,7 +57,7 @@ const error = ref(false);
 function extractList(fragment) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(fragment, 'text/html');
-  const result = Array.from(doc.querySelectorAll('table tr')).map((row, index) => {
+  const result = Array.from(doc.querySelectorAll('table:first-of-type tr')).map((row, index) => {
     if (index === 0) return;
     const location = row.querySelector('td:first-child');
     const nation = location.querySelector('span').textContent;
@@ -77,7 +77,7 @@ function extractList(fragment) {
 }
 
 onMounted(() => {
-  fetch('https://wiki.openstreetmap.org/w/api.php?action=parse&page=Simple_Indoor_Tagging&prop=text&section=12&format=json&origin=*')
+  fetch('https://wiki.openstreetmap.org/w/api.php?action=parse&page=Indoor_Mapping&prop=text&section=22&format=json&origin=*')
     .then(res => res.json())
     .then(page => links.value = extractList(page.parse.text['*']))
     .catch(() => error.value = true);

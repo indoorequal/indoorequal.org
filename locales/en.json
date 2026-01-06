@@ -14,9 +14,8 @@
   "explore_list": {
     "description": "This list is extracted from the {wikipage}.",
     "error": "Error while loading the list.",
-    "subtitle": "{city} - {nation}",
     "title": "Explore",
-    "wikipage": "Simple Indoor Tagging wiki page"
+    "wikipage": "Indoor Mapping wiki page"
   },
   "heatmap": {
     "hide": "Hide the heatmap",
