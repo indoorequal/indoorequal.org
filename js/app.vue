@@ -156,7 +156,7 @@ export default {
     return { map: useMap() };
   },
 
-  mounted() {
+  created() {
     const hashParams = new URLSearchParams(window.location.hash.replace('#', ''));
     if (hashParams.has(LEVEL_PARAM)) {
       this.mapLevel = hashParams.get(LEVEL_PARAM);
