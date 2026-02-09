@@ -60,15 +60,15 @@ __metadata:
   linkType: hard
 
 "@babel/generator@npm:^7.27.5, @babel/generator@npm:^7.29.0":
-  version: 7.29.0
-  resolution: "@babel/generator@npm:7.29.0"
+  version: 7.29.1
+  resolution: "@babel/generator@npm:7.29.1"
   dependencies:
     "@babel/parser": "npm:^7.29.0"
     "@babel/types": "npm:^7.29.0"
     "@jridgewell/gen-mapping": "npm:^0.3.12"
     "@jridgewell/trace-mapping": "npm:^0.3.28"
     jsesc: "npm:^3.0.2"
-  checksum: 10c0/5c3df8f2475bfd5f97ad0211c52171aff630088b148e7b89d056b39d69855179bc9f2d1ee200263c76c2398a49e4fdbb38b9709ebc4f043cc04d9ee09a66668a
+  checksum: 10c0/349086e6876258ef3fb2823030fee0f6c0eb9c3ebe35fc572e16997f8c030d765f636ddc6299edae63e760ea6658f8ee9a2edfa6d6b24c9a80c917916b973551
   languageName: node
   linkType: hard
 
@@ -1424,12 +1424,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@isaacs/brace-expansion@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@isaacs/brace-expansion@npm:5.0.0"
+"@isaacs/brace-expansion@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "@isaacs/brace-expansion@npm:5.0.1"
   dependencies:
     "@isaacs/balanced-match": "npm:^4.0.1"
-  checksum: 10c0/b4d4812f4be53afc2c5b6c545001ff7a4659af68d4484804e9d514e183d20269bb81def8682c01a22b17c4d6aed14292c8494f7d2ac664e547101c1a905aa977
+  checksum: 10c0/e5d67c7bbf1f17b88132a35bc638af306d48acbb72810d48fa6e6edd8ab375854773108e8bf70f021f7ef6a8273455a6d1f0c3b5aa2aff06ce7894049ab77fb8
   languageName: node
   linkType: hard
 
@@ -1961,9 +1961,9 @@ __metadata:
   linkType: hard
 
 "@lezer/common@npm:^1.0.0":
-  version: 1.5.0
-  resolution: "@lezer/common@npm:1.5.0"
-  checksum: 10c0/12c4b0ea9d621eedb6aa13e41a0628e25f80efe6a1d44cf68a9ea1808db4c8fc124d0691458de69c833860f3235526fbec574005d812c710e693c2dc6e65e3a8
+  version: 1.5.1
+  resolution: "@lezer/common@npm:1.5.1"
+  checksum: 10c0/49baefdfc6f2244ad4f7d4a318149729fbecfd634fe1f7769883b5098ab9b35429140851e524c3a97614594004d8a3ad08fdd91221a63438be8c31ff2431fb54
   languageName: node
   linkType: hard
 
@@ -2103,11 +2103,11 @@ __metadata:
   linkType: hard
 
 "@maplibre/mlt@npm:^1.1.2":
-  version: 1.1.4
-  resolution: "@maplibre/mlt@npm:1.1.4"
+  version: 1.1.6
+  resolution: "@maplibre/mlt@npm:1.1.6"
   dependencies:
     "@mapbox/point-geometry": "npm:^1.1.0"
-  checksum: 10c0/fb74735833b5497d09ae64409b757cc7d81f8504d6705e1d345e6b7a613de1cfe5d1a5b90c71001610260f4d4aeb3da986c0f10905f3e6d33828907f98acc8db
+  checksum: 10c0/6a33b0dfa378d75075c4262f7a10835749d20ed3fbaecc0ee6e7cf3f604946b03378f30a7cc08e41f97f2ee84bfca603bdd89168733cf3ca8510ec347ba53ecb
   languageName: node
   linkType: hard
 
@@ -3415,112 +3415,112 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@turf/bbox@npm:7.3.3, @turf/bbox@npm:^7.0.0":
-  version: 7.3.3
-  resolution: "@turf/bbox@npm:7.3.3"
+"@turf/bbox@npm:7.3.4, @turf/bbox@npm:^7.0.0":
+  version: 7.3.4
+  resolution: "@turf/bbox@npm:7.3.4"
   dependencies:
-    "@turf/helpers": "npm:7.3.3"
-    "@turf/meta": "npm:7.3.3"
+    "@turf/helpers": "npm:7.3.4"
+    "@turf/meta": "npm:7.3.4"
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/1a3a3fed86cd2a56733b53b24c7bdecbe93f40a2e171613b60892a7a9adf96043802f1dd1adb3162468d3f0a3630295420580402162a24d550d6165421970627
+  checksum: 10c0/d68b9a3a5da99806e66f5b96a62ac639529e0a5f95de391685e5c3a1b21ccf2da113b58dd8b87964756d0a00bca19c024db3ce262b693dbe3c356610ccc68070
   languageName: node
   linkType: hard
 
 "@turf/center-of-mass@npm:^7.0.0":
-  version: 7.3.3
-  resolution: "@turf/center-of-mass@npm:7.3.3"
+  version: 7.3.4
+  resolution: "@turf/center-of-mass@npm:7.3.4"
   dependencies:
-    "@turf/centroid": "npm:7.3.3"
-    "@turf/convex": "npm:7.3.3"
-    "@turf/helpers": "npm:7.3.3"
-    "@turf/invariant": "npm:7.3.3"
-    "@turf/meta": "npm:7.3.3"
+    "@turf/centroid": "npm:7.3.4"
+    "@turf/convex": "npm:7.3.4"
+    "@turf/helpers": "npm:7.3.4"
+    "@turf/invariant": "npm:7.3.4"
+    "@turf/meta": "npm:7.3.4"
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/f3862532191820c286c241d143948657047ae18a37bec73ccb84f848f6b8fc4715f935658b7c6206ecf5b7b1185b76f7cbccab0ee541cb88f9b5757a952b8265
+  checksum: 10c0/3d8bc293947c00e627e3c4e9e26f00cdf714f697c699353689f8c8ebe350d57bbe6a91e076e5a21d30dde9767556678ba02fecd0b5e6fa0f667638b4a790d09a
   languageName: node
   linkType: hard
 
-"@turf/centroid@npm:7.3.3":
-  version: 7.3.3
-  resolution: "@turf/centroid@npm:7.3.3"
+"@turf/centroid@npm:7.3.4":
+  version: 7.3.4
+  resolution: "@turf/centroid@npm:7.3.4"
   dependencies:
-    "@turf/helpers": "npm:7.3.3"
-    "@turf/meta": "npm:7.3.3"
+    "@turf/helpers": "npm:7.3.4"
+    "@turf/meta": "npm:7.3.4"
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/d0b916b0d28a2f2fa773b5982d9b2cb780f48c63a9774a4c10d26f662d186001fc8852a8abb8bfb8aaee597f7fefd0d48168a46efbcfe9f45e3fac19c1b3fa4e
+  checksum: 10c0/2cd5064d22b264b11091a6c07767d4addae4e175d3adf3601271fe8c3fa6e86987b48fcb0db125e810c96d22b92cc06d97c4284d7a84e83e05aaf1c1a425d5d5
   languageName: node
   linkType: hard
 
-"@turf/clone@npm:7.3.3":
-  version: 7.3.3
-  resolution: "@turf/clone@npm:7.3.3"
+"@turf/clone@npm:7.3.4":
+  version: 7.3.4
+  resolution: "@turf/clone@npm:7.3.4"
   dependencies:
-    "@turf/helpers": "npm:7.3.3"
+    "@turf/helpers": "npm:7.3.4"
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/fa4443e66c22c253c961a00f9c67850a204eb2e650066cfbd13c6129a209c28ef9a50106ef8bef861b98e91f6b1cc8108730bf23f321f5d62509e252b1f160e9
+  checksum: 10c0/11e39235cd16c443e0ce55ed64d589b39abc19fa5f5440b2ee470451013922f19a7536c251c1a7e4441afdb4d7a26d16b456259cb459b0ea5a5ba6310485c791
   languageName: node
   linkType: hard
 
-"@turf/convex@npm:7.3.3":
-  version: 7.3.3
-  resolution: "@turf/convex@npm:7.3.3"
+"@turf/convex@npm:7.3.4":
+  version: 7.3.4
+  resolution: "@turf/convex@npm:7.3.4"
   dependencies:
-    "@turf/helpers": "npm:7.3.3"
-    "@turf/meta": "npm:7.3.3"
+    "@turf/helpers": "npm:7.3.4"
+    "@turf/meta": "npm:7.3.4"
     "@types/geojson": "npm:^7946.0.10"
     concaveman: "npm:^1.2.1"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/8f366df0bfa8ff891af7e9050c7603039cef4793dbe0a17ba38fe7144d22cf9684ad562aa2d0697bb6db0bfd5ab01fdd2cb82708fcd676cb8e8f64c3dd759174
+  checksum: 10c0/2d827eda53a381612948a32c77c3bd1f7c400cb067ea93e729abd84deab86099dfed7c2ce1edc7733680d3be439ffaa476dc894e75454c313e000ffdde91b24a
   languageName: node
   linkType: hard
 
-"@turf/helpers@npm:7.3.3":
-  version: 7.3.3
-  resolution: "@turf/helpers@npm:7.3.3"
+"@turf/helpers@npm:7.3.4":
+  version: 7.3.4
+  resolution: "@turf/helpers@npm:7.3.4"
   dependencies:
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/dd4ea19b6d6f93bb268a46846ecb731f731b1a8a0bc2e864dd9a74ac5aee6ba72cab34202d6ef4394793464aa5dc0c21a99aa12832a72e29150536a98bf18bce
+  checksum: 10c0/e10cc2e9d4e25c46e79310847a9b1a3c8613558defaa8bcc0b2e8622d106c875e4e4c7895942bc89687ab72b12bdce0835cac10362118f8eeb3c0939042a5ccd
   languageName: node
   linkType: hard
 
-"@turf/invariant@npm:7.3.3":
-  version: 7.3.3
-  resolution: "@turf/invariant@npm:7.3.3"
+"@turf/invariant@npm:7.3.4":
+  version: 7.3.4
+  resolution: "@turf/invariant@npm:7.3.4"
   dependencies:
-    "@turf/helpers": "npm:7.3.3"
+    "@turf/helpers": "npm:7.3.4"
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/c64c13637b947afaeb7465c91cbb2dd920e397409e4183883996d59d32bc5cf773dbd02c42a5293a6d483b14a511fda6db642a1d4a02ac6e924d9d4556f3739f
+  checksum: 10c0/8c5c420981d42304ebf32a984892b15150c6dcafabacefd165a5950eaf16024551272071426bfa23e5198b03c7c9495a2547ea9ee455ce3ff77d6449f51df1b3
   languageName: node
   linkType: hard
 
 "@turf/line-to-polygon@npm:^7.0.0":
-  version: 7.3.3
-  resolution: "@turf/line-to-polygon@npm:7.3.3"
+  version: 7.3.4
+  resolution: "@turf/line-to-polygon@npm:7.3.4"
   dependencies:
-    "@turf/bbox": "npm:7.3.3"
-    "@turf/clone": "npm:7.3.3"
-    "@turf/helpers": "npm:7.3.3"
-    "@turf/invariant": "npm:7.3.3"
+    "@turf/bbox": "npm:7.3.4"
+    "@turf/clone": "npm:7.3.4"
+    "@turf/helpers": "npm:7.3.4"
+    "@turf/invariant": "npm:7.3.4"
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/7071e7b9f7da0723aa332abe0ee7fcedf0209709b76985990142df81465122fa9bcd474759bf28431e3bd20ffbeed07d28fe0c366afe6b1aaa88819aaa7cac6f
+  checksum: 10c0/333d1d08f632f7a174e50df38a7035e96f3a1c739e0c0311c53df310cac10d3494c81516189559e8026bb0c9f2c6a5cc9d073b772a3df80d8c5d8e82e227d55e
   languageName: node
   linkType: hard
 
-"@turf/meta@npm:7.3.3":
-  version: 7.3.3
-  resolution: "@turf/meta@npm:7.3.3"
+"@turf/meta@npm:7.3.4":
+  version: 7.3.4
+  resolution: "@turf/meta@npm:7.3.4"
   dependencies:
-    "@turf/helpers": "npm:7.3.3"
+    "@turf/helpers": "npm:7.3.4"
     "@types/geojson": "npm:^7946.0.10"
     tslib: "npm:^2.8.1"
-  checksum: 10c0/4b8824dff1f3d9d7511989e2176ba53a8b21723e959b508fe46ad35d2619513b558d6b159ef5acdfbadde30230be9a7f02ee04f4fb0161122cceb5dc3be63f7b
+  checksum: 10c0/756bb9e227323fbd9262fbe8323962f0d82852a6452e9e4db1ac5f6947081a450b9389a71b15f109d1d0621cc1b45cc1b68ee4b6c8eaf7e01442ef5cb2dee71b
   languageName: node
   linkType: hard
 
@@ -3618,11 +3618,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 25.2.0
-  resolution: "@types/node@npm:25.2.0"
+  version: 25.2.2
+  resolution: "@types/node@npm:25.2.2"
   dependencies:
     undici-types: "npm:~7.16.0"
-  checksum: 10c0/89559ea0de5c8c2da051b384f2cd3161012446816e05d18841838f814e57eb1865f000622e903f08d14f5242736063ed4003a4a359730fdd367e35e2122a8fce
+  checksum: 10c0/45aa45b00df0aac4712c2d6e934a6ed21ac54e0284dd726df1c7620b8c7d36a4fb601b9f8fe1d2951298d1ee7618cf8275688e329c295eb36e8b8fa827a8e334
   languageName: node
   linkType: hard
 
@@ -4331,9 +4331,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001759":
-  version: 1.0.30001767
-  resolution: "caniuse-lite@npm:1.0.30001767"
-  checksum: 10c0/37067c6d2b26623f81494a1f206adbff2b80baed3318ba430684e428bd7d81be889f39db8ef081501d1db5f7dd5d15972892f173eb59c9f3bb780e0b38e6610a
+  version: 1.0.30001769
+  resolution: "caniuse-lite@npm:1.0.30001769"
+  checksum: 10c0/161b8c30ab967371807d45d361f0d5bc06e38ef2dbf811493d70cd97c21e1522f5b91fd944c419a00047ee09c931ca64627f125a9ffa7a17a9fdff8dad9765b0
   languageName: node
   linkType: hard
 
@@ -4815,9 +4815,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.263":
-  version: 1.5.283
-  resolution: "electron-to-chromium@npm:1.5.283"
-  checksum: 10c0/2ff8670d94ec49d2b12ae5d8ffb0208dde498d8a112ebb8016aac90171c7ee0860c7d8f78269afd3a3b7cba6dece3c49dd350cd240cc0f9a73a804699746798e
+  version: 1.5.286
+  resolution: "electron-to-chromium@npm:1.5.286"
+  checksum: 10c0/5384510f9682d7e46f98fa48b874c3901d9639de96e9e387afce1fe010fbac31376df0534524edc15f66e9902bfacee54037a5e598004e9c6a617884e379926d
   languageName: node
   linkType: hard
 
@@ -5143,13 +5143,13 @@ __metadata:
   linkType: hard
 
 "glob@npm:^13.0.0":
-  version: 13.0.0
-  resolution: "glob@npm:13.0.0"
+  version: 13.0.1
+  resolution: "glob@npm:13.0.1"
   dependencies:
-    minimatch: "npm:^10.1.1"
+    minimatch: "npm:^10.1.2"
     minipass: "npm:^7.1.2"
     path-scurry: "npm:^2.0.0"
-  checksum: 10c0/8e2f5821f3f7c312dd102e23a15b80c79e0837a9872784293ba2e15ec73b3f3749a49a42a31bfcb4e52c84820a474e92331c2eebf18819d20308f5c33876630a
+  checksum: 10c0/af7b863dec8dff74f61d7d6e53104e1f6bbdd482157a196cade8ed857481e876ec35181b38a059b2a7b93ea3b08248f4ff0792fef6dc91814fd5097a716f48e4
   languageName: node
   linkType: hard
 
@@ -5257,8 +5257,8 @@ __metadata:
   linkType: hard
 
 "i18next@npm:^25.3.2":
-  version: 25.8.0
-  resolution: "i18next@npm:25.8.0"
+  version: 25.8.4
+  resolution: "i18next@npm:25.8.4"
   dependencies:
     "@babel/runtime": "npm:^7.28.4"
   peerDependencies:
@@ -5266,7 +5266,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/20451fcaa86584b7395ee0375d2038270cce84e1541ec154bacfa32efbb420a2bafd1c71184242927f0eb8be6ec379ea132850f847b39b2eebcea6a49d746cac
+  checksum: 10c0/c2582bd97893b4417c06c5b5f8f3bb37cdf77fc5918d00ff3a0e79c856b94bf8bb52377754bb5d62ade88b457f8ac541471987d359c1adc67bcaeea18121a2b5
   languageName: node
   linkType: hard
 
@@ -5439,9 +5439,9 @@ __metadata:
   linkType: hard
 
 "isexe@npm:^3.1.1":
-  version: 3.1.1
-  resolution: "isexe@npm:3.1.1"
-  checksum: 10c0/9ec257654093443eb0a528a9c8cbba9c0ca7616ccb40abd6dde7202734d96bb86e4ac0d764f0f8cd965856aacbff2f4ce23e730dc19dfb41e3b0d865ca6fdcc7
+  version: 3.1.4
+  resolution: "isexe@npm:3.1.4"
+  checksum: 10c0/6e1f78dd794118d263319c27c26a339eda6855b43e11e1a9013cb68578ce0396b74f11ea635e52b9466fb48a60abe70f3c9faf682f67988be092cf89b7c0dc1c
   languageName: node
   linkType: hard
 
@@ -6469,12 +6469,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^10.1.1":
-  version: 10.1.1
-  resolution: "minimatch@npm:10.1.1"
+"minimatch@npm:^10.1.2":
+  version: 10.1.2
+  resolution: "minimatch@npm:10.1.2"
   dependencies:
-    "@isaacs/brace-expansion": "npm:^5.0.0"
-  checksum: 10c0/c85d44821c71973d636091fddbfbffe62370f5ee3caf0241c5b60c18cd289e916200acb2361b7e987558cd06896d153e25d505db9fc1e43e6b4b6752e2702902
+    "@isaacs/brace-expansion": "npm:^5.0.1"
+  checksum: 10c0/0cccef3622201703de6ecf9d772c0be1d5513dcc038ed9feb866c20cf798243e678ac35605dac3f1a054650c28037486713fe9e9a34b184b9097959114daf086
   languageName: node
   linkType: hard
 
@@ -7484,11 +7484,11 @@ __metadata:
   linkType: hard
 
 "semver@npm:^7.3.5, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.7.1, semver@npm:^7.7.2":
-  version: 7.7.3
-  resolution: "semver@npm:7.7.3"
+  version: 7.7.4
+  resolution: "semver@npm:7.7.4"
   bin:
     semver: bin/semver.js
-  checksum: 10c0/4afe5c986567db82f44c8c6faef8fe9df2a9b1d98098fc1721f57c696c4c21cebd572f297fc21002f81889492345b8470473bc6f4aff5fb032a6ea59ea2bc45e
+  checksum: 10c0/5215ad0234e2845d4ea5bb9d836d42b03499546ddafb12075566899fc617f68794bb6f146076b6881d755de17d6c6cc73372555879ec7dce2c2feee947866ad2
   languageName: node
   linkType: hard
 
