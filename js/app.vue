@@ -107,10 +107,11 @@ const IndoorPreviewConfirm = defineAsyncComponent(() => import('./preview/previe
 
 const downloadFromUrl = function (url) {
   return fetch(url)
-    .then(r => r.arrayBuffer())
-    .then(b => {
+    .then(async (response) => {
+      const contentType = response.headers.get('Content-Type');
+      const b = await response.arrayBuffer();
       const filename = new URL(url).pathname.split('/').reverse()[0];
-      return new File([b], filename);
+      return new File([b], filename, { type: contentType });
     });
 };
 
