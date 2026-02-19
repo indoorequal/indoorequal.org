@@ -7,6 +7,7 @@
     :attribution-control="{ customAttribution: '' }"
     hash="map"
     @map:load="load"
+    @map:click="clickMap"
     @update:center="updateMapCenter"
     @update:zoom="updateMapZoom"
   >
@@ -48,7 +49,7 @@ export default {
     MglNavigationControl
   },
 
-  emits: ['clickPoi', 'updateBounds', 'sprite', 'update:mapCenter', 'update:mapBounds', 'update:mapLevels', 'update:mapZoom', 'update:mapLevel'],
+  emits: ['clickPoi', 'clickMap', 'clickCoordinates', 'updateBounds', 'sprite', 'update:mapCenter', 'update:mapBounds', 'update:mapLevels', 'update:mapZoom', 'update:mapLevel'],
 
   props: {
     mapBounds: {
@@ -139,6 +140,10 @@ export default {
 
     mouseenterLayer() {
       this.map.getCanvas().style.cursor = 'pointer';
+    },
+
+    clickMap(e) {
+      this.$emit('clickMap', e.event.lngLat);
     },
 
     clickLayer(e) {

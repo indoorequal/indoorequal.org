@@ -17,6 +17,7 @@
         :preview="preview"
         :geojson="geojsonPreview"
         @clickPoi="clickPoi"
+        @clickMap="clickMap"
         @sprite="updateSprite"
         @update:map-levels="(l) => mapLevels = l"
       >
@@ -25,6 +26,27 @@
           :coordinates="poiCoordinates"
           color="#6667ad"
         />
+        <MglMarker
+          v-if="navigate.start"
+          :coordinates="navigate.start[0]"
+          color="green"
+        />
+        <MglMarker
+          v-if="navigate.end"
+          :coordinates="navigate.end[0]"
+          color="red"
+        />
+        <mgl-geo-json-source
+          v-if="navigate.line"
+          source-id="navigation-line"
+          :data="navigate.line"
+        >
+          <mgl-line-layer
+            layer-id="geojson"
+            :layout="layout"
+            :paint="paint"
+          />
+        </mgl-geo-json-source>
       </indoor-map>
       <v-chip
         v-if="!preview && mapZoom < indoorMinZoom"
@@ -62,11 +84,19 @@
           @close="closeDiscover"
         />
         <indoor-poi
+          v-show="poi != ''"
           v-model="poi"
           :sprite="sprite"
           :poi-fetcher="poiFetcher"
           class="indoor-poi"
           @poiCoordinates="setPoiCoordinates"
+          @goTo="navigateTo"
+        />
+        <indoor-navigation
+          class="indoor-navigation"
+          v-model:start="navigate.start"
+          v-model:end="navigate.end"
+          v-model:line="navigate.line"
         />
       </div>
       <indoor-preview-confirm
@@ -82,9 +112,10 @@
 
 <script>
 import { defineAsyncComponent, toRaw } from 'vue';
-import { MglMarker, useMap } from '@indoorequal/vue-maplibre-gl';
+import { MglMarker, MglGeoJsonSource, MglLineLayer, useMap } from '@indoorequal/vue-maplibre-gl';
 import { tilesUrl, indoorEqualApiKey, indoorMinZoom } from '../config.json';
 import IndoorDiscover from './discover';
+import IndoorNavigation from './navigation';
 import IndoorMap from './map';
 import IndoorPoi from './poi';
 import IndoorSidebar from './sidebar';
@@ -119,12 +150,15 @@ export default {
   components: {
     IndoorDiscover,
     IndoorMap,
+    IndoorNavigation,
     IndoorPoi,
     IndoorPreviewConfirm,
     IndoorPreviewToolbar,
     IndoorSidebar,
     IndoorToolbar,
-    MglMarker
+    MglMarker,
+    MglGeoJsonSource,
+    MglLineLayer
   },
 
   data() {
@@ -150,6 +184,19 @@ export default {
       confirmPreviewOrigin: null,
       confirmPreviewAllowedOrigins: [],
       geojsonPreview: {},
+      navigate: {
+        start: '',
+        end: '',
+        line: null
+      },
+      layout: {
+       'line-join': 'round',
+       'line-cap' : 'round'
+      },
+      paint: {
+       'line-color': '#FF0000',
+       'line-width': 8
+      }
     };
   },
 
@@ -260,6 +307,15 @@ export default {
 
     clickPoi(id) {
       this.poi = id;
+    },
+
+    clickMap(e) {
+      this.navigate.start = [e, this.mapLevel];
+    },
+
+    navigateTo(coordinates) {
+      this.poi = '';
+      this.navigate.end = [coordinates, this.mapLevel];
     },
 
     setPoiCoordinates(coordinates) {
@@ -392,7 +448,7 @@ ol, ul {
 .xs .maplibregl-ctrl-top-right {
   margin-top: 70px;
 }
-.v-card.indoor-poi, .v-card.indoor-discover {
+.v-card.indoor-poi, .v-card.indoor-discover, .v-card.indoor-navigation {
   margin-top: 1rem;
   z-index: 6;
 }

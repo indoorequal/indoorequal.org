@@ -18,6 +18,14 @@
               icon
               flat
               color="transparent"
+              @click="goTo"
+            >
+              <v-icon>{{ mdiDirections }}</v-icon>
+            </v-btn>
+            <v-btn
+              icon
+              flat
+              color="transparent"
               @click="close"
             >
               <v-icon>{{ mdiClose }}</v-icon>
@@ -82,7 +90,8 @@
 
 <script>
 import { defineAsyncComponent } from 'vue';
-import { mdiClose, mdiClockOutline, mdiWheelchairAccessibility, mdiPhone, mdiLink, mdiFacebook } from '@mdi/js';
+import { LngLat } from 'maplibre-gl';
+import { mdiClose, mdiClockOutline, mdiDirections, mdiWheelchairAccessibility, mdiPhone, mdiLink, mdiFacebook } from '@mdi/js';
 import { contactsFor } from './place';
 
 const OpeningHours = defineAsyncComponent(() => import('./opening_hours'));
@@ -132,6 +141,7 @@ export default {
       loading: false,
       mdiClockOutline,
       mdiClose,
+      mdiDirections,
       mdiWheelchairAccessibility,
     };
   },
@@ -180,6 +190,11 @@ export default {
   },
 
   methods: {
+    goTo() {
+      const [lng, lat] = this.geojson.geometry.coordinates;
+      this.$emit('goTo', new LngLat(lng, lat));
+    },
+
     close() {
       this.geojson = null;
       this.$emit('update:modelValue', '');

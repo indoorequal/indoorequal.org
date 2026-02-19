@@ -33,6 +33,7 @@ import { VSkeletonLoader } from 'vuetify/lib/components/VSkeletonLoader/VSkeleto
 import { VSnackbar } from 'vuetify/lib/components/VSnackbar/VSnackbar.js';
 import { VSpacer } from 'vuetify/lib/components/VGrid/VSpacer.js';
 import { VToolbar } from 'vuetify/lib/components/VToolbar/VToolbar.js';
+import { VTextField } from 'vuetify/lib/components/VTextField/VTextField.js';
 import { VToolbarTitle } from 'vuetify/lib/components/VToolbar/VToolbarTitle.js';
 import { VTooltip } from 'vuetify/lib/components/VTooltip/VTooltip.js';
 
@@ -80,6 +81,7 @@ const vuetify = createVuetify({
     VSkeletonLoader,
     VSnackbar,
     VSpacer,
+    VTextField,
     VToolbar,
     VToolbarTitle,
     VTooltip,
