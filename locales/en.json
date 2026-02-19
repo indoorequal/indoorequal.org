@@ -443,6 +443,7 @@
     "error_no_level": "No indoor features detected",
     "file": "GeoJSON, osm or IMDF (zip) file",
     "how": {
+      "use_josm_plugin": "The easiest way to use the preview is to use the indoor= JOSM plugin.",
       "content1": "Open JOSM and edit an indoor area",
       "content2": "Click on \"File\" -> \"Save as\" and save the file as GeoJSON or osm.",
       "content3": "Select the file in the form below",

@@ -7,6 +7,7 @@
       <p class="pt-4">{{ $t('preview.description') }}</p>
       <p>{{ $t('preview.imdf') }}</p>
       <h3 class="text-h5">{{ $t('preview.how.title') }}</h3>
+      <p><a href="https://github.com/indoorequal/indoorequal-josm-plugin">{{ $t('preview.how.use_josm_plugin') }}</a></p>
       <ol class="py-3">
         <li>{{ $t('preview.how.content1') }}</li>
         <li>{{ $t('preview.how.content2') }}</li>
