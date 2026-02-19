@@ -21,7 +21,7 @@ const transformers = new Map([
     transformIMDFFile,
     {
       types: ['application/zip'],
-      ext: '.osm'
+      ext: '.zip'
     }
   ]
 ]);
