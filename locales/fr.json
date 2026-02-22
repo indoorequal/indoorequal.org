@@ -35,7 +35,7 @@
       "station": "Station"
     },
     "aeroway": {
-      "gate": "Porte d'aéroport"
+      "gate": "Porte d'embarquement"
     },
     "amenity": {
       "arts_centre": "Centre des arts",
@@ -79,7 +79,7 @@
       "piano": "Piano",
       "place_of_worship": "Lieu de culte",
       "police": "Police",
-      "post_box": "Boite au lettres",
+      "post_box": "Boite aux lettres",
       "post_office": "Bureau de poste",
       "prison": "Prison",
       "pub": "Pub",
@@ -113,7 +113,7 @@
     "craft": {
       "brewery": "Brasserie",
       "caterer": "Traiteur",
-      "confectionery": "Confisery",
+      "confectionery": "Confiserie",
       "dressmaker": "Couturier",
       "electronics_repair": "Réparation électronique",
       "shoemaker": "Cordonnier",
@@ -128,7 +128,7 @@
       "yes": "Porte"
     },
     "emergency": {
-      "defibrillator": "Défibrilateur",
+      "defibrillator": "Défibrillateur",
       "fire_extinguisher": "Extincteur",
       "phone": "Téléphone d'urgence"
     },
@@ -211,7 +211,7 @@
       "clothes": "Vêtement",
       "coffee": "Café",
       "computer": "Ordinateur",
-      "confectionery": "Confisery",
+      "confectionery": "Confiserie",
       "convenience": "Épicerie",
       "copyshop": "Copie",
       "cosmetics": "Cosmétique",
@@ -258,7 +258,7 @@
       "pastry": "Pâtisserie",
       "perfume": "Parfumerie",
       "perfumery": "Parfumerie",
-      "pet": "Animal de compagni",
+      "pet": "Animal de compagnie",
       "photo": "Photo",
       "seafood": "Poissonerie",
       "second_hand": "Occasion",
@@ -350,7 +350,7 @@
       "skating": "Skating",
       "skiing": "Ski",
       "soccer": "Football",
-      "surfing": "Suft",
+      "surfing": "Surf",
       "swimming": "Natation",
       "table_soccer": "Baby-foot",
       "table_tennis": "Tennis de table",
@@ -372,7 +372,7 @@
       "chalet": "Chalet",
       "gallery": "Galerie",
       "guest_house": "Chambre d’hôte",
-      "hostel": "Auberge",
+      "hostel": "Auberge de jeunesse",
       "hotel": "Hôtel",
       "information": "Information",
       "motel": "Motel",
@@ -402,7 +402,7 @@
       },
       "schema": {
         "cta": "Lire",
-        "subtitle": "Découvrer le schéma des tuiles vectorielles pour les intégrer dans votre application",
+        "subtitle": "Découvrir le schéma des tuiles vectorielles pour les intégrer dans votre application",
         "title": "Lire le schéma"
       },
       "subtitle": "Intégrer indoor= à votre app",
@@ -418,7 +418,7 @@
     "status": "Status",
     "learn": {
       "subtitle": "Les espaces intérieurs dans OpenStreetMap",
-      "title": "Apprendre à cartographier"
+      "title": "Apprendre"
     },
     "news": {
       "subtitle": "Quoi de neuf sur indoor=",
@@ -454,7 +454,7 @@
     "title": "Prévisualisation du rendu",
     "url": {
       "no": "Non",
-      "text": "Voulez charger un fichier de prévisualisation depuis {0}?",
+      "text": "Voulez charger un fichier de prévisualisation depuis {0} ?",
       "title": "Chargement d'une prévisualisation externe",
       "yes": "Oui"
     }
