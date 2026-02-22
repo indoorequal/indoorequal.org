@@ -8,7 +8,7 @@
           flat
           icon
           color="transparent"
-          @click="$emit('close')"
+          @click="close"
         >
           <v-icon>{{ mdiClose }}</v-icon>
         </v-btn>
@@ -25,45 +25,64 @@
         :loading="loading"
         :disabled="start == '' || end == ''"
         @click="search"
-     >Search</v-btn>
+     >Find directions</v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import { mdiClose } from '@mdi/js';
 
+const show = defineModel({ type: [Boolean] });
 const start = defineModel('start', { type: [Array, String] });
 const end = defineModel('end', { type: [Array, String] });
 const line = defineModel('line', { type: Object });
 const loading = ref(false);
 
+watch(
+  () => [start.value, end.value],
+  async () => {
+    show.value = start.value != '' || end.value != '';
+    line.value = null;
+  },
+);
+
+function close() {
+  line.value = null;
+  start.value = '';
+  end.value = '';
+}
+
 async function search() {
   loading.value = true;
-  const json = {
-    locations: [
-         {lat: start.value[0].lat, lon: start.value[0].lng, search_filter: { level: start.value[1] } },
-         {lat: end.value[0].lat, lon: end.value[0].lng, search_filter: { level: end.value[1] } }
-    ],
-    costing: 'pedestrian'
-  };
-  const res = await (await fetch(`https://valhalla1.openstreetmap.de/route?json=${JSON.stringify(json)}`)).json();
-  loading.value = false;
-  console.log(res);
-  line.value = {
-    type: 'FeatureCollection',
-    features: [
-      {
-        type: 'Feature',
-        properties: {},
-        geometry: {
-          type: 'LineString',
-          coordinates: decodeLine(res.trip.legs[0].shape).map(t => t.reverse())
+  try {
+    const json = {
+      locations: [
+           {lat: start.value[0].lat, lon: start.value[0].lng, search_filter: { level: start.value[1] } },
+           {lat: end.value[0].lat, lon: end.value[0].lng, search_filter: { level: end.value[1] } }
+      ],
+      costing: 'pedestrian'
+    };
+    const res = await (await fetch(`https://valhalla1.openstreetmap.de/route?json=${JSON.stringify(json)}`)).json();
+    loading.value = false;
+    console.log(res);
+    line.value = {
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          properties: {},
+          geometry: {
+            type: 'LineString',
+            coordinates: decodeLine(res.trip.legs[0].shape).map(t => t.reverse())
+          }
         }
-      }
-    ]
-  };
+      ]
+    };
+  } catch (e) {
+    loading.value = false;
+  }
 }
 
 // This is adapted from the implementation in Project-OSRM

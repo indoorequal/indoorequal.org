@@ -93,10 +93,12 @@
           @goTo="navigateTo"
         />
         <indoor-navigation
-          class="indoor-navigation"
+          v-show="navigate.show"
+          v-model="navigate.show"
           v-model:start="navigate.start"
           v-model:end="navigate.end"
           v-model:line="navigate.line"
+          class="indoor-navigation"
         />
       </div>
       <indoor-preview-confirm
@@ -185,6 +187,7 @@ export default {
       confirmPreviewAllowedOrigins: [],
       geojsonPreview: {},
       navigate: {
+        show: false,
         start: '',
         end: '',
         line: null
