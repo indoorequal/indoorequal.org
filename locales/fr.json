@@ -35,7 +35,7 @@
       "station": "Station"
     },
     "aeroway": {
-      "gate": "Porte d'embarquement"
+      "gate": "Porte d'aéroport"
     },
     "amenity": {
       "arts_centre": "Centre des arts",
@@ -289,7 +289,7 @@
       "badminton": "Badminton",
       "baseball": "Baseball",
       "basketball": "Basketball",
-      "beachvolleyball": "Beachvolleyball",
+      "beachvolleyball": "Beach-volley",
       "billiards": "Billard",
       "bmx": "Bmx",
       "boules": "Pétanque",
@@ -315,9 +315,9 @@
       "gaelic_games": "Gaelic games",
       "golf": "Golf",
       "gymnastics": "Gymnastique",
-      "handball": "Handbal",
+      "handball": "Handball",
       "hockey": "Hockey",
-      "horse_racing": "Horse racing",
+      "horse_racing": "Course de cheval",
       "horseshoes": "Horseshoes",
       "ice_hockey": "Hockey sur glace",
       "ice_stock": "Ice stock",
@@ -443,6 +443,7 @@
     "error_no_level": "Aucune donnée intérieure détectée",
     "file": "Fichier GeoJSON, osm ou IMDF (zip)",
     "how": {
+      "use_josm_plugin": "La façon la plus rapide pour utiliser la prévisualisation est d'utiliser le plugin JOSM.",
       "content1": "Ouvrir JOSM et modifier une zone intérieur",
       "content2": "Clicker sur \"Fichier\" -> \"Enregistrer sous\" et enregistrer le fichier en tant que GeoJSON ou osm",
       "content3": "Sélectionner le fichier obtenu dans le formulaire en dessous",
