@@ -197,8 +197,8 @@ export default {
        'line-cap' : 'round'
       },
       paint: {
-       'line-color': '#FF0000',
-       'line-width': 8
+       'line-color': '#6667ad',
+       'line-width': 6
       }
     };
   },
