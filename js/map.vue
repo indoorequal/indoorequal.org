@@ -49,7 +49,7 @@ export default {
     MglNavigationControl
   },
 
-  emits: ['clickPoi', 'clickMap', 'clickCoordinates', 'updateBounds', 'sprite', 'update:mapCenter', 'update:mapBounds', 'update:mapLevels', 'update:mapZoom', 'update:mapLevel'],
+  emits: ['clickPoi', 'clickMap', 'updateBounds', 'sprite', 'update:mapCenter', 'update:mapBounds', 'update:mapLevels', 'update:mapZoom', 'update:mapLevel'],
 
   props: {
     mapBounds: {
