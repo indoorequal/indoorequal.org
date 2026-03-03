@@ -443,6 +443,7 @@
     "error_no_level": "沒有偵測到室內地圖圖徵",
     "file": "GeoJSON、OSM 或是 IMDB (壓縮) 檔案",
     "how": {
+      "use_josm_plugin": "最容易使用預覽功能的方式是使用 indoor= JOSM 外掛。",
       "content1": "開啟 JOSM 之後來編輯室內區域",
       "content2": "點一下「檔案」->「儲存為…」，接著儲存為 GeoJSON 或是 osm 檔。",
       "content3": "選擇表單下方的檔案",
