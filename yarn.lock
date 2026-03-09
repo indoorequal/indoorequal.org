@@ -124,9 +124,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-define-polyfill-provider@npm:^0.6.6":
-  version: 0.6.6
-  resolution: "@babel/helper-define-polyfill-provider@npm:0.6.6"
+"@babel/helper-define-polyfill-provider@npm:^0.6.7":
+  version: 0.6.7
+  resolution: "@babel/helper-define-polyfill-provider@npm:0.6.7"
   dependencies:
     "@babel/helper-compilation-targets": "npm:^7.28.6"
     "@babel/helper-plugin-utils": "npm:^7.28.6"
@@ -135,7 +135,7 @@ __metadata:
     resolve: "npm:^1.22.11"
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
-  checksum: 10c0/1293d6f54d4ebb10c9e947e54de1aaa23b00233e19aca9790072f1893bf143af01442613f7b413300be7016d8e41b550af77acab28e7fa5fb796b2a175c528a1
+  checksum: 10c0/1c812c59051998910b7b88fc6c314b628998cf0df02a460e5c141c2cde6fb6e6bb41a97b1ad3c038ccda5517fbe14bc1b4cca21f7333225b11c416a1169055f3
   languageName: node
   linkType: hard
 
@@ -1399,30 +1399,41 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@intlify/core-base@npm:11.2.8":
-  version: 11.2.8
-  resolution: "@intlify/core-base@npm:11.2.8"
+"@intlify/core-base@npm:11.3.0":
+  version: 11.3.0
+  resolution: "@intlify/core-base@npm:11.3.0"
   dependencies:
-    "@intlify/message-compiler": "npm:11.2.8"
-    "@intlify/shared": "npm:11.2.8"
-  checksum: 10c0/fe225ca9026c920779fb92d9ba931d4451b715d2c64c27640777a547c085f6c79234ccd4d10136d638b807881a0e8ea55c13b46788856b4cc2ab4cb38ca34228
+    "@intlify/devtools-types": "npm:11.3.0"
+    "@intlify/message-compiler": "npm:11.3.0"
+    "@intlify/shared": "npm:11.3.0"
+  checksum: 10c0/b9e66c016175b3944c73b466761baf4cae95467da07db6b48ef6b0130d8a7714aef33583f19f6082cb99054d2c2499027b89f9271d833005029149748d2a4ea2
   languageName: node
   linkType: hard
 
-"@intlify/message-compiler@npm:11.2.8":
-  version: 11.2.8
-  resolution: "@intlify/message-compiler@npm:11.2.8"
+"@intlify/devtools-types@npm:11.3.0":
+  version: 11.3.0
+  resolution: "@intlify/devtools-types@npm:11.3.0"
   dependencies:
-    "@intlify/shared": "npm:11.2.8"
+    "@intlify/core-base": "npm:11.3.0"
+    "@intlify/shared": "npm:11.3.0"
+  checksum: 10c0/ac7b8961a7388e23e0c11da7b16ce0fa8ccc1fddfd2429172d339a44fcc0cfeacd3a07fae086ba8b53aedb356d77f190f62d5628b22f3505f20f24aae8bced41
+  languageName: node
+  linkType: hard
+
+"@intlify/message-compiler@npm:11.3.0":
+  version: 11.3.0
+  resolution: "@intlify/message-compiler@npm:11.3.0"
+  dependencies:
+    "@intlify/shared": "npm:11.3.0"
     source-map-js: "npm:^1.0.2"
-  checksum: 10c0/efb925f1989f127f0b2d8ee00aa3464c5490ce9db7d31ad0a76e8c68b224c48d93d7102b94cd9ff7f0144d9e56f9458ed18f1026d4bd4024f60d8a55e86bf8ae
+  checksum: 10c0/6aaffa24156591d7a84f3140af0e0b34eacaba76acca979733ff1b5c5d854252c4a25eaed8a1999c902b575f53f167919996e59462d10388496e194bcd6bd09f
   languageName: node
   linkType: hard
 
-"@intlify/shared@npm:11.2.8":
-  version: 11.2.8
-  resolution: "@intlify/shared@npm:11.2.8"
-  checksum: 10c0/12158a551f68bd941b7ff1087f3666c3c40b8ad08d8eb597325a924ac47b3a926f996b87c27b9349b44a40a601c838b7d4bf108400f7947584b36725a69783c5
+"@intlify/shared@npm:11.3.0":
+  version: 11.3.0
+  resolution: "@intlify/shared@npm:11.3.0"
+  checksum: 10c0/10ec7a20a724e848bff4f043489f0ea9dd598eb2af7fab96ff8d7242123081b3e2afb4fadc699a48a478275644149ce633aefad5757c5622a6dfba73c957f005
   languageName: node
   linkType: hard
 
@@ -2077,8 +2088,8 @@ __metadata:
   linkType: hard
 
 "@maplibre/maplibre-gl-style-spec@npm:^24.4.1":
-  version: 24.6.0
-  resolution: "@maplibre/maplibre-gl-style-spec@npm:24.6.0"
+  version: 24.7.0
+  resolution: "@maplibre/maplibre-gl-style-spec@npm:24.7.0"
   dependencies:
     "@mapbox/jsonlint-lines-primitives": "npm:~2.0.2"
     "@mapbox/unitbezier": "npm:^0.0.1"
@@ -2091,16 +2102,16 @@ __metadata:
     gl-style-format: dist/gl-style-format.mjs
     gl-style-migrate: dist/gl-style-migrate.mjs
     gl-style-validate: dist/gl-style-validate.mjs
-  checksum: 10c0/d24c138a3e1887372dbde07550ce2ee7e7abd4002b38e1fce5c2dcfce4312fdde7409d3a3a519f968bf1875f04adefd771337414d19b76de94160fde1ecd7d57
+  checksum: 10c0/630b65875c00877fba1754b95653cc6e24d82af20724cbc6737af61d9f0870bcce79e5abfdbe584196c7f2848602e3866efb8b888fa1667c9e079871eb207caa
   languageName: node
   linkType: hard
 
 "@maplibre/mlt@npm:^1.1.6":
-  version: 1.1.6
-  resolution: "@maplibre/mlt@npm:1.1.6"
+  version: 1.1.7
+  resolution: "@maplibre/mlt@npm:1.1.7"
   dependencies:
     "@mapbox/point-geometry": "npm:^1.1.0"
-  checksum: 10c0/6a33b0dfa378d75075c4262f7a10835749d20ed3fbaecc0ee6e7cf3f604946b03378f30a7cc08e41f97f2ee84bfca603bdd89168733cf3ca8510ec347ba53ecb
+  checksum: 10c0/711345bc5b74f570249c9253648613231384429f9df3aa9e9095f336f5561204622b16456e93f9c5ecaf8bbb4c87e6c0390fccfb58b79062ca12fda4761e7ca9
   languageName: node
   linkType: hard
 
@@ -3611,11 +3622,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 25.3.3
-  resolution: "@types/node@npm:25.3.3"
+  version: 25.3.5
+  resolution: "@types/node@npm:25.3.5"
   dependencies:
     undici-types: "npm:~7.18.0"
-  checksum: 10c0/63e1d3816a9f4a706ab5d588d18cb98aa824b97748ff585537d327528e9438f58f69f45c7762e7cd3a1ab32c1619f551aabe8075d13172f9273cf10f6d83ab91
+  checksum: 10c0/4cf0834a6f6933bf0aca6afead117ae3db3b8f02a5f7187a24f871db0fb9344e5e46573ba387bc53b7505e1e219c4c535cbe67221ced95bb5ad98573223b19d0
   languageName: node
   linkType: hard
 
@@ -4103,38 +4114,38 @@ __metadata:
   linkType: hard
 
 "babel-plugin-polyfill-corejs2@npm:^0.4.15":
-  version: 0.4.15
-  resolution: "babel-plugin-polyfill-corejs2@npm:0.4.15"
+  version: 0.4.16
+  resolution: "babel-plugin-polyfill-corejs2@npm:0.4.16"
   dependencies:
     "@babel/compat-data": "npm:^7.28.6"
-    "@babel/helper-define-polyfill-provider": "npm:^0.6.6"
+    "@babel/helper-define-polyfill-provider": "npm:^0.6.7"
     semver: "npm:^6.3.1"
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
-  checksum: 10c0/5e3ff853a5056bdc0816320523057b45d52c9ea01c847fd07886a4202b0c1324dc97eda4b777c98387927ff02d913fedbe9ba9943c0d4030714048e0b9e61682
+  checksum: 10c0/05d4b434e1c4013558f679a2025b9f9da59dcea669e1477519a30cf94b66be7dab3d6b84faf7092d825a94b875fcea745fdba2fe8b1a8825329f6688d9d60ea5
   languageName: node
   linkType: hard
 
 "babel-plugin-polyfill-corejs3@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "babel-plugin-polyfill-corejs3@npm:0.14.0"
+  version: 0.14.1
+  resolution: "babel-plugin-polyfill-corejs3@npm:0.14.1"
   dependencies:
-    "@babel/helper-define-polyfill-provider": "npm:^0.6.6"
+    "@babel/helper-define-polyfill-provider": "npm:^0.6.7"
     core-js-compat: "npm:^3.48.0"
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
-  checksum: 10c0/db7f530752a2bcb891c0dc80c3d025a48d49c78d41b0ad91cc853669460cd9e3107857a3667f645f0e25c2af9fc3d1e38d5b1c4e3e60aa22e7df9d68550712a4
+  checksum: 10c0/c1fa84e5febbdc785b8ed396fe70581e3358e7c50f58c62999e9ce75c6a71d0848d62691cb07b4e58a23eec77c84091df58ac5354126ca244e15f5fd47362497
   languageName: node
   linkType: hard
 
 "babel-plugin-polyfill-regenerator@npm:^0.6.6":
-  version: 0.6.6
-  resolution: "babel-plugin-polyfill-regenerator@npm:0.6.6"
+  version: 0.6.7
+  resolution: "babel-plugin-polyfill-regenerator@npm:0.6.7"
   dependencies:
-    "@babel/helper-define-polyfill-provider": "npm:^0.6.6"
+    "@babel/helper-define-polyfill-provider": "npm:^0.6.7"
   peerDependencies:
     "@babel/core": ^7.4.0 || ^8.0.0-0 <8.0.0
-  checksum: 10c0/0ef91d8361c118e7b16d8592c053707325b8168638ea4636b76530c8bc6a1b5aac5c6ca5140e8f3fcdb634a7a2e636133e6b9ef70a75e6417a258a7fddc04bd7
+  checksum: 10c0/a2a2c9256841e9ab632ef52d6b6fc6162537739ff23806307e4a13e94b5bd32446ad4ef80ab04685542a8caf874299a3f291ffb5b62e26309a45355efc4da261
   languageName: node
   linkType: hard
 
@@ -4340,9 +4351,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001759":
-  version: 1.0.30001775
-  resolution: "caniuse-lite@npm:1.0.30001775"
-  checksum: 10c0/96e59a83abd171c729db80a93d7a50becebc145102e3c2d2ea4b3749385cae1e6e09155bada486f662fa070009989d043c4c60f1ee64a19eb50139c7e6dbe574
+  version: 1.0.30001777
+  resolution: "caniuse-lite@npm:1.0.30001777"
+  checksum: 10c0/e35443fa7c470edc06e315297cca706790840e96983fff12dfe502a4b123d6e4a64b9b4e8e35fb2f5bb60c31b24fbda93d76b2f700ce183df474671236fa7a4a
   languageName: node
   linkType: hard
 
@@ -4597,12 +4608,12 @@ __metadata:
   linkType: hard
 
 "css-tree@npm:^3.0.1":
-  version: 3.1.0
-  resolution: "css-tree@npm:3.1.0"
+  version: 3.2.1
+  resolution: "css-tree@npm:3.2.1"
   dependencies:
-    mdn-data: "npm:2.12.2"
-    source-map-js: "npm:^1.0.1"
-  checksum: 10c0/b5715852c2f397c715ca00d56ec53fc83ea596295ae112eb1ba6a1bda3b31086380e596b1d8c4b980fe6da09e7d0fc99c64d5bb7313030dd0fba9c1415f30979
+    mdn-data: "npm:2.27.1"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10c0/1f65e9ccaa56112a4706d6f003dd43d777f0dbcf848e66fd320f823192533581f8dd58daa906cb80622658332d50284d6be13b87a6ab4556cbbfe9ef535bbf7e
   languageName: node
   linkType: hard
 
@@ -4824,9 +4835,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.263":
-  version: 1.5.302
-  resolution: "electron-to-chromium@npm:1.5.302"
-  checksum: 10c0/014413f2b4ec3a0e043c68f6c07a760d230b14e36b8549c5b124f386a6318d9641e69be2aa0df1877395dd99922745c1722c8ecb3d72205f0f3b3b3dc44c8442
+  version: 1.5.307
+  resolution: "electron-to-chromium@npm:1.5.307"
+  checksum: 10c0/eb773a28af0dd7b3717b9bc2b31f332bcb42b43019866e039276db75c8c14063f96e29d19bea47231b4335a319d8518997b2d577dec6b5b237b768c7afdc5588
   languageName: node
   linkType: hard
 
@@ -5250,8 +5261,8 @@ __metadata:
   linkType: hard
 
 "i18next@npm:^25.3.2":
-  version: 25.8.13
-  resolution: "i18next@npm:25.8.13"
+  version: 25.8.14
+  resolution: "i18next@npm:25.8.14"
   dependencies:
     "@babel/runtime": "npm:^7.28.4"
   peerDependencies:
@@ -5259,7 +5270,7 @@ __metadata:
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/12c661c2b58fe70445f8491b72f937eef28a5f9413f76bd178bbca92d4378d8436003c3bea1d5d760b8a69f809cbcef2ce389beffd9bc0434651134c6b37fecc
+  checksum: 10c0/1c736a48ab66c0e1b8094d4359d7864efd77bb0086b37021b0031ed76cfbe595c3c1ea2664b80589f4e5a5e61a94026959ce98218785db61781dce26d8595500
   languageName: node
   linkType: hard
 
@@ -5296,9 +5307,9 @@ __metadata:
   linkType: hard
 
 "immutable@npm:^5.0.2":
-  version: 5.1.4
-  resolution: "immutable@npm:5.1.4"
-  checksum: 10c0/f1c98382e4cde14a0b218be3b9b2f8441888da8df3b8c064aa756071da55fbed6ad696e5959982508456332419be9fdeaf29b2e58d0eadc45483cc16963c0446
+  version: 5.1.5
+  resolution: "immutable@npm:5.1.5"
+  checksum: 10c0/8017ece1578e3c5939ba3305176aee059def1b8a90c7fa2a347ef583ebbd38cbe77ce1bbd786a5fab57e2da00bbcb0493b92e4332cdc4e1fe5cfb09a4688df31
   languageName: node
   linkType: hard
 
@@ -6422,10 +6433,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdn-data@npm:2.12.2":
-  version: 2.12.2
-  resolution: "mdn-data@npm:2.12.2"
-  checksum: 10c0/b22443b71d70f72ccc3c6ba1608035431a8fc18c3c8fc53523f06d20e05c2ac10f9b53092759a2ca85cf02f0d37036f310b581ce03e7b99ac74d388ef8152ade
+"mdn-data@npm:2.27.1":
+  version: 2.27.1
+  resolution: "mdn-data@npm:2.27.1"
+  checksum: 10c0/eb8abf5d22e4d1e090346f5e81b67d23cef14c83940e445da5c44541ad874dc8fb9f6ca236e8258c3a489d9fb5884188a4d7d58773adb9089ac2c0b966796393
   languageName: node
   linkType: hard
 
@@ -6733,9 +6744,9 @@ __metadata:
   linkType: hard
 
 "node-releases@npm:^2.0.27":
-  version: 2.0.27
-  resolution: "node-releases@npm:2.0.27"
-  checksum: 10c0/f1e6583b7833ea81880627748d28a3a7ff5703d5409328c216ae57befbced10ce2c991bea86434e8ec39003bd017f70481e2e5f8c1f7e0a7663241f81d6e00e2
+  version: 2.0.36
+  resolution: "node-releases@npm:2.0.36"
+  checksum: 10c0/85d8d7f4b6248c8372831cbcc3829ce634cb2b01dbd85e55705cefc8a9eda4ce8121bd218b9629cf2579aef8a360541bad409f3925a35675c825b9471a49d7e9
   languageName: node
   linkType: hard
 
@@ -7083,13 +7094,13 @@ __metadata:
   linkType: hard
 
 "postcss@npm:^8.5.6":
-  version: 8.5.6
-  resolution: "postcss@npm:8.5.6"
+  version: 8.5.8
+  resolution: "postcss@npm:8.5.8"
   dependencies:
     nanoid: "npm:^3.3.11"
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
-  checksum: 10c0/5127cc7c91ed7a133a1b7318012d8bfa112da9ef092dddf369ae699a1f10ebbd89b1b9f25f3228795b84585c72aabd5ced5fc11f2ba467eedf7b081a66fad024
+  checksum: 10c0/dd918f7127ee7c60a0295bae2e72b3787892296e1d1c3c564d7a2a00c68d8df83cadc3178491259daa19ccc54804fb71ed8c937c6787e08d8bd4bedf8d17044c
   languageName: node
   linkType: hard
 
@@ -7781,15 +7792,15 @@ __metadata:
   linkType: hard
 
 "tar@npm:^7.5.4":
-  version: 7.5.9
-  resolution: "tar@npm:7.5.9"
+  version: 7.5.10
+  resolution: "tar@npm:7.5.10"
   dependencies:
     "@isaacs/fs-minipass": "npm:^4.0.0"
     chownr: "npm:^3.0.0"
     minipass: "npm:^7.1.2"
     minizlib: "npm:^3.1.0"
     yallist: "npm:^5.0.0"
-  checksum: 10c0/e870beb1b2477135ca2abe86b2d18f7b35d0a4e3a37bbc523d3b8f7adca268dfab543f26528a431d569897f8c53a7cac745cdfbc4411c2f89aeeacc652b81b0a
+  checksum: 10c0/ed905e4b33886377df6e9206e5d1bd34458c21666e27943f946799416f86348c938590d573d6a69312cb29c583b122647a64ec92782f2b7e24e68d985dd72531
   languageName: node
   linkType: hard
 
@@ -8097,15 +8108,16 @@ __metadata:
   linkType: hard
 
 "vue-i18n@npm:^11.0.0":
-  version: 11.2.8
-  resolution: "vue-i18n@npm:11.2.8"
+  version: 11.3.0
+  resolution: "vue-i18n@npm:11.3.0"
   dependencies:
-    "@intlify/core-base": "npm:11.2.8"
-    "@intlify/shared": "npm:11.2.8"
+    "@intlify/core-base": "npm:11.3.0"
+    "@intlify/devtools-types": "npm:11.3.0"
+    "@intlify/shared": "npm:11.3.0"
     "@vue/devtools-api": "npm:^6.5.0"
   peerDependencies:
     vue: ^3.0.0
-  checksum: 10c0/37717cbfea14d09587ca4c38eec3caa89ff4cf4b1af3e37181f770384db6bf38d93bf8626f5d20738a738a65098d38c8bb9ab3c99845942d5911b7a577e9b074
+  checksum: 10c0/df32dae8a8f7987bebf10e5c981be825394fa2a2668a870f3ef48cc8bd61ad62f0899877c749cb1b3d5381e95ed8a89f41bda35c82a26f3c73c321d73f6052dd
   languageName: node
   linkType: hard
 
@@ -8128,8 +8140,8 @@ __metadata:
   linkType: hard
 
 "vuetify@npm:^3.5.0":
-  version: 3.12.1
-  resolution: "vuetify@npm:3.12.1"
+  version: 3.12.2
+  resolution: "vuetify@npm:3.12.2"
   peerDependencies:
     typescript: ">=4.7"
     vite-plugin-vuetify: ">=2.1.0"
@@ -8142,7 +8154,7 @@ __metadata:
       optional: true
     webpack-plugin-vuetify:
       optional: true
-  checksum: 10c0/4fc5847b8f0ab7d96a4a687712a70be5490913c118653873ab0c4fa12a79627381c7ea2e8f278c1bb579e5d04050fa563d5481b7bed5610f277c7dcba914ca94
+  checksum: 10c0/643fd6d415f2d8dbc455c654ff12adaa494f694ddb66a1195a2fc366ec0bb2337f9a341599915f807c9d5d71ba3e359bcd5159917c5e0fe76f2f675b2b117eb1
   languageName: node
   linkType: hard
 
