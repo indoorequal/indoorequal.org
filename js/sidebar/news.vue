@@ -15,7 +15,7 @@
             >{{ $d(info.date) }}</v-chip>
           {{ info.title }}
         </h3>
-        <p class="mt-1 text-body-2" v-html="info.__content"></p>
+        <p class="mt-1 text-body-medium" v-html="info.__content"></p>
       </div>
     </div>
   </sub-sidebar>
