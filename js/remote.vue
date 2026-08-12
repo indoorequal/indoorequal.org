@@ -9,7 +9,7 @@
           cols="4"
           class="pa-3 sidebar overflow-auto"
         >
-          <h1 class="text-h5 mb-2">Test Remote API</h1>
+          <h1 class="text-headline-small mb-2">Test Remote API</h1>
           <p>The Remote API allows you to embed and interact with the viewer.</p>
           <p>Read the <a href="https://github.com/indoorequal/indoorequal.org#remote-command-api" target="_blank">remote API documentation</a>.</p>
           <v-expansion-panels accordion>
@@ -80,7 +80,7 @@
             <h2 class="text-h6 my-2">Messages</h2>
             <div
               v-for="message in messages"
-              class="text-body-2"
+              class="text-body-medium"
             >{{ message.dir === 'in' ? '<' : '>' }} {{ message.data }}</div>
           </div>
         </v-col>

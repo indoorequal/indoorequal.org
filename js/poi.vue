@@ -6,7 +6,7 @@
     <v-expand-transition>
       <div v-if="geojson">
         <v-card-item>
-          <v-card-title class="text-subtitle-1 d-flex align-center flex-nowrap">
+          <v-card-title class="text-body-large d-flex align-center flex-nowrap">
             <img
               v-if="icon"
               :src="iconURL"

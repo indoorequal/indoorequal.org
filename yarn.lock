@@ -7148,7 +7148,7 @@ __metadata:
     svgo: "npm:^4.0.0"
     vue: "npm:^3.0.0"
     vue-i18n: "npm:^11.0.0"
-    vuetify: "npm:^3.5.0"
+    vuetify: "npm:^4.0.0"
   languageName: unknown
   linkType: soft
 
@@ -7827,13 +7827,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuetify@npm:^3.5.0":
-  version: 3.13.1
-  resolution: "vuetify@npm:3.13.1"
+"vuetify@npm:^4.0.0":
+  version: 4.1.8
+  resolution: "vuetify@npm:4.1.8"
   peerDependencies:
     typescript: ">=4.7"
     vite-plugin-vuetify: ">=2.1.0"
-    vue: ^3.5.0
+    vue: ^3.5.0 || ^3.6.0-0
     webpack-plugin-vuetify: ">=3.1.0"
   peerDependenciesMeta:
     typescript:
@@ -7842,7 +7842,7 @@ __metadata:
       optional: true
     webpack-plugin-vuetify:
       optional: true
-  checksum: 10c0/b0dd578e45f730cbaa2c0d852269cc95b5da5c7d76f803204d0bc25d342d6fbda32193e88a076c31ebc31f5b03cf67d7d8722b7b504753d6b2769e2dc84c2ec6
+  checksum: 10c0/49e3d5c394886012fb8d9b6f0927b59ffa7ec56c66333c2ccfe60f9c9ed1f7471da71d0df3623e3bf650da5b9888fca7605a8fcffe35317365269cf3be93874f
   languageName: node
   linkType: hard
 

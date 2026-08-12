@@ -16,7 +16,7 @@
     <template v-else>
       <div class="pa-3">
         <div class="d-flex align-center justify-space-between">
-          <h1 class="display-1">
+          <h1 class="my-0">
             <img
               :src="logo"
               alt="indoor="
@@ -116,7 +116,7 @@
       <i18n-t
         v-if="replicationStatus"
         keypath="sidebar.last_update"
-        class="pa-3 text-caption"
+        class="pa-3 text-body-small"
         tag="div"
       >
         <time
