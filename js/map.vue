@@ -31,12 +31,15 @@
 import { MglMap, MglNavigationControl, MglGeolocateControl } from '@indoorequal/vue-maplibre-gl';
 import { computed } from 'vue';
 import IndoorEqual from 'maplibre-gl-indoorequal';
+import { setWorkerUrl } from 'maplibre-gl';
 import { bbox } from '@turf/bbox';
 import { mapStyle } from './maptiler';
 import { indoorEqualApiKey, tilesUrl } from '../config.json';
 import LanguageControl from './controls/language_control';
 import LevelControl from './controls/level_control';
 import HeatmapControl from './controls/heatmap_control';
+
+setWorkerUrl(new URL('npm:maplibre-gl/dist/maplibre-gl-worker-dev.mjs', import.meta.url).toString());
 
 export default {
   components: {
