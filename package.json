@@ -39,8 +39,8 @@
     "staticPath": "node_modules/maplibre-gl-indoorequal/sprite"
   },
   "devDependencies": {
-    "@babel/core": "^7.24.4",
-    "@babel/preset-env": "^7.24.4",
+    "@babel/core": "^8.0.0",
+    "@babel/preset-env": "^8.0.0",
     "@mdi/js": "^7.4.47",
     "@parcel/optimizer-data-url": "^2.13.0",
     "@parcel/resolver-glob": "^2.13.0",
