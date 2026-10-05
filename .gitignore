@@ -1,6 +1,7 @@
 /node_modules
 /dist
 /.parcel-cache
+/config.json
 .yarn/*
 !.yarn/patches
 !.yarn/plugins

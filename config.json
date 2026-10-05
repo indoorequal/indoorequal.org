@@ -1,6 +1,6 @@
 {
-  "mapTilerApiKey": "T7HQrA4a6k5eOxDGD6qp",
-  "indoorEqualApiKey": "iek_ScxQpnty0VWJIvBqa3S6su4XGIiQ",
+  "mapTilerApiKey": "YOUR_MAPTILER_API_KEY",
+  "indoorEqualApiKey": "YOUR_INDOOREQUAL_API_KEY",
   "tilesUrl": "https://tiles.indoorequal.org/",
   "indoorMinZoom": 16
 }
