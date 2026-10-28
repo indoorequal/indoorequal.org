@@ -1,4 +1,4 @@
-FROM node:24 as builder
+FROM node:26 as builder
 
 WORKDIR /code
 
