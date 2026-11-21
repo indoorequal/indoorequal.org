@@ -6496,9 +6496,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"osm2geojson-lite@npm:^2.0.0":
-  version: 2.8.4
-  resolution: "osm2geojson-lite@npm:2.8.4"
+"osm2geojson-lite@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "osm2geojson-lite@npm:3.0.0"
   dependencies:
     "@types/geojson": "npm:^7946.0.16"
   dependenciesMeta:
@@ -6506,7 +6506,7 @@ __metadata:
       optional: true
   bin:
     osm2geojson-lite: dist/cli.mjs
-  checksum: 10c0/828bd1189cc7aefda48292d67eed85de1ada56c53133c81717921a65714dbd7a853423503def7dd8b29ee615fdcf137041658d4416b5e975e9a77f3cad940059
+  checksum: 10c0/00bf5ea01343aa8feaa7520c2cfc862b4ebbef711f99840ad3964a40f63764136df399f2e9a4381c216a9b93136383735839ace6db182ac7a023053a72334102
   languageName: node
   linkType: hard
 
@@ -7020,7 +7020,7 @@ __metadata:
     maplibre-gl: "npm:^6.3.0"
     maplibre-gl-indoorequal: "npm:^1.5.0"
     opening_hours: "npm:^3.5.0"
-    osm2geojson-lite: "npm:^2.0.0"
+    osm2geojson-lite: "npm:^3.0.0"
     parcel: "npm:^2.13.0"
     parcel-reporter-static-files-copy: "npm:^1.5.3"
     parcel-transformer-markdown-front-matter: "npm:^3.0.1"
