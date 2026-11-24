@@ -14,9 +14,8 @@
   "explore_list": {
     "description": "Aquesta llista s'ha extret de {wikipage}.",
     "error": "Error mentre es carregava la llista.",
-    "subtitle": "{city} - {nation}",
     "title": "Explora",
-    "wikipage": "Pàgina de la wiki d'Etiquetatge Senzill per a Interiors"
+    "wikipage": "Pàgina de la wiki de Mapeig d'interiors"
   },
   "heatmap": {
     "hide": "Oculta el mapa de calor",
@@ -444,6 +443,7 @@
     "error_no_level": "No s'han detectat elements d'interiors",
     "file": "GeoJSON, osm o arxius IMDF (zip)",
     "how": {
+      "use_josm_plugin": "La manera més fàcil de fer ús de la vista prèvia és mitjançant el connector indoor= a JOSM.",
       "content1": "Obre JOSM i edita una àrea interior",
       "content2": "Fes clic a \"Arxiu\" -> \"Guardar com\" i guarda l'arxiu com a GeoJSON o osm.",
       "content3": "Selecciona el fitxer al formulari següent",
